@@ -1,0 +1,10 @@
+<apex:page Controller="editNewQuotePromo" action="{!Initiator}">
+ 
+ <apex:form >
+ <apex:pageBlock >
+ <apex:pageBlockSection >
+ {!QuoteId}
+ </apex:pageBlockSection>
+ </apex:pageBlock>
+ </apex:form>
+</apex:page>

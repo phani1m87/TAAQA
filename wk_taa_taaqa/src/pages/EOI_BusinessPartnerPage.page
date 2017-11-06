@@ -1,0 +1,307 @@
+<apex:page standardController="Apttus_Proposal__Proposal__c" extensions="EOI_GetBusinessPartnersController" docType="html-5.0">
+	<head>
+		<meta charset="utf-8"/>
+  		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  		<apex:stylesheet value="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+  		<apex:includescript value="https://code.jquery.com/jquery-1.12.4.js"/>
+  		<apex:includescript value="https://code.jquery.com/ui/1.12.1/jquery-ui.js"/>
+  		<style>
+  			#project-label {
+			    display: block;
+			    font-weight: bold;
+			    margin-bottom: 1em;
+			}
+			#project-icon {
+			    float: left;
+			    height: 32px;
+			    width: 32px;
+			}
+			#shipTo-description {
+			    margin: 0;
+			    padding: 0;
+			}
+			
+			.reqAst:after{
+                content: "*";
+                position: absolute;
+                margin-left: 3px;
+                color: #f10601;
+            }
+			
+			body{font-family: Arial, Helvetica, sans-serif;}
+			
+			table{font-size: 1em;}
+			
+		    .bPageBlock th.vfLabelColTextWrap {white-space: nowrap;}
+		    .bPageBlock .detailList th, .bPageBlock .detailList td {vertical-align: middle;}
+			
+			.ui-draggable, .ui-droppable {background-position: top;}
+			.ui-autocomplete{width:200px;}
+			
+			.waitingSearchDiv{
+              position:absolute;
+              top:0px;
+              right:0px;
+              width:100%;
+              height:200%;
+              background-color:#666;
+              background-image:url('ajax-loader.gif');
+              background-repeat:no-repeat;
+              background-position:center;
+              z-index:10000000;
+              opacity: 0.4;
+              filter: alpha(opacity=40); /* For IE8 and earlier */
+            }
+  		</style>
+  		<script>
+			function refreshAutocomplete(){
+				console.log('Here' + shipToList);
+				if(shipToList != ''){
+					$(".shipToAutoCompleteInput").autocomplete({
+      					minLength: 0,
+      					source: shipToList,
+      					focus: function(event, ui){
+        					$(".shipToAutoCompleteInput").val(ui.item.label);
+        					return false;
+      					},
+      					select: function(event, ui){
+        					$(".shipToAutoCompleteInput").val(ui.item.label);
+        					$(".shipToNumber").val(ui.item.value);
+        					$(".shipTo-description").html(ui.item.address);
+					        return false;
+      					}
+    				}).autocomplete("instance")._renderItem = function(ul, item){
+      					return $("<li width='10%'>").append("<div><font size='2' color='black'><b>" + item.label + "</b></font><br><font size='1' color='gray'>" + item.address + "</font></div>").appendTo(ul);
+    				};
+   				}
+    				
+   				if(billToList != ''){
+				    $(".billToAutoCompleteInput").autocomplete({
+      					minLength: 0,
+      					source: billToList,
+      					focus: function(event, ui){
+        					$(".billToAutoCompleteInput").val(ui.item.label);
+        					return false;
+      					},
+      					select: function(event, ui){
+        					$(".billToAutoCompleteInput").val(ui.item.label);
+        					$(".billToNumber").val(ui.item.value);
+        					$(".billTo-description").html(ui.item.address);
+					        return false;
+      					}
+    				}).autocomplete("instance")._renderItem = function(ul, item){
+      					return $("<li width='10%'>").append("<div><font size='2' color='black'><b>" + item.label + "</b></font><br><font size='1' color='gray'>" + item.address + "</font></div>").appendTo(ul);
+    				};
+   				}
+			}
+		</script>
+	</head>
+    <apex:form >
+        <apex:actionStatus id="loadResults" onstop="refreshAutocomplete();">
+			<apex:facet name="start">
+			    <div class="waitingSearchDiv" id="el_loading"> 
+				    <div class="waitingHolder" style="position:fixed;right:0px;height:200%;width:100%;">
+				        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+				        <span class="waitingDescription">Please Wait...</span>
+				    </div>
+				</div>
+        	</apex:facet>
+		</apex:actionStatus>
+        <apex:pageBlock id="pb">
+        	<script>
+        		//shipToList = JSON.parse('{!JSINHTMLENCODE(serializedShipToList)}');
+        		var shipToList;
+        		if('{!serializedShipToList}' != ''){
+        			shipToList = JSON.parse('{!serializedShipToList}');
+        		}
+        		
+        		var billToList;
+        		if('{!serializedBillToList}' != ''){
+        			billToList = JSON.parse('{!serializedBillToList}');
+        		}
+        	</script>
+        	<apex:actionFunction name="onBlurOfAutoComplete" action="{!populateBusinessPartnerDetails}" reRender="pb" status="loadResults">
+        		<apex:param name="changedBusinessPartnerType" value=""/>
+        	</apex:actionFunction>
+        	<apex:actionFunction name="createNewBusinessPartner" action="{!enableNewBusinessPartnerForm}" reRender="pb" status="loadResults">
+        		<apex:param name="changedBusinessPartnerType" value=""/>
+        	</apex:actionFunction>
+        	<apex:actionFunction name="updateSelectedBusinessPartner" action="{!updateSelectedBusinessPartner}" reRender="pb" status="loadResults">
+        		<apex:param name="changedBusinessPartnerType" value=""/>
+        	</apex:actionFunction>
+        	<apex:actionFunction name="copyFromBillTo" action="{!copyFromBillTo}" reRender="pb" status="loadResults"/>
+        	<apex:pageBlockButtons location="top" rendered="{!NOT(isError)}">
+        		<apex:commandButton value="Get Business Partners" action="{!startGetAccountInfoRequest}" reRender="pb" status="loadResults" style="margin-left:4em;"/>
+        	</apex:pageBlockButtons>
+        	<apex:pageMessages />
+        	<div style="margin-left:-6.3em;">
+	            <apex:pageBlockSection rendered="{!showBPDropDowns}">
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Bill To Contact" for="billToAutoCompleteInput"/>
+	                    <apex:inputText id="billToAutoCompleteInput" value="{!billToValue}" styleClass="billToAutoCompleteInput" style="width:200px;" onblur="if($('.billToNumber')[0].value == '') this.value = ''; else onBlurOfAutoComplete('BillTo');" tabindex="1"/>
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Ship To Contact" for="shipToAutoCompleteInput"/>
+	                    <apex:inputText id="shipToAutoCompleteInput" value="{!shipToValue}" styleClass="shipToAutoCompleteInput" style="width:200px;" onblur="if($('.shipToNumber')[0].value == '') this.value = ''; else onBlurOfAutoComplete('ShipTo');"/>
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                	<apex:input styleClass="billToNumber" value="{!selectedBillToNumber}" style="display:none;" tabindex="2"/>
+						<p class="billTo-description" style="display:none;"></p>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+	                	<apex:input styleClass="shipToNumber" value="{!selectedShipToNumber}" style="display:none;"/>
+						<p class="shipTo-description" style="display:none;"></p>
+					</apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</div>
+			<apex:pageBlockSection id="businessPartnerDetails">
+				<apex:pageBlockSection columns="1" rendered="{!showBillToDetails}" id="billToDetails">
+					<apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="SAP Bill To Partner Number" for="sapBillToPartnerNumber"/>
+	                    <apex:outputText id="sapBillToPartnerNumber" value="{!selectedBillTo.value}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Bill To Contact Name" for="billToAccountName"/>
+	                    <apex:outputText id="billToAccountName" value="{!selectedBillTo.label}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Bill To Address" for="billToAddress"/>
+	                    <apex:outputText id="billToAddress" value="{!selectedBillTo.address}"/>                    
+	                </apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+				<apex:pageBlockSection columns="1" rendered="{!showShipToDetails}" id="shipToDetails">
+					<apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="SAP Ship To Partner Number" for="sapShipToPartnerNumber"/>
+	                    <apex:outputText id="sapShipToPartnerNumber" value="{!selectedShipTo.value}"/>                    
+					</apex:pageBlockSectionItem>
+				 	<apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Ship To Contact Name" for="shipToAccountName"/>
+	                    <apex:outputText id="shipToAccountName" value="{!selectedShipTo.label}"/>                    
+	                </apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Ship To Address" for="shipToAddress"/>
+	                    <apex:outputText id="shipToAddress" value="{!selectedShipTo.address}"/>                    
+	                </apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</apex:pageBlockSection>
+			<div style="margin-left:-6.3em;">
+				<apex:pageBlockSection rendered="{!showBillToUpdateFlag || showShipToUpdateFlag}">
+					<apex:pageBlockSectionItem rendered="{!showBillToUpdateFlag}">
+	                    <apex:outputLabel value="Update Selected" for="updateSelectedBillTo"/>
+	                    <apex:inputCheckbox id="updateSelectedBillTo" value="{!isUpdateSelectedBillToChecked}" onchange="updateSelectedBusinessPartner('BillTo');"/>                    
+	                </apex:pageBlockSectionItem>
+	                <!-- DO NOT REMOVE: below pageblock section is to align UI correctly when user wants to update existing selected Ship To but does not have Bill To Update Flag -->
+	                <apex:pageBlockSectionItem rendered="{!NOT(showBillToUpdateFlag)}"/>
+	                <apex:pageBlockSectionItem rendered="{!showShipToUpdateFlag}">
+	                    <apex:outputLabel value="Update Selected" for="updateSelectedShipTo"/>
+	                    <apex:inputCheckbox id="updateSelectedShipTo" value="{!isUpdateSelectedShipToChecked}" onchange="updateSelectedBusinessPartner('ShipTo');"/>
+	                </apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</div>
+			<div style="margin-left:-6.3em;">
+				<apex:pageBlockSection >	
+					<apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Create New" for="createNewBillTo"/>
+	                    <apex:inputCheckbox id="createNewBillTo" value="{!isCreateNewBillToChecked}" onchange="createNewBusinessPartner('BillTo');"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Create New" for="createNewShipTo"/>
+	                    <apex:inputCheckbox id="createNewShipTo" value="{!isCreateNewShipToChecked}" onchange="createNewBusinessPartner('ShipTo');"/>
+	                </apex:pageBlockSectionItem>
+	            </apex:pageBlockSection>
+            </div>
+            <apex:pageBlockSection id="newBusinessPartnerForms">
+				<apex:pageBlockSection columns="1" rendered="{!showNewBillToForm}" id="newBillToForm">
+					<apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Bill To Contact" for="newBillToContactName" styleClass="reqAst"/>
+	                    <apex:inputText id="newBillToContactName" value="{!newBillToContactName}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Bill To Street 1" for="newBillToStreet1" styleClass="reqAst"/>
+	                    <apex:inputText id="newBillToStreet1" value="{!newBillToStreet1}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Bill To Street 2" for="newBillToStreet2"/>
+	                    <apex:inputText id="newBillToStreet2" value="{!newBillToStreet2}"/>
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Bill To City" for="newBillToCity" styleClass="reqAst"/>
+	                    <apex:inputText id="newBillToCity" value="{!newBillToCity}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Bill To State" for="newBillToState" styleClass="reqAst"/>
+	                    <apex:inputText id="newBillToState" value="{!newBillToState}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Bill To Zip/Postal Code" for="newBillToPostalCode" styleClass="reqAst"/>
+	                    <apex:inputText id="newBillToPostalCode" value="{!newBillToPostalCode}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Bill To Country Code" for="newBillToCountry" styleClass="reqAst"/>
+	                    <apex:inputText id="newBillToCountry" value="{!newBillToCountry}" maxlength="2"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Bill To Phone" for="newBillToPhone"/>
+	                    <apex:inputText id="newBillToPhone" value="{!newBillToPhone}"/>                    
+	                </apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+				<!-- DO NOT REMOVE: below pageblock section is to align UI correctly when user wants to create new Ship To but selects existing Bill To -->
+				<apex:pageBlockSection columns="1" rendered="{!NOT(showNewBillToForm)}"/>
+				
+				<apex:pageBlockSection columns="1" rendered="{!showNewShipToForm}"  id="newShipToForm">
+					<apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Contact" for="newShipToContactName" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToContactName" value="{!newShipToContactName}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Street 1" for="newShipToStreet1" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToStreet1" value="{!newShipToStreet1}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Street 2" for="newShipToStreet2"/>
+	                    <apex:inputText id="newShipToStreet2" value="{!newShipToStreet2}"/>
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To City" for="newShipToCity" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToCity" value="{!newShipToCity}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To State" for="newShipToState" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToState" value="{!newShipToState}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Zip/Postal Code" for="newShipToPostalCode" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToPostalCode" value="{!newShipToPostalCode}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Country Code" for="newShipToCountry" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToCountry" value="{!newShipToCountry}" maxlength="2"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Phone" for="newShipToPhone"/>
+	                    <apex:inputText id="newShipToPhone" value="{!newShipToPhone}"/>                    
+	                </apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</apex:pageBlockSection>
+			<div style="margin-left:20em;position:absolute;margin-top:-20.7em;">
+				<apex:pageBlockSection rendered="{!showNewShipToForm && showNewBillToForm}">
+					<apex:pageBlockSectionItem />
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Copy from Bill To" for="copyFromBillTo"/>
+						<apex:inputCheckbox id="copyFromBillTo" value="{!isCopyFromBillTo}" onchange="copyFromBillTo();"/>
+					</apex:pageBlockSectionItem>				
+				</apex:pageBlockSection>
+			</div>
+			<apex:pageBlockSection >
+				<!-- <apex:commandButton value="Save" action="{!save}" rerender="pb" status="loadResults" style="margin-left:35em;position:absolute;width:10em;margin-top:-2em;"/> -->
+				<apex:commandButton value="Save" action="{!validateAddress}" rerender="pb" status="loadResults" style="margin-left:35em;position:absolute;width:10em;margin-top:-2em;"/>
+				<div class="btn" style="height:1.4em;margin-left:-7em;width:10em;position:absolute;margin-top:-2em;">
+					<a style="text-decoration:blink;display:inline-block;width:70%;height:100%;padding-left:3em;margin-top:0.1em;" href="/apex/EOI_BusinessPartnerPage?id={!currentQuote.Id}">Cancel</a>
+				</div> 
+				<!-- 
+				<apex:commandButton value="Cancel" onClick="window.location.href='/apex/EOI_BusinessPartnerPage?id={!currentQuote.Id}';" status="loadResults" style="margin-left:-7em;width:10em;position:absolute;margin-top:-2em;"/>
+				 -->
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

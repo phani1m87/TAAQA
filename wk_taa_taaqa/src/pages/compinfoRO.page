@@ -1,0 +1,355 @@
+<apex:page standardController="Account" sidebar="False">
+<script>
+      function setFocusOnLoad() {}
+</script>
+<apex:form style="height:1000px;" > 
+
+<apex:pageblock >
+    
+    <b><apex:outputlabel value="{!account.name}"/></b><br/>
+    <apex:outputText value="{!account.billingstreet}"/><br/><apex:outputlabel value="{!account.billingcity}"/>,
+    <apex:outputlabel value="{!account.billingstate}"/>&nbsp;<apex:outputlabel value="{!account.billingpostalcode}"/>
+    <apex:pageBlockButtons location="Top">
+ 
+
+ </apex:pageBlockButtons>
+ </apex:pageblock>
+ <apex:tabPanel >  
+  <apex:tab label="Software">    
+ 
+    <apex:commandButton value="Edit"  style="position:absolute;left:250px" onclick="window.location='/apex/compotitorinfo?id={!Account.id}'; return false;"/> 
+ 
+ <apex:commandButton style="position:absolute;left:285px" value="Cancel" action="{!cancel}"/>
+ <br/><p/> <br/>
+ 
+   <div>     
+    <b><u><apex:outputlabel style="font-size:14px"  value="Tax"/></u></b>
+    <b><apex:OutputLabel value="Competitor" style="Position:absolute;left:250px"/></b>
+    <b><apex:OutputLabel value="End Date" style="Position:absolute;left:425px"/></b>
+    <b><apex:OutputLabel value="Competitor" style="Position:absolute;left:750px"/></b>
+    <b><apex:OutputLabel value="End Date" style="Position:absolute;left:950px"/></b>    
+      <br/>
+      <br/>
+ <apex:outputlabel value="Has PFX Tax" /><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Tax__c}"/>
+ <apex:outputlabel style="position:absolute;left:175px;" value="Tax"/><apex:Outputtext style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.Tax_Competitor__c}"/>
+ <apex:Outputtext style="text-decoration:underline;position:absolute;left:425px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Tax_Competitor_End_Date__c}"/></apex:OutputText>
+ <apex:outputlabel style="position:absolute;left:500px;" value="Has Scan"/><apex:inputCheckbox style="position:absolute;left:615px" disabled="true" label="" value="{!account.Has_Scan__c}"/>
+ <apex:outputlabel style="position:absolute;left:650px;" value="Scan"/><apex:OutputText style="text-decoration:underline;text-decoration:underline;position:absolute;left:775px;width:220px;" value="{!account.Scan_Competitor__c}"/>
+ <apex:Outputtext style="text-decoration:underline;position:absolute;left:950px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Scan_Competitor_End_Date__c}"/></apex:OutputText>
+  <hr/>
+ <apex:outputlabel value="Has Axcess Tax"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Axcess_Tax__c}"/>
+ <apex:outputlabel style="position:absolute;left:175px;" value="Second Tax"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.Tax_Second_Competitor__c}"/>
+  <apex:Outputtext style="text-decoration:underline;position:absolute;left:425px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Axcess_Tax_Competitor_End_Date__c}"/></apex:OutputText>
+   <apex:outputlabel style="position:absolute;left:500px;" value="Has Scan SaaS"/><apex:inputCheckbox style="position:absolute;left:615px;" disabled="true" label="" value="{!account.Has_Scan_SaaS__c}"/><br/>
+ <hr/>
+ <apex:outputlabel style="position:absolute;left:500px;" value="Has PDFlyer"/><apex:inputCheckbox style="position:absolute;left:615px" disabled="true" label="" value="{!account.Has_PDFlyer__c}"/>
+<apex:outputlabel value="Has GFX"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_GFX__c}"/>
+<hr/>
+<apex:outputlabel value="Has Outsource"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Outsource__c}"/>
+ <apex:outputlabel style="position:absolute;left:175px;" value="Outsource"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.outsource_competitor__c}"/>
+<apex:Outputtext style="text-decoration:underline;position:absolute;left:425px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Outsource_Competitor_End_Date__c}"/></apex:OutputText>
+<apex:outputlabel style="position:absolute;left:500px;" value="Has Fixed Assets"/><apex:inputCheckbox style="position:absolute;left:615px" disabled="true" label="" value="{!account.Has_Fixed_Assets__c}"/>
+<apex:outputlabel style="position:absolute;left:650px;" value="Fixed Assets"/><u><apex:OutputText style="text-decoration:underline;position:absolute;left:775px;width:220px;" value="{!account.Fixed_Assets_Competitor__c}"/></u>
+<apex:Outputtext style="text-decoration:underline;position:absolute;left:950px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Fixed_Assets_Competitor_End_Date__c}"/></apex:OutputText>
+ <hr/>
+ <apex:outputlabel value="Has ATX" /><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_ATX__c}"/>
+<apex:outputlabel style="position:absolute;left:500px;" value="Has TaxWise"/><apex:inputCheckbox style="position:absolute;left:615px" disabled="true" label="" value="{!account.Has_TaxWise__c}"/>
+<hr/>
+<apex:outputlabel value="Has Open Integration Kits" /><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Open_Integrator__c}"/>
+ </div>
+<br/>
+<hr style="height:5px;background-color:#000"/>
+<br/>
+ <div>     
+    <b><u><apex:outputlabel style="font-size:14px"  value="Workflow"/></u></b>
+    <b><apex:OutputLabel value="Competitor" style="Position:absolute;left:250px"/>
+    <apex:OutputLabel value="Competitor" style="Position:absolute;left:750px"/></b> 
+    <br/> 
+  <br/>
+ <apex:outputlabel value="Has Practice Management"/>&nbsp;<apex:inputCheckbox style="position:absolute;left:140px;" disabled="true" label="" value="{!account.Has_Practice_Management__c}"/>
+ <apex:outputlabel style="position:absolute;left:175px;" value="Practice"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.Practice_Competitor__c}"/>
+ <apex:Outputtext style="text-decoration:underline;position:absolute;left:425px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Practice_Management_Competitor_End_Date__c}"/></apex:OutputText>
+ <apex:outputlabel value="Has Axcess Document" style="position:absolute;left:500px"/>&nbsp;<apex:inputCheckbox style="position:absolute;left:615px;" disabled="true" label="" value="{!account.Has_Axcess_Document__c}"/>
+<apex:outputlabel style="position:absolute;left:650px;" value="Document"/><apex:OutputText style="text-decoration:underline;position:absolute;left:775px;width:220px;" value="{!account.Document_Competitor__c}"/>
+<apex:Outputtext style="text-decoration:underline;position:absolute;left:950px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Document_Competitor_End_Date__c}"/></apex:OutputText>
+ <hr/>
+ <apex:outputlabel value="Has Axcess Practice"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Axcess_Practice__c}"/>
+ <apex:outputlabel value="Has Document OP" style="position:absolute;left:500px"/>&nbsp;<apex:inputCheckbox style="position:absolute;left:615px;" disabled="true" label="" value="{!account.Has_Document_On_Premise__c}"/>
+ 
+ <hr/>
+ <apex:outputlabel value="Has Practice Advantage"/><apex:inputCheckbox disabled="true" label="" style="position:absolute;left:140px;" value="{!account.Has_Practice__c}"/>
+ <apex:outputlabel Value="Has Document ASP" style="position:absolute;left:500px;"/> &nbsp;<apex:inputCheckbox disabled="true" label="" style="position:absolute;left:615px;" value="{!account.Has_Document_ASP__c}"/>
+ <hr/>
+ <apex:outputlabel value="Has Practice Manager"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Practice_Manager__c}"/>
+ <apex:outputlabel style="position:absolute;left:500px;" value="Has Doc Foundation"/><apex:inputCheckbox disabled="true" style="position:absolute;left:615px;" label="" value="{!account.Has_Document__c}"/>
+ <hr/>
+<apex:outputlabel style="position:absolute;left:500px;" value="Has Portal SaaS"/><apex:inputCheckbox disabled="true" style="position:absolute;left:615px;" label="" value="{!account.Has_Portal_SaaS__c}"/>
+<apex:outputlabel style="position:absolute;left:650px;" value="Portal SaaS"/><apex:OutputText style="text-decoration:underline;position:absolute;left:775px;width:220px;" value="{!account.Portal_Competitor__c}"/>
+<apex:Outputtext style="text-decoration:underline;position:absolute;left:950px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Portal_Competitor_End_Date__c}"/></apex:OutputText>
+<apex:outputlabel value="Has Workstream"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Axcess_Workstream__c}"/>
+<apex:outputlabel style="position:absolute;left:175px;" value="Workstream"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.Axcess_Workstream_Competitor__c}"/>
+<apex:Outputtext style="text-decoration:underline;position:absolute;left:425px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Workstream_Competitor_End_Date__c}"/></apex:OutputText>
+ <hr/>
+<apex:outputlabel value="Has KnowledgeConnect"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Knowledge_Connect__c}"/>
+<apex:outputlabel style="position:absolute;left:650px;" value="Website"/><apex:OutputText style="text-decoration:underline;position:absolute;left:775px;width:220px;" value="{!account.website_competitor__c}"/>
+<apex:Outputtext style="text-decoration:underline;position:absolute;left:950px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Website_Competitor_End_Date__c}"/></apex:OutputText>
+<hr/>
+<apex:outputlabel value="Has IFirm"/>&nbsp;<apex:inputCheckbox style="position:absolute;left:140px;" disabled="true" label="" value="{!account.Has_IFirm__c}"/>
+<apex:outputlabel value="Has SFS Other" style="position:absolute;left:500px"/>&nbsp;<apex:inputCheckbox style="position:absolute;left:615px;" disabled="true" label="" value="{!account.Has_SFS_Other_Ancillary__c}"/>
+<br/>
+<hr style="height:5px;background-color:#000"/>
+ </div>
+ <div>
+ <b><u><apex:outputlabel style="font-size:14px"  value="AA"/></u></b>
+    <b><apex:OutputLabel value="Competitor" style="Position:absolute;left:250px"/>
+    <apex:OutputLabel value="Competitor" style="Position:absolute;left:750px"/></b> 
+    <br/> 
+    <br/>     
+ <apex:outputlabel value="Has Engagement"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Engagement__c}"/>
+ <apex:outputlabel style="position:absolute;left:175px;" value="Engagement"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.Engagement_Competitor__c}"/>
+ <apex:Outputtext style="text-decoration:underline;position:absolute;left:425px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Engagement_Competitor_End_Date__c}"/></apex:OutputText>
+ <apex:outputlabel value="Has Trial Balance" style="position:absolute;left:500px;"/><apex:inputCheckbox disabled="true" style="position:absolute;left:615px;" label="" value="{!account.Has_Trial_Balance__c}"/>
+ <apex:outputlabel style="position:absolute;left:650px;" value="Trial Balance"/><apex:OutputText style="text-decoration:underline;position:absolute;left:775px;width:220px;" value="{!account.Trial_Balance_Competitor__c}"/>
+ <apex:Outputtext style="text-decoration:underline;position:absolute;left:950px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Trial_Balance_Competitor_End_Date__c}"/></apex:OutputText>
+ <hr/>
+ <apex:outputlabel value="Has Knowledge Tools"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Knowledge_Tools__c}"/>
+ <apex:outputlabel style="position:absolute;left:500px;" value="Has Knowledge Coach"/><apex:inputCheckbox disabled="true" style="position:absolute;left:615px;" label="" value="{!account.Has_Knowledge_Coach__c}"/>
+ <apex:outputlabel style="position:absolute;left:650px;" value="Knowledge Management"/><apex:OutputText style="text-decoration:underline;position:absolute;left:775px;width:220px;" value="{!account.Knowledge_Management_Competitor__c}"/>
+ <apex:Outputtext style="text-decoration:underline;position:absolute;left:950px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Knowledge_Management_Competitor_End_Date__c}"/></apex:OutputText>
+ <hr/>
+ <apex:Outputlabel value="Number of Audits:"/>&nbsp; <apex:OutputField style="font-size:11px;width:50px;" value="{!Account.Number_of_Audits__c}"/>
+ <apex:outputlabel style="position:absolute;left:175px;" value="Audit"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.Audit_Competitor__c}"/>
+ <apex:Outputtext style="text-decoration:underline;position:absolute;left:425px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Audit_Competitor_End_Date__c}"/></apex:OutputText>
+ <apex:outputlabel style="position:absolute;left:500px;" value="Has Active Data"/><apex:inputCheckbox disabled="true" style="position:absolute;left:615px;" label="" value="{!account.Has_Active_Data__c}"/>
+ <br/>
+ </div>
+ <br/>
+ <hr style="height:5px;background-color:#000"/>
+
+ <div>
+  <b><u><apex:outputlabel style="font-size:14px"  value="Corp Direct"/></u></b>
+ <br/>
+ <br/>
+ <apex:Outputlabel value="FYE Date:"/>&nbsp; <apex:OutputField style="font-size:11px;"   value="{!Account.FYE_Date__c}"/> 
+ <apex:outputlabel style="position:relative;left:60px;" value="Provision"/><apex:OutputText style="text-decoration:underline;position:relative;left:92px;width:220px;" value="{!account.Provisioning_Competitor__c}"/>
+ <apex:outputlabel style="position:relative;left:270px;" value="Filer Type"/><apex:OutputText style="text-decoration:underline;position:relative;left:275px;width:220px;" value="{!account.Corp_Filer_Type__c}"/>
+ </div>
+ <hr style="height:5px;background-color:#000"/>
+ 
+ <div>
+  <b><u><apex:outputlabel style="font-size:14px"  value="TRUST"/></u></b>
+ <br/>
+ <br/>
+ <apex:Outputlabel value="Trust Accounting System:"/>&nbsp; <apex:OutputField style="font-size:11px;"   value="{!Account.Trust_Accounting_System__c}"/> 
+ <apex:outputlabel style="position:relative;left:60px;" value="Current Business Model:"/><apex:OutputText style="text-decoration:underline;position:relative;left:92px;width:220px;" value="{!account.Current_Business_Model__c}"/>
+ <apex:outputlabel style="position:relative;left:120px;" value="Contract Expiration Date:"/><apex:OutputText style="text-decoration:underline;position:relative;left:125px;width:220px;" value="{!account.Contract_Expiration_Date__c}"/>
+ <apex:outputlabel style="position:relative;left:180px;" value="Number of Trust Returns:"/><apex:OutputText style="text-decoration:underline;position:relative;left:185px;width:220px;" value="{!account.Number_of_Trust_Returns__c}"/>
+ </div>
+ 
+ <hr style="height:5px;background-color:#000"/>
+ 
+ 
+  </apex:tab>
+
+   <apex:tab name="Research" id="Research" title="Research" label="Research">
+
+ <apex:commandButton value="Edit"  style="position:absolute;left:250px" onclick="window.location='/apex/compinfoResearchEdit?id={!Account.id}'; return false;"/> 
+ <apex:commandButton style="position:absolute;left:285px" value="Cancel" action="{!cancel}"/>
+ <br/><p/> <br/>  
+ 
+ <br/>
+<b><u><apex:outputlabel style="font-size:14px"  value="Research"/></u></b>
+<br/>
+<br/>
+<b><apex:OutputLabel value="Competitive Intelligence" style="Position:absolute;"/></b>
+<br/>
+<br/>
+ <b><apex:OutputLabel value="Content" style="Position:absolute;left:25px;"/></b>
+   <b><apex:OutputLabel value="Competitor" style="Position:absolute;left:150px;"/></b>
+ <b><apex:OutputLabel value="End Date" style="Position:absolute;left:275px;"/></b>
+ <b><apex:OutputLabel value="Potential Spend" style="Position:absolute;left:400px;"/></b>
+ <b><apex:OutputLabel value="Comments" style="Position:absolute;left:550px;"/></b>
+ <br/>
+ <br/>
+  <apex:OutputLabel value="Federal" style="Position:absolute;left:50px;"/>
+  <apex:OutputText style="position:absolute;left:150px;" value="{!account.Research_Federal_Competitor__c}"/>
+  <apex:Outputtext style="text-decoration:underline;position:absolute;left:275px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Research_Federal_Competitor_End_Date__c}"/></apex:OutputText>
+   <apex:OutputText style="position:absolute;left:400px;width:110px;" value="{0, Number, Currency}"><apex:param value="{!account.Research_Federal_Competitor_Spend__c}"/></apex:outputText>
+  <apex:OutputText style="position:absolute;left:550px;width:500px;" value="{!account.Research_Federal_Competitor_Comments__c}"/>
+  <br/>
+  <hr/>
+  <apex:OutputLabel value="State" style="Position:absolute;left:50px;"/>
+  <apex:OutputText style="position:absolute;left:150px;" value="{!account.Research_State_Competitor__c}"/>
+  <apex:Outputtext style="text-decoration:underline;position:absolute;left:275px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Research_State_Competitor_End_Date__c}"/></apex:OutputText>
+  <apex:OutputText style="position:absolute;left:400px;width:110px;" value="{0, Number, Currency}"><apex:param value="{!account.Research_State_Competitor_Spend__c}"/></apex:outputText>
+  <apex:OutputText style="position:absolute;left:550px;width:500px;" value="{!account.Research_State_Competitor_Comments__c}"/>
+  <br/>
+  <hr/>
+  <apex:OutputLabel value="International" style="Position:absolute;left:50px;"/>
+  <apex:OutputText style="position:absolute;left:150px;" value="{!account.Research_Intl_Competitor__c}"/>
+  <apex:Outputtext style="text-decoration:underline;position:absolute;left:275px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Research_Intl_End_Date__c}"/></apex:OutputText>
+  <apex:OutputText style="position:absolute;left:400px;width:110px;" value="{0, Number, Currency}"><apex:param value="{!account.Research_Intl_Spend__c}"/></apex:outputText>
+  <apex:OutputText style="position:absolute;left:550px;width:500px;" value="{!account.Research_Intl_Competitor_Comments__c}"/>
+  <br/>
+  <hr/>
+  <apex:OutputLabel value="Accounting" style="Position:absolute;left:50px;"/>
+  <apex:OutputText style="position:absolute;left:150px;" value="{!account.Research_Accounting_Competitor__c}"/>
+<apex:Outputtext style="text-decoration:underline;position:absolute;left:275px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Research_Accounting_Competitor_End_Date__c}"/></apex:OutputText>
+   <apex:OutputText style="position:absolute;left:400px;width:110px;" value="{0, Number, Currency}"><apex:param value="{!account.Research_Accounting_Competitor_Spend__c}"/></apex:outputText>
+   <apex:OutputText style="position:absolute;left:550px;width:500px;" value="{!account.Research_Accounting_Competitor_Comments__c}"/>
+  <br/>
+  <hr/>
+  <apex:OutputLabel value="Learning/CPE" style="Position:absolute;left:50px;"/>
+  <apex:OutputText style="position:absolute;left:150px;" value="{!account.Research_Learning_Competitor__c}"/>
+  <apex:Outputtext style="text-decoration:underline;position:absolute;left:275px;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!account.Research_Learning_Competitor_End_Date__c}"/></apex:OutputText>
+  <apex:OutputText style="position:absolute;left:400px;width:110px;" value="{0, Number, Currency}"><apex:param value="{!account.Research_Learning_Competitor_Spend__c}"/></apex:outputText>
+   <apex:OutputText style="position:absolute;left:550px;width:500px;" value="{!account.Research_Learning_Competitor_Comments__c}"/>
+
+<br/>
+<br/>
+<br/>
+<hr style="height:5px;background-color:#000"/>
+<apex:outputlabel value="Has COMPL1: Master Tax Guide"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_COMPL1_Master_Tax_Guide__c}"/>
+<apex:outputlabel value="Has COMPL2: PTE & Single TPP" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_COMPL2_PTE_Single_TPP__c}"/>
+<apex:outputlabel value="Has COMPL3: PTE & Core TPP" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_COMPL3_PTE_Core_TPP__c}"/>
+<hr/>
+<apex:outputlabel value="Has PROP1: PTP & Core TPP" /><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_PROP1_PTP_Core_TPP__c}"/>
+<apex:outputlabel value="Has PROT2: TRC Lite & Core TPP" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_PROT2_TRC_Lite_Core_TPP__c}"/>
+<apex:outputlabel value="Has PROT3: TRC" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_PROT3_TRC__c}"/>
+<hr/>
+<apex:outputlabel value="Has PROS4: Standard FED"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_PROS4_Standard_FED__c}"/>
+<apex:outputlabel value="Has PROT5: TRC, Federal TPP & 1 State" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_PROT5_TRC_Federal_TPP_1_State__c}"/>
+<apex:outputlabel value="Has PROS6: FED, Federal TPP & 1 State" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_PROS6_FED_Federal_TPP_1_State__c}"/>
+<hr/>
+<apex:outputlabel value="Has TAX0: TRC and FED"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_TAX0_TRC_and_FED__c}"/>
+<apex:outputlabel value="Has TAX1: TRC, FED, Federal TPP, 1 State Forms" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_TAX1_TRC_FED_Federal_TPP_1_State__c}"/>
+<apex:outputlabel value="Has TAX2A: TRC, FED, Fed TPP, 1 State , Entities & Forms" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_TAX2A_TRC_FED_Fed_TPP_1_State_Enti__c}"/>
+<hr/>
+<apex:outputlabel value="Has CORPC: MTG + PTP + 3 Full or 5 Lite States +Forms"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_CORPC_MTG_PTP_3_Full_or_5_Lite_Stat__c}"/>
+<apex:outputlabel value="Has CORPP: MTG + TRC + 50 States Lite +Forms" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_CORPP_MTG_TRC_50_States_Lite_Forms__c}"/>
+<apex:outputlabel value="Has CORPS1: MTG + FED +TRC + 50 States Full" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_CORPS1_MTG_FED_TRC_50_States_Full__c}"/> 
+<hr/>
+<apex:outputlabel value="Has CORPS2: MTG + FED +TRC + All States + Multistate Guides"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_CORPS2_MTG_FED_TRC_All_States_Mu__c}"/>
+<apex:outputlabel value="Has State Tax Specialty" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_State_Tax_Specialty__c}"/>
+<apex:outputlabel value="Has State Tax Reporters" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_State_Tax_Reporters__c}"/> 
+<hr/>
+<apex:outputlabel value="Has International Tax"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_International_Tax__c}"/>
+<apex:outputlabel value="Has Specialty Planning" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_Specialty_Planning__c}"/>
+<apex:outputlabel value="Has IntelliForms" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_IntelliForms__c}"/>
+<hr/>
+<apex:outputlabel value="Has Schools"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_Schools__c}"/>
+<apex:outputlabel value="Has Tax Prep Partner" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_Tax_Prep_Partner__c}"/>
+<apex:outputlabel value="Has Financial and Estate Tax" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_Financial_and_Estate_Tax__c}"/> 
+<hr/>
+<apex:outputlabel value="Has CCH Expert Treatises"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_CCH_Expert_Treatises__c}"/>
+<apex:outputlabel value="Has Journals" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_Journals__c}"/>
+<apex:outputlabel value="Has Accounting & Auditing Internet" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_Accounting_Auditing_Internet__c}"/> 
+<hr/>
+<apex:outputlabel value="Has Entity Planning"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_Entity_Planning__c}"/>
+<apex:outputlabel value="Has ClientRelate" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_ClientRelate__c}"/>
+<apex:outputlabel value="Has ARM" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_ARM__c}"/> 
+<hr/>
+<apex:outputlabel value="Has Learning and Seminars"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_Learning_and_Seminars__c}"/>
+<apex:outputlabel value="Has Federal Add Ons" Style="Position:absolute;left:390px;"/><apex:inputCheckbox style="position:absolute;left:650px" disabled="true" label="" value="{!account.Has_Federal_Add_Ons__c}"/>
+<apex:outputlabel value="Has IC" Style="Position:absolute;left:700px;"/><apex:inputCheckbox style="position:absolute;left:1000px" disabled="true" label="" value="{!account.Has_IC__c}"/>
+<hr/>
+<apex:outputlabel value="Has SFS Research"/><apex:inputCheckbox style="position:absolute;left:360px" disabled="true" label="" value="{!account.Has_SFS_Research__c}"/>
+
+<hr style="height:5px;background-color:#000"/>
+<div>
+<b><u><apex:outputlabel style="font-size:14px"  value="Revenue"/></u></b>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Tax Compliance Library"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:130px;" Value="{0, number, currency}"><apex:Param value="{!account.Tax_Compliance_Library_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:250px;" value="Tax Professional Library"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:375px;" Value="{0, number, currency}"><apex:Param value="{!account.Tax_Professional_Library_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:500px;" value="Tax Consultant Library"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:700px;" Value="{0, number, currency}"><apex:Param value="{!account.Tax_Consultant_Library_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:750px;" value="Mid Corporations"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:875px;" Value="{0, number, currency}"><apex:Param value="{!account.Mid_Corps_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Large Corporations"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:130px;" Value="{0, number, currency}"><apex:Param value="{!account.Knowledge_Coach_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:250px;" value="Federal Add-On"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:375px;" Value="{0, number, currency}"><apex:Param value="{!account.Federal_Add_On_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:500px;" value="Add-Ons"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:700px;" Value="{0, number, currency}"><apex:Param value="{!account.Add_Ons_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:750px;" value="State Add-On"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:875px;" Value="{0, number, currency}"><apex:Param value="{!account.State_Add_On_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="International"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:130px;" Value="{0, number, currency}"><apex:Param value="{!account.International_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:250px;" value="Accounting & Audit"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:375px;" Value="{0, number, currency}"><apex:Param value="{!account.Accounting_and_Audit_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:500px;" value="Learning"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:700px;" Value="{0, number, currency}"><apex:Param value="{!account.Learning_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:750px;" value="Schools"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:875px;" Value="{0, number, currency}"><apex:Param value="{!account.Schools_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+
+
+</div>
+ 
+ 
+ 
+ 
+ 
+ 
+ </apex:tab>
+ 
+ 
+ <apex:tab name="Indirect" id="Indirect" title="Indirect" label="Indirect">
+ <div>
+ <apex:commandButton value="Edit"  style="position:absolute;left:250px" onclick="window.location='/apex/compinfoIndirectEdit?id={!Account.id}'; return false;"/> 
+ <apex:commandButton style="position:absolute;left:285px" value="Cancel" action="{!cancel}"/>
+ <br/><p/> <br/>
+    <b><apex:OutputLabel value="Competitor" style="Position:absolute;left:300px"/>
+    <apex:OutputLabel value="Competitor" style="Position:absolute;left:800px"/></b>    
+      <br></br>
+      <apex:outputlabel value="Compliance Services" /><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Compliance_Services__c}"/>
+<apex:outputlabel style="position:absolute;left:175px;" value="Compliance"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.STG_Compliance_Competitor__c}"/>
+ <apex:outputlabel style="position:absolute;left:500px;" value="Database/Lookup/RADAR"/><apex:inputCheckbox style="position:absolute;left:640px" disabled="true" label="" value="{!account.Has_Database_Lookup_RADAR__c}"/>
+<apex:outputlabel style="position:absolute;left:670px;" value="Database"/><apex:OutputText style="text-decoration:underline;position:absolute;left:770px;width:220px;" value="{!account.STG_database_Competitor__c}"/>
+<hr/>
+<apex:outputlabel value="POS Tax Portal"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_POS_Tax_Portal__c}"/>
+<apex:outputlabel style="position:absolute;left:500px;" value="Returns"/><apex:inputCheckbox style="position:absolute;left:640px;" disabled="true" label="" value="{!account.Has_Returns__c}"/>
+<hr/>
+<apex:outputlabel value="Sales Tax Office"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Sales_Tax_Office__c}"/>
+<apex:outputlabel style="position:absolute;left:175px;" value="Calculation"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.STG_Calculation_Competitor__c}"/>
+<apex:outputlabel style="position:absolute;left:500px;" value="Sales Tax Online/CORE"/><apex:inputCheckbox style="position:absolute;left:640px" disabled="true" label="" value="{!account.Has_Sales_Tax_Online_CORE__c}"/>
+<hr/>
+<apex:outputlabel value="SureTax"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_SureTax__c}"/>
+<apex:outputlabel style="position:absolute;left:500px;" value="Telecom DB/Lookup/RADAR"/><apex:inputCheckbox style="position:absolute;left:640px" disabled="true" label="" value="{!account.Has_Telecom_DB_Lookup_RADAR_Flag__c}"/>
+<hr/>
+<apex:outputlabel value="Utility DB/Lookup/RADAR"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Utility_DB_Lokup_RADAR_Flag__c}"/>
+<apex:outputlabel style="position:absolute;left:175px;" value="Tax Research"/><apex:OutputText style="text-decoration:underline;position:absolute;left:250px;width:220px;" value="{!account.research_competitor__c}"/>
+<apex:outputlabel style="position:absolute;left:500px;" value="Load Utilities"/><apex:inputCheckbox style="position:absolute;left:640px" disabled="true" label="" value="{!account.Has_Load_Utilities__c}"/>
+<apex:outputlabel style="position:absolute;left:670px;" value="Industry"/><apex:OutputText style="text-decoration:underline;position:absolute;left:770px;width:220px;" value="{!account.Industry}"/>
+<hr/>
+<apex:outputlabel value="# returns"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:90px;" value="{!account.STG_Number_of_Returns__c}"/>
+<apex:outputlabel style="position:absolute;left:175px;" value="States w/Nexus"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:275px;" value="{!account.STG_States_with_Nexus__c}"/>
+<apex:outputlabel style="position:absolute;left:350px;" value="VAR"/><apex:OutputText style="text-decoration:underline;position:absolute;left:380px;width:220px;" value="{!account.VAR_Account1__c}"/>
+<apex:outputlabel style="position:absolute;left:550px;" value="ERP"/><apex:OutputText style="text-decoration:underline;position:absolute;left:600px;width:220px;" value="{!account.ERP_Vendor_Account1__c}"/>
+<br/>
+</div>
+<hr style="height:5px;background-color:#000"/>
+<div>
+<b><u><apex:outputlabel style="font-size:14px"  value="Revenue"/></u></b>
+<br/>
+<br/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Compliance"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:75px;" Value="{0, number, currency}"><apex:Param value="{!account.Compliance_Services_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:160px;" value="POS Tax Portal"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:250px;" Value="{0, number, currency}"><apex:Param value="{!account.POS_Tax_Portal_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:325px;" value="Sales Tax Office"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:400px;" Value="{0, number, currency}"><apex:Param value="{!account.Sales_Tax_Office_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:475px;" value="Suretax"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:580px;" Value="{0, number, currency}"><apex:Param value="{!account.Suretax_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:650px;" value="Utility DB LU"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:775px;" Value="{0, number, currency}"><apex:Param value="{!account.Utility_DB_Lookup_RADAR_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Telecom DB LU"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:75px;" Value="{0, number, currency}"><apex:Param value="{!account.Telecom_DB_Lookup_total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:160px;" value="Database LU"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:250px;" Value="{0, number, currency}"><apex:Param value="{!account.Database_Lookup_RADAR_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:325px;" value="Returns"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:400px;" Value="{0, number, currency}"><apex:Param value="{!account.Returns_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:475px;" value="Sales Tax Online"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:580px;" Value="{0, number, currency}"><apex:Param value="{!account.Sales_Tax_Office_Online_CORE_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:650px;" value="Load Utilities"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:775px;" Value="{0, number, currency}"><apex:Param value="{!account.Load_Utilities_Total__c}"/></apex:OutputText>
+<br/>
+
+
+</div>
+ </apex:tab>
+ </apex:tabpanel>
+
+
+  
+ </apex:form>
+ 
+</apex:page>

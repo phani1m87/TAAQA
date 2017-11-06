@@ -1,0 +1,13 @@
+<apex:page >
+           
+ <!-- 
+ standardController="Apttus_Config2__ProductConfiguration__c" extensions="APTSPromotionalCodeExtension" action="{!doRedirect}"
+ <apex:form >
+    <center><h1>Please wait....</h1></center>
+      <br/>
+    <center><apex:commandButton value="Cancel" action="{!cancel}"/></center>
+  </apex:form> 
+   
+  -->
+
+</apex:page>

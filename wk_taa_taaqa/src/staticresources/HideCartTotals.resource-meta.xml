@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>text/plain</contentType>
+    <description>Hide All the totals in the Cart except for: Grand Total, By Charge Type (No Cat Totals)</description>
+</StaticResource>

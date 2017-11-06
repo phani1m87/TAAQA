@@ -1,0 +1,21 @@
+<apex:page title="Promotions" sidebar="false" showHeader="false" standardController="Apttus_Config2__LineItem__c" extensions="selectPromotionController">
+    
+   <apex:form >
+   <apex:pageBlock title="SELECT PROMOTIONS FROM BELOW"/>
+   <apex:pageBlock title="">
+      <apex:outputLabel value="{!productName}" style="font-weight:bold"/>
+      <br/><br/>
+      <apex:pageMessages ></apex:pageMessages> 
+      <apex:pageBlockButtons location="Bottom" style="align:center;">
+            <apex:commandButton value="Apply promo code" action="{!applyPromo}"/>
+            <apex:commandButton value="Cancel" action="{!Cancel}"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockTable width="900px" align="center" value="{!PromotionWrapperList}" var="promotionWrapper">
+         <apex:column width="5%"><apex:inputCheckbox value="{!promotionWrapper.isSelected}"/></apex:column>
+         <apex:column width="35%" value="{!promotionWrapper.promtion.Promo_Name__c}"/>
+         <apex:column width="30%" value="{!promotionWrapper.promtion.Promo_Code__c}"/>
+         <apex:column width="30%" value="{!promotionWrapper.promtion.Promo__c}"/>
+      </apex:pageBlockTable>
+   </apex:pageBlock> 
+   </apex:form>
+</apex:page>

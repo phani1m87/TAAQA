@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This custom setting will hold Support Site Features Listing - used in Sales to Service Integration Project which allows case creation in Service Org.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AccountType__c</fullName>
+        <description>This holds Support Site Account Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This holds Support Site Account Type: s = Small Firm Services, o = Other</inlineHelpText>
+        <label>AccountType</label>
+        <length>1</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Feature_Name__c</fullName>
+        <description>This holds the Feature Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This holds the Feature Name</inlineHelpText>
+        <label>Feature Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProductId__c</fullName>
+        <description>This holds the Support Site Product Id</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This holds the Support Site Product Id</inlineHelpText>
+        <label>ProductId</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Support Site Feature Details</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Attribute_Match__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Account Attribute Match</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Add_on_Quote__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Add_on__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Add on Quote</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Is_Valid__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(Promotion__r.Active__c,
+       OR (Promotion__r.Effective_Date__c &lt; TODAY(),  ISNULL(Promotion__r.Effective_Date__c) )
+      )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Valid</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Price_List__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Price List</label>
+        <referenceTo>Apttus_Config2__PriceList__c</referenceTo>
+        <relationshipLabel>Quote Promotions</relationshipLabel>
+        <relationshipName>Quote_Promotions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Promo_Has_CORPP_MTG_TRC_50_Stat__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_CORPP_MTG_TRC_50_States_Lite_F__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promo Has CORPP: MTG + TRC + 50 Stat</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promo_Has_CORPS1_MTG_FED_TRC_5__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_CORPS1_MTG_FED_TRC_50_States__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promo Has CORPS1: MTG + FED +TRC + 5</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promo_Has_CORPS2_MTG_FED_TRC_A__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_CORPS2_MTG_FED_TRC_All_States__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promo Has CORPS2: MTG + FED +TRC + A</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promo_Has_Tax__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Account_Attribute_Has_Tax__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promo Has Tax</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promo_Oppty_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Promotion__r.Opportunity_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promo Oppty Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Promo_has_CORPC_MTG_PTP_3_Full__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_CORPC_MTG_PTP_3_Full_or_5_Lite__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promo has CORPC: MTG + PTP + 3 Full</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Promo_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_COMPL1_Master_Tax_Guide__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_COMPL1_Master_Tax_Guide__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has COMPL1: Master Tax Guide</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_COMPL2_PTE_Single_T__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_COMPL2_PTE_Single_TPP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has COMPL2: PTE &amp; Single T</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_COMPL3_PTE_Core_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.COMPL3_PTE_Core_TPP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has COMPL3: PTE &amp; Core TPP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_Others__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Others__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has Others</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_PROP1_PTP_Core_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_PROP1_PTP_Core_TPP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has PROP1: PTP &amp; Core TPP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_PROS4_Standard_FED__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.HasPROS4_Standard_FED__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has PROS4: Standard FED</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_PROS6_FED_Federal_TP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_PROS6_FED_Federal_TPP_1_Full__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has PROS6: FED, Federal TP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_PROT2_TRC_Lite_Core_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_PROT2_TRC_Lite_Core_TPP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has PROT2: TRC Lite &amp; Core TPP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_PROT3_TRC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_PROT3_TRC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has PROT3: TRC</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_PROT5_TRC_Federal_T__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_PROT5_TRC_Federal_TPP_1_Full__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has PROT5: TRC, Federal T</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_TAX0_TRC_and_FED__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_TAX0_TRC_and_FED__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has TAX0: TRC and FED</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_TAX1_TRC_FED_Federa__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_TAX1_TRC_FED_Federal_TPP_1_Fu__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has TAX1: TRC, FED, Federa</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Has_TAX2A_TRC_FED_Feder__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Has_TAX2A_TRC_FED_Federal_TPP_1_F__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Has TAX2A: TRC, FED, Feder</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promotion_Pricelist__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Price_List__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Promotion Pricelist</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Promotion_Terms_For_Order_Form__c</fullName>
+        <externalId>false</externalId>
+        <label>Promotion Terms For Order Form</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Promotion__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Promotion</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND 2 AND (3 OR 4) AND (5 OR 6)</booleanFilter>
+            <errorMessage>Promotion does not match filter criteria.</errorMessage>
+            <filterItems>
+                <field>Promotion__c.Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.Price_List__c</field>
+                <operation>equals</operation>
+                <valueField>Promotion__c.Price_List__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Promotion__c.Effective_Date__c</field>
+                <operation>equals</operation>
+                <value></value>
+            </filterItems>
+            <filterItems>
+                <field>Promotion__c.Effective_Date__c</field>
+                <operation>lessOrEqual</operation>
+                <valueField>$Source.Today__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Promotion__c.Expiration_Date__c</field>
+                <operation>equals</operation>
+                <value></value>
+            </filterItems>
+            <filterItems>
+                <field>Promotion__c.Expiration_Date__c</field>
+                <operation>greaterOrEqual</operation>
+                <valueField>$Source.Today__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Promotion__c</referenceTo>
+        <relationshipLabel>Quote Promotions</relationshipLabel>
+        <relationshipName>Promotion_Groups</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Account_Has_Tax__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_Tax__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Account Has Tax</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_COMPL1_Master_Tax_Guide__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_COMPL1_Master_Tax_Guide__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has COMPL1: Master Tax Guide</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_COMPL2_PTE_Single_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_COMPL2_PTE_Single_TPP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has COMPL2: PTE &amp; Single TPP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_COMPL3_PTE_Core_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_COMPL3_PTE_Core_TPP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has COMPL3: PTE &amp; Core TPP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_CORPC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_CORPC_MTG_PTP_3_Full_or_5_Lite_Stat__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Has CORPC: MTG + PTP + 3 Full or 5 Lite</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_CORPP_MTG_TRC_50_States_Lite_F__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_CORPP_MTG_TRC_50_States_Lite_Forms__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Has CORPP: MTG + TRC + 50 States Lite +F</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_CORPS1_MTG_FED_TRC_50_States__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_CORPS1_MTG_FED_TRC_50_States_Full__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has_CORPS1_MTG_FED_TRC_50_States</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_CORPS2_MTG_FED_TRC_All_States__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_CORPS2_MTG_FED_TRC_All_States_Mu__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Has CORPS2: MTG + FED +TRC + All States</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_Has_PROP1_PTP_Core_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_PROP1_PTP_Core_TPP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has PROP1: PTP &amp; Core TPP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_Others__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Will be checked by a W/F rule specific to a Promo.</description>
+        <externalId>false</externalId>
+        <label>Quote Has Others</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_PROS4_Standard_FED__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_PROS4_Standard_FED__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has PROS4: Standard FED</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_PROS6_FED_Federal_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_PROS6_FED_Federal_TPP_1_State__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has PROS6: FED, Federal TPP &amp;</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_PROT2_TRC_Lite_Core_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_PROT2_TRC_Lite_Core_TPP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has PROT2: TRC Lite &amp; Core TPP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_PROT3_TRC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_PROT3_TRC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has PROT3: TRC</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_PROT5_TRC_Federal_TPP_1_Fu__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_PROT5_TRC_Federal_TPP_1_State__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has PROT5: TRC, Federal TPP &amp; 1 Fu</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_TAX0_TRC_and_FED__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_TAX0_TRC_and_FED__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has TAX0: TRC and FED</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_TAX1_TRC_FED_Federal_TPP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_TAX1_TRC_FED_Federal_TPP_1_State__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has TAX1: TRC, FED, Federal TPP</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Has_TAX2A_TRC_FED_Federal_T__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote_Proposal__r.Apttus_Proposal__Account__r.Has_TAX2A_TRC_FED_Fed_TPP_1_State_Enti__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Has TAX2A: TRC, FED, Federal T</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Oppty_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text (Quote_Proposal__r.Apttus_Proposal__Opportunity__r.Type)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Oppty Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote_Proposal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quote/Proposal</label>
+        <referenceTo>Apttus_Proposal__Proposal__c</referenceTo>
+        <relationshipName>Promotion_Groups</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Today__c</fullName>
+        <defaultValue>TODAY ()</defaultValue>
+        <externalId>false</externalId>
+        <label>Today</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Todays_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>TODAY()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Todays Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X5_Digit_Promo_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Left(Promotion_Code__c,5)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>5 Digit Promo Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Quote Promotion</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>QP-{00000}</displayFormat>
+        <label>Quote Promotion ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Quote Promotions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>AMS_Small_Firm_Promotion</fullName>
+        <active>false</active>
+        <errorConditionFormula>Quote_Proposal__r.AMS_Small_Firm_Solution_Promotion__c &lt;&gt; true &amp;&amp; X5_Digit_Promo_Code__c = &quot;21951&quot;</errorConditionFormula>
+        <errorMessage>You must verify this promotion by selecting the AMS Small Firm Promotion on the proposal.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Add_on_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT(ISNEW()),
+       Add_on_Quote__c
+    )</errorConditionFormula>
+        <errorDisplayField>Account_Attribute_Match__c</errorDisplayField>
+        <errorMessage>Cannot create Promos for Add-on Quotes.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Master_Tax_Guide_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_COMPL1_Master_Tax_Guide__c &lt;&gt;  Promotion_Has_COMPL1_Master_Tax_Guide__c)</errorConditionFormula>
+        <errorMessage>Master Tax Guide Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PROS4_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Promotion_Has_PROS4_Standard_FED__c   &lt;&gt; Quote_Has_PROS4_Standard_FED__c)</errorConditionFormula>
+        <errorMessage>PROS4 on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PROS6_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_PROS6_FED_Federal_TPP__c   &lt;&gt; Promotion_Has_PROS6_FED_Federal_TP__c)</errorConditionFormula>
+        <errorMessage>PROS6 Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PROT3_TRC_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_PROT3_TRC__c  &lt;&gt;  Promotion_Has_PROT3_TRC__c)</errorConditionFormula>
+        <errorMessage>PROT3:TRC Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PROT5_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_PROT5_TRC_Federal_TPP_1_Fu__c  &lt;&gt;  Promotion_Has_PROT5_TRC_Federal_T__c)</errorConditionFormula>
+        <errorMessage>PROT5 Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PTE_and_Core_TPP_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_COMPL3_PTE_Core_TPP__c   &lt;&gt; Promotion_Has_COMPL3_PTE_Core_TPP__c)</errorConditionFormula>
+        <errorMessage>PTE and Core TPP Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PTE_and_Single_TPP_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_COMPL2_PTE_Single_TPP__c  &lt;&gt;  Promotion_Has_COMPL2_PTE_Single_T__c)</errorConditionFormula>
+        <errorMessage>PTE and Single TPP Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PTP_and_Core_TPP_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_Has_PROP1_PTP_Core_TPP__c   &lt;&gt; Promotion_Has_PROP1_PTP_Core_TPP__c)</errorConditionFormula>
+        <errorMessage>PTP and Core TPP Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TAX0_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_TAX0_TRC_and_FED__c  &lt;&gt;  Promotion_Has_TAX0_TRC_and_FED__c)</errorConditionFormula>
+        <errorMessage>TAX0 Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TAX1_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_TAX1_TRC_FED_Federal_TPP__c  &lt;&gt;  Promotion_Has_TAX1_TRC_FED_Federa__c)</errorConditionFormula>
+        <errorMessage>TAX1 Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TAX2A_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_TAX2A_TRC_FED_Federal_T__c  &lt;&gt;  Promotion_Has_TAX2A_TRC_FED_Feder__c)</errorConditionFormula>
+        <errorMessage>TAX2A Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TRC_Lite_and_Core_TPP_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND ( NOT (ISNEW()),
+      Quote_Has_PROT2_TRC_Lite_Core_TPP__c   &lt;&gt;   Promotion_Has_PROT2_TRC_Lite_Core_TPP__c
+)</errorConditionFormula>
+        <errorMessage>TRC Lite &amp; Core TPP Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Quote_Promotion</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Quote-Promotion</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/NewPromotionForProposal?proposalId={!Apttus_Proposal__Proposal__c.Id}</url>
+    </webLinks>
+</CustomObject>

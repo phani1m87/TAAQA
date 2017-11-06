@@ -1,0 +1,18 @@
+<!--
+  Author: Salesforce Services
+  Description: Visual force page that acts as proxy to Standard account create page. 
+               Displays error if the logged in user profiles isn't allowed to create account through saleforce UI.
+-->
+<apex:page standardController="Account" extensions="WK_TAA_AccountProxyController" action="{!checkRolesForCreate}">
+
+<style type="text/css">
+  .exceptionText{font-size:14px; text-align:center;margin-top:20px;}
+</style>
+
+<div class="exceptionText">
+    <h1 class="exceptionText">Error </h1>
+    <br/>
+    <apex:outputLabel styleClass="exceptionText" value="{!$Label.Account_Create_Error_on_New_Button}"/>
+</div>
+
+</apex:page>

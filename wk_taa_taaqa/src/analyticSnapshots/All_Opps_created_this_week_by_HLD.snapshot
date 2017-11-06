@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnalyticSnapshot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <groupColumn>User.Division__c</groupColumn>
+    <mappings>
+        <sourceField>JobName</sourceField>
+        <sourceType>snapshot</sourceType>
+        <targetField>Snapshots__c.Name</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>User.High_Level_Division__c</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Snapshots__c.High_Level_Division__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>User.Division__c</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Snapshots__c.Division__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>RowCount</sourceField>
+        <sourceType>summary</sourceType>
+        <targetField>Snapshots__c.Created_Count__c</targetField>
+    </mappings>
+    <mappings>
+        <aggregateType>Sum</aggregateType>
+        <sourceField>AMOUNT</sourceField>
+        <sourceType>summary</sourceType>
+        <targetField>Snapshots__c.Amount_Created__c</targetField>
+    </mappings>
+    <name>All Opps created this week by HLD</name>
+    <runningUser>alex.cardona@wolterskluwer.com</runningUser>
+    <sourceReport>Snapshots/All_Opps_created_this_week_by_HLD</sourceReport>
+    <targetObject>Snapshots__c</targetObject>
+</AnalyticSnapshot>

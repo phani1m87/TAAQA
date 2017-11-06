@@ -1,0 +1,272 @@
+<apex:page >
+
+<style>  
+   .colstyle {width:400px} 
+   .pbTitle{width:70%;}
+</style> 
+    <h1>Sales Tools and Sales Information</h1>
+    <div>
+    <apex:panelGrid columns="3" columnClasses="colstyle">
+        <apex:pageblock id="blockA">
+        <div style="text-align:left;">
+        <c:HelpText helpText="Top Sales User Guides and Training Videos that are located within Salesforce. Most are Salesforce specific."/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Salesforce Training & User Guides">
+        
+        
+        <br/>
+   
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Apttus%20CPQ&shepherdToken=VmpFPSxNakF4Tnkwd01TMHdPRlF5TVRvek1Eb3dNaTQwTnpkYSx1VjRqbUFkLXdNRElaOVg0NFBvcmRILFpqSmlZemxr&searchTags=%5B%22Apttus%20CPQ%22%5D&searchPageNum=0">Apttus CPQ</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Steelbrick%20CPQ&shepherdToken=VmpFPSxNakF4Tnkwd01TMHhNVlF4T0RvMU1qbzFOQzR6TURCYSxBYzJaTmFRbGVzNVFrUmFLQ0VfV3Z6LFpqSmlZemxr&searchTags=%5B%22Steelbrick%20CPQ%22%5D&searchPageNum=0">Steel Brick CPQ</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Lead%20Management&shepherdToken=VmpFPSxNakF4Tnkwd01TMHhNVlF4T0RvMU5Ub3hOUzR4TWpCYSx3ZXRoZ3h0dXZMcnZLdnFlZDdVbDd3LFpqSmlZemxr&searchTags=%5B%22Lead%20Management%22%5D&searchPageNum=0">Lead Management</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Opportunity%20Management&shepherdToken=VmpFPSxNakF4Tnkwd01TMHhNVlF4T0RvMU5qb3hNaTQ0TVRKYSxZUzYxSUFZUjJyVG8yTVh4NENmM1NPLFpqSmlZemxr&searchTags=%5B%22Opportunity%20Management%22%5D&searchPageNum=0">Opportunity Management </apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Data.com&shepherdToken=VmpFPSxNakF4Tnkwd015MHhObFF4TlRvek9Eb3hPQzR4TWpOYSxYOFA2VjN5UVNFQVl5ZXl5RHhDMkNWLFpqSmlZemxr&searchTags=%5B%22Data.com%22%5D&searchPageNum=0">Data.com</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Forecasting&shepherdToken=VmpFPSxNakF4Tnkwd01TMHhNVlF4T0RvMU5qb3pPQzQ1TlRaYSxNS1BBcmdkREM4YzU0X1lUUW42ZWRWLFpqSmlZemxr&searchTags=%5B%22Forecasting%22%5D&searchPageNum=0">Forecasting</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Account%20Data%20Maintenance&shepherdToken=VmpFPSxNakF4Tnkwd01TMHhNVlF4T0RvMU56b3dNeTQyT0RSYSxXTWRiMDRSdzd6WDVyMG1OSl8tTTBBLFpqSmlZemxr&searchTags=%5B%22Account%20Data%20Maintenance%22%5D&searchPageNum=0">Account Data Maintenance</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Searching%2FViewing%20Data&shepherdToken=VmpFPSxNakF4Tnkwd01TMHhNVlF4T0RvMU56b3lPUzQyTkRSYSx0VEFBSUZwM3dGU3NqVFZRRU9WMjl1LFpqSmlZemxr&searchTags=%5B%22Searching%2FViewing%20Data%22%5D&searchPageNum=0">Searching/Viewing Data</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Activities&shepherdToken=VmpFPSxNakF4Tnkwd01pMHhNMVF4Tmpvek1Ub3pPQzQwTlRsYSxLX0pTNzVRT0NuNF9Dc0V4VjFuMUJ0LFpqSmlZemxr&searchTags=%5B%22Activities%22%5D&searchPageNum=0">Activities</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?searchLanguage=0&shepherdToken=6tLihF.RsEsuygE6zxnJiQzwLr2aVHn6MtoxUGajAQZHIsPawWnatEimhX7eN9fbz6M5InBUxvTX3m.T4Ff9CjvKcLB9RC.ARozcA8qjDe2U5XWY8NRgW2Udn0cJ.HV_6dYLhO2ptSlth32roOwAX6TRHvk%3D&searchPageNum=0&searchWorkspaceIds=%5B%22058i0000000DWQj%22%5D&masterWorkspaceId=058i0000000DWQj">All User Guides</apex:outputLink>
+         
+         </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockA.section1}').getElementsByTagName('img')[0])
+            </script>
+         </apex:pageblock>
+        
+        <apex:pageblock id="blockB"  >
+            <div style="text-align:left;">
+            <c:HelpText helpText="Useful Consultant Salesforce Reports and Salesforce Dashboards ."/>
+            </div>
+            <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Consultant SFDC Reports and Dashboards">
+            <br/>
+        
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Zi0000000MwLP">Sales Leader Board</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Zi0000000MpFH">Activity Standards Dashboard</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/00Oi0000005uM9P">Research and Learning Price List</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Z31000000VSya">Professional Software Pricing Dashboard</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Z31000000VT2S">Axcess Mandatory Training Price List Dashboard</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Z310000002eg3">Pfx Mandatory Training Price List Dashboard</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/00Oi0000005uMiG">Professional Ancillary Price List </apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/00Oi0000005uMiQ">Professional Tax Price List </apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Z31000000kz1B">Corporate Direct Pricing Dashboard</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/00O31000006nhcN">Books Price List</apex:outputLink>
+        </apex:pageBlockSection>   
+                <script>
+        twistSection(document.getElementById('{!$Component.blockB.section1}').getElementsByTagName('img')[0])
+                </script>
+        </apex:pageblock>
+        
+            <apex:pageblock id="blockC"  >
+            <div style="text-align:left;">
+                <c:HelpText helpText="Useful Management  Salesforce Reports and Salesforce Dashboards. Please note consultants may not have access to all or some of the report/s."/>
+            </div>
+           <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Mgr & Leadership SFDC Reports and Dashboards">
+        <br/>
+                
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Zi0000000Mp6t">DSM Activity Dashboard</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Zi0000000MpBy">Director/VP Activity Dashboard</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Zi0000000MpAM">Forecast Dashboard </apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Zi0000000MmXy">Executive Forecast Dashboard </apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/01Z31000000VStB">Sales Ops Review Dashboard </apex:outputLink>
+           </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockC.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>  
+
+        </apex:panelGrid>
+        </div>
+        <div>
+    <apex:panelGrid columns="3" columnClasses="colstyle">
+        <apex:pageblock id="blockD"  >
+            <div style="text-align:left;">
+            <c:HelpText helpText="Frequently requested sales material libraries."/>
+            </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Important Libraries">
+        <br/>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#workspaceView?selectedWorkspaceId=058i0000000DWQj">User Guides</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#workspaceView?selectedWorkspaceId=058i0000000Dw6V">General Communication</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#workspaceView?selectedWorkspaceId=05831000000Q8z6">Battle Cards</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#workspaceView?selectedWorkspaceId=058i0000000EadA">CBI Grids</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?shepherdToken=VmpFPSxNakF4Tnkwd05DMHlNVlF4TVRvME9UbzBNeTQxTWpaYSw1M1JHMXJiNkRMVkdMZWpRX0tvLUZOLE5tWm1ZbUk1&searchPageNum=0&searchWorkspaceIds=%5B%22058i0000000Ee3Q%22%5D&masterWorkspaceId=058i0000000Ee3Q">Tips and Tricks Videos</apex:outputLink>
+              <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?searchLanguage=0&shepherdToken=VmpFPSxNakF4Tnkwd05DMHlNVlF4TVRvMU1Eb3lNaTQzTWpCYSxIVnI5RTJaTWxBMUxpNUFoTlFOU2hrLE5tWm1ZbUk1&searchPageNum=0&searchWorkspaceIds=%5B%2205831000000MCJQ%22%5D&masterWorkspaceId=05831000000MCJQ">GREAT Tool Kit</apex:outputLink>
+                    </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockD.section1}').getElementsByTagName('img')[0])
+                </script>
+        </apex:pageblock>
+        
+        <apex:pageblock id="blockE"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Websites focused on Sales Learning and Enablement at Wolters Kluwer."/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Learning and Enablement">
+        <br/>
+                
+           <apex:outputLink value="https://gm1.geolearning.com/geonext/cch/login.geo?OriginalURL=%2fgeonext%2fcch%2fDisplayWidgetPage.geo%3fid%3dBuAHO3VwDbyaYcsWcrOZ419Nxj0BDyKe%252bxR4HE9eoqAwpR%252bKi615cA%253d%253d%26nav%3dtest2" target="_blank">GeoLearning/ Sales Learning and Enablement</apex:outputLink>
+           <apex:outputLink value="https://www.brainshark.com/brainshark/public/login/m/login.asp?companyid=14211" target="_blank">Brainshark</apex:outputLink>
+           <apex:outputLink value="https://launchpad.37signals.com/basecamp" target="_blank">Basecamp</apex:outputLink>
+           <apex:outputLink value="http://go.cchsfs.com/ifirm-atx-training" target="_blank">ATX iFirm Training Registration</apex:outputLink>
+           <apex:outputLink value="http://go.cchsfs.com/ifirm-tw-training" target="_blank">Taxwise iFirm Training Registration</apex:outputLink>
+             </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockE.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+                <apex:pageblock id="blockF"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Sales Websites outside of Salesforce (e.g. Docusign, CyberSource, trial signups, etc.)."/>
+        </div>
+            <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Non-SFDC Sales Tools">
+        <br/>
+
+            <apex:outputLink value="https://www.docusign.net/Member/Home.aspx?gs=1" target="_blank">Docusign</apex:outputLink>
+            <apex:outputLink value="https://ebc.cybersource.com/ebc/Home.do?JustLoggedIn=true" target="_blank">CyberSource</apex:outputLink>
+            <apex:outputLink value="http://pfxdocs.na.wkglobal.com/" target="_blank">Pfx Docs</apex:outputLink>
+            <apex:outputLink value="http://qpid.cch.com/default.asp?dd=0" target="_blank">QPID</apex:outputLink>
+            <apex:outputLink value="https://taa.wkestoreservices.com/WKUS.eDis.eBookWebAdminTool/login.aspx" target="_blank">Ebooks</apex:outputLink>
+            <apex:outputLink value="https://sfsaccountmanagement.cchifirm.us/login.php" target="_blank">iFirm Trial</apex:outputLink>
+            <apex:outputLink value="https://www.cchgroup.com/arm" target="_blank">ARM Trial</apex:outputLink>
+            <apex:outputLink value="https://www.join.me/" target="_blank">Join Me (Demo Tool)</apex:outputLink>
+            <apex:outputLink value="https://www.cpelink.com/" target="_blank">CPE Link</apex:outputLink>
+                    </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockF.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+        </apex:panelGrid>
+        </div>
+    <h1>Product Information</h1>
+        <div>
+    <apex:panelGrid columns="3" columnClasses="colstyle">
+        <apex:pageblock id="blockG"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Websites and Reports dedicated to Intelliconnect."/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Intelliconnect">
+        <br/>
+                
+            <apex:outputLink value="http://intelliconnect.cch.com/scion/secure/ctx_4014126/index.jsp?cpid=WKUS-TAA-IC#page[1]" target="_blank">Intelliconnect Login Page</apex:outputLink>
+            <apex:outputLink value="http://prod.saas.wolterskluwertal.com/saas/login.do;jsessionid=6FC3669F5DB967F4D62632AABD1E9725.tomcat2" target="_blank">ICAdmin Login Page</apex:outputLink>
+            <apex:outputLink value="http://step1sapbobj4prod.wkglobal.com:8080/BOE/BI" target="_blank">BI Launch Pad</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/00O31000006oiDk" target="_blank">IntelliConnect User Usage</apex:outputLink><br/>
+          </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockG.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>  
+        
+        <apex:pageblock id="blockH"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Websites focused on Product Libraries, Product Info sites, Product Support sites and more."/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Sales Product Info">
+        <br/>
+                
+            <apex:outputLink value="https://www.cchsfs.com/default.aspx" target="_blank">TW,ATX and iFirm Product Website</apex:outputLink>
+            <apex:outputLink value="https://www.cchsfs.com/software-system-requirements/#product-menu" target="_blank">TW,ATX and iFirm Technical Requirements Page</apex:outputLink>
+            <apex:outputLink value="https://www.cchgroup.com/roles/accounting-firms" target="_blank">Pfx and Axcess Product Website</apex:outputLink>
+            <apex:outputLink value="https://www.cchgroup.com/store" target="_blank">TAA Books Product Website</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=Pfx%20and%20Axcess%20Training%20Materials&shepherdToken=VmpFPSxNakF4Tnkwd01TMHlNVlF4TlRvek1UbzFNaTQxT1RsYSxLQ2pLOGxaemZaczF3c1JiUHQxT3FuLFpqSmlZemxr&searchTags=%5B%22Pfx%20and%20Axcess%20Training%20Materials%22%5D&searchPageNum=0" target="_blank">Pfx and Axcess Product Info </apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=ATX%20and%20iFirm%20Training%20Materials&shepherdToken=VmpFPSxNakF4Tnkwd01TMHlNVlF4TlRvek16b3pOeTR5TkRkYSxhbEtNNUEtOWlPWnRtN0NKMFp2cDJDLFpqSmlZemxr&searchTags=%5B%22ATX%20and%20iFirm%20Training%20Materials%22%5D&searchPageNum=0" target="_blank">TW,ATX and iFirm Product Info </apex:outputLink>
+            <apex:outputLink value="https://www.youtube.com/user/CCHWoltersKluwer/featured " target="_blank">WK TAA Youtube Channel</apex:outputLink><apex:outputLabel style="font-size:11px;color:red">(Tip: Click on Videos Tab on the channel)</apex:outputLabel>
+            <apex:outputLink value="https://vimeo.com/user34333442" target="_blank">WK TW, ATX and iFirm Vimeo Channel </apex:outputLink>
+            <apex:outputLink value="https://wolterskluwer-my.sharepoint.com/personal/wendy_grice_wolterskluwer_com/_layouts/15/guestaccess.aspx?guestaccesstoken=YIC/RCkoMB6pTTKAt0WziXk3z+mj9wR1wlJLqeRzZC8=&docid=2_07de4cb3531af4367b52dbede87bc4854&rev=1" target="_blank">ProSW Resources Document</apex:outputLink>
+             <apex:outputLink value="https://wkus-kc.cch.com/kc/ViewPage.aspx?vid=603429">ProSW Customer Counts</apex:outputLink>
+        </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockH.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+        
+        <apex:pageblock id="blockI"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Professional & Client Services Sites and Materials."/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Professional & Client Services">
+        <br/>
+              
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?selectedDocumentId=06931000003CycL" target="_blank">State Grant Directory</apex:outputLink>
+            <apex:outputLink value="https://www.cchgroup.com/training-and-support/learning-and-development-academy/academy-open-enrollment-schedule" target="_blank">Academy - School of Audit Schedule</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?id=0680Z000003NUom" target="_blank">Scheduling Outlook</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?id=0680Z000003NUqs" target="_blank">PCS Service Recommendations</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=PCS%20Software%20Training%20%26%20Consulting%20-%20Training%20Outlines&shepherdToken=VmpFPSxNakF4Tnkwd05pMHdNbFF4TWpveU1Ub3pNeTQ0TVRsYSx1T0lvT0VuVE9zVUpsRTBmVjlPbHp1LFpqSmlZemxr&searchTags=%5B%22PCS%20Software%20Training%20%26%20Consulting%20-%20Training%20Outlines%22%5D&searchPageNum=0" target="_blank">PCS Software Training and Consulting - Training Outlines</apex:outputLink>
+            <apex:outputLink value="https://conversions.cch.com/tax" target="_blank">Competitor Tax Conversions</apex:outputLink>
+        </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockI.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+           </apex:panelGrid>
+        </div>
+    <h1>Corporate and Support</h1>
+        <div>
+    <apex:panelGrid columns="3" columnClasses="colstyle">
+        <apex:pageblock id="blockJ"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Sales Support Sites including information on Technical and Product Support."/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Support">
+        <br/>
+                              
+            <apex:outputLink value="mailto:WKNA-GSS_SalesSupport@wolterskluwer.com">Salesforce Support (Email)</apex:outputLink>
+            <apex:outputLink value="https://support.cch.com/" target="_blank">CCH Support</apex:outputLink>
+            <apex:outputLink value="mailto:IT-ServiceDesk@wolterskluwer.com">WK IT Service Desk</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Service Desk Phone #: 888-995-3375))</apex:outputLabel>
+            <apex:outputLink value="https://rainier.wolterskluwer.com/" target="_blank">Ranier Support</apex:outputLink>
+            <apex:outputLink value="mailto:CCHCustomerService@wolterskluwer.com">CCH Customer Support (Email)</apex:outputLink>
+            <apex:outputLink value="https://support.atxinc.com/" target="_blank">ATX Support Site</apex:outputLink>
+            <apex:outputLink value="https://support.taxwise.com/" target="_blank">TW Support Site</apex:outputLink>                
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?selectedVersionId=06831000003D8Ut">SFS AR Cheat Sheet</apex:outputLink>
+            <apex:outputLink value="http://download.cchsfs.com/tech/ATX/ATXInstalls.htm" target="_blank">ATX Prior Year Downloads</apex:outputLink>
+            <apex:outputLink value="http://download.cchsfs.com/tech/tw/twinstalls.htm" target="_blank">TaxWise Prior Year Downloads</apex:outputLink>
+          </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockJ.section1}').getElementsByTagName('img')[0])
+            </script>
+          </apex:pageblock>
+                <apex:pageblock id="blockK"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Payroll and Compensation Website."/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Payroll and Comp">
+        <br/>
+                
+            <apex:outputLink value="https://secure.torrancepayroll.com/etcd/login.asp" target="_blank">Torrance Payroll</apex:outputLink>
+            <apex:outputLink value="https://prwc.adp.com/iprwc/default.asp" target="_blank">ADP</apex:outputLink>
+            <apex:outputLink value="https://cchsfs.varicentondemand.com/prod/login.html?error=true" target="_blank">Varicent</apex:outputLink>
+        </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockK.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+        
+         <apex:pageblock id="blockL"  >
+        <div style="text-align:left;">
+            <c:HelpText helpText="HR, Corporate, Travel, Benefit and Website/Emails."/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Corporate/HR">
+        <br/>
+              
+            <apex:outputLink value="mailto:hrsource@wolterskluwer.com">HR (Email)</apex:outputLink>
+            <apex:outputLink value="https://connect.wolterskluwer.com/Pages/home.aspx" target="_blank">WK Connect</apex:outputLink>
+            <apex:outputLink value="https://beplb02.portal.hewitt.com/web/wolters_kluwer/welcome?forkPage=false" target="_blank">WK Benefits</apex:outputLink>
+            <apex:outputLink value="https://login.fidelity.com/ftgw/Fidelity/NBPart/Login/Init?AuthRedUrl=https://workplaceservices400.fidelity.com/NBHome.html" target="_blank">WK Fidelity 401K</apex:outputLink>
+            <apex:outputLink value="https://wolterskluwer.biovia.healthfitness.com/Public/Registration.aspx" target="_blank">WK Be Well</apex:outputLink>
+            <apex:outputLink value="https://www.concursolutions.com/portal.asp">Concur Travel</apex:outputLink>
+            <apex:outputLink value="https://home.cards.citidirect.com/CommercialCard/Cards.html?classic=2" target="_blank">WK Company Credit Card</apex:outputLink>
+            <apex:outputLink value="https://www.egencia.com/pub/agent.dll?qscr=mtgl">Egencia</apex:outputLink>
+            <apex:outputLink value="https://performancemanager5.successfactors.eu/login?company=WoltersKluwer#/login" target="_blank">My Enterprise Success Factors</apex:outputLink>
+            <apex:outputLink value="https://sdxusers.secure-dx.com/dcx-sdx/private/main.jsp?context=102000" target="_blank">HR Secure Document Exchange</apex:outputLink>
+            <apex:outputLink value="https://outlook.office365.com/owa/?realm=wolterskluwer.com#wa=wsignin1.0" target="_blank">Outlook Online Email</apex:outputLink>
+          </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockL.section1}').getElementsByTagName('img')[0])
+            </script>
+          </apex:pageblock>
+             
+          </apex:panelGrid>
+    </div>
+   
+    <br/>
+       <apex:form ><b> For further questions please reach out to your DSM or contact <b><apex:commandButton value="Salesforce Support" action="mailto:WKNA-GSS_SalesSupport@wolterskluwer.com" /></b>.</b> </apex:form> .    
+</apex:page>

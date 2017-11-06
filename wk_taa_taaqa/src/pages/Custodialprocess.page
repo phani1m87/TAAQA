@@ -1,0 +1,124 @@
+<!-- Page used for Custodial on Account and Lead -->
+<apex:page standardcontroller="Custodial__c" extensions="Custodialprocess">
+<script>
+    
+</script>
+    <apex:form >
+    
+        <apex:pageBlock title="Custodial Process">
+            <apex:outputText value="Select any one for custodial" />
+            <apex:selectRadio id="valSelector" value="{!optSelected}">
+                <apex:SelectOptions value="{!radioValues}"/>
+                <apex:actionSupport event="onchange" reRender="assignmentBlock,cpBlock,cpblock2" action="{!showAssgnmentBlock}"/>
+            </apex:selectRadio>
+        </apex:pageBlock>
+        
+        <apex:outputPanel id="assignmentBlock">
+            <apex:pageBlock title="Rep Assignment Process" rendered="{!showAssBlock}">
+               <apex:outputText value="Select Any one Rep Assignment Process " />
+                    <apex:selectRadio id="valSelector" value="{!optSelectedRep}">
+                        <apex:SelectOptions value="{!radioValuesRep}"/>
+                        <apex:actionSupport event="onchange" reRender="cpBlock,cpblock2" status="validationStatus" action="{!showDTN}"/>
+                    </apex:selectRadio>
+                <apex:actionStatus id="validationStatus">
+                    <apex:facet name="start"></apex:facet>
+                    <apex:facet name="stop"></apex:facet>
+                </apex:actionStatus>        
+            </apex:pageBlock>
+        </apex:outputPanel>
+        
+        
+        <apex:outputPanel id="cpBlock">
+        
+            <apex:pageBlock rendered="{!showDTNDetail}">
+            
+                <apex:pageBlockSection title="Custodial Detail" rendered="{!showDTNvalue}">
+                    <apex:inputField value="{!CustodialRec.DTN_Current_Rep__c}"/>
+                    <apex:inputField value="{!CustodialRec.DTN_Custodial_Rep__c}"/>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="New Rep Detail" rendered="{!showRepvalue}">
+                    <apex:inputField value="{!CustodialRec.DTN_Current_Rep__c}"/>
+                    <apex:inputField value="{!CustodialRec.DTN_new_Rep__c}"/>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Open Territory Detail" rendered="{!showOpenTerritory}">
+                    <apex:inputField value="{!CustodialRec.DTN_Current_Rep__c}"/>
+                    <apex:inputField value="{!CustodialRec.DTN_Open_Territory_User__c}"/>
+                </apex:pageBlockSection>
+                
+                <table>
+                <tr> <td> </td></tr>
+                <tr> <td> </td></tr>
+                
+                <tr>
+                   <td style="padding-left: 300px;">
+                       <center>
+                           <apex:commandButton value="Search User" action="{!SearchUserDetial}"/>
+                       </center>
+                   </td>
+                </tr>
+            </table>
+                <apex:pageBlockSection columns="1" title="Current User Detail" rendered="{!showCurrentUserDetail}">
+                    <apex:outputField value="{!CurrentUserDetail.DTN__c}"/>
+                    <apex:outputField value="{!CurrentUserDetail.Name}"/>
+                    <apex:outputField value="{!CurrentUserDetail.city}"/>
+                </apex:pageBlockSection>
+                
+               <apex:pageBlockSection columns="1" title="Custodial User Detail" rendered="{!showCustodialUserDetail}">
+                    <apex:outputField value="{!CutodialUserDetail.DTN__c}"/>
+                    <apex:outputField value="{!CutodialUserDetail.Name}"/>
+                    <apex:outputField value="{!CutodialUserDetail.city}"/>
+               </apex:pageBlockSection>
+               
+               <apex:pageBlockSection columns="1" title="New Rep User Detail" rendered="{!showNewReptUserDetail}">
+                <apex:outputField value="{!NewrepUserDetail.DTN__c}"/>
+                <apex:outputField value="{!NewrepUserDetail.Name}"/>
+                <apex:outputField value="{!NewrepUserDetail.city}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1" title="Open Territory User Detail" rendered="{!showOpenterritoryUserDetail}">
+                <apex:outputField value="{!OpenTerritoryUserDetail.DTN__c}"/>
+                <apex:outputField value="{!OpenTerritoryUserDetail.Name}"/>
+                <apex:outputField value="{!OpenTerritoryUserDetail.city}"/>
+            </apex:pageBlockSection>
+            
+            <table>
+                <tr> <td> </td></tr>
+                <tr>
+                    <td> <apex:pagemessages /> </td>
+                </tr>
+                
+                <tr> <td> </td></tr>
+                <tr> <td> </td></tr><tr>
+            <td>
+            <Center>
+                <apex:commandButton value="Submit" action="{!SubmitRequest}" rendered="{!showsubbtn}" />
+                <apex:commandButton value="Cancel" action="{!CancelRequest}" rendered="{!showcancelbtn}"/>
+            </Center>
+            
+            </td>
+            </tr>
+            </table>
+          </apex:pageBlock>
+      </apex:outputPanel>
+      <apex:outputPanel id="cpblock2">
+      <apex:pageblock rendered="{!showClosebtn}">
+          <table>
+              <tr> <td> </td> </tr>
+              <tr>
+                  <td>
+                      <apex:pagemessages />
+                  </td>    
+              </tr>
+          <tr> <td> </td> </tr>
+          <tr>
+              <td>
+                 <center> <apex:commandButton value="close" action="{!close}"/> </center>
+              </td>
+          </tr>
+          </table>
+      </apex:pageblock>
+      </apex:outputPanel>
+    </apex:form> 
+</apex:page>

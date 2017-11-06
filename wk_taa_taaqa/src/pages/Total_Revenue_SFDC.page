@@ -1,0 +1,62 @@
+<apex:page standardcontroller="account">
+  <apex:form style="padding-left:2px;">
+  <apex:pageblock >
+ <b><apex:outputlabel style="font-size:14px;" value="Total Revenue"/></b>
+ </apex:pageblock>
+<div>
+<b><u><apex:outputlabel style="font-size:11px"  value="Tax"/></u></b>     
+<br/>
+<br/>
+
+<apex:OutputLabel value="Tax"/><span Style="position:absolute;left:80px"><apex:OutputField value="{!account.Tax_Total__c}"/></span> 
+<apex:OutputLabel Value="Axcess Tax" style="position:absolute;left:150px"/><span style="position:absolute;left:225px"><apex:OutputField label="Axcess Tax" value="{!account.Axcess_Tax_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="GFX"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.GlobalFx_Total__c}"/></span> 
+<apex:outputlabel style="position:absolute;left:150px" value="Outsource"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Outsource_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="Scan"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Scan_Total__c}"/></span> 
+<apex:outputlabel style="position:absolute;left:150px" value="Scan SaaS"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Scan_SaaS_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="Fixed Assets"/><span Style="position:absolute;left:80px"><apex:OutputField value="{!account.Fixed_Assets_Total__c}"/></span><br/>
+
+</div>
+<hr style="height:5px;background-color:#000"/>
+<div>
+<b><u><apex:outputlabel style="font-size:11px"  value="Workflow"/></u></b>     
+<br/>
+<br/>
+
+<apex:OutputLabel value="Practice Mgt"/><span Style="position:absolute;left:80px"><apex:OutputField value="{!account.Practice_Management_Total__c}"/></span> 
+<apex:OutputLabel Value="Axcess Practice" style="position:absolute;left:150px"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Axcess_Practice_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="Practice Adv"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Practice_Total__c}"/></span> 
+<apex:outputlabel style="position:absolute;left:150px" value="Practice Mgr"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Practice_Manager_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="Axcess Doc"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Axcess_Document_Total__c}"/></span> 
+<apex:outputlabel style="position:absolute;left:150px" value="Document OP"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Document_On_Premise_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="Document"/><span Style="position:absolute;left:80px"><apex:OutputField value="{!account.Document_Foundation_Total__c}"/></span>
+<apex:outputlabel style="position:absolute;left:150px" value="Portal SaaS"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Portal_Total__c}"/></span><br/><hr/> 
+<apex:outputlabel value="Workstream"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Axcess_Workstream_Total__c}"/></span>
+<apex:outputlabel style="position:absolute;left:150px" value="KCn SaaS"/><span Style="position:absolute;left:225px"><apex:OutputField value="{!account.Knowledge_Connect_SaaS_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="KCn OP"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Knowledge_Connect_On_Premise_Total__c}"/></span><br/><hr/>
+</div>
+<hr style="height:5px;background-color:#000"/>
+<b><u><apex:outputlabel style="font-size:11px"  value="AA"/></u></b> 
+<div>
+<apex:OutputLabel value="Engagement"/><span Style="position:absolute;left:80px"><apex:OutputField value="{!account.Engagement_Total__c}"/></span> 
+<apex:OutputLabel Value="Trial Balance" style="position:absolute;left:150px"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Trial_Balance_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="K Tools"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Knowledge_Tools_Total__c}"/></span> 
+<apex:outputlabel style="position:absolute;left:150px" value="K Coach"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Knowledge_Coach_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="Active Data"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Active_Data_Total__c}"/></span> 
+</div>
+<hr style="height:5px;background-color:#000"/>
+<b><u><apex:outputlabel style="font-size:11px"  value="Indirect"/></u></b> 
+<br/>
+<apex:OutputLabel value="Compliance"/><span Style="position:absolute;left:80px"><apex:OutputField value="{!account.Compliance_Services_Total__c}"/></span> 
+<apex:OutputLabel Value="DB/LU/Radar" style="position:absolute;left:150px"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Database_Lookup_RADAR_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="POS Tax Portal"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.POS_Tax_Portal_Total__c}"/></span> 
+<apex:outputlabel style="position:absolute;left:150px" value="Returns"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Returns_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="Sales Tax Office"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Sales_Tax_Office_Total__c}"/></span> 
+<apex:outputlabel style="position:absolute;left:150px" value="Sales Tax Online"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Sales_Tax_Office_Online_CORE_Total__c}"/></span><br/><hr/>
+<apex:outputlabel value="Suretax"/><span Style="position:absolute;left:80px"><apex:OutputField value="{!account.Suretax_Total__c}"/></span>
+<apex:outputlabel style="position:absolute;left:150px" value="Telecom DB LU"/><span style="position:absolute;left:225px"><apex:OutputField value="{!account.Telecom_DB_Lookup_total__c}"/></span><br/><hr/> 
+<apex:outputlabel value="Utility DB LU"/><span style="position:absolute;left:80px"><apex:OutputField value="{!account.Utility_DB_Lookup_RADAR_Total__c}"/></span>
+
+
+</apex:form>
+</apex:page>

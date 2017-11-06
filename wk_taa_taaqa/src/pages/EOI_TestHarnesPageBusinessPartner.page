@@ -1,0 +1,114 @@
+<apex:page controller="EOI_GetBusinessPartnersController">
+	<head>
+		<style>
+			.waitingSearchDiv{
+              position:absolute;
+              top:0px;
+              right:0px;
+              width:100%;
+              height:200%;
+              background-color:#666;
+              background-image:url('ajax-loader.gif');
+              background-repeat:no-repeat;
+              background-position:center;
+              z-index:10000000;
+              opacity: 0.4;
+              filter: alpha(opacity=40); /* For IE8 and earlier */
+			}
+			
+			/*.bPageBlock .pbTitle {width: 100%;}*/
+  		</style>
+	</head>
+	<apex:form >
+		<apex:actionStatus id="loadResults" onstop="refreshAutocomplete();">
+			<apex:facet name="start">
+			    <div class="waitingSearchDiv" id="el_loading"> 
+				    <div class="waitingHolder" style="position:fixed;right:0px;height:200%;width:100%;">
+				        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+				        <span class="waitingDescription">Please Wait...</span>
+				    </div>
+				</div>
+        	</apex:facet>
+		</apex:actionStatus>
+		<apex:pageBlock title="Test Harness Page">
+			<apex:outputText style="font-style:italic;font-weight:bold;color:red;" value="This page is just for testing getAccountInfo & DQ Address Validation Webservices, not meant to be used for any business purpose."/>
+			<apex:pageBlock >
+				<apex:pageBlockButtons location="bottom">
+					<apex:commandButton value="Submit (Get Business Partners)" action="{!startGetAccountInfoRequest}" reRender="pbBusinessPartner" status="loadResults"/>
+				</apex:pageBlockButtons>
+				<apex:pageBlockSection title="Get Business Partner Request" columns="1">
+					<apex:pageBlockSectionItem >
+						<apex:outputText value="GetAccountInfo Service URL: "/>
+						<apex:outputText value="{!objOrderIntegration.IIBURLGetAccountInfo__c}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+						<apex:outputText value="Select Account X Ref"/>
+						<apex:inputField value="{!currentQuote.ERP_Account__c}"/>
+					</apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</apex:pageBlock>
+			<apex:pageBlock id="pbBusinessPartner">
+				<apex:pageBlockSection columns="1" title="Get Business Partners Response">
+					<apex:pageMessages />
+					<apex:pageBlockSectionItem >
+						<b>Ship Tos:</b> {!serializedShipToList}
+						<br/>
+						<br/>
+						<b>Bill Tos:</b> {!serializedBillToList}
+					</apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</apex:pageBlock>
+			<apex:pageBlock >
+				<apex:pageBlockButtons location="bottom">
+					<apex:commandButton value="Submit (Validate Address)" action="{!validateAddress}" reRender="pbAddress" status="loadResults"/>
+				</apex:pageBlockButtons>
+				<apex:pageBlockSection title="DQ Address Validation Request" columns="1">
+					<apex:pageBlockSectionItem >
+						<apex:outputText value="DQ Address Service URL: "/>
+						<apex:outputText value="{!objOrderIntegration.IIB_DQAddressValidationURL__c}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Contact" for="newShipToContactName" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToContactName" value="{!newShipToContactName}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Street 1" for="newShipToStreet1" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToStreet1" value="{!newShipToStreet1}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Street 2" for="newShipToStreet2"/>
+	                    <apex:inputText id="newShipToStreet2" value="{!newShipToStreet2}"/>
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To City" for="newShipToCity" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToCity" value="{!newShipToCity}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To State" for="newShipToState" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToState" value="{!newShipToState}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Zip/Postal Code" for="newShipToPostalCode" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToPostalCode" value="{!newShipToPostalCode}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Country" for="newShipToCountry" styleClass="reqAst"/>
+	                    <apex:inputText id="newShipToCountry" value="{!newShipToCountry}"/>                    
+	                </apex:pageBlockSectionItem>
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="New Ship To Phone" for="newShipToPhone"/>
+	                    <apex:inputText id="newShipToPhone" value="{!newShipToPhone}"/>                    
+	                </apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</apex:pageBlock>
+			<apex:pageBlock id="pbAddress">
+				<apex:pageBlockSection columns="1" title="DQ Address Validation Response">
+					<apex:pageMessages />
+					<apex:pageBlockSectionItem >
+						<b>Response:</b> {!addressValidationResponse}
+					</apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+			</apex:pageBlock>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

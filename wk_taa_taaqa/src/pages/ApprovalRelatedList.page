@@ -1,0 +1,19 @@
+<apex:page standardController="Apttus_Proposal__Proposal__c" >
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+
+<apex:relatedList list="ProcessSteps" />  
+
+<script>
+
+$j = jQuery.noConflict();
+
+  // Added a check for a specific custom object
+  //if(window.location.href.indexOf(".com/a14") != -1) {
+    $j(document).ready(function() {     
+      $j("input[name='piSubmit']").hide();
+    });
+  //}
+</script>
+
+
+</apex:page>

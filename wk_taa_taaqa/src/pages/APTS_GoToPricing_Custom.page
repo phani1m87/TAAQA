@@ -1,0 +1,4 @@
+<apex:page standardcontroller="Apttus_Config2__ProductConfiguration__c" extensions="APTS_GoToPricing_Custom_Ctlr" sidebar="false" showHeader="false" action="{!doRedirect}">
+<apex:form >
+</apex:form>
+</apex:page>

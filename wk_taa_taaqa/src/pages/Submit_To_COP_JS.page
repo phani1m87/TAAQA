@@ -1,0 +1,26 @@
+<apex:page standardController="Opportunity">
+<script src="/soap/ajax/10.0/connection.js"> </script >
+<script src="/soap/ajax/10.0/apex.js"> </script >
+
+
+<script type="text/javascript">
+
+window.onload=init()
+
+function init()
+
+{
+var p = new sforce.SObject('opportunity'); 
+p.Id = "{!Opportunity.Id}";
+
+
+p.AMS_Order_Processing_Stage__c = "Submitted to Order Processing"; 
+result = sforce.connection.update([p]); 
+
+location.href="https://cs61.salesforce.com/"+p.Id;
+
+
+};
+</script>
+
+</apex:page>

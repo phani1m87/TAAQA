@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ConvertLead</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Create_Opportunity</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Lead.IsConverted = TRUE ,  Lead.ConvertedDate -  Load_Date__c ,
+IF( TEXT( Lead.Status ) = &quot;Unqualified&quot; , NULL , TODAY() - Load_Date__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CampaignId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CampaignMemberLeadId__c</fullName>
+        <description>Captures Campaign Member Lead Id</description>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(LeadId)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CampaignMemberLeadId</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City</fullName>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>5000</length>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CompanyOrAccount</fullName>
+    </fields>
+    <fields>
+        <fullName>ContactId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country</fullName>
+    </fields>
+    <fields>
+        <fullName>Created_By__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.FirstName &amp; &quot; &quot; &amp; CreatedBy.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created By</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrCampaign_Comment__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead.Campaign_Comment_del__c
++Contact.Campaign_Comment__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CurrCampaign Comment</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+    </fields>
+    <fields>
+        <fullName>Exclude_From_Reporting__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Identifies campaign members that were created temporarily and should be excluded from reporting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies campaign members that were created temporarily and should be excluded from reporting</inlineHelpText>
+        <label>Exclude From Reporting</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+    </fields>
+    <fields>
+        <fullName>FirstName</fullName>
+    </fields>
+    <fields>
+        <fullName>FirstRespondedDate</fullName>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+    </fields>
+    <fields>
+        <fullName>HasResponded</fullName>
+    </fields>
+    <fields>
+        <fullName>Is_CM_Lead_Processed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Mark a Campaign Member as being processed by the Lead Creation process</description>
+        <externalId>false</externalId>
+        <label>Is CM Lead Processed</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Latest_Record__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Latest Record</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LastName</fullName>
+    </fields>
+    <fields>
+        <fullName>LeadId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Company_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead.Company</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Company Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Detail_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;https://na25.salesforce.com/&quot;+LeadId</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Detail Link</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Owner_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead.Owner:User.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Owner First Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Load_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATEVALUE(CreatedDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Load Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MQL_Rating__c</fullName>
+        <externalId>false</externalId>
+        <formula>If (ISPICKVAL(Status, &quot;Contact-Me&quot;), &quot;HOT&quot;,
+IF (ISPICKVAL(Status, &quot;View-Recording&quot;), &quot;WARM&quot;,
+IF (ISPICKVAL(Status, &quot;Considering&quot;), &quot;WARM&quot;, 
+NULL)))</formula>
+        <label>MQL Rating</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+    </fields>
+    <fields>
+        <fullName>PostalCode</fullName>
+    </fields>
+    <fields>
+        <fullName>Product_Interest__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Interest</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Books</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AutoFlow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Practice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Workstream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH eSign/Bundles</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Knowledge Tools</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Sales Tax Office v4.0 Upgrade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Site Builder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx ActiveData</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Engagement/Workpaper Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Fixed Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Knowledge Coach</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Outsource</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx PDFlyer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Professional and Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rates &amp; Taxability Databases</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research &amp; Learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales &amp; Use Tax Calculation (On-Premise)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales &amp; Use Tax Calculation (SaaS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Compliance (Returns)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training &amp; Consulting/Professional Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sales_Alignment__c</fullName>
+        <description>Populated from the Contact Sales Alignment field.</description>
+        <externalId>false</externalId>
+        <label>Sales Alignment</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Salutation</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>State</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Street</fullName>
+    </fields>
+    <fields>
+        <fullName>Submitted_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Submitted By</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+    </fields>
+    <fields>
+        <fullName>e_Book_Requested__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Used only for the R&amp;L Prospect Campaign.</inlineHelpText>
+        <label>e-Book Requested</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>US Master Tax Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Master GAAP Guide</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>et4ae5__Activity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Activity</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unsubscribed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>

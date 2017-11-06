@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AISR__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>AISR</inlineHelpText>
+        <label>AISR</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ASR_Indirect_Corp_Software__c</fullName>
+        <description>ASR Indirect (Corp Software)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ASR Indirect (Corp Software)</inlineHelpText>
+        <label>ASR Indirect (Corp Software)</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Corp_Direct__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>FSR - Direct (Corp Software)</inlineHelpText>
+        <label>Corp Direct</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Corp_Indirect__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>FSR - Indirect (Corp Sotware)</inlineHelpText>
+        <label>Corp Indirect</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ISR_Indirect__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>ISR - Indirect (Corp Software)</inlineHelpText>
+        <label>ISR Indirect</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsNamedAccount__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>This assignment matrix belongs to Named Account</inlineHelpText>
+        <label>IsNamedAccount</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Market_Segment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Market Sub-Segment</inlineHelpText>
+        <label>Market Segment</label>
+        <length>100</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market_Sub_Segment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Market Segment</inlineHelpText>
+        <label>Market Sub Segment</label>
+        <length>100</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NAM_SAM_CNAM__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>NAM- National Account Manager, SAM-Strategic Account Manager, CNAM-Corporate Account Manager</inlineHelpText>
+        <label>NAM/SAM/CNAM</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NAM - National Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAM - Strategic Account Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAM - Corporate Account Manager</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NamedAccountType__c</fullName>
+        <externalId>false</externalId>
+        <label>NamedAccountType</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate National</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Pro_SW_FSR__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>FSR- Professional Sotware</inlineHelpText>
+        <label>Pro SW FSR</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pro_SW_ISR__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>ISR - Professional Software</inlineHelpText>
+        <label>Pro SW ISR</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QP__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>QP Rep</inlineHelpText>
+        <label>QP</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>R_L_ASR__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>ASR - Research and Learning</inlineHelpText>
+        <label>R&amp;L ASR</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>R_L_FSR__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>FSR - Research and Learning</inlineHelpText>
+        <label>R&amp;L FSR</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>R_L_ISR__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>ISR Research and learning</inlineHelpText>
+        <label>R&amp;L ISR</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>STG_Vertical__c</fullName>
+        <externalId>false</externalId>
+        <label>STG_Vertical</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SW_ASR__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>ASR - Professional Software</inlineHelpText>
+        <label>SW ASR</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Source__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>ASR - R&amp;L - Service Source</inlineHelpText>
+        <label>Service Source</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TC__c</fullName>
+        <externalId>false</externalId>
+        <label>TC</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>type</inlineHelpText>
+        <label>Type</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Assignment Matrix</label>
+    <listViews>
+        <fullName>ALL</fullName>
+        <columns>NAME</columns>
+        <columns>Market_Segment__c</columns>
+        <columns>Market_Sub_Segment__c</columns>
+        <columns>IsNamedAccount__c</columns>
+        <columns>NamedAccountType__c</columns>
+        <columns>Type__c</columns>
+        <columns>NAM_SAM_CNAM__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>ALL</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Assignment Matrix Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Assignment Matrixs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

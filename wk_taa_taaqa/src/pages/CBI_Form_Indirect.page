@@ -1,0 +1,189 @@
+<apex:page Controller="CBIController" sidebar="False" showHeader="false" pageStyle="width:1100px;"  >
+<head>
+<style type="text/css">
+
+textarea {
+    resize: none;
+}
+
+table.test { border-collapse: collapse; }
+        table.test td { border-bottom: 1px solid black; }
+        
+
+        table.test1 { border-collapse: collapse; }
+        table.test1 td { border-bottom: 1px solid black; }
+@media print
+
+{
+
+.noprint {display:none;}
+.Break {page-break-before:Always;}
+.Body {zoom:120%;}
+}
+@media screen
+{   
+.medium {color: #F00;} 
+    
+}
+</style>
+</head>
+<apex:form >
+<div class="noprint">
+<apex:Pageblock >
+<apex:commandButton value="Print" onclick="window.print()" />
+</apex:Pageblock>
+</div>
+<body class="Body">
+<apex:pageBlock >
+<b><apex:outputlabel value="{!acc.name}"/><apex:OutputLabel style="position:absolute;left:300px" value="Opportunity Name:"/></b>&nbsp;&nbsp;<apex:outputtext style="position:absolute;left:450px" value="{!opp.name}"/><br/>
+    <apex:outputText value="{!acc.billingstreet}"/><b><apex:OutputLabel style="position:absolute;left:300px" value="Opportunity Owner:"/>&nbsp;&nbsp;</b><apex:outputtext style="position:absolute;left:450px" value="{!usr.name}"/><br/>
+    <apex:outputlabel value="{!acc.billingcity}"/>,<apex:outputlabel value="{!acc.billingstate}"/><apex:outputlabel value="{!acc.billingpostalcode}"/>&nbsp;&nbsp;<b><apex:OutputLabel style="position:absolute;left:300px" value="Estimated Close:"/></b><apex:outputtext style="position:absolute;left:450px" value="{0,date, M/dd/yyyy}"> <apex:param value="{!opp.closedate}"/></apex:outputtext><br/>
+ <apex:outputlabel value="{!acc.Phone}"/><b><apex:OutputLabel style="position:absolute;left:300px" value="Opportunity Amount:"/>&nbsp;&nbsp;&nbsp;&nbsp;</b><apex:outputText style="position:absolute;left:450px" value="${!opp.amount}"/><br/>
+ <apex:outputlabel value="{!acc.Website}"/><br/>
+ <apex:outputlabel value="{!acc.Firm_Affiliation__c}"/><br/>
+ <apex:outputlabel value="{!acc.Firm_Networks__c}"/><br/>
+ <apex:outputlabel value="{!acc.International_Associations__c}"/><br/>
+  </apex:pageBlock>
+<apex:pageblock >
+<b><apex:OutputLabel value="Contacts"/></b>
+<apex:pageblocktable style="Width:1100px;" value="{!con}" var="a" id="pbTable" >
+<apex:column value="{!a.name}"/><apex:column headerValue="Email" value="{!a.email}"/><apex:column headerValue="2014 Conference Attendee" value="{!a.X2014_User_Conference_Attendee__c}"/>
+</apex:pageblocktable>
+</apex:pageblock>
+<apex:pageBlock >
+<b><apex:Outputlabel value="Status:"/></b><apex:outputlabel value="{!cbi.Status__c}"/>&nbsp;&nbsp;&nbsp;
+<b><apex:Outputlabel value="Architect:"/></b><apex:outputlabel value="{!arch.name}"/>&nbsp;&nbsp;&nbsp;
+<b><apex:Outputlabel value="Presentation Date:"/></b><apex:outputtext value="{0,date, M/dd/yyyy}"> <apex:param value="{!cbi.Presentation_Date__c}"/></apex:outputtext>&nbsp;&nbsp;&nbsp;
+<b><apex:Outputlabel value="Location:"/></b><apex:outputlabel value="{!cbi.Location__c}"/>&nbsp;&nbsp;&nbsp;
+<b><apex:Outputlabel value="Products Shown:"/></b><apex:outputlabel value="{!cbi.Products_to_Present__c}"/>&nbsp;&nbsp;&nbsp;<br/>
+<br/><br/>
+<b><apex:Outputlabel value="Pre Call Completed Date:"/></b><apex:outputtext value="{0,date, M/dd/yyyy}"> <apex:param value="{!cbi.Pre_Call_Completed_Date__c}"/></apex:outputtext>&nbsp;&nbsp;&nbsp;
+<b><apex:Outputlabel value="Post Call Completed Date:"/></b><apex:outputtext value="{0,date, M/dd/yyyy}"> <apex:param value="{!cbi.Post_Call_Completed_Date__c}"/></apex:outputtext>&nbsp;&nbsp;&nbsp;
+<b><apex:Outputlabel value="Data:"/></b><apex:inputcheckbox disabled="true" value="{!cbi.Increased_Risk_of_Data_Breach__c}"/>&nbsp;&nbsp;&nbsp;
+<b><apex:Outputlabel value="Growth:"/></b><apex:inputcheckbox disabled="true" value="{!cbi.Lower_Profit_Margins__c}"/>&nbsp;&nbsp;&nbsp;
+<b><apex:Outputlabel value="Talent:"/></b><apex:inputcheckbox disabled="true" value="{!cbi.Lower_Realization_Rates__c}"/>&nbsp;&nbsp;&nbsp;<br/>
+  </apex:pageblock>
+  <apex:pageblock >
+  <br/><b><apex:OutputLabel value="Attendees:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Attendees__c}"/><br/>
+ </apex:pageblock>
+  <apex:pageblock >
+  <br/><b><apex:OutputLabel value="Presentation Focus:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Presentation_Focus__c}"/><br/>
+ </apex:pageblock>
+ <br/><br/>
+ <apex:pageblock >
+  <br/><b><apex:OutputLabel value="Proposed Demo Flow:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Proposed_Demo_Flow__c}"/><br/>
+ </apex:pageblock>
+ <br/><br/>
+ <apex:pageblock >
+  <br/><b><apex:OutputLabel value="Appointment Goals:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Appointment_Goals__c}"/><br/>
+ </apex:pageblock>
+ <br/><br/>
+ <apex:pageblock >
+  <br/><b><apex:OutputLabel value="Current Client Challenges:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Current_Client_Challenges__c}"/><br/>
+ </apex:pageblock>
+ <br/><br/>
+   <apex:pageblock >
+ <b><apex:OutputLabel value="Impacts of Challenges:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Impacts_of_those_Challenges__c}"/>
+ </apex:pageBlock>
+ <br/><br/>
+   <apex:pageblock >
+ <b><apex:OutputLabel value="Hot Buttons (Critical Pain Points):"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Hot_Buttons_Critical_Pain_Points__c}"/>
+ </apex:pageBlock>
+ <br/><br/>
+   <apex:pageblock >
+ <b><apex:OutputLabel value="What “bad” thing happens if they do not buy:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.What_bad_thing_happens_if_they_do_not__c}"/>
+ </apex:pageBlock>
+ <br/><br/>
+    <apex:pageblock >
+ <b><apex:OutputLabel value="Audit/Fines"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Audit_Fines__c}"/>
+ </apex:pageBlock>
+ <br/><br/>
+    <apex:pageblock >
+ <b><apex:OutputLabel value="Total Cost of Ownership"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Total_Cost_of_Ownership__c}"/>
+ </apex:pageBlock>
+ <br/><br/>
+    <apex:pageblock >
+ <b><apex:OutputLabel value="Firm/Organization Objectives"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Firm_Organization_Objectives__c}"/>
+ </apex:pageBlock>
+ <br/><br/>
+   <apex:pageblock >
+ <b><apex:OutputLabel value="Key Process Workflow:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Key_Process_Workflow__c}"/>
+ </apex:pageBlock>
+ <br/><br/> 
+ <apex:pageblock >
+ <b><apex:OutputLabel value="Technology Comments:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Technology_Comments__c}"/>
+ </apex:pageblock>
+ <br/><br/>
+   <apex:pageblock >
+ <b><apex:OutputLabel value="Potential Objections:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Potential_Objections__c}"/>
+ </apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="Response to Objections:"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Response_to_Objections__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="What are the competition’s strategies?"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.What_are_the_competition_s_strategies__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="How are we countering?"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.How_are_we_countering__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="Strategy for defeating the competition?"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Strategy_for_defeating_the_competition__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="Who is SAP/Microsoft/NetSuite Partner?"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Who_is_SAP_Microsoft_NetSuite_Partner__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="Is Partner included in the demo?"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.Is_Partner_included_in_the_demo__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="What is the buying process?"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.What_is_the_buying_process__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="How do we match our selling process to it?"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.How_do_we_match_our_selling_process_to_i__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="What don’t we know?"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.What_don_t_we_know__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<apex:pageblock >
+ <b><apex:OutputLabel value="What are our blind spots? (Critical)"/></b><br/>
+ <apex:OutputText escape="false"  value="{!CBI.What_are_our_blind_spots_Critical__c}"/> 
+</apex:pageBlock>
+<br/><br/>
+<div class="Break">
+</div>
+</body>
+</apex:form>
+</apex:page>

@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>It contains information related to Payment Term of Quote.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>APTS_Initial_Deposit_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Initial deposit date will populate after the initial deposit amount is entered (only for AMS quotes).</inlineHelpText>
+        <label>Initial Deposit Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>APTS_Initial_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the initial deposit provided by the customer (only for AMS quotes).</inlineHelpText>
+        <label>Initial Deposit</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>APTS_Inst_1_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;), 
+IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;Full Pay&apos;),
+      ISPICKVAL(APTS_Payment_Term__c, &apos;Net 30&apos;)), null, 
+   IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), 
+
+   IF(DAY(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt;= 20, 
+         IF(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c)+3&gt;12,
+		 Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 3-12)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c)+1),
+		 Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 3)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c))),
+	IF(DAY(APTS_Quote_Proposal__r.Order_Creation_Date__c) &gt; 20,
+	   IF(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c)+4&gt;12,
+	      Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 4-12)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c)+1),
+		  Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 4)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c))
+	   ),
+	   null
+	   )
+		 
+		 ) , 
+
+IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;),ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;)), 
+
+( CASE( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 1, 
+1, &apos;Jan&apos;, 2, &apos;Feb&apos;, 3, &apos;March&apos;, 4, &apos;Apr&apos;, 5, &apos;May&apos;, 6, &apos;Jun&apos;, 7, &apos;Jul&apos;, 
+8, &apos;Aug&apos;, 9, &apos;Sep&apos;, 10, &apos;Oct&apos;, 11, &apos;Nov&apos;, 12, &apos;Dec&apos;, 13,&apos;Jan&apos;, 14,&apos;Feb&apos;,null 
+) + 
+&apos;/&apos; + 
+( IF( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt;= 12 - 1, 
+text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c)), 
+text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c) + 1)	
+) 
+) 
+), 
+
+null) ) ) , 
+
+IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;),IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), IF(APTS_Quote_Proposal__r.ASA__c, 
+text(MONTH(APTS_Quote_Proposal__r.Advance_Period_End_Date__c + 1)) + &apos;/&apos; + text(DAY(APTS_Quote_Proposal__r.Advance_Period_End_Date__c + 1)) + &apos;/&apos; + text(YEAR(APTS_Quote_Proposal__r.Advance_Period_End_Date__c + 1)), 
+text(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)) + &apos;/&apos; + text(DAY(APTS_Quote_Proposal__r.Annual_Start_Date__c)) + &apos;/&apos; + text(YEAR(APTS_Quote_Proposal__r.Annual_Start_Date__c))), null) 
+, null) 
+
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Inst-1 Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>APTS_Inst_2_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;),  
+   IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;Full Pay&apos;),ISPICKVAL(APTS_Payment_Term__c, &apos;Net 30&apos;)),      null,  
+   
+   IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;),  
+      
+	  IF(DAY(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt;= 20, 
+         IF(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c)+6&gt;12,
+		 Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 6-12)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c)+1),
+		 Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 6)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c))),
+	IF(DAY(APTS_Quote_Proposal__r.Order_Creation_Date__c) &gt; 20,
+	   IF(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c)+7&gt;12,
+	      Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 7-12)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c)+1),
+		  Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 7)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c))
+	   ),
+	   null
+	   )
+		 
+		 ) ,  
+    
+	
+	IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;),ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;)),  
+
+		( CASE( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 2, 
+				1, &apos;Jan&apos;, 2, &apos;Feb&apos;, 3, &apos;March&apos;, 4, &apos;Apr&apos;, 5, &apos;May&apos;, 6, &apos;Jun&apos;, 7, &apos;Jul&apos;, 
+				8, &apos;Aug&apos;, 9, &apos;Sep&apos;, 10, &apos;Oct&apos;, 11, &apos;Nov&apos;, 12, &apos;Dec&apos;, 13,&apos;Jan&apos;, 14,&apos;Feb&apos;,null
+				) + 
+			  &apos;/&apos; + 
+			  ( IF( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt;= 12 - 2,
+			        text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c)),
+					text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c) + 1)	  
+				  )
+			  ) 
+		), 
+
+null) ) ) , 
+
+  IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;), 
+	   IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), 
+	      IF(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+3&gt;12,		     
+		     Text(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+3-12)+&apos;/01/&apos;+text(YEAR(APTS_Quote_Proposal__r.Annual_Start_Date__c)+1),
+			 Text(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+3)+&apos;/01/&apos;+text(YEAR(APTS_Quote_Proposal__r.Annual_Start_Date__c))),
+		  null) , 
+	   null
+	  )
+  
+  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Inst-2 Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>APTS_Inst_3_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;), 
+IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;Full Pay&apos;),ISPICKVAL(APTS_Payment_Term__c, &apos;Net 30&apos;)), null, 
+
+IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;),  
+      
+	  IF(DAY(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt;= 20, 
+         IF(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c)+9&gt;12,
+		 Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 9-12)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c)+1),
+		 Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 9)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c))),
+	IF(DAY(APTS_Quote_Proposal__r.Order_Creation_Date__c) &gt; 20,
+	   IF(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c)+10&gt;12,
+	      Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c)+10-12)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c)+1),
+		  Text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 10)+&apos;/20/&apos;+text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c))
+	   ),
+	   null
+	   )
+		 
+		 ) ,
+
+
+IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;),ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;)), 
+
+( CASE( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 3, 
+1, &apos;Jan&apos;, 2, &apos;Feb&apos;, 3, &apos;Mar&apos;, 4, &apos;Apr&apos;, 5, &apos;May&apos;, 6, &apos;Jun&apos;, 7, &apos;Jul&apos;, 
+8, &apos;Aug&apos;, 9, &apos;Sep&apos;, 10, &apos;Oct&apos;, 11, &apos;Nov&apos;, 12, &apos;Dec&apos;, 13,&apos;Jan&apos;, 14,&apos;Feb&apos;, 
+15, &apos;Mar&apos;, 16, &apos;Apr&apos;, 17, &apos;May&apos;, 18, &apos;Jun&apos;, null 
+) + 
+&apos;/&apos; + 
+( IF( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt;= 12 - 3, 
+text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c)), 
+text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c) + 1)	
+) 
+) 
+), 
+
+
+null) ) ) , 
+
+IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;), 
+	   IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), 
+	      IF(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+6&gt;12,		     
+		     Text(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+6-12)+&apos;/01/&apos;+text(YEAR(APTS_Quote_Proposal__r.Annual_Start_Date__c)+1),
+			 Text(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+6)+&apos;/01/&apos;+text(YEAR(APTS_Quote_Proposal__r.Annual_Start_Date__c))),
+		  null) , 
+	   null
+	  )  
+	  
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Inst-3 Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>APTS_Inst_4_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;), 
+   IF(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;),
+      ( CASE( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 4, 
+				1, &apos;Jan&apos;, 2, &apos;Feb&apos;, 3, &apos;Mar&apos;, 4, &apos;Apr&apos;, 5, &apos;May&apos;, 6, &apos;Jun&apos;, 7, &apos;Jul&apos;, 
+				8, &apos;Aug&apos;, 9, &apos;Sep&apos;, 10, &apos;Oct&apos;, 11, &apos;Nov&apos;, 12, &apos;Dec&apos;, 13,&apos;Jan&apos;, 14,&apos;Feb&apos;,
+                                15, &apos;Mar&apos;, 16, &apos;Apr&apos;, 17, &apos;May&apos;, 18, &apos;Jun&apos;, null
+				) + 
+			  &apos;/&apos; + 
+			  ( IF( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt;= 12 - 4,
+			        text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c)),
+					text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c) + 1)	  
+				  )
+			  ) 
+		),
+	  null),
+    IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;), 
+	   IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), 
+	      IF(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+9&gt;12,		     
+		     Text(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+9-12)+&apos;/01/&apos;+text(YEAR(APTS_Quote_Proposal__r.Annual_Start_Date__c)+1),
+			 Text(MONTH(APTS_Quote_Proposal__r.Annual_Start_Date__c)+9)+&apos;/01/&apos;+text(YEAR(APTS_Quote_Proposal__r.Annual_Start_Date__c))),
+		  null) , 
+	   null
+	  ) 
+     
+   
+   )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Inst- 4 Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>APTS_Instalment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>/*IF(
+   AND(APTS_Initial_Deposit__c &gt; 0, 
+       OR(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), 
+          ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;),       
+          ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;), 
+          ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 12&apos;)), 
+       NOT(ISBLANK(APTS_Pending_Amount__c)), 
+       NOT(ISBLANK(APTS_NoOfInstalments__c)), 
+       APTS_NoOfInstalments__c &gt; 0),  
+       round(APTS_Pending_Amount__c / APTS_NoOfInstalments__c, 2), 
+       null
+ )*/
+
+IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c ,&apos;SAP&apos;), 
+IF( 
+ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), 
+APTS_Payment_Term_Total__c * 1.05 / 4 , 
+Null), 
+
+IF(AND( OR( NOT(ISBLANK(APTS_Initial_Deposit__c)) ,NOT(ISNULL(APTS_Initial_Deposit__c)),APTS_Initial_Deposit__c != 0)  ,ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c ,&apos;AMS&apos;)), 
+IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Full Pay&apos;), null, 
+IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Net 30&apos;), null, 
+IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), APTS_Pending_Amount__c/3, 
+IF(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;), APTS_Pending_Amount__c/3, 
+IF(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;), APTS_Pending_Amount__c/5, 
+IF(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 12&apos;), APTS_Pending_Amount__c/12, null) ) ) ) ) ) , null) 
+
+
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Installment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>APTS_NoOfInstalments__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+     AND(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;),         
+         ISPICKVAL(APTS_Quote_Proposal__r.SAP_Payment_Terms__c, &apos;Flex Pay&apos;),
+         ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;)),4,
+    
+       CASE(TEXT(APTS_Payment_Term__c)
+           , &apos;Flex Pay&apos;, 3
+           , &apos;IPP 4&apos;, 3
+           , &apos;IPP 6&apos;, 5
+           , &apos;IPP 12&apos;, 12
+           , &apos;Net 30&apos;,Null,
+              Null)
+
+
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>No of Installments</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>APTS_Order_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(TEXT(APTS_Quote_Proposal__r.Order_Type__c))), TEXT(APTS_Quote_Proposal__r.Order_Type__c),&apos;None&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>APTS Order Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>APTS_Payment_Term_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Term Total</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>APTS_Payment_Term__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Term</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full Pay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Flex Pay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Net 30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IPP 4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IPP 6</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IPP 12</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NET 60</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NET 90</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NET 120</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NET 150</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NET 180</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUARTERLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>APTS_Pending_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;),
+   IF(AND( 
+          ISPICKVAL(APTS_Quote_Proposal__r.SAP_Payment_Terms__c, &apos;Flex Pay&apos;),
+          ISPICKVAL( APTS_Payment_Term__c , &apos;Flex Pay&apos;)),
+      null,
+      APTS_Payment_Term_Total__c
+    ),
+   IF(AND(
+          ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;), 
+          ISPICKVAL( APTS_Payment_Term__c , &apos;Full Pay&apos;)),
+          APTS_Payment_Term_Total__c,
+         (APTS_Payment_Term_Total__c - APTS_Initial_Deposit__c)
+          
+     )
+   )
+
+/*
+ updated 11/4
+ AMS: Was APTS_Payment_Term_Total__c -  APTS_Initial_Deposit__c
+ updated to APTS_Payment_Term_Total__c 
+
+*/</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Pending amount is the payment term total less the initial deposit amount (only for AMS quotes - all payment terms except Full Pay).</inlineHelpText>
+        <label>Pending Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>APTS_Quote_Proposal__c</fullName>
+        <externalId>false</externalId>
+        <label>Quote/Proposal</label>
+        <referenceTo>Apttus_Proposal__Proposal__c</referenceTo>
+        <relationshipName>Payment_Term_Detail</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ASA__c</fullName>
+        <externalId>false</externalId>
+        <formula>APTS_Quote_Proposal__r.ASA__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ASA</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Advanced_Period_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>APTS_Quote_Proposal__r.Advance_Period_End_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Advanced Period End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Installment_Amount_2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculates the final installment if the pending amount is not evenly divisible by the no. of installments.</inlineHelpText>
+        <label>Final Installment Amount</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Installment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;) ,  IF( OR( ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;) , ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;) ) , (APTS_Payment_Term_Total__c - APTS_Initial_Deposit__c - (APTS_Payment_Term_Total__c - APTS_Initial_Deposit__c)*2/3),  IF( ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;) , (APTS_Payment_Term_Total__c - APTS_Initial_Deposit__c) - ((APTS_Payment_Term_Total__c - APTS_Initial_Deposit__c)*4 / 5),  IF(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 12&apos;), (APTS_Payment_Term_Total__c - APTS_Initial_Deposit__c) - ((APTS_Payment_Term_Total__c - APTS_Initial_Deposit__c)*11 / 12), NULL) ) ) ,  NULL )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Calculates the final installment if the pending amount is not evenly divisible by the no. of installments.</inlineHelpText>
+        <label>Final Installment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>First_Installment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+    AND(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;),         
+         ISPICKVAL(APTS_Quote_Proposal__r.SAP_Payment_Terms__c, &apos;Flex Pay&apos;),
+         ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;)),
+         (APTS_Payment_Term_Total__c /4 ) +  ((APTS_Payment_Term_Total__c  )*0.05),
+          Null
+        
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Installment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inst_5_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( AND( ISPICKVAL( APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;),   
+         ISPICKVAL( APTS_Payment_Term__c, &apos;IPP 6&apos;)
+       ), 
+
+		( CASE( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 5, 
+				1, &apos;Jan&apos;, 2, &apos;Feb&apos;, 3, &apos;Mar&apos;, 4, &apos;Apr&apos;, 5, &apos;May&apos;, 6, &apos;Jun&apos;, 7, &apos;Jul&apos;, 
+				8, &apos;Aug&apos;, 9, &apos;Sep&apos;, 10, &apos;Oct&apos;, 11, &apos;Nov&apos;, 12, &apos;Dec&apos;, 13,&apos;Jan&apos;, 14,&apos;Feb&apos;,
+                                15, &apos;Mar&apos;, 16, &apos;Apr&apos;, 17, &apos;May&apos;, 18, &apos;Jun&apos;, null
+				) + 
+			  &apos;/&apos; + 
+			  ( IF( month(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt;= 12 - 5,
+			        text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c)),
+					text(YEAR (APTS_Quote_Proposal__r.Order_Creation_Date__c) + 1)	  
+				  )
+			  ) 
+		) 
+    , NULL
+)
+
+/*------------------
+IF(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;), case(month(APTS_Initial_Deposit_Date__c + 150), 1, &apos;Jan&apos;, 2, &apos;Feb&apos;, 3, &apos;March&apos;, 4, &apos;Apr&apos;, 5, &apos;May&apos;, 6, &apos;Jun&apos;, 7, &apos;Jul&apos;, 8, &apos;Aug&apos;, 9, &apos;Sep&apos;, 10, &apos;Oct&apos;, 11, &apos;Nov&apos;, 12, &apos;Dec&apos;,null) + &apos;/&apos; + text(year(APTS_Initial_Deposit_Date__c + 150)) 
+, IF(AND(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;)) 
+, IF(DAY(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt; 20, IF(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt; 3, text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 10) + &apos;/20/&apos; + text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c)), text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 10 - 12) + &apos;/20/&apos; + text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 1)) 
+, IF(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) &lt; 2, text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 11) + &apos;/20/&apos; + text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c)), text(MONTH(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 11 -12) + &apos;/20/&apos; + text(YEAR(APTS_Quote_Proposal__r.Order_Creation_Date__c) + 1))) 
+, null))
+----------------- */</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Inst-5 Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Minimum_Deposit_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>APTS_Payment_Term_Total__c *0.15</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Minimum Deposit Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>My_Final_Installment__c</fullName>
+        <externalId>false</externalId>
+        <formula>APTS_Pending_Amount__c -  (ROUND(APTS_Pending_Amount__c/APTS_NoOfInstalments__c, 2) * 
+ ( APTS_NoOfInstalments__c - 1)
+ )</formula>
+        <inlineHelpText>Calculates the final installment if the pending amount is not evenly divisible by the no. of installments.</inlineHelpText>
+        <label>Final Installment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Order_Submission_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>APTS_Quote_Proposal__r.Order_Creation_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Order Submission Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SAPDate__c</fullName>
+        <externalId>false</externalId>
+        <label>SAPDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SAP_Payment_Terms__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(APTS_Quote_Proposal__r.SAP_Payment_Terms__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SAP Payment Terms</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Surcharge__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;),         
+           ISPICKVAL(APTS_Quote_Proposal__r.SAP_Payment_Terms__c, &apos;Flex Pay&apos;),
+           ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;)),
+           APTS_Payment_Term_Total__c  * 0.05,
+           Null
+      )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Surcharge is calculated as 5% of the payment term total (only for SAP quotes - Flex Pay).</inlineHelpText>
+        <label>Surcharge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>T1__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;SAP&apos;)), IF(APTS_Quote_Proposal__r.ASA__c, APTS_Quote_Proposal__r.Advance_Period_End_Date__c + 1 
+, APTS_Quote_Proposal__r.Order_Creation_Date__c 
+), null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Internal SAP Order Generation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Training_Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>Training Contact</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Training_Dates__c</fullName>
+        <externalId>false</externalId>
+        <label>Training Dates</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Training_Days_Required__c</fullName>
+        <externalId>false</externalId>
+        <label>Training Days Required</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Payment Term</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PT-{000000}</displayFormat>
+        <label>Payment Term Detail Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Payment Terms</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>AMS_15_Percent_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;),
+ISPICKVAL(APTS_Payment_Term__c, &apos;NET 30&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 12&apos;))
+,IF(AND(ispickval(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;), not(isblank(APTS_Initial_Deposit__c)), 0.15 *   APTS_Payment_Term_Total__c   &gt; APTS_Initial_Deposit__c), true, false )
+,false
+)</errorConditionFormula>
+        <errorMessage>Initial deposit should at least be 15% of the total for the of Payment term</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Flex_Pay</fullName>
+        <active>true</active>
+        <description>Adjusts fro small firm promotion</description>
+        <errorConditionFormula>AND( APTS_Quote_Proposal__r.Quote_Total__c &lt;3944, ISPICKVAL(APTS_Payment_Term__c,&quot;Flex Pay&quot;),NOT( ISNEW()),NOT( $Profile.Name =&apos;System Administrator&apos;))</errorConditionFormula>
+        <errorMessage>Minimum order total for Flex Pay is $4000.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Initial_Deposit</fullName>
+        <active>true</active>
+        <description>Initial Deposit can not be greater than Total Payment</description>
+        <errorConditionFormula>APTS_Initial_Deposit__c  &gt; APTS_Payment_Term_Total__c</errorConditionFormula>
+        <errorMessage>Initial Deposit can not be greater than Total Payment</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Order_Submission_Date</fullName>
+        <active>false</active>
+        <description>When user enter initial deposit there must be order submission date on quote header</description>
+        <errorConditionFormula>IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 12&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;Net 30&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;)) 
+,IF(AND(ischanged(APTS_Initial_Deposit__c),  (APTS_Order_Type__c = &apos;AMS&apos;), APTS_Quote_Proposal__r.ASA__c = FALSE, ISBLANK(APTS_Quote_Proposal__r.Order_Creation_Date__c)), true, false ) 
+,false 
+)</errorConditionFormula>
+        <errorMessage>Please enter Order Submission Date on quote header.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SAP_Initial_Deposit</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(APTS_Order_Type__c = &quot;SAP&quot;, AND(NOT(ISPICKVAL(APTS_Payment_Term__c, &quot;&quot;)), NOT(ISBLANK(APTS_Initial_Deposit__c))), NULL)</errorConditionFormula>
+        <errorMessage>Initial deposit must be blank for SAP payment terms.</errorMessage>
+    </validationRules>
+</CustomObject>

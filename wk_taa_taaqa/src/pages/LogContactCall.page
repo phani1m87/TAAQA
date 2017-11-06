@@ -1,0 +1,111 @@
+<apex:page standardController="Account">
+<style>
+.filterMatches{
+  background-color: #BFFF00;
+}
+.tertiaryPalette{
+  color: #000 !important;
+}
+.dt-buttons{
+  margin-left: 10px;
+}
+
+</style>
+
+<apex:form >
+<apex:OutputLink value="{!account.ContactCallURL1__c}{!$CurrentPage.parameters.ConId}{!account.ContactCallURL2__c}">
+<apex:image id="Next1" value="{!$Resource.NextButton}" />
+</apex:OutputLink> 
+<br/>
+<br/>
+<b><apex:OutputLabel value="Selected Contact Name:"/>
+&nbsp;
+&nbsp;
+<apex:OutputText value="{!$CurrentPage.parameters.ConName}"/></b>
+<apex:pageblock >
+<apex:pageblocktable value="{!account.Contacts}" var="item" html-cid="ContactsTable">
+<apex:column headerValue="Select">
+<apex:commandLink style="color:blue">
+<Apex:Outputtext value="Select"/>
+<apex:Param name="ConId" value="{!item.id}"/> 
+<apex:Param name="ConName" value="{!item.name}"/>
+</apex:CommandLink>
+</apex:column>
+<apex:column value="{!item.name}" style="background-color:{!if(item.id=$CurrentPage.parameters.ConId,'lightblue','white')}" />
+<apex:Column value="{!item.title}" style="background-color:{!if(item.id=$CurrentPage.parameters.ConId,'lightblue','white')}"/>
+<apex:Column value="{!item.Phone}" style="background-color:{!if(item.id=$CurrentPage.parameters.ConId,'lightblue','white')}"/>
+<apex:Column value="{!item.email}" style="background-color:{!if(item.id=$CurrentPage.parameters.ConId,'lightblue','white')}"/>
+<apex:Column value="{!item.mobilephone}" style="background-color:{!if(item.id=$CurrentPage.parameters.ConId,'lightblue','white')}"/>
+<apex:Column value="{!item.Inactive__c}" style="background-color:{!if(item.id=$CurrentPage.parameters.ConId,'lightblue','white')}"/>
+<apex:Column value="{!item.id}" rendered="False" />
+</apex:pageblockTable>
+</apex:Pageblock>
+<br/>
+<br/>
+
+<apex:OutputLink value="{!account.ContactCallURL1__c}{!$CurrentPage.parameters.ConId}{!account.ContactCallURL2__c}">
+<apex:image id="Next2" value="{!$Resource.NextButton}" />
+</apex:OutputLink>
+</apex:form>
+<!-- Jquery -->
+<apex:includeScript value="//code.jquery.com/jquery-1.11.3.min.js"/>
+<apex:stylesheet value="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+ 
+<!-- DataTable -->
+<apex:includeScript value="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"/>
+<apex:stylesheet value="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
+ 
+<!-- Search Highlight -->
+<apex:includeScript value="//bartaz.github.io/sandbox.js/jquery.highlight.js"/>
+<apex:includeScript value="//cdn.datatables.net/plug-ins/1.10.9/features/searchHighlight/dataTables.searchHighlight.min.js"/>
+<apex:stylesheet value="//cdn.datatables.net/plug-ins/1.10.9/features/searchHighlight/dataTables.searchHighlight.css"/>
+ 
+<!-- DataTable buttons -->
+<apex:includeScript value="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"/>
+<apex:includeScript value="//cdn.datatables.net/buttons/1.0.3/js/buttons.flash.min.js"/>
+<apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"/>
+<apex:includeScript value="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"/>
+<apex:includeScript value="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"/>
+<apex:includeScript value="//cdn.datatables.net/buttons/1.0.3/js/buttons.html5.min.js"/>
+<apex:includeScript value="//cdn.datatables.net/buttons/1.0.3/js/buttons.print.min.js"/>
+<apex:stylesheet value="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css"/>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+ var accountsTable = $('[cid$="ContactsTable"]').parent('table').eq(0).DataTable({
+   //enables results highlight
+   searchHighlight: true,
+    //sets record lengths to show in picklist
+   //aLengthMenu: [
+     //[10],
+    // [10]
+  // ],
+
+     "iDisplayLength": 100,
+   //adds copy, print buttons...
+   //dom: 'lBfrtip', //l=length, B=buttons, f=filter(search), r=processing, t=the table, I=table summary, p=page controls
+   //buttons: [
+     //'excel', 
+    // {
+     //  extend: 'print',
+      // customize: function(win) {
+        // $(win.document.body)
+         //.css( 'font-size', '10pt' )
+        // .prepend('<img src="http://datatables.net/media/images/logo-fade.png" style="position:absolute; top:0; left:0;" />');
+ 
+        // $(win.document.body).find( 'table' )
+         //.addClass( 'compact' )
+         //.css( 'font-size', 'inherit' );
+         // }
+     //}
+   //],
+ });
+
+       
+    
+});
+</script>
+
+
+
+</apex:page>

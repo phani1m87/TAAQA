@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>TAA Hierarchical custom setting</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BatchJobAdmin__c</fullName>
+        <description>Email id of Admin who will be reported regarding the more no of records update than normal.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Email id of Admin who will be reported regarding the more no of records update than normal.</inlineHelpText>
+        <label>BatchJobAdmin</label>
+        <length>250</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ExcludedAccountRecordTypeForUpdate__c</fullName>
+        <description>The account record type which will we excluded while updating account address via batch job.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The account record type which will we excluded while updating account address via batch job.</inlineHelpText>
+        <label>ExcludedAccountRecordTypeForUpdate</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GeneralDataSizeInBatchJob__c</fullName>
+        <description>In normal condition the maximum no of records getting update via batch job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>In normal condition the maximum no of records getting update via batch job</inlineHelpText>
+        <label>GeneralDataSizeInBatchJob</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>TAA CustomSetting</label>
+    <visibility>Public</visibility>
+</CustomObject>

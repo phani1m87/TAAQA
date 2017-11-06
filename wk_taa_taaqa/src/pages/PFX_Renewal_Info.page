@@ -1,0 +1,100 @@
+<apex:page standardController="Apttus_Proposal__Proposal__c" > 
+
+   <apex:tabpanel >
+
+    <apex:tab label="Authorizations/ELF/Revenue"  style="background:white;" >
+    <apex:tabpanel style="background:white;">
+    <apex:tab label="2016" style="background:white;">
+<apex:OutputLabel value="Individual Federal Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Individual_Federal_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Individual Federal Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Individual_Federal_Amount__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:450px;" value="Electronic Filing Amount"/><apex:outputText style="Position:absolute;left:600px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_ELF_Revenue__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Individual State Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Individual_State_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Individual State Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Individual_State_Amount__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:750px;" value="2016 Tax Software"/><apex:outputText style="Position:absolute;left:850px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Tax_Software_Revenue__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Business Federal Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Business_Federal_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Business Federal Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Business_Federal_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Business State Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Business_State_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Business State Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Business_State_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Consolidated Corp Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Consolidated_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Consolidated Corp Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Consolidated_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Proforma/Org Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Proforma_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Proforma/Org Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Proforma_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Tax Notebook Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Tax_Notebook_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Tax Notebook Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Tax_Notebook_Amount__c}"/></apex:OutputText>
+<br/>
+<br/>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="2016 Authorizations Total"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_Authorizations_Total__c}"/></apex:OutputText>
+   </apex:tab>
+    <apex:tab label="2015" style="background:white;">
+<apex:OutputLabel value="Individual Federal Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Individual_Federal_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Individual Federal Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Individual_Federal_Amount__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:450px;" value="Electronic Filing Amount"/><apex:outputText style="Position:absolute;left:600px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_ELF_Revenue__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:750px;" value="2015 Tax Software"/><apex:outputText style="Position:absolute;left:850px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Tax_Software_revenue__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Individual State Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Individual_State_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Individual State Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Individual_State_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Business Federal Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Business_Federal_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Business Federal Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Business_Federal_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Business State Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Business_State_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Business State Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Business_State_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Consolidated Corp Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Consolidated_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Consolidated Corp Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Consolidated_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Proforma/Org Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Proforma_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Proforma/Org Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Proforma_Amount__c}"/></apex:OutputText>
+<br/>
+<apex:OutputLabel value="Tax Notebook Count"/><apex:outputText style="Position:absolute;left:155px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Tax_Notebook_Count__c}"/></apex:OutputText>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="Tax Notebook Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Tax_Notebook_Amount__c}"/></apex:OutputText>
+ <br/>
+<br/>
+<apex:OutputLabel style="Position:absolute;left:180px;" value="2015 Authorizations Total"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_Authorizations_Total__c}"/></apex:OutputText>
+     </apex:tab>
+
+    </apex:tabpanel>
+    </apex:tab>
+    <apex:tab label="Additional Discounts"  style="background:white;">
+    
+<apex:OutputLabel value="2016 Additional Discount"/><apex:OutputText style="position:absolute;left:150px;" value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_AMS_Additional_Discount__c}"/>
+<br/>
+<apex:OutputLabel value="2015 Additional Discount"/><apex:OutputText style="position:absolute;left:150px;" value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_AMS_Additional_Discount__c}"/>
+<br/>
+<apex:OutputLabel value="2014 Additional Discount"/><apex:OutputText style="position:absolute;left:150px;" value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_AMS_Additional_Discount__c}"/>
+</apex:tab>  
+  
+         <apex:tab label="Pup/Lib Details" style="background:white;" >
+         <apex:OutputLabel value="2012 Return Count"/><apex:outputText style="Position:absolute;left:125px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2012_PL_Return_Count__c}"/></apex:OutputText>
+          <apex:OutputLabel style="Position:absolute;left:180px;" value="2012 Contract Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2012_PL_Contract_Amount__c}"/></apex:OutputText>
+<apex:OutputLabel style="position:absolute;left:450px;" value="2012 Pup/Lib Rate"/><apex:OutputText style="position:absolute;left:560px;"  value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2012_PL_Rate__c}"/>
+<apex:OutputLabel style="position:absolute;left:800px;" value="Expiration Year"/><apex:OutputText style="position:absolute;left:900px;"  value="{!Apttus_Proposal__Proposal__c.erp_account__r.PL_Expiration_Year__c}"/>
+<br/>
+         <apex:OutputLabel value="2013 Return Count"/><apex:outputText style="Position:absolute;left:125px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2013_PL_Return_Count__c}"/></apex:OutputText> 
+         <apex:OutputLabel style="Position:absolute;left:180px;" value="2013 Contract Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2013_PL_Contract_Amount__c}"/></apex:OutputText>
+<apex:OutputLabel style="position:absolute;left:450px;" value="2013 Pup/Lib Rate"/><apex:OutputText style="position:absolute;left:560px;"  value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2013_PL_Rate__c}"/>
+<br/>   
+         <apex:OutputLabel value="2014 Return Count"/><apex:outputText style="Position:absolute;left:125px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2014_PL_Return_Count__c}"/></apex:OutputText>
+         <apex:OutputLabel style="Position:absolute;left:180px;" value="2014 Contract Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2014_PL_Contract_Amount__c}"/></apex:OutputText>
+<apex:OutputLabel style="position:absolute;left:450px;" value="2014 Pup/Lib Rate"/><apex:OutputText style="position:absolute;left:560px;" value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2014_PL_Rate__c}"/>
+
+<br/>
+  <apex:OutputLabel value="2015 Return Count"/><apex:outputText style="Position:absolute;left:125px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_PL_Return_Count__c}"/></apex:OutputText> 
+         <apex:OutputLabel style="Position:absolute;left:180px;" value="2015 Contract Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_PL_Contract_Amount__c}"/></apex:OutputText>
+  <apex:OutputLabel style="position:absolute;left:450px;" value="2015 Pup/Lib Rate"/><apex:OutputText style="position:absolute;left:560px;"  value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2015_PL_Rate__c}"/>
+<br/>       
+  <apex:OutputLabel value="2016 Return Count"/><apex:outputText style="Position:absolute;left:125px;" value="{0,number}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_PL_Return_Count__c}"/></apex:OutputText> 
+
+  <apex:OutputLabel style="Position:absolute;left:180px;" value="2016 Contract Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_PL_Contract_Amount__c}"/></apex:OutputText>
+  <apex:OutputLabel style="position:absolute;left:450px;" value="2016 Pup/Lib Rate"/><apex:OutputText style="position:absolute;left:560px;" value="{!Apttus_Proposal__Proposal__c.erp_account__r.X2016_PL_Rate__c}"/>        
+         
+    </apex:tab>   
+   </apex:tabPanel>
+    
+</apex:page>

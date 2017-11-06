@@ -1,0 +1,744 @@
+<apex:page showHeader="false" standardController="Account" extensions="TAA_ServiceOverviewController" action="{!invokeGetCases}" docType="html-5.0">
+    <head>
+        <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js"/>
+        <apex:includescript value="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"/>
+        <apex:includescript value="//cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js"/>
+        <apex:stylesheet value="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
+        <apex:stylesheet value="//cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css"/>
+        <style>
+            td label {
+                font-size: 12px !important;
+                font-family: Arial,Helvetica,sans-serif;
+                font-weight: bold;
+            }   
+            
+            .reqAst:after{
+                content: "*";
+                position: absolute;
+                margin-left: 3px;
+                color: #f10601;
+                font-size: 20px;
+            }
+            .waitingSearchDiv{
+                position:absolute;
+                top:0px;
+                right:0px;
+                width:100%;
+                height:400%;
+                background-color:#666;
+                background-image:url('ajax-loader.gif');
+                background-repeat:no-repeat;
+                background-position:center;
+                z-index:10000000;
+                opacity: 0.5;
+                filter: alpha(opacity=40); /* For IE8 and earlier */
+            }
+            .imgclass:hover{   
+                background-image: url(/img/help/helpOrbs.gif);   
+                background-repeat: no-repeat;   
+                width: 16px;   
+                height: 15px;      
+                background-position: right;   
+              
+            }   
+            .imgclass{   
+                background-image: url(/img/help/helpOrbs.gif);   
+                background-repeat: no-repeat;   
+                width: 16px;   
+                height: 15px;
+                left: 1em;
+                position: relative;   
+            }
+            .btn{width:10em;}
+            
+            .ui-dialog{width: 60% !important;}
+            
+            /*.apexp .bPageBlock .detailList {width: 60%;}
+            #caseFilters .detailList {width: 60%;}
+            #caseDetailPage .detailList{width: 100%;}
+            
+            #newCaseAttachment .detailList{width: 100%;}*/
+            
+            body .bPageBlock .detailList .empty {display:none;}
+        </style>
+        <script>
+            j$ = $.noConflict(true);
+            var opptyProdTable;
+            j$(document).ready( function () {
+                opptyProdTable = j$('[id$="CasesTable"]').DataTable({
+                    "scrollY": "320px",
+                    "scrollCollapse": true,
+                    "autoWidth": false,
+                    "order": [[ 1, "desc" ]]
+                });
+            });
+            
+            function refreshTable()
+            {
+                opptyProdTable.destroy();
+                opptyProdTable = j$('[id$="CasesTable"]').DataTable({
+                    "scrollY": "320px",
+                    "scrollCollapse": true,
+                    "autoWidth": false,
+                    "order": [[ 1, "desc" ]]
+                });
+                
+                j$('[id$="activityIndicator"]').css("opacity", "1");
+            }
+        </script>
+        
+        <!-- KEEP THIS BLOCK HERE OR ELSE IT FACES CONFLICT & WILL BREAK PAGE FUNCTIONALITY -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!-- KEEP THIS BLOCK HERE OR ELSE IT FACES CONFLICT & WILL BREAK PAGE FUNCTIONALITY -->
+        
+        <script type="text/javascript">__sfdcSessionId = '{!$Api.Session_Id}';</script>
+    	<script src="../../soap/ajax/30.0/connection.js" type="text/javascript"></script>
+    	
+    	<script language="JavaScript">
+	        function uploadAttachment(filename, filecontent) {
+	            var attachment         = new sforce.SObject('Attachment');
+	            attachment.Name        = 'DELETE###' + filename;
+			    attachment.IsPrivate   = document.getElementById('isPrivate').checked;
+			    attachment.ContentType = file.type;
+			    attachment.Body        = filecontent;
+			    attachment.Description = document.getElementById('strDescription').value;
+			    attachment.ParentId    = '{!currentAccount.Id}';
+			    sforce.connection.create([attachment]);
+	            var results = sforce.connection.create([attachment]);
+	            for (var i = 0; i < results.length; i++) {
+	                if (results[i].getBoolean("success")) {
+	                	initiateReST(results[i].id);
+	                    alert('New attachment record created : ' + filename);
+	                }else{
+	                    alert('Failed:' + results[i]);
+	                }
+	            }
+	        }
+			var file;
+	        function fileSelected() {
+	            file = document.getElementById('fileToUpload').files[0];
+	            if (file) {
+	                var fileSize = 0;
+	                if (file.size > (5 * 1024 * 1024)) {
+	                    alert('File too large, greater than 5MB');
+	                    document.getElementById('fileToUpload').value = '';
+	                    return;
+	                }
+	                if (file.size > 1024 * 1024)
+	                    fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+	                else
+	                    fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+	
+	                document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
+	                document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
+	                document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
+	            }
+	        }
+	
+	        function uploadFile() {
+	            var file = document.getElementById('fileToUpload').files[0];
+	            var reader = new FileReader();
+	            reader.onload = loaded;
+	            reader.onerror = errorHandler;
+	            reader.readAsDataURL(file);           
+	        }
+	
+	        function loaded(evt) {
+	            var filename = document.getElementById('fileToUpload').files[0].name;
+	            var fileContent = String(evt.target.result);
+	            fileContent = fileContent.substr(fileContent.indexOf(',') + 1);
+	            uploadAttachment(filename, fileContent);  
+	        }
+	
+	        function errorHandler(evt){
+	            if (evt.target.error.name == 'NotReadableError') {
+	                alert('File could not be read');
+	            }else{
+	                alert(evt.target.error);
+	            }
+	        }
+
+	        function closeDialog(){
+	        	document.getElementById('fileToUpload').value = '';	
+	        	document.getElementById('fileName').innerHTML = '';
+	        	document.getElementById('fileType').innerHTML = '';
+	        	document.getElementById('fileSize').innerHTML = '';
+	        	document.getElementById('isPrivate').checked = false;
+	        	document.getElementById('strDescription').value = '';
+	        	$('#newCaseAttachment').dialog('destroy');
+	        }
+    	</script>
+        
+    </head>
+    <apex:form id="form">
+    	<apex:actionStatus id="loadResults">
+           <apex:facet name="start">
+               <div class="waitingSearchDiv" id="el_loading"> 
+                   <div class="waitingHolder" style="position:fixed;right:0px;height:200%;width:100%;">
+                       <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                       <span class="waitingDescription">Please Wait...</span>
+                   </div>
+               </div>
+           </apex:facet>
+        </apex:actionStatus>
+    	<apex:pageMessages escape="false"/>
+        <apex:pageBlock id="pb" rendered="{!isError = false}" title="Support Overview for {!currentAccount.Name}">
+            <apex:actionFunction name="invokeAction" action="{!invokeGetCases}" reRender="pb" status="loadResults" oncomplete="refreshTable();"/>
+            <apex:actionFunction name="invokeApexGetCaseDetail" action="{!getCaseDetails}" reRender="pb" status="loadResults" oncomplete="">
+                <apex:param name="selectedCaseId" value=""/>
+            </apex:actionFunction>
+            
+            <apex:actionFunction name="initiateReST" action="{!addNewCaseAttachment}" status="loadResults" reRender="" onComplete="closeDialog(); invokeApexGetCaseDetail('');">
+    			<apex:param name="newAttachmentId" value=""/>
+    		</apex:actionFunction>
+            
+            <apex:pageBlock title="Support Statistics" rendered="{!showCreateCase != 'yes' && showCaseDetail != 'yes'}">
+                <apex:pageBlockSection columns="3" title="Overall support case activities for {!selectedERPAccount} related ERP Accounts' in last {!numberOfDays} days">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Open Escalations" for="openEscalations"/>
+                        <apex:outputText value="{!openEscalationCount}" id="openEscalations"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Top Support Categories" for="topSupportCategoriesChart"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Top Product Lines" style="position:absolute;" for="topProductLinesChart"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Open Cases" for="openCases"/>
+                        <apex:outputText value="{!openCaseCount}" id="openCases"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputPanel style="position:absolute;margin-left:-5.5em;margin-top:-2em;">
+                            <apex:chart height="100"  width="200" data="{!lstCategoryChartData}">
+                                <apex:axis type="Category" position="left" fields="status" title="" grid="true"/>
+                                <apex:axis type="Numeric" position="top" fields="count" title="" steps="{!maximumSteps}" minimum="0"/>
+                                <apex:barSeries colorsProgressWithinSeries="true" colorSet="#33B8FF,#338AFF" gutter="0" orientation="horizontal" axis="left" xField="count" yField="status">
+                                    <apex:chartLabel field="count" display="outside" orientation="horizontal"/>
+                                </apex:barSeries>
+                            </apex:chart>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputPanel style="position: absolute;margin-left:-7em;margin-top:-2em;">
+                            <apex:chart height="100" width="200" data="{!lstProductFamilyChartData}">
+                                <apex:axis type="Category" position="left" fields="status" title="" grid="true"/>
+                                <apex:axis type="Numeric" position="top" fields="count" title="" steps="{!maximumSteps}" minimum="0"/>
+                                <apex:barSeries colorsProgressWithinSeries="true" colorSet="#33B8FF,#338AFF" gutter="0" orientation="horizontal" axis="left" xField="count" yField="status">
+                                    <apex:chartLabel field="count" display="outside" orientation="horizontal"/>
+                                </apex:barSeries>
+                            </apex:chart>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Support Cases in Last {!numberOfDays} Days" for="lastDateRangeCount"/>
+                        <apex:outputText value="{!last90DaysCaseCount}" id="lastDateRangeCount"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <div style="margin-top:3em;">
+	            <apex:outputPanel id="caseDetails">
+		            <apex:pageMessages id="msgs" escape="false"/>
+	                <apex:pageBlock title="Case Details" rendered="{!showCreateCase != 'yes'}">
+	                    <!-- Commenting this block as it is part of SMS-864 which is deferred to Oct'17 release due to change in requirement
+	                    SMS-863 is still going to Prod Friday of Sept 22nd --> 
+	                    <apex:pageBlockButtons location="top" rendered="{!showCases = 'yes' || showCaseDetail = 'yes'}">
+	                        <apex:commandButton value="NEW" action="{!enableNewCaseForm}" reRender="pb" status="loadResults"/>
+	                    </apex:pageBlockButtons>
+	                    
+	                    <apex:pageBlock rendered="{!showCases = 'yes' || showCaseDetail = 'yes'}">
+	                        <div id="caseFilters">
+		                        <apex:pageBlockSection rendered="{!showCases = 'yes'}" title="Search Cases" columns="6">
+		                            <apex:pageBlockSectionItem >
+		                                <apex:outputLabel value="Date From" for="dateFromFilter"/>
+		                                <apex:inputField value="{!currentAccount.Audit_Competitor_End_Date__c}" id="dateFromFilter"/>
+		                            </apex:pageBlockSectionItem>
+		                            <apex:pageBlockSectionItem >
+		                                <apex:outputLabel value="Date To" for="dateToFilter"/>
+		                                <apex:inputField value="{!currentAccount.Axcess_Tax_Competitor_End_Date__c}" id="dateToFilter"/>
+		                            </apex:pageBlockSectionItem>
+		                            <apex:pageBlockSectionItem >
+		                                <apex:outputLabel value="Select Date Range" for="dateRangeFilter"/>
+		                                <apex:selectList value="{!selectedDateRange}" id="dateRangeFilter" multiselect="false" size="1" style="width:100px">
+		                                   <apex:selectOption itemValue="" itemLabel="-- NONE --"/>
+		                                   <apex:selectOption itemValue="30" itemLabel="Last 30 Days"/>
+		                                   <apex:selectOption itemValue="60" itemLabel="Last 60 Days"/>
+		                                   <apex:selectOption itemValue="90" itemLabel="Last 90 Days"/>
+		                                </apex:selectList>
+		                            </apex:pageBlockSectionItem>
+		                            <apex:pageBlockSectionItem >
+		                                <apex:outputLabel value="Related ERP Accounts" for="relatedERPAccountsFilter"/>
+		                                <apex:selectList id="relatedERPAccountsFilter" value="{!accountNumber}" multiselect="false" size="1" style="width:100px" title="Select ERP Account Number to filter">
+		                                    <apex:selectOptions value="{!lstAccountNumbers}"/>
+		                                </apex:selectList> 
+		                            </apex:pageBlockSectionItem>
+		                            <apex:pageBlockSectionItem >
+		                                <apex:outputLabel value="Product Family" for="productFamilyFilter"/>
+		                                <apex:selectList id="productFamilyFilter" value="{!productFamilyName}" multiselect="false" size="1" style="width:100px" title="Select Product Family to filter">
+		                                    <apex:selectOptions value="{!lstProductFamilies}"/>
+		                                </apex:selectList>
+		                            </apex:pageBlockSectionItem>
+		                            <apex:pageBlockSectionItem >
+		                                <apex:commandButton value="Search" onClick="invokeAction(); return false;"/>
+		                            </apex:pageBlockSectionItem>
+		                        </apex:pageBlockSection>
+	                        </div>
+	                        <apex:pageBlockSection title="Cases" rendered="{!showCases = 'yes'}" columns="1">
+	                            <apex:pageBlockSectionItem >
+	                                <apex:outputPanel >
+	                                    <table id="CasesTable" class="display">
+	                                        <thead>
+	                                            <tr>
+	                                                <th>Case Number</th>
+	                                                <th>Created Date</th>
+	                                                <th>Last Modified Date</th>
+	                                                <th>Contact Name</th>
+	                                                <th>Contact Email</th>
+	                                                <th>Product Name</th>
+	                                                <th>Product Family Name</th>
+	                                                <th>Account Number</th>
+	                                                <th>Description</th>
+	                                                <!-- <th>Escalated?</th> -->
+	                                                <th>Status</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody style="height:200px">
+	                                            <apex:repeat value="{!caseListResponse.records}" var="objCaseListResponse">
+	                                                <apex:repeat value="{!objCaseListResponse.cases}" var="objCaseList">
+	                                                    <apex:repeat value="{!objCaseList.records}" var="objCase">
+	                                                    <tr>
+	                                                        <td><a href="#" onContextMenu="return false;" onClick="return invokeApexGetCaseDetail('{!objCase.Id}');"><font color='blue'>{!objCase.CaseNumber}</font></a></td>
+	                                                        <td>
+	                                                            <apex:outputText value="{0,date,MM/dd/yyyy}">
+	                                                                <apex:param value="{!objCase.CreatedDate}"/>
+	                                                            </apex:outputText>
+	                                                        </td>
+	                                                        <td>
+	                                                            <apex:outputText value="{0,date,MM/dd/yyyy}">
+	                                                                <apex:param value="{!objCase.LastModifiedDate}"/>
+	                                                            </apex:outputText>
+	                                                        </td>
+	                                                        <td>{!objCase.Contact.Name}</td>
+	                                                        <td>{!objCase.ContactEmail}</td>
+	                                                        <td>{!objCase.Support_Product_Name__c}</td>
+	                                                        <td>{!objCase.Support_Product_Family_Name__c}</td>
+	                                                        <td>{!objCase.Account.AccountNumber}</td>
+	                                                        <td>{!objCase.Description}</td>
+	                                                        <!-- <td><apex:outputField value="{!objCase.Is_Urgent__c}"/></td> -->
+	                                                        <td>{!objCase.Status}</td>
+	                                                    </tr>
+	                                                    </apex:repeat>
+	                                                </apex:repeat>
+	                                            </apex:repeat>
+	                                        </tbody>
+	                                    </table>
+	                                </apex:outputPanel>
+	                            </apex:pageBlockSectionItem>
+	                        </apex:pageBlockSection>
+	                        <br/>
+	                        <!-- 
+	                        <apex:pageBlockSection rendered="{!showCaseDetail = 'yes'}">
+	                            <apex:commandButton onClick="location.reload(); return false;" status="loadResults" style="position:relative;top:-10.9em;left:45.7em;" value="BACK"/>
+	                        </apex:pageBlockSection>
+	                        -->
+	                        <div id="caseDetailPage">
+		                        <apex:pageBlockSection title="Case Details" rendered="{!showCaseDetail = 'yes'}" columns="2">
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].CaseNumber}"/>
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Owner.Name}" label="Owner Name"/>
+		                            
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Status}"/>
+		                            <apex:outputText value=""/>
+		                            
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Contact.Name}" label="Contact Name"/>
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].ContactEmail}"/>
+		                            
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Account.Name}"/>
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Account.AccountNumber}"/>
+		                            
+		                            <!-- <apex:outputField value="{!caseDetailWithComments.records[0].Escalation__c}"/> -->
+		                            <apex:selectList id="escalationLevel" value="{!caseDetailWithComments.records[0].Escalation__c}" multiselect="false" size="1" disabled="{!caseDetailWithComments.records[0].IsClosed}">
+		                            	<apex:selectOptions value="{!lstEscalation}"/>
+		                        	</apex:selectList>
+		                        	<apex:outputField value="{!caseDetailWithComments.records[0].Priority}"/>
+		                        	
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Support_Category__c}"/>
+		                            <apex:outputText value=""/>
+		                            
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Support_Product_Name__c}"/>
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Support_Product_Family_Name__c}"/>
+		                            
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].CreatedDate}"/>
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].LastModifiedDate}"/>
+		                            
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Description}"/>
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Resolution__c}"/>
+		                        </apex:pageBlockSection>
+	                        
+	                        <apex:outputPanel id="testHere" rendered="{!showCaseDetail = 'yes'}">
+		                        <apex:pageBlockSection title="Case Comments" rendered="{!caseDetailWithComments.records[0].CaseComments.size == 0}">
+		                            <apex:outputText style="font-size:1.2em;" value="No Case Comments"/>
+		                        </apex:pageBlockSection>
+		                        <apex:pageBlockSection title="Case Comments" rendered="{!caseDetailWithComments.records[0].CaseComments.size != 0}">
+		                            <apex:pageBlockTable value="{!caseDetailWithComments.records[0].CaseComments}" var="objCaseComment">
+		                                <apex:column value="{!objCaseComment.IsPublished}"/>
+		                                <apex:column value="{!objCaseComment.CreatedBy.Name}">
+		                                    <apex:facet name="header">Comment By</apex:facet>
+		                                </apex:column>
+		                                <apex:column value="{!objCaseComment.CommentBody}"/>
+		                                <apex:column value="{!objCaseComment.CreatedDate}"/>
+		                            </apex:pageBlockTable>
+		                        </apex:pageBlockSection>
+		                        <apex:commandLink onClick="$('#newCaseCommentBlock').css('display', 'block'); $('#isCasePublic').scrollTop();" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink>
+		                        <div id="newCaseCommentBlock" style="display:none;">
+					        		<apex:pageBlockSection title="Comment Details" columns="1">		
+					        			<apex:pageBlockSectionItem >
+					                        <apex:outputLabel value="Public" for="isCasePublic"/>
+					                        <apex:inputCheckbox id="isCasePublic" value="{!isCaseCommentPublic}"/>    
+					                    </apex:pageBlockSectionItem>
+					                    <apex:pageBlockSectionItem >
+					                        <apex:outputLabel value="Comment" for="caseComment"/>
+					                        <apex:inputTextArea id="caseComment" value="{!caseCommentBody}" required="false" cols="80" rows="8" html-maxlength="1024"/>
+					                    </apex:pageBlockSectionItem>
+					        		</apex:pageBlockSection>
+				                    <apex:commandButton value="SAVE" action="{!addNewCaseComment}" onComplete="$('#newCaseCommentBlock').css('display', 'none');" reRender="caseDetails" status="loadResults" style="margin-left:36.1em;"/>			                    
+					        	</div>
+	                        </apex:outputPanel>
+	                        
+	                        <apex:outputPanel rendered="{!showCaseDetail = 'yes'}">
+		                        <apex:pageBlockSection title="Case Attachments" rendered="{!caseDetailWithComments.records[0].Attachments.size == 0}">
+		                            <apex:outputText style="font-size:1.2em;" value="No Case Attachments"/>
+		                        </apex:pageBlockSection>
+		                        <apex:pageBlockSection title="Case Attachments" rendered="{!caseDetailWithComments.records[0].Attachments.size != 0}">
+		                            <apex:pageBlockTable value="{!caseDetailWithComments.records[0].Attachments}" var="objCaseAttachment"> 
+		                                <apex:column value="{!objCaseAttachment.IsPrivate}"/>
+		                                <apex:column value="{!objCaseAttachment.CreatedBy.Name}">
+		                                    <apex:facet name="header">Attachment Created By</apex:facet>
+		                                </apex:column>
+		                                <apex:column value="{!objCaseAttachment.Name}"/>
+		                                <apex:column value="{!objCaseAttachment.Description}"/>
+		                                <apex:column value="{!objCaseAttachment.CreatedDate}"/>
+		                                <apex:column value="{!objCaseAttachment.LastModifiedBy.Name}">
+											<apex:facet name="header">Attachment Last Modified By</apex:facet>
+		                                </apex:column>
+		                                <apex:column value="{!objCaseAttachment.LastModifiedDate}"/>
+		                                <!-- <apex:column value="{!objCaseAttachment.ContentType}"/> -->
+		                            </apex:pageBlockTable>
+		                        </apex:pageBlockSection>
+		                        <!-- <apex:commandLink onClick="window.open('/apex/TAA_CaseAttachmentUploadPage?id={!caseDetailWithComments.records[0].Id}&accountId={!currentAccount.Id}','_blank','height=350,width=600');" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink> -->
+		                        <apex:commandLink onClick="$('#newCaseAttachment').dialog();" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink>
+	                        </apex:outputPanel>
+	                        </div>
+	                        <apex:pageBlockButtons location="top" style="position:relative;top:-4.7em;left:9em;" rendered="{!showCaseDetail = 'yes'}">
+	                    		<apex:commandButton value="SAVE" action="{!updateCase}" status="loadResults" onComplete="" reRender="pb" rendered="{!caseDetailWithComments.records[0].IsClosed != true}"/>
+	                    		<apex:commandButton value="CANCEL" onclick="location.reload(); return false;"/>
+	                		</apex:pageBlockButtons>
+	                    </apex:pageBlock>
+	                </apex:pageBlock>
+	            </apex:outputPanel> 
+            </div>         
+        	<apex:outputPanel id="caseCreatePageBlock">
+            <apex:pageBlock title="Open a support case" rendered="{!showCreateCase = 'yes'}">
+                <apex:pageBlockButtons >
+                    <apex:commandButton value="SAVE" action="{!startRequest}" reRender="caseCreatePageBlock, msgs" status="loadResults"/>
+                    <apex:commandButton value="CANCEL" onclick="location.reload(); return false;"/>
+                </apex:pageBlockButtons>
+                
+                <apex:pageBlockSection columns="1">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="What best describes your issue?" styleclass="reqAst"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:selectList id="contactReason" value="{!contactReason}" multiselect="false" size="1" required="false" style="width: 50%;">
+                            <apex:selectOptions value="{!lstSupportSiteContactReason}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Account Number" styleclass="reqAst"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="accountNumberList"/>
+                        <apex:selectList id="accountNumberList" value="{!accountNumber}" multiselect="false" size="1" required="false" style="width: 50%;">
+                        	<apex:actionSupport event="onchange" action="{!refreshFormWithProducts}" status="loadResults" reRender="caseCreatePageBlock" immediate="false"/>
+                            <apex:selectOptions value="{!lstAccountNumbers}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Issue Details" columns="1" id="issueDetails">
+                    <!-- Contact Reasons: Product or Technical Support -->
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'p' || contactReason == 'i'}">
+                        <apex:outputLabel value=""/>
+                        <apex:outputPanel >
+                              <apex:outputLabel value="Product" styleclass="reqAst"/>
+                              <img src="/s.gif" class="imgclass" title="Pick the product and issue you want to discuss." />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'p' || contactReason == 'i'}">
+                        <apex:outputLabel for="productId" value=""/>
+                           <apex:selectList id="productId" value="{!productId}" multiselect="false" size="1" required="false" style="width: 50%;">
+                               <apex:actionSupport event="onchange" action="{!refreshFeatureList}" status="loadResults" reRender="issueDetails" immediate="false"/>
+                               <apex:selectOptions value="{!lstSupportSiteProducts}"/>
+                           </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'p'}">
+                        <apex:outputLabel value="" for="issueReason"/>
+                        <apex:selectRadio id="issueReason" value="{!issueReason}" layout="pageDirection">
+                            <apex:actionSupport event="onchange" action="{!refreshFeatureList}" status="loadResults" reRender="issueDetails" immediate="false" focus="featureId"/>
+                            <apex:selectOptions value="{!lstSupportSiteIssueReason}"/>
+                        </apex:selectRadio>   
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'p' && productId != '' && lstSupportSiteFeatures.size > 1}">
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Feature"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'p' && productId != '' && lstSupportSiteFeatures.size > 1}">
+                        <apex:outputLabel value="" for="featureId"/>
+                        <apex:selectList id="featureId" value="{!featureId}" multiselect="false" size="1" style="width: 50%;">
+                           <apex:selectOptions value="{!lstSupportSiteFeatures}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    
+                    <!-- Contact Reasons: Billing & Accounts AND Orders & Returns -->
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'o' || contactReason == 'b'}">
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Order Number" />
+                    </apex:pageBlockSectionItem> 
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'o' || contactReason == 'b'}">
+                        <apex:outputLabel value="" for="orderNumber"/>
+                        <apex:inputText id="orderNumber" value="{!orderNumber}" required="false" size="67"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'b'}">
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Invoice Number"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!contactReason == 'b'}">
+                           <apex:outputLabel value="" for="invoiceNumber"/>
+                           <apex:inputText id="invoiceNumber" value="{!invoiceNumber}" required="false" size="67"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputPanel >
+                            <apex:outputLabel value="Brief Issue Summary" for="subjectInput" styleclass="reqAst"/>
+                            <img src="/s.gif" class="imgclass" title="Describe your issue, e.g. 'I am logged out of my sotware and can't login.'" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="subjectInput"/>
+                        <apex:inputText id="subjectInput" value="{!strSubject}" required="false" size="67"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Detailed Description" styleclass="reqAst"/>
+                    </apex:pageBlockSectionItem>    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel for="descriptionInput" value=""/>
+                        <apex:inputTextArea id="descriptionInput" value="{!strDescription}" required="false" cols="80" rows="8" html-maxlength="1024"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Internal Comments"/>
+                    </apex:pageBlockSectionItem> 
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="internalComments"/>
+                        <apex:inputTextArea id="internalComments" value="{!internalComment}" required="false" cols="80" rows="8" html-maxlength="1024"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Severity" styleclass="reqAst"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="severity"/>
+                        <apex:outputPanel >
+                            <apex:selectList id="severity" value="{!severity}" multiselect="false" size="1" required="false" style="width: 50%;">
+                                <apex:selectOptions value="{!lstSeverity}"/>
+                            </apex:selectList>
+                            <img src="/s.gif" class="imgclass" title="Click to see more details about each severity level." onclick="$('#severityHelpDialog').dialog();" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Escalation Level"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="escalation"/>
+                        <apex:outputPanel >
+                            <apex:selectList id="escalation" value="{!escalation}" multiselect="false" size="1" required="false" style="width: 50%;">
+                                <apex:selectOptions value="{!lstEscalation}"/>
+                            </apex:selectList>
+                            <img src="/s.gif" class="imgclass" title="Click to see more details about each escalation level." onclick="$('#escalationHelpDialog').dialog();" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Case Visible To Customer?"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="isVisibleToCustomer"/>
+                        <apex:inputCheckbox id="isVisibleToCustomer" value="{!isVisibleToCustomer}"/>    
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Product Enhancement Request?"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="isProductEnhancementRequest"/>
+                        <apex:inputCheckbox id="isProductEnhancementRequest" value="{!isProductEnhancementRequest}"/>    
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                                 
+                <apex:pageBlockSection title="Contact Information" columns="1" id="contactDetails">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="customerType"/>
+                        <apex:outputLabel value="Who should support contact regarding this issue?" styleclass="reqAst"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="contactChoice"/>
+                        <apex:selectList id="contactChoice" value="{!contactChoice}" multiselect="false" size="1">
+                            <apex:actionSupport event="onchange" action="{!refreshContactDetails}" status="loadResults" reRender="contactDetails" immediate="false" focus="featureId"/>
+                            <apex:selectOptions value="{!lstSupportContactChoice}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="First Name" styleclass="reqAst" />
+                    </apex:pageBlockSectionItem> 
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="contactFirstName"/>
+                        <apex:inputText id="contactFirstName" value="{!contactFirstName}" required="false" size="67"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Last Name" styleclass="reqAst"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="contactLastName"/>
+                        <apex:inputText id="contactLastName" value="{!contactLastName}" required="false" size="67"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Email Address" styleclass="reqAst"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="contactEmail"/>
+                        <apex:input id="contactEmail" value="{!contactEmail}" type="email" required="false" size="67"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputPanel >
+	                        <apex:outputLabel value="Phone Number"/>
+	                        <img src="/s.gif" class="imgclass" title="US phone number format, only numbers without any special characters like () & -." />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="phoneNumber"/>
+                        <apex:input id="phoneNumber" value="{!contactPhone}" type="text" html-maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57" size="67"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""/>
+                        <apex:outputLabel value="Best Time to Contact"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="" for="bestTimeToContact"/>
+                        <apex:inputText id="bestTimeToContact" value="{!bestTimeToContact}" required="false" size="67"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:pageBlock>
+        <div id="severityHelpDialog" title="Severity Level Help" style="display:none;width:60%;">
+            <p>
+                <b>Critical Business Impact.</b> Customer's production use of our products on a primary business service, major application or mission-critical system is stopped or so severely impacted that the customer cannot reasonably continue work.
+                <br/><br/>
+                These problems could have the following characteristics:<br/>
+                <ul>
+                    <li>System hangs or crash situations</li>
+                    <li>Data loss or data corruption</li>
+                    <li>Critical functionality not available</li>
+                </ul>
+                <br/>
+                <b>Significant Business Impact.</b> Important product features are unavailable with no acceptable workaround. Customer's implementation, major applications, or mission critical systems are functioning with limited capabilities or are unstable with periodic interruptions. The software may be operating but is severely restricted.
+                <br/> <br/>
+                These problems could have the following characteristics:<br/>
+                <ul>
+                    <li>Product error or failure forcing a restart or recovery</li>
+                    <li>Severely degraded performance</li>
+                    <li>Functionality unavailable but the system is able to operate in a restricted fashion</li>
+                </ul>
+                <br/> 
+                <b>Minimal Business Impact.</b> Product features are unavailable but a workaround exists and the majority of software functions are still usable. Minor function/feature failure that the customer can easily circumvent or avoid. Customer's work has minor loss of operational functionality.
+                <br/><br/>
+                These problems could have the following characteristics:<br/>
+                <ul>
+                    <li>Error message with workaround</li>
+                    <li>Minimal performance degradation</li>
+                    <li>Incorrect product behavior with minor impact</li>
+                    <li>Questions on product functionality or configuration during implementation</li>
+                </ul>
+                <br/> 
+                <b>Nominal Business Impact.</b> Minor problem or question that does not affect the software function such as How To's, documentation, general questions, or enhancement requests. There is no impact to product usage or customer's operations.
+                <br/><br/>
+                These problems could have the following characteristics:<br/>
+                <ul>
+                    <li>General requests for advice on product usage</li>
+                    <li>Clarification on product documentation or release notes</li>
+                    <li>Product enhancement request</li>
+                </ul>
+            </p>
+        </div>
+        <div id="escalationHelpDialog" title="Escalation Level Help" style="display:none;">
+            <p>
+                <ul>
+                    <li>E4 – anyone can escalate to this level</li>
+                    <li>E3 – Only Supervisor, Manager, Director, VP can escalate to this level</li>
+                    <li>E2 – Only Manager, Director, VP can escalate to this level</li>
+                    <li>E1 – Only Director, VP can escalate to this level</li>
+                </ul>
+            </p>
+        </div>
+        <div id="newCaseAttachment" title="File Upload" style="display:none;width: 100%;">
+        	<apex:pageBlock >
+		        <apex:pageBlockButtons location="bottom">
+		            <apex:commandButton onclick="uploadFile();" status="loadResults" reRender="msgs" value="Upload"/>
+		        </apex:pageBlockButtons>
+		        <apex:pageBlockSection title="Attachment" columns="1">      
+		            <apex:pageBlockSectionItem >
+		                <apex:outputlabel for="fileToUpload" value="Select a File to Upload"/>
+		          		<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
+		            </apex:pageBlockSectionItem>
+		            <div id="fileName"></div>
+		        	<div id="fileSize"></div>
+		        	<div id="fileType"></div>
+		            <apex:pageBlockSectionItem >
+		                <apex:outputLabel for="isPrivate" value="Is Private"/>
+		                <input type="checkbox" id="isPrivate"/>
+		            </apex:pageBlockSectionItem>
+		            <apex:pageBlockSectionItem >
+		                <apex:outputLabel for="caseAttachmentDescription" value="Description"/>
+		                <textarea id="strDescription" cols="80" rows="8" maxlength="50"/>
+		            </apex:pageBlockSectionItem>
+		        </apex:pageBlockSection>
+    		</apex:pageBlock>
+        </div>
+    </apex:form>
+</apex:page>

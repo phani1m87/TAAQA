@@ -1,0 +1,4220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddToCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableCustomerPortal</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnablePartnerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableSelfService</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Merge</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewContact</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewCustomerPortal</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewPartnerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewSelfService</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fieldSets>
+        <fullName>TSM_LeadConversion_SearchResult_FieldSet</fullName>
+        <description>Used in custom lead convert page (TSM_LeadConvert) for lookup search results.</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AccountId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>TSM_LeadConversion_SearchResult_FieldSet</label>
+    </fieldSets>
+    <fields>
+        <fullName>AMS_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>AMS Account Number</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account.RecordType.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Record Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AssistantName</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>AssistantPhone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Audit_Work_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Audit Work Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Audits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Audits compilations and reviews</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Audits including Government Audits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Audits but not for Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Audits Compilations and Reviews including Government Audits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Audits Compilations and Reviews but not for Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compilations and Reviews Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Assurance Work</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Full Service Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Birthdate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Campaign_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>HubSpot-Temp-Campaign-Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>CleanStatus</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Contact_Count__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Full_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>FirstName+&quot; &quot;+LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Full Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Record_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Record ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DNC_Last_Modified_Filename__c</fullName>
+        <externalId>false</externalId>
+        <label>DNC Last Modified Filename</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Quality_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Data_Quality_Score__c =100,&quot;All Contact Details Captured&quot;, &quot;Missing: &quot;&amp;IF( LEN( Phone ) = 0, &quot;Phone, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF(LEN( Email) = 0, &quot;Email, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN( MailingStreet ) = 0, &quot;Complete Address, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN(Title) = 0, &quot;Job Title, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( ISPICKVAL( Salutation,&quot;&quot;), &quot;Salutation&quot;,&quot;&quot;))</formula>
+        <label>Data Quality Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Quality_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( LEN( Phone) = 0, 0,20) + IF( LEN( Email) = 0, 0,20) + IF( LEN(MailingStreet) = 0, 0,20) + IF( LEN(Title) = 0, 0,20) + IF( ISPICKVAL(Salutation,&quot;&quot;), 0,20)</formula>
+        <label>Data Quality Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Decision_Responsibility__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision Responsibility</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Engagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Department</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Do_Not_Call_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Do Not Call Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Do_Not_Call__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Do Not Call</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Domain_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Domain Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Competitor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Education</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Foreign – Canada</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Foreign – Non-Canadian</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named – Corp</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named - National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named - Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Web Mail</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Domain__c</fullName>
+        <externalId>false</externalId>
+        <formula>SUBSTITUTE(Email, LEFT(Email, FIND(&quot;@&quot;, Email)), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Domain</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ERP__c</fullName>
+        <externalId>false</externalId>
+        <label>ERP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Homegrown</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Microsoft Dynamics AX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Microsoft Dynamics GP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Microsoft Dynamics NAV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NetSuite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Oracle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other (please indicate in comments section below)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unknown/Don&apos;t Know</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Microsoft Dynamics 365</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>FED_STATE_DNC_DATE__c</fullName>
+        <externalId>false</externalId>
+        <label>FED STATE DNC DATE</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FED_STATE_DNC_MOBILE_DATE__c</fullName>
+        <externalId>false</externalId>
+        <label>FED STATE DNC MOBILE DATE</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FED_STATE_DNC_MOBILE__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>FED STATE DNC MOBILE</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FED_STATE_DNC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>FED STATE DNC</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Functional_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Functional Area</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounting &amp; Audit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Firm Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>International Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Management Advisory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Provision</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Specialty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HomePhone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HubSpot_BounceBack__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText># of HubSpot Hard Bounce Back emails sent</inlineHelpText>
+        <label>HubSpot BounceBack</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>INTERNAL_DNC_DATE__c</fullName>
+        <externalId>false</externalId>
+        <label>INTERNAL DNC DATE</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>INTERNAL_DNC_MOBILE_DATE__c</fullName>
+        <externalId>false</externalId>
+        <label>INTERNAL DNC MOBILE DATE</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>INTERNAL_DNC_MOBILE__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>INTERNAL DNC MOBILE</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>INTERNAL_DNC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>INTERNAL DNC</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ISR_Q4_15_Tax_Eng_Attack_Promo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ISR Q4 15 Tax-Eng Attack Promo</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Inactive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Select this checkbox if this contact is no longer active at their company.</inlineHelpText>
+        <label>Inactive</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Indirect_Owner_Email__c</fullName>
+        <description>Populate with the email address of the user selected in the Indirect Owner field</description>
+        <externalId>false</externalId>
+        <formula>IF( Account.Indirect_Owner__r.FirstName = &quot;Territory&quot;, 
+    Account.Indirect_Owner__r.Custodial_Rep__r.Email,
+    Account.Indirect_Owner__r.Email
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Indirect Owner Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Indirect_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account.Indirect_Owner__r.FirstName = &quot;Territory&quot;, 
+    Account.Indirect_Owner__r.Custodial_Rep__r.FirstName + &quot; &quot; + Account.Indirect_Owner__r.Custodial_Rep__r.LastName,
+    Account.Indirect_Owner__r.FirstName &amp; &quot; &quot; &amp; Account.Indirect_Owner__r.LastName
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Indirect Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Indirect_owner_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account.Indirect_Owner__r.FirstName = &quot;Territory&quot;, 
+    CASESAFEID(Account.Indirect_Owner__r.Custodial_Rep__r.Id),
+    CASESAFEID(Account.Indirect_Owner__r.Id)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Indirect owner ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Primary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Primary</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>LastCURequestDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LastCUUpdateDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MOBILE_PHONE_DATE_ADDED__c</fullName>
+        <externalId>false</externalId>
+        <label>MOBILE PHONE DATE ADDED</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MailingAddress</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Market_Sub_Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>SubSegment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Segment__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sole Proprietor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2-4 Total Employees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5-9 Total Employees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>10-19 Total Employees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>20-49 Total Employees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>50-99 Total Employees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>100+ Total Employees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Top 100 Firms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Enterprise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Large Enterprise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mid Enterprise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mid Market</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Agriculture</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Commerce</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Defense</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Energy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Health and Human Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Homeland Security</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Housing and Urban Development</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Interior</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Justice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Labor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of State</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Treasury (not IRS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dept of Vet Affairs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EEOC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Exec Branch (White House)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FCC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FDIC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fed Election Commission</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Government Employee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IRS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Library of Congress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nuclear Reg Commission</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OSHA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Social Security Administration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Courts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Local Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Schools</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Schools and Libraries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Public Libraries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Universities/Colleges/Business and Trade Schools</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Size TBD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 1-3 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 4-5 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 6-10 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 11-20 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 21-50 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 51-100 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 101-250 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 251-600 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 601-999 Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm 1000+ Attorneys</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firm - Puerto Rico and Virgin Islands</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law Firms (Size TBD)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State/County Law Libraries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Puerto Rico and Virgin Islands</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Exempt and Membership Organizations</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Schools and Libraries</controllingFieldValue>
+                <valueName>Law Schools</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Schools and Libraries</controllingFieldValue>
+                <valueName>Other Schools and Libraries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Schools and Libraries</controllingFieldValue>
+                <valueName>Public Libraries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Schools and Libraries</controllingFieldValue>
+                <valueName>Universities/Colleges/Business and Trade Schools</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>State and Local Government</controllingFieldValue>
+                <valueName>Local Government</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>State and Local Government</controllingFieldValue>
+                <valueName>State Government</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>State and Local Government</controllingFieldValue>
+                <valueName>Other Government</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tax Exempt and Membership Organizations</controllingFieldValue>
+                <valueName>Tax Exempt and Membership Organizations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>Sole Proprietor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>2-4 Total Employees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>5-9 Total Employees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>10-19 Total Employees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>20-49 Total Employees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>50-99 Total Employees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>100+ Total Employees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>Top 100 Firms</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accounting Firms</controllingFieldValue>
+                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
+                <controllingFieldValue>Consultants</controllingFieldValue>
+                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
+                <controllingFieldValue>General Corporate</controllingFieldValue>
+                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
+                <controllingFieldValue>Insurance Companies</controllingFieldValue>
+                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
+                <valueName>Size TBD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
+                <controllingFieldValue>Consultants</controllingFieldValue>
+                <controllingFieldValue>General Corporate</controllingFieldValue>
+                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
+                <controllingFieldValue>Insurance Companies</controllingFieldValue>
+                <valueName>Global Enterprise</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
+                <controllingFieldValue>Consultants</controllingFieldValue>
+                <controllingFieldValue>General Corporate</controllingFieldValue>
+                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
+                <controllingFieldValue>Insurance Companies</controllingFieldValue>
+                <valueName>Large Enterprise</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
+                <controllingFieldValue>Consultants</controllingFieldValue>
+                <controllingFieldValue>General Corporate</controllingFieldValue>
+                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
+                <controllingFieldValue>Insurance Companies</controllingFieldValue>
+                <valueName>Mid Enterprise</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
+                <controllingFieldValue>Consultants</controllingFieldValue>
+                <controllingFieldValue>General Corporate</controllingFieldValue>
+                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
+                <controllingFieldValue>Insurance Companies</controllingFieldValue>
+                <valueName>Mid Market</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
+                <controllingFieldValue>Consultants</controllingFieldValue>
+                <controllingFieldValue>General Corporate</controllingFieldValue>
+                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
+                <controllingFieldValue>Insurance Companies</controllingFieldValue>
+                <valueName>Small</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Agriculture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Commerce</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Defense</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Energy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Health and Human Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Homeland Security</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Housing and Urban Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Interior</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Justice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Labor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of State</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Treasury (not IRS)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Dept of Vet Affairs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>EEOC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Exec Branch (White House)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>FCC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>FDIC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Fed Election Commission</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Government Employee</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>IRS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Library of Congress</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Nuclear Reg Commission</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>OSHA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>SEC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>Social Security Administration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Federal Government</controllingFieldValue>
+                <valueName>US Courts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 1-3 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 4-5 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 6-10 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 11-20 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 21-50 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 51-100 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 101-250 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 251-600 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 601-999 Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm 1000+ Attorneys</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firm - Puerto Rico and Virgin Islands</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Law Firms (Size TBD)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>Legal Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Professionals</controllingFieldValue>
+                <valueName>State/County Law Libraries</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Mobile_DNC_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile DNC Reason</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Mobile_DNC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Mobile DNC</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mobile_Last_Modified_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Last Modified Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Most_Recent_Campaign_Date__c</fullName>
+        <description>Automatically gets populated/updated each time a new Campaign Member is added to the Contact</description>
+        <externalId>false</externalId>
+        <label>Most Recent Campaign Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NA_CCC__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>CCH Connections Conference</description>
+        <externalId>false</externalId>
+        <inlineHelpText>CCH Connections Conference</inlineHelpText>
+        <label>NACCC-CCH Conn Conf Alert</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NA_IFT__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Intelligence for Taxation (Monthly)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Intelligence for Taxation (Monthly)</inlineHelpText>
+        <label>NAIFT-Intell for Tax Newsletter</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NA_TNH__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Tax News Headlines (Daily)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Tax News Headlines (Daily)</inlineHelpText>
+        <label>NATNH-Tax News Headline</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OtherAddress</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OtherPhone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Number</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Phone_DNC_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone DNC Reason</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Phone_DNC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Phone DNC</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Phone_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>SUBSTITUTE( 
+SUBSTITUTE( 
+SUBSTITUTE( 
+SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;), &quot;-&quot;, &quot;&quot;)</formula>
+        <label>Phone Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Primary Contact</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Product_Intere__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Interest</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Books</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AutoFlow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Practice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Workstream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH eSign/Bundles</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Knowledge Tools</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Sales Tax Office v4.0 Upgrade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Site Builder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx ActiveData</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Engagement/Workpaper Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Fixed Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Knowledge Coach</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Outsource</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx PDFlyer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Professional and Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rates &amp; Taxability Databases</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research &amp; Learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales &amp; Use Tax Calculation (On-Premise)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales &amp; Use Tax Calculation (SaaS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Compliance (Returns)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training &amp; Consulting/Professional Services</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RL_AAR__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL Accounting  Audit Research</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL Accounting  Audit Research</inlineHelpText>
+        <label>RLAAR-Accounting  Audit Research</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_FEPR__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Financial Estate Planning Research</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Financial Estate Planning Research</inlineHelpText>
+        <label>RLFEP-Financial Estate Planning Research</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_FTR__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL Federal Tax Research</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL Federal Tax Research</inlineHelpText>
+        <label>RLFT- Federal Tax Research</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_ITR__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL International Tax Research</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL International Tax Research</inlineHelpText>
+        <label>RLIT- International Tax Research</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_SAA__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL Sem - Accounting &amp; Audit</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL Sem - Accounting &amp; Audit</inlineHelpText>
+        <label>RLSEMAA-Acct Audit Seminars</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_SFE__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL Sem - Finance &amp; Estate Planning</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL Sem - Finance &amp; Estate Planning</inlineHelpText>
+        <label>RLSEMFEP-Fin Est Plan Seminars</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_SFI__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL Sem - Federal Tax Individual</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL Sem - Federal Tax Individual</inlineHelpText>
+        <label>RLSEMFT-Federal Tax Seminars</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_SIT__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL Sem - International Tax</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL Sem - International Tax</inlineHelpText>
+        <label>RLSEMIT-Intl Tax CPE Seminars</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_SST__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL Sem - State Tax</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL Sem - State Tax</inlineHelpText>
+        <label>RLSEMST-State Tax Seminars</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RL_STR__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RL State Tax Research</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RL State Tax Research</inlineHelpText>
+        <label>RLST-State Tax Research</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>R_L_Owner_Email__c</fullName>
+        <description>Populate with the email address of the user selected in the R&amp;L Owner field</description>
+        <externalId>false</externalId>
+        <formula>IF( Account.R_L_Owner__r.FirstName = &quot;Territory&quot;, 
+    Account.R_L_Owner__r.Custodial_Rep__r.Email,
+    Account.R_L_Owner__r.Email
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>R&amp;L Owner Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>R_L_Owner_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account.R_L_Owner__r.FirstName = &quot;Territory&quot;, 
+    CASESAFEID(Account.R_L_Owner__r.Custodial_Rep__r.Id),
+    CASESAFEID(Account.R_L_Owner__r.Id)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>R&amp;L Owner ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>R_L_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account.R_L_Owner__r.FirstName = &quot;Territory&quot;, 
+    Account.R_L_Owner__r.Custodial_Rep__r.FirstName + &quot; &quot; + Account.R_L_Owner__r.Custodial_Rep__r.LastName,
+    Account.R_L_Owner__r.FirstName &amp; &quot; &quot; &amp; Account.R_L_Owner__r.LastName
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>R&amp;L Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rating__c</fullName>
+        <externalId>false</externalId>
+        <label>Rating</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hot</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Warm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cold</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ReportsToId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>S2S_Contact_Data__c</fullName>
+        <externalId>false</externalId>
+        <formula>((FirstName= &apos;&apos; || FirstName = null) || (LastName= &apos;&apos; || LastName = null) || (Email= &apos;&apos; || Email = null) || (SFDC_Contact__c= &apos;&apos; || SFDC_Contact__c = null))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>S2S Contact Data</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SFDC_Contact_Text__c</fullName>
+        <externalId>true</externalId>
+        <label>SFDC Contact # (Text)</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFDC_Contact__c</fullName>
+        <displayFormat>{0000000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>SFDC Contact #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>SFS_CID2__c</fullName>
+        <externalId>false</externalId>
+        <label>SFS CID</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFS_Contact_Record_ID__c</fullName>
+        <externalId>true</externalId>
+        <label>SFS Contact Record ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFS_Informatica_Field_Update_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>SFS Informatica Field Update Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SFS_TwoTrial_Reg_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>SFS TwoTrial Reg Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SP_AAW__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>SW Account &amp; Audit Workflow</description>
+        <externalId>false</externalId>
+        <inlineHelpText>SW Account &amp; Audit Workflow</inlineHelpText>
+        <label>SWAAW-Acct Audit Workflow</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SP_CDT__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>SW Corporate Direct Tax</description>
+        <externalId>false</externalId>
+        <inlineHelpText>SW Corporate Direct Tax</inlineHelpText>
+        <label>SWCDT-Corp Direct Tax</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SP_CFM__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>SW CPA Firm Management</description>
+        <externalId>false</externalId>
+        <inlineHelpText>SW CPA Firm Management</inlineHelpText>
+        <label>SW CPA-CPA Firm Management</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SP_CFT__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>SW CPA Firm Technology</description>
+        <externalId>false</externalId>
+        <inlineHelpText>SW CPA Firm Technology</inlineHelpText>
+        <label>SWCFT-CPA Firm Technology</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SP_CIT__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>SW Corporate Indirect Tax</description>
+        <externalId>false</externalId>
+        <inlineHelpText>SW Corporate Indirect Tax</inlineHelpText>
+        <label>SWCIT-Corp Indirect Tax</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Alignment_Staging__c</fullName>
+        <description>A staging field on the Contact object, which will be populated via Pardot, and then a workflow to take the value from that field and populate on the Campaign Member. The staging field should then be blanked out after Campaign Field is populated.</description>
+        <externalId>false</externalId>
+        <label>Sales Alignment (Staging)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Indirect</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounting Firms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Banks and Financial Institutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consultants</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial and Estate Planners</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General Corporate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hospital and Payers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Companies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal Professionals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retail Tax Preparers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Schools and Libraries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State and Local Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Exempt and Membership Organizations</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Software_Owner_Email__c</fullName>
+        <description>Populate with the email address of the user selected in the Software Owner field</description>
+        <externalId>false</externalId>
+        <formula>IF( Account.Software_Owner__r.FirstName = &quot;Territory&quot;, 
+    Account.Software_Owner__r.Custodial_Rep__r.Email,
+    Account.Software_Owner__r.Email
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Software Owner Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Software_Owner_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account.Software_Owner__r.FirstName = &quot;Territory&quot;, 
+    CASESAFEID(Account.Software_Owner__r.Custodial_Rep__r.Id),
+    CASESAFEID(Account.Software_Owner__r.Id)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Software Owner ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Software_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account.Software_Owner__r.FirstName = &quot;Territory&quot;, 
+    Account.Software_Owner__r.Custodial_Rep__r.FirstName + &quot; &quot; + Account.Software_Owner__r.Custodial_Rep__r.LastName,
+    Account.Software_Owner__r.FirstName &amp; &quot; &quot; &amp; Account.Software_Owner__r.LastName
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Software Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Submitted_By__c</fullName>
+        <description>Used for Small Market Lead Share</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for Small Market Lead Share</inlineHelpText>
+        <label>Submitted By</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TAA_18_digit_Contact_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TAA 18-digit Contact ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TAA_Account_Record_ID__c</fullName>
+        <description>AccountID in TAA Org</description>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(AccountId)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TAA Account Record ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Timing_of_STG_implementation__c</fullName>
+        <externalId>false</externalId>
+        <label>Timing of STG implementation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Within next 12 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Between 13 to 24 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Greater than 24 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No plans at this time/Don&apos;t Know</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TwoTrial_Campaign_ID__c</fullName>
+        <description>Captures the TAA record ID for the Campaign matching the TwoTrial Campaign Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the TAA record ID for the Campaign matching the TwoTrial Campaign Name</inlineHelpText>
+        <label>TwoTrial Campaign ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TwoTrial_Campaign_Name__c</fullName>
+        <description>Captures the name of the Campaign from SFS</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the name of the Campaign from SFS for TWOTrial</inlineHelpText>
+        <label>TwoTrial Campaign Name</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UseSalesforce</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>WK_ContactID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>WK Contact ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>WK_LEGACY_SUBSCRIBERKEY__c</fullName>
+        <externalId>false</externalId>
+        <label>WK_LEGACY_SUBSCRIBERKEY</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X2013_User_Conference_Attendee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>2013 User Conference Attendee</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2014_User_Conference_Attendee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>2014 User Conference Attendee</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2015_Case_for_nomination__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>•	Late-stage opportunities (Execute Demo, minimum) worth $25,000 in first year revenue.  
+•	A “New to New” prospect designated in SFDC with no current Wolters Kluwer Tax &amp; Accounting U.S. Software or R&amp;L solutions (books, excluded)</inlineHelpText>
+        <label>Case for nomination</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>X2015_User_Conference_Attendee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>2015 User Conference Attendee</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2015_User_Conference_Nominee_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>2015 User Conference Nominee Approved</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2016_User_Conference_Attendee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>2016 User Conference Attendee</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2016_User_Conference_Nominee_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>This program is designed for those prospective new clients who are in the late stages of the sales process and need that final “push” or due diligence to make their decision to become a new client.</inlineHelpText>
+        <label>2016 User Conference Nominee Approved</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2017_UC_Nominee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>2017 UC Nominee</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2017_User_Conference_Attendee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>2017 User Conference Attendee</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X2017_User_Conference_Nominee_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>This program is designed for those prospective new clients who are in the late stages of the sales process and need that final “push” or due diligence to make their decision to become a new client.</inlineHelpText>
+        <label>2017 User Conference Nominee Approved</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__HasOptedOutOfMobile__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Mobile Opt Out</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__Mobile_Country_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Mobile Country Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>US</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>AC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AQ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BB</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BJ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BQ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DJ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ET</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FJ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GB</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GQ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IQ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>JE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>JM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>JO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LB</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ME</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MQ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SB</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SJ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ST</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TJ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>YE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>YT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ZA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ZM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ZW</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>jsImpacts__Data_com_Managed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( Jigsaw&lt;&gt;&quot;&quot;, 1, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Data.com Managed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>jsImpacts__Data_com_does_not_auto_update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Prevents automated Clean jobs from auto-filling fields with the matched Data.com record&apos;s values.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Exclude this record from automated field updates from Data.com Clean jobs</inlineHelpText>
+        <label>Data.com Does Not Auto-Update</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>jsImpacts__Imported_from_Jigsaw__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Backend calculation field used for reporting</description>
+        <externalId>false</externalId>
+        <formula>IF(OR(CONTAINS(TEXT(LeadSource),&quot;Jigsaw&quot;),CONTAINS(TEXT(LeadSource),&quot;Data.com&quot;)),1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Added from Data.com</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__Needs_Score_Synced__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Used for Pardot Scoring Categories. Indicates that new scores will soon be synced from Pardot for this contact.
+
+            Scoring Categories are used for multi-product engagement scoring in Pardot and are available to customers using Pardot Pro Edition and Pardot Ultimate Edition. Please visit this page for more information on this feature and how to set up Salesforce to view these scores: http://help.pardot.com/customer/portal/articles/2396977-scoring-categories-overview</description>
+        <externalId>false</externalId>
+        <label>Needs Score Synced</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>pi__Pardot_Last_Scored_At__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used for Pardot Scoring Categories. Indicates the last time a Scoring Category score was updated for this contact.
+
+            Scoring Categories are used for multi-product engagement scoring in Pardot and are available to customers using Pardot Pro Edition and Pardot Ultimate Edition. Please visit this page for more information on this feature and how to set up Salesforce to view these scores: http://help.pardot.com/customer/portal/articles/2396977-scoring-categories-overview</description>
+        <externalId>false</externalId>
+        <label>Pardot Last Scored At</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>pi__campaign__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Pardot Campaign represents the first marketing touch with a prospect. It may be a campaign associated with your web site, landing page, paid search initiative, or any other marketing effort. Prospects may only be associated with one Pardot campaign. This value can later be changed manually or via an Automation Rule.</description>
+        <externalId>false</externalId>
+        <label>Pardot Campaign</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__comments__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot Comments</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>pi__conversion_date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date and time of the form, form handler, or landing page submission when a Pardot tracked anonymous visitor first became a known prospect.</description>
+        <externalId>false</externalId>
+        <label>Pardot Conversion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>pi__conversion_object_name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the name of the object (form, form handler, landing page, or video form) that converted an anonymous visitor into a named prospect.</description>
+        <externalId>false</externalId>
+        <label>Pardot Conversion Object Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__conversion_object_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of object which converted an anonymous visitor into a named prospect (form, form handler, landing page, or video form).</description>
+        <externalId>false</externalId>
+        <label>Pardot Conversion Object Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__created_date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Pardot created date represents the date and time at which the Prospect record was created in Pardot. This will often differ from your Salesforce.com created date.</description>
+        <externalId>false</externalId>
+        <label>Pardot Created Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>pi__first_activity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot First Activity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>pi__first_search_term__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If a Prospects first touch was the result of a search, this field contains the search term.</description>
+        <externalId>false</externalId>
+        <label>Pardot First Referrer Query</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__first_search_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If a Prospects first touch was the result of a search, this field contains the type of search conducted.</description>
+        <externalId>false</externalId>
+        <label>Pardot First Referrer Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__first_touch_url__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The value of the referrer for the first tracked request made by a Prospect.</description>
+        <externalId>false</externalId>
+        <label>Pardot First Referrer</label>
+        <length>65000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>pi__grade__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Pardot grade is based on how well a prospect fits your organization&apos;s ideal customer profile. Explicit factors such as company size, industry, job title and more help determine this value. A combination of grade (explicit) and score (implicit) can be used to very effectively optimize the sales team&apos;s time. Grade, like score, is calculated within the Pardot system and cannot be edited in Salesforce.com.</description>
+        <externalId>false</externalId>
+        <label>Pardot Grade</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__last_activity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot Last Activity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>pi__notes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot Notes</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>pi__pardot_hard_bounced__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Boolean that determines whether contact hard bounced.</description>
+        <externalId>false</externalId>
+        <label>Pardot Hard Bounced</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>pi__score__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Pardot score is based on implicit buying signals a lead demonstrates through his or her activities and responses to your marketing efforts. The higher the score, the more active the lead has been. A combination of score (implicit buying signals) and grade (explicit factors) helps you prioritize your prospects. Score, like grade, is calculated within the Pardot system and cannot be edited in Salesforce.com.</description>
+        <externalId>false</externalId>
+        <label>Pardot Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__url__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This link takes you directly into the relevant prospect&apos;s profile within Pardot. From there you can view his or her complete activity history. This URL is generated within the Pardot system and cannot be edited in Salesforce.com.</description>
+        <externalId>false</externalId>
+        <label>Pardot URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>pi__utm_campaign__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Google Analytics Campaign</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__utm_content__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Google Analytics Content</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__utm_medium__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Google Analytics Medium</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__utm_source__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Google Analytics Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__utm_term__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Google Analytics Term</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>ATX_2016_Lost_Renewal_Reengagement</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>ATX 2016 Lost Renewal Reengagement</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Inside_Sales_Managment</group>
+            <group>Small_Firm_New_Sales_GW_Team</group>
+            <group>Small_Firm_Sales_Managers</group>
+            <role>Sales_Consultant_Small_Firm_New_Sales_GE</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_GW</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_JA</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_LF_2</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_RR</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AllContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Channel_Partner_Tradeshow2</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>Channel Partner Tradeshow</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FCC_499_Registers2</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>FCC 499 Registers</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SureTax_com_Downloads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>SureTax.com Downloads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TW_2016_Lost_Renewal_Reengagement</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>TW 2016 Lost Renewal Reengagement</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Inside_Sales_Managment</group>
+            <group>Small_Firm_New_Sales_GW_Team</group>
+            <group>Small_Firm_Sales_Managers</group>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GE</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_JA</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_LF_2</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Topics_View_Template</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Topics</field>
+            <operation>includes</operation>
+            <value>ENTER TOPIC NAME</value>
+        </filters>
+        <label>Topics View Template</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Ultratax_Thomson_Competitive_Takeaway</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>Ultratax/Thomson Competitive Takeaway</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GE</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_JA</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_LF_2</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_JA</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_Sales_LF</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Vertex_Attack_Plan_Customers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>Vertex Attack Plan - Customers</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>DSM_Corporate_Direct</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Vertex_Attack_Plan_Prospects</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>Vertex Attack Plan - Prospects</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>DSM_Corporate_Direct</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2013_User_Conference_Attendees</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>X2013_User_Conference_Attendee__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>2013 User Conference Attendees</label>
+        <sharedTo>
+            <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2014_User_Conference_Attendees</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>X2014_User_Conference_Attendee__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>2014 User Conference Attendees</label>
+        <sharedTo>
+            <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2015_User_Conference_Attendees</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>X2015_User_Conference_Attendee__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>2015 User Conference Attendees</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2016_User_Conference_Attendees</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>X2016_User_Conference_Attendee__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>2016 User Conference Attendees</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2017_User_Conference_Attendees</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>X2017_User_Conference_Attendee__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>2017 User Conference Attendees</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>list_Mfg_CWS</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>FULL_NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_STATE</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <label>list-Mfg CWS</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>DSM_Corporate_Direct</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTACT.PHONE1</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Inactive__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CONTACT.EMAIL</lookupDialogsAdditionalFields>
+        <lookupFilterFields>FULL_NAME</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
+        <lookupFilterFields>00Ni000000AHRjX</lookupFilterFields>
+        <lookupFilterFields>CONTACT.EMAIL</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE1</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE3</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE4</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE5</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE6</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Inactive__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.PHONE1</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.TITLE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>jsImpacts__Block_autoupdate_from_Data_com</fullName>
+        <active>true</active>
+        <description>Record-level prevention of automated Clean jobs from automatically updating field values.</description>
+        <errorConditionFormula>(  jsImpacts__Data_com_does_not_auto_update__c  ) &amp;&amp; ($User.Alias = &quot;autocln&quot;) &amp;&amp; (ISCHANGED(  Title  ) || ISCHANGED(  Email  ) || ISCHANGED(  Phone  ) || ISCHANGED(  MailingStreet  ) || ISCHANGED(  MailingCity  ) || ISCHANGED(  MailingState  ) || ISCHANGED(  MailingCountry  ) || ISCHANGED(  MailingPostalCode  ) )</errorConditionFormula>
+        <errorMessage>This record has been excluded from automated field updates from Data.com Clean jobs.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Add_To_Campaign</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add To Campaign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>var wizardUrl = 
+    &quot;/ui/campaign/MassAddCMFromListingWizard?&quot; +
+    &quot;ent=contact&amp;&quot; +
+    &quot;retURL={!Account.Id}&amp;&quot; +
+    &quot;wizardRetUrl={!Account.Id}&amp;&quot; +
+    &quot;macmflw_idSourceType=List&amp;&quot; +
+    &quot;macmflw_memberType=Contact&amp;&quot;;
+
+var selectedRecords = {!GETRECORDIDS( $ObjectType.Contact )};
+
+var idsStr = &quot;&quot;;
+
+for(var i = 0; i &lt; selectedRecords.length; i++){
+  idsStr += 
+    &quot;ids&quot;+ &quot;=&quot; + selectedRecords[i] + &quot;&amp;&quot;;
+}
+
+window.open(
+    wizardUrl + idsStr,
+    &quot;_blank&quot;
+);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>CCHAxcess__Contact_UploadDocument</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Upload document to CCH Axcess</masterLabel>
+        <openType>newWindow</openType>
+        <page>CCHAxcess__vfContactUploadDocument</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>Edit_Email_Preferences</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Edit Email Preferences</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://wolterskluwertaa.force.com/prefcenter?Id={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Contact_MailingStreet}+{!Contact_MailingCity}+{!Contact_MailingState}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Contact_FirstName} {!Contact_LastName}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SendGmail</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Send Gmail</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://mail.google.com/mail?view=cm&amp;tf=0&amp;to={!Contact_Email}&lt;{!Contact_LastName}, {!Contact_FirstName}&gt;&amp;tf=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>YahooMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Yahoo! Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://maps.yahoo.com/py/maps.py?cn={!Contact_MailingCountry}&amp;csz={!Contact_MailingCity}+{!Contact_MailingState}+{!Contact_MailingPostalCode}+&amp;addr={!Contact_MailingAddress}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>YahooWeather</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Yahoo! Weather</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://weather.yahoo.com/search/weather2?p={!Contact_MailingPostalCode}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Marketing Cloud Resubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+var didResub;
+try
+{
+didResub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
+}
+catch (e)
+{
+didResub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
+}
+if (didResub==&quot;connection error&quot;)
+{
+        alert(&quot;{!$Label.et4ae5__msg0047}&quot;); 
+}
+else if (didResub==&quot;not found&quot;)
+{
+        alert(&quot;{!$Label.et4ae5__msg0085}&quot;); 
+}
+else if (didResub==&quot;other error&quot;)
+{
+        alert(&quot;{!$Label.et4ae5__msg0086}&quot;); 
+}
+else if (didResub==&quot;not integrated&quot;)
+{
+        alert(&quot;{!$Label.et4ae5__msg0087}&quot;); 
+}
+else if (didResub==&quot;success&quot;)
+{
+alert(&quot;{!Contact.Name} {!$Label.et4ae5__wasResub}&quot;);
+} 
+else
+{
+alert(didResub);
+}
+var theUrl=&quot;/{!Contact.Id}&quot;;
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Marketing Cloud Unsubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+var didUnsub;
+try
+{
+didUnsub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
+}
+catch (e)
+{
+didUnsub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
+}
+if (didUnsub==&quot;connection error&quot;)
+{
+        alert(&quot;{!$Label.et4ae5__msg0047}&quot;); 
+}
+else if (didUnsub==&quot;not found&quot;)
+{
+        alert(&quot;{!$Label.et4ae5__msg0085}&quot;); 
+}
+else if (didUnsub==&quot;other error&quot;)
+{
+        alert(&quot;{!$Label.et4ae5__msg0086}&quot;); 
+}
+else if (didUnsub==&quot;not integrated&quot;)
+{
+        alert(&quot;{!$Label.et4ae5__msg0087}&quot;); 
+}
+else if (didUnsub==&quot;success&quot;)
+{
+alert(&quot;{!Contact.Name} {!$Label.et4ae5__wasUnsub}&quot;);
+} 
+else
+{
+alert(didUnsub);
+}
+var theUrl=&quot;/{!Contact.Id}&quot;;
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Marketing Cloud Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
+if({!Contact.HasOptedOutOfEmail})
+{
+alert(&quot;{!$Label.et4ae5__ctOptedOut}&quot;);
+}
+else
+{
+try
+{
+var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&amp;dest=/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&quot;;
+parent.location.href = theUrl;
+}
+catch (e)
+{
+var theUrl=&quot;/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&amp;dest=/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&quot;;
+parent.location.href = theUrl;
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_SMS</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Marketing Cloud SMS</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
+if({!Contact.HasOptedOutOfEmail})
+{
+alert(&quot;{!$Label.et4ae5__ctOptedOut}&quot;);
+}
+else
+{
+try
+{
+var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&amp;dest=/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&quot;;
+parent.location.href = theUrl;
+}
+catch (e)
+{
+var theUrl=&quot;/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&amp;dest=/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&quot;;
+parent.location.href = theUrl;
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__View_ExactTarget_Analytics</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View Marketing Cloud Analytics</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
+try
+{
+var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/SubscriberAnalytics?id={!CASESAFEID(Contact.Id)}&amp;obj=contact&quot;;
+parent.location.href = theUrl;
+}
+catch (e)
+{
+var theUrl=&quot;/apex/SubscriberAnalytics?id={!CASESAFEID(Contact.Id)}&amp;obj=contact&quot;;
+parent.location.href = theUrl;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>pi__Send_Pardot_Email</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Send Pardot Email</masterLabel>
+        <openType>sidebar</openType>
+        <page>pi__SendPardotEmailContact</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>pi__Send_Pardot_Emails</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Send Engage Email</masterLabel>
+        <openType>sidebar</openType>
+        <page>pi__MicroCampaignContact</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>pi__Send_Single_Pardot_Email</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Send Engage Email</masterLabel>
+        <openType>sidebar</openType>
+        <page>pi__MicroCampaignSingleContact</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>pi__Send_to_Prospect_Insight</fullName>
+        <availability>online</availability>
+        <description>Send this Contact to Pardot</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Send to Pardot</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/pi__SendToPardot?contactEmail={!URLENCODE(Contact.Email)}&amp;contactId={!Contact.Id}&amp;serverUrl={!$Api.Partner_Server_URL_90}</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SelfServSelect</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Business_Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Segment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Corporate Indirect (STG)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software (Corporate)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software (CPA)</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Case_Orgin__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Case.Origin)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Orgin</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Audit and Accounting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workflow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Professional Client Services (implementation, training, conversion)</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IsPublished</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>IsPublishedInPublicKb</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Products__c</fullName>
+        <externalId>false</externalId>
+        <label>Products</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Business_Segment__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AnswerConnect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ARM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Autoflow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Practice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ax - Doc</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ax - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ax - Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ax - Practice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ax Suite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ax - Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ax - WS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Relate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Code Connect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compliance Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corp - Direct</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corp - Indirect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Database</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Eng &amp; KC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Intelliconnect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Multi State Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PDFlyer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx - Doc</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PFX Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx - Eng</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx - KC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx - PM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PFX Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx - Scan/AF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PFX Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx - Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Tax Suite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PTEP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PTP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L - ARM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L - IC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L - Learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RADAR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Load Utility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Site Builder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Smart Charts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Standard Federal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Tax Reporter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STROL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sure Tax C&amp;E</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sure Tax General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>T&amp;C</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TPP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TRC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workstream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WW Tax Guides</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WW Tax Rates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WW Tax Treaties</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <valueName>Compliance Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <valueName>Database</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>RADAR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <valueName>Sales Tax Load Utility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <valueName>STO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <valueName>STROL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <valueName>STS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <valueName>Sure Tax C&amp;E</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Indirect (STG)</controllingFieldValue>
+                <valueName>Sure Tax General</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>AnswerConnect</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>ARM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>Client Relate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>Code Connect</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>Intelliconnect</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>Multi State Tax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>PTEP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>PTP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>Smart Charts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>Standard Federal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>State Tax Reporter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>TPP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>TRC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>WW Tax Guides</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>WW Tax Rates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>R&amp;L</controllingFieldValue>
+                <valueName>WW Tax Treaties</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Active Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Autoflow</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Axcess Practice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Axcess Tax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>CCH Axcess Document</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Engagement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Fixed Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Knowledge Coach</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>PDFlyer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>PFX Document</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>PFX Practice Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>PFX Tax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Portal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Scan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Site Builder</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software (Corporate)</controllingFieldValue>
+                <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <valueName>Workstream</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Professional_Client_Services__c</fullName>
+        <externalId>false</externalId>
+        <label>Topics</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Category__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Audit and Accounting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Competition</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Deal Coaching</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Help with Sales Process</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Implementation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Order Validation and Scheduling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pricing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product Functionality</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Professional Service Calculator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProServ Conversions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Request for assistance on a sales call</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service Recommendations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Statements of Work</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System Requirements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Conversions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Technical Requirements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workflow</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Tax</controllingFieldValue>
+                <controllingFieldValue>Audit and Accounting</controllingFieldValue>
+                <controllingFieldValue>Workflow</controllingFieldValue>
+                <controllingFieldValue>Research</controllingFieldValue>
+                <controllingFieldValue>Learning</controllingFieldValue>
+                <valueName>Competition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tax</controllingFieldValue>
+                <controllingFieldValue>Audit and Accounting</controllingFieldValue>
+                <controllingFieldValue>Workflow</controllingFieldValue>
+                <controllingFieldValue>Research</controllingFieldValue>
+                <controllingFieldValue>Learning</controllingFieldValue>
+                <valueName>Deal Coaching</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tax</controllingFieldValue>
+                <controllingFieldValue>Audit and Accounting</controllingFieldValue>
+                <controllingFieldValue>Workflow</controllingFieldValue>
+                <controllingFieldValue>Research</controllingFieldValue>
+                <controllingFieldValue>Learning</controllingFieldValue>
+                <valueName>Help with Sales Process</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tax</controllingFieldValue>
+                <controllingFieldValue>Audit and Accounting</controllingFieldValue>
+                <controllingFieldValue>Workflow</controllingFieldValue>
+                <controllingFieldValue>Research</controllingFieldValue>
+                <controllingFieldValue>Learning</controllingFieldValue>
+                <valueName>Pricing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tax</controllingFieldValue>
+                <controllingFieldValue>Audit and Accounting</controllingFieldValue>
+                <controllingFieldValue>Workflow</controllingFieldValue>
+                <controllingFieldValue>Research</controllingFieldValue>
+                <controllingFieldValue>Learning</controllingFieldValue>
+                <valueName>Product Functionality</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tax</controllingFieldValue>
+                <controllingFieldValue>Audit and Accounting</controllingFieldValue>
+                <controllingFieldValue>Workflow</controllingFieldValue>
+                <controllingFieldValue>Research</controllingFieldValue>
+                <controllingFieldValue>Learning</controllingFieldValue>
+                <valueName>Security</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tax</controllingFieldValue>
+                <controllingFieldValue>Audit and Accounting</controllingFieldValue>
+                <controllingFieldValue>Workflow</controllingFieldValue>
+                <controllingFieldValue>Research</controllingFieldValue>
+                <controllingFieldValue>Learning</controllingFieldValue>
+                <valueName>Technical Requirements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Implementation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Order Validation and Scheduling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Professional Service Calculator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>ProServ Conversions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Request for assistance on a sales call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Service Recommendations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Statements of Work</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>System Requirements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Tax Conversions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Training</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Professional Client Services (implementation, training, conversion)</controllingFieldValue>
+                <valueName>Workflow</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SolutionName</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>SolutionNote</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Solution_Count__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Solution Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <listViews>
+        <fullName>AllReviewedSolutions</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SOLUTION.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>All Reviewed Solutions</label>
+    </listViews>
+    <listViews>
+        <fullName>AllUnreviewedSolutions</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SOLUTION.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All Unreviewed Solutions</label>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>SOLUTION.ISSUE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SOLUTION.SOLUTION_NUMBER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SOLUTION.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Business_Segment__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Category__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Products__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Professional_Client_Services__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <listViewButtons>New_Case</listViewButtons>
+        <lookupDialogsAdditionalFields>SOLUTION.ISSUE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SOLUTION.SOLUTION_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UPDATEBY_USER.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Business_Segment__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Category__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Products__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Professional_Client_Services__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SOLUTION.ISSUE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SOLUTION.SOLUTION_NUMBER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Business_Segment__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Category__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Products__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Professional_Client_Services__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Business_Segment__c</searchFilterFields>
+        <searchFilterFields>Category__c</searchFilterFields>
+        <searchFilterFields>Professional_Client_Services__c</searchFilterFields>
+        <searchFilterFields>Products__c</searchFilterFields>
+        <searchResultsAdditionalFields>SOLUTION.ISSUE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Business_Segment__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Products__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Professional_Client_Services__c</searchResultsAdditionalFields>
+        <searchResultsCustomButtons>New_Case</searchResultsCustomButtons>
+    </searchLayouts>
+    <webLinks>
+        <fullName>New_Case</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Case</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/500/e?retURL=%2F500%2Fo
+&amp;RecordType=01231000001IeLq</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,112 @@
+<apex:page standardController="Account" extensions="AccExtensions" >
+
+<style>
+.filterMatches{
+  background-color: #BFFF00;
+}
+.tertiaryPalette{
+  color: #000 !important;
+}
+.dt-buttons{
+  margin-left: 10px;
+}
+
+</style>
+<div>
+<apex:OutputLink value="/apex/LogContactCall?id={!account.id}" target="_Blank">
+<apex:image id="LogContactCall" value="{!$Resource.LogaCallButton}" />
+</apex:OutputLink>
+&nbsp;&nbsp;
+<apex:OutputLink value="/_ui/core/email/author/EmailAuthor?p2_lkid={!Account.Id}&rtype=003&p3_lkid={!Account.Id}&rtype=003retURL=%2F{!Account.Id}" Target="_blank">
+<apex:image id="SendEmail" value="{!$Resource.SendEmailButton}" />
+</apex:OutputLink>
+</div>
+<apex:form >
+<div style="overflow:scroll; height:1180px;">
+
+<apex:pageBlock >
+        <apex:repeat value="{!AHS}" var="acct">
+                    <apex:pageblockTable value="{!acct.ActivityHistories}"   var="activity" html-cid="activitiesTable" style="width:100%;height:1080px;">            
+            <apex:Column headervalue="" style="width:5%;">
+            <apex:outputLink target="_blank" value="/{!activity.id}">
+            <apex:outputText style="color:blue;" Value="Sel"/>
+            </apex:OutputLink>
+            </apex:column>
+                <apex:Column headervalue="Date" style="width:7%;" >
+                <apex:OutputText value="{0,date,MM'/'dd'/'yyyy}"><apex:param value="{!Activity.ActivityDate}" /></apex:outputText>
+                </apex:column>
+                <apex:column headervalue="Name" style="width:7%;">
+                <apex:OutputLink value="/{!Activity.WhoId}" target="_Blank">    
+                <apex:OutputText value="{!Activity.Who.Name}"/>  
+                </apex:OutputLink>              
+                </apex:Column>            
+                <apex:Column headervalue="Subject" style="width:7%;"  value="{!activity.Subject}"/>
+                <apex:Column headervalue="Description" style="width:50%;line-height:13px;lines:8;"  value="{!activity.Short_Notes__c}"/>
+                <apex:Column HeaderValue="User" style="width:10%;" value="{!activity.Owner.Name}"/>
+                               
+         
+            </apex:pageblockTable>             
+        </apex:repeat>
+    </apex:pageBlock>
+    
+</div>
+<!-- Jquery -->
+<apex:includeScript value="//code.jquery.com/jquery-1.11.3.min.js"/>
+<apex:stylesheet value="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+ 
+<!-- DataTable -->
+<apex:includeScript value="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"/>
+<apex:stylesheet value="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
+ 
+<!-- Search Highlight -->
+<apex:includeScript value="//bartaz.github.io/sandbox.js/jquery.highlight.js"/>
+<apex:includeScript value="//cdn.datatables.net/plug-ins/1.10.9/features/searchHighlight/dataTables.searchHighlight.min.js"/>
+<apex:stylesheet value="//cdn.datatables.net/plug-ins/1.10.9/features/searchHighlight/dataTables.searchHighlight.css"/>
+ 
+<!-- DataTable buttons -->
+<apex:includeScript value="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"/>
+<apex:includeScript value="//cdn.datatables.net/buttons/1.0.3/js/buttons.flash.min.js"/>
+<apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"/>
+<apex:includeScript value="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"/>
+<apex:includeScript value="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"/>
+<apex:includeScript value="//cdn.datatables.net/buttons/1.0.3/js/buttons.html5.min.js"/>
+<apex:includeScript value="//cdn.datatables.net/buttons/1.0.3/js/buttons.print.min.js"/>
+<apex:stylesheet value="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css"/>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+ var accountsTable = $('[cid$="activitiesTable"]').parent('table').eq(0).DataTable({
+   //enables results highlight
+   searchHighlight: true,
+    //sets record lengths to show in picklist
+   aLengthMenu: [
+     [10],
+     [10]
+   ],
+
+     "iDisplayLength": 10,
+   //adds copy, print buttons...
+   dom: 'lBfrtip', //l=length, B=buttons, f=filter(search), r=processing, t=the table, I=table summary, p=page controls
+   buttons: [
+     'excel', 
+     {
+       extend: 'print',
+       customize: function(win) {
+         $(win.document.body)
+         .css( 'font-size', '10pt' )
+         .prepend('<img src="http://datatables.net/media/images/logo-fade.png" style="position:absolute; top:0; left:0;" />');
+ 
+         $(win.document.body).find( 'table' )
+         .addClass( 'compact' )
+         .css( 'font-size', 'inherit' );
+       }
+     }
+   ],
+ });
+
+       
+    
+});
+</script>
+</apex:form>
+</apex:page>

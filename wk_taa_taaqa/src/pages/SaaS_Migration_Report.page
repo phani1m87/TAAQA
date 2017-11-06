@@ -1,0 +1,21 @@
+<apex:page standardcontroller="Apttus_Proposal__Proposal__c" sidebar="False">
+<apex:form >
+<apex:pageblock >
+<apex:OutputLabel style="font-size:2EM" value="Axcess Migration Report for "/><apex:OutputText style="font-size:2EM" value="{!Apttus_Proposal__Proposal__c.ERP_Account_Name__c}"/>
+
+<br/>
+<apex:commandButton value="Print" onclick="window.print()" />
+<br/>
+
+</apex:pageblock>
+
+<apex:pageBlock title="Products">
+<apex:pageblockTable value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__R00N70000001yUfBEAU__r}" var="Items" rendered="{!$ObjectType.Apttus_Proposal__Proposal_Line_Item__c.accessible}" >
+<apex:column value="{!Items.Product_Code__c}"/>
+<apex:column value="{!Items.Product_Name__c}"/>
+<apex:column value="{!Items.SaaS_Product_ID__c}"/>
+</apex:pageblocktable>
+    </apex:pageBlock>
+
+</apex:Form>
+  </apex:page>

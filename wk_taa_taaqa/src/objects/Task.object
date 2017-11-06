@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Close</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DeleteSeries</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewTask</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ActivityDate</fullName>
+    </fields>
+    <fields>
+        <fullName>CallDisposition</fullName>
+    </fields>
+    <fields>
+        <fullName>CallDurationInSeconds</fullName>
+    </fields>
+    <fields>
+        <fullName>CallObject</fullName>
+    </fields>
+    <fields>
+        <fullName>CallType</fullName>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+    </fields>
+    <fields>
+        <fullName>IsRecurrence</fullName>
+    </fields>
+    <fields>
+        <fullName>IsReminderSet</fullName>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RecurrenceInterval</fullName>
+    </fields>
+    <fields>
+        <fullName>RecurrenceRegeneratedType</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Subject</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TaskSubtype</fullName>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>WhatId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>WhoId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <recordTypes>
+        <fullName>Standard_Tasks</fullName>
+        <active>true</active>
+        <label>Standard Tasks</label>
+        <picklistValues>
+            <picklist>Demo_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Demo_Type__c</picklist>
+            <values>
+                <fullName>Jump Start%2C Trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Presentation</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Event_Type__c</picklist>
+            <values>
+                <fullName>Conference Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo - Corp%2E Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo - Corp%2E Indirect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo - Professional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo - Professional Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo - R%26L</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo - Webinar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-Person Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Shown__c</picklist>
+            <values>
+                <fullName>ATX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounting Research Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ActiveData</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AutoFlow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Document</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Tax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Workstream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Accounting Suite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Compliance Dashboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Document On-Premise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engagement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Asset Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Assets %28CorpSystem%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Integrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global fx</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Client Relate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Fast Answers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - RADAR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Smart Charts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Tax Prep Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IntelliConnect%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Knowledge Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KnowledgeConnect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Learning CPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outsource</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PDFlyer Standalone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POS Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paperless Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payroll Compliance Reporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal Standalone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Practice Intelligence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Practice Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Load Utilities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Dynamics AX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Dynamics GP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Dynamics NAV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Oracle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office SAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax On Line %28STOL%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Research %26 Compliance Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Returns On Line %28STROL%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax SaaS Dynamics ERP%27s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Saas Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Use Tax Databases General</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site Builder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sure Tax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax %28CorpSystem%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax %28ProSystem fx%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TaxWise Desktop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TaxWise Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Workpaper Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Audit Room</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Calendar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iFirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iFirm Portal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Solution_Architect_2__c</picklist>
+            <values>
+                <fullName>Adam Chauvin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alicia Judit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Art Feldman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beth Patrick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brian Siet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cathy Hocutt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chuck Moss</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Curtis Olive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Devin Houlihan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diann Powell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eliot Becker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ellen Cook</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gina Chen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guillermo Rodriguez</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>James Karst</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jared Jones</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jim Meseke</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>John Mason</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julie Lemberg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ken Fried</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kim Conaway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lance Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Larry Kaminsky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lia Skoblov</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Linda Boerma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mark Collins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Michael MacCarthy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nate Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ray Schwarz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ron Eiken</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shannon Anderson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Steve Murff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stuart Goodman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tim Alexander</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traci VanSant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>William Dickey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Solution_Architect__c</picklist>
+            <values>
+                <fullName>Adam Chauvin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alicia Judit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Art Feldman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beth Patrick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brian Siet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cathy Hocutt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chuck Moss</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Curtis Olive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Devin Houlihan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diann Powell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eliot Becker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ellen Cook</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gina Chen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guillermo Rodriguez</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>James Karst</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jared Jones</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jim Meseke</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>John Mason</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julie Lemberg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ken Fried</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kim Conaway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lance Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Larry Kaminsky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lia Skoblov</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Linda Boerma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mark Collins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Michael MacCarthy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nate Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ray Schwarz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rep Delivered %28No SA Needed%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ron Eiken</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shannon Anderson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Steve Murff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stuart Goodman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tim Alexander</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traci VanSant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>William Dickey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed %E2%80%93 Could not Reach Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed %E2%80%93 Customer Contacted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed %E2%80%93 Training Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed %E2%80%93 Training Scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Demo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Gain Access Call - Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gain Access Call - No Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Call%2FFollow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Software Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To Do</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Activity_History</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Activity History</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/00O31000006f2L0?pv0={!Account.Id}</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Id</field>
+                <operation>equals</operation>
+                <valueField>Account.Id</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Ancillary Cancellationss</relationshipLabel>
+        <relationshipName>Ancillary_Cancellationss</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <externalId>false</externalId>
+        <label>Cancellation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancellation Notes</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancellation Product</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Practice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Workstream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document OP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect OP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Tools</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Balance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Active Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AutoFlow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Advantage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PdFlyer</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancellation Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Out of Business</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Competitor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Auto - Cancel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consolidated to One Vendor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Merger/Changed Vendors</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Merger/Transfer to Parent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Missing Key Features</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Longer Needed/Using</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Price/Value</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Support/Service Issues</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Technical/Performance Issues</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Upgrade</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.Id</field>
+                <operation>equals</operation>
+                <valueField>$User.Id</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Ancillary_Cancellationss</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Ancillary Cancellations</label>
+    <nameField>
+        <label>Ancillary Cancellations Acct#</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Ancillary Cancellations</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

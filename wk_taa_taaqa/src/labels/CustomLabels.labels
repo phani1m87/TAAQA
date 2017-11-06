@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>APTPS_Submit_To_COP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APTPS Submit To COP</shortDescription>
+        <value>Submit to COP</value>
+    </labels>
+    <labels>
+        <fullName>APTSPromotionalCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APTSPromotionalCode</shortDescription>
+        <value>GoTo Pricing New</value>
+    </labels>
+    <labels>
+        <fullName>APTS_Full_Pay_Validation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Full Pay Validation</shortDescription>
+        <value>Initial deposit must be blank when Payment Term is Full Pay.</value>
+    </labels>
+    <labels>
+        <fullName>APTS_Go_To_Pricing_Custom</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APTS_Go_To_Pricing_Custom</shortDescription>
+        <value>Pricing</value>
+    </labels>
+    <labels>
+        <fullName>APTS_Initial_deposit_should_be_at_least</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Initial deposit should be at least</shortDescription>
+        <value>Initial deposit should be at least</value>
+    </labels>
+    <labels>
+        <fullName>APTS_NET_30_Validation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APTS NET 30 Validation</shortDescription>
+        <value>Initial deposit  and Initial deposit date must be blank when Payment Term is Net 30.</value>
+    </labels>
+    <labels>
+        <fullName>APTS_Payment_Term_Lower_Limit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Payment Term Lower Limit</shortDescription>
+        <value>as the total for all the lines with this payment term must not be less than</value>
+    </labels>
+    <labels>
+        <fullName>APTS_Payment_Term_Upper_Limit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Payment Term Upper Limit</shortDescription>
+        <value>as the total for all the lines with this payment term must not exceed</value>
+    </labels>
+    <labels>
+        <fullName>APTS_Quote_Not_Eligible_for</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote Not Eligible for</shortDescription>
+        <value>Quote Not Eligible for</value>
+    </labels>
+    <labels>
+        <fullName>APTS_of_the_total</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>of the total</shortDescription>
+        <value>of the total</value>
+    </labels>
+    <labels>
+        <fullName>Account_Create_Error_on_New_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Create Error on New Button</shortDescription>
+        <value>New accounts cannot be created in Salesforce.  Please contact your system administrator to request creation of a new account(s).</value>
+    </labels>
+    <labels>
+        <fullName>Submit_to_COP</fullName>
+        <categories>Button Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submit to COP</shortDescription>
+        <value>Submit to COP</value>
+    </labels>
+    <labels>
+        <fullName>TSM_CreateLead_CMRating</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_CreateLead_CMRating</shortDescription>
+        <value>HOT,WARM</value>
+    </labels>
+    <labels>
+        <fullName>TSM_CreateLead_DefaultStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_CreateLead_DefaultStatus</shortDescription>
+        <value>Not Started</value>
+    </labels>
+    <labels>
+        <fullName>TSM_CreateLead_ReopenStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_CreateLead_ReopenStatus</shortDescription>
+        <value>Not Viable</value>
+    </labels>
+    <labels>
+        <fullName>TSM_LeadConversion_Existing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_LeadConversion_Existing</shortDescription>
+        <value>Existing</value>
+    </labels>
+    <labels>
+        <fullName>TSM_LeadConversion_New</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_LeadConversion_New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>TSM_LeadConversion_None</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_LeadConversion_None</shortDescription>
+        <value>--None--</value>
+    </labels>
+    <labels>
+        <fullName>TSM_LeadConversion_OppStage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_LeadConversion_OppStage</shortDescription>
+        <value>2. Recognize Need</value>
+    </labels>
+    <labels>
+        <fullName>TSM_LeadStatus_ExistingOpportunity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_LeadStatus_ExistingOpportunity</shortDescription>
+        <value>Existing Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>TSM_LeadStatus_NewOpportunity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_LeadStatus_NewOpportunity</shortDescription>
+        <value>New Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>TSM_LeadStatus_NoCurrentOpportunity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_LeadStatus_NoCurrentOpportunity</shortDescription>
+        <value>No Current Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>TSM_LeadStatus_NotViable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_LeadStatus_NotViable</shortDescription>
+        <value>Not Viable</value>
+    </labels>
+    <labels>
+        <fullName>TSM_OpportunityProcessing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_OpportunityProcessing</shortDescription>
+        <value>Processing SFS Opportunity. Please try again in few minutes or contact Support if the problem persists.</value>
+    </labels>
+    <labels>
+        <fullName>TSM_SelectSteelbrick</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TSM_SelectSteelbrick</shortDescription>
+        <value>Please select Steelbrick Quote.</value>
+    </labels>
+</CustomLabels>

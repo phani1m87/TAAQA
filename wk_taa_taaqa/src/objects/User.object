@@ -1,0 +1,1667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DeleteBannerPhotoAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditUserAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>FreezeUserAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>LinkToSetupUserDetailAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ManagePermSetsAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>PasswordUnlockAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ResetPasswordAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>UpdateBannerPhotoAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>UserActivationAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>ARMS_Request_ID__c</fullName>
+        <description>Required by Audit</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required by Audit</inlineHelpText>
+        <label>ARMS Request ID</label>
+        <length>24</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BusinessUnit__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CostCenter__c</fullName>
+        <externalId>false</externalId>
+        <label>Cost Center</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Custodial_Rep__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Only required on Open Territory users</inlineHelpText>
+        <label>Custodial Rep</label>
+        <relationshipName>Custodial_on_Territories</relationshipName>
+        <restrictedAdminField>false</restrictedAdminField>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>DSM_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Manager.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DSM Email</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DTN__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <inlineHelpText>External Id for User</inlineHelpText>
+        <label>DTN</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Division__c</fullName>
+        <externalId>false</externalId>
+        <label>Division</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>High_Level_Division__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Executives</fullName>
+                    <color>#AFCADF</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>A&amp;A Solution Architects</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Admin</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alliance</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Billing</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Books &amp; Journal Sales</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Central</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Central Division</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corp. Solution Architects</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corp National</fullName>
+                    <color>#419249</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Business Development</fullName>
+                    <color>#641CCF</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Direct</fullName>
+                    <color>#B6E32E</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate - SA</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Software</fullName>
+                    <color>#F96FB7</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corp SW Energy &amp; Telco</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corp SW Microsoft</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corp SW SAP &amp; NetSuite</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>East - SA</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <color>#8F6429</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR</fullName>
+                    <color>#EFAE73</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mid-Atlantic</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Midwest</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mountain Division</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N2E Small Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N2N (GW) Small Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N2N (JA) Small Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N2N (LF) Small Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N2N (RR) Small Firm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NAT&apos;L/SAM/R&amp;L</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National &amp; Strategic Accounts</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Accounts</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Natl/SAM - SA</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Northeast</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <color>#57F17C</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pacific</fullName>
+                    <color>#AFCADF</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Premier</fullName>
+                    <color>#66CCCC</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product Development</fullName>
+                    <color>#419249</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product Management</fullName>
+                    <color>#B6E32E</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Professional SW ISC</fullName>
+                    <color>#2F5D85</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L Retention</fullName>
+                    <color>#641CCF</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L Senior</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Refunds Today</fullName>
+                    <color>#33CC00</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research &amp; Learning</fullName>
+                    <color>#F96FB7</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Intelligence</fullName>
+                    <color>#2F5D85</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Operations</fullName>
+                    <color>#AFCADF</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Training &amp; Development</fullName>
+                    <color>#8F6429</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAP Vertical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Senior Sales Admins</fullName>
+                    <color>#EFAE73</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service Source</fullName>
+                    <color>#57F17C</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Field</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm R&amp;L</fullName>
+                    <color>#330000</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Retention (CN)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Retention (JA)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Retention (LB)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software Retention</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Solution Design</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Southeast</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STG Retention</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic Accounts</fullName>
+                    <color>#419249</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic Sales</fullName>
+                    <color>#B6E32E</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SureTax</fullName>
+                    <color>#FF99FF</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training &amp; Consulting</fullName>
+                    <color>#2F5D85</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trust</fullName>
+                    <color>#8F6429</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Small Firms New Sales</fullName>
+                    <color>#57F17C</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Small Firms Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>West Division</fullName>
+                    <color>#8F6429</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>West - SA</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WF Solution Architects</fullName>
+                    <color>#EFAE73</color>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <controllingFieldValue>Training &amp; Consulting</controllingFieldValue>
+                <controllingFieldValue>Executives</controllingFieldValue>
+                <valueName>Executives</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Alliance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Corporate Software</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Corp SW Energy &amp; Telco</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Corp SW Microsoft</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Corp SW SAP &amp; NetSuite</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>SAP Vertical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>STG Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Strategic Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>SureTax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Admin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Billing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Finance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>HR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Marketing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Cap Gemini</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Product Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Product Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Service Source</controllingFieldValue>
+                <valueName>Service Source</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
+                <valueName>Global Accounts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
+                <valueName>National &amp; Strategic Accounts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
+                <valueName>National Accounts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
+                <valueName>Strategic Accounts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2E Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2N (GW) Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2N (JA) Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2N (LF) Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2N (RR) Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Premier</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Refunds Today</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm Field</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm R&amp;L</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm Retention (CN)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm Retention (JA)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm Retention (LB)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>US Small Firms New Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>US Small Firms Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Books &amp; Journal Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Central Division</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Corp National</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Federal Government</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Mid-Atlantic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Mountain Division</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>National Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Northeast</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>R&amp;L Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>R&amp;L Senior</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Research &amp; Learning</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Southeast</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>West Division</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Corporate Business Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Sales Intelligence</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Sales Operations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Sales Training &amp; Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Senior Sales Admins</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Central</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Corporate Direct</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Midwest</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Pacific</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Software</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Software Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Software</controllingFieldValue>
+                <valueName>Trust</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <valueName>Corporate - SA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <valueName>East - SA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <valueName>Natl/SAM - SA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <valueName>West - SA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Training &amp; Consulting</controllingFieldValue>
+                <valueName>Training &amp; Consulting</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>First_Month_of_Quota__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(Start_Date__c) ,NULL,
+IF(DAY(Start_Date__c)&lt;15,
+	Date(
+	Case( Month (Start_Date__c ),
+		1, YEAR(Start_Date__c),
+		2, YEAR(Start_Date__c),
+		3, YEAR(Start_Date__c),
+		4, YEAR(Start_Date__c),
+		5, YEAR(Start_Date__c),
+		6, YEAR(Start_Date__c),
+		7, YEAR(Start_Date__c),
+		8, YEAR(Start_Date__c),
+		9, YEAR(Start_Date__c),
+		10, YEAR(Start_Date__c)+1,
+		11, YEAR(Start_Date__c)+1,
+		YEAR(Start_Date__c)+1)
+	,
+	Case( Month (Start_Date__c ),
+		1, 4,
+		2, 5,
+		3, 6,
+		4, 7,
+		5, 8,
+		6, 9,
+		7, 10,
+		8, 11,
+		9, 12,
+		10, 1,
+		11, 2,
+		3)
+	,1)
+,
+	Date(
+	Case( Month (Start_Date__c ),
+		1, YEAR(Start_Date__c),
+		2, YEAR(Start_Date__c),
+		3, YEAR(Start_Date__c),
+		4, YEAR(Start_Date__c),
+		5, YEAR(Start_Date__c),
+		6, YEAR(Start_Date__c),
+		7, YEAR(Start_Date__c),
+		8, YEAR(Start_Date__c),
+		9, YEAR(Start_Date__c)+1,
+		10, YEAR(Start_Date__c)+1,
+		11, YEAR(Start_Date__c)+1,
+		YEAR(Start_Date__c)+1)
+	,
+	Case( Month (Start_Date__c ),
+		1, 5,
+		2, 6,
+		3, 7,
+		4, 8,
+		5, 9,
+		6, 10,
+		7, 11,
+		8, 12,
+		9, 1,
+		10, 2,
+		11, 3,
+		4)
+	,1)
+))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Month of Quota</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>High_Level_Division_Stretch__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( AND( ISPICKVAL(High_Level_Division__c, &quot;Inside Sales&quot;) , ISPICKVAL( Division__c , &quot;R&amp;L ISC&quot;)), &quot;Research &amp; Learning&quot;,
+IF( AND( ISPICKVAL(High_Level_Division__c, &quot;Inside Sales&quot;) , ISPICKVAL( Division__c , &quot;Professional SW ISC&quot;)), &quot;Software&quot;,
+IF( AND( ISPICKVAL(High_Level_Division__c, &quot;Inside Sales&quot;) , ISPICKVAL( Division__c , &quot;Books &amp; Journal Sales&quot;)), &quot;Research &amp; Learning&quot;,
+TEXT(High_Level_Division__c ))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>High Level Division Stretch</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>High_Level_Division__c</fullName>
+        <externalId>false</externalId>
+        <label>High Level Division</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Corporate Software</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National &amp; Strategic Accounts</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research &amp; Learning</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Small Firms</fullName>
+                    <color>#2F5D85</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executives</fullName>
+                    <color>#419249</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Operations</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service Source</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Solution Design</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training &amp; Consulting</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <color>#B6E32E</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cap Gemini</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mid-Market</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>$User.Id =  ManagerId</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Manager</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>License_Charge_To__c</fullName>
+        <externalId>false</externalId>
+        <label>License Charge To</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product Development</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L Marketing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SVE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training &amp; Consulting</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ManagerId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>Manager_Full_Name__c</fullName>
+        <description>Used for DashBoard Reports on Opportunity Teams.</description>
+        <externalId>false</externalId>
+        <formula>Manager.FirstName  + &quot; &quot; +  Manager.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Manager Full Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Profile_Name__c</fullName>
+        <description>Used to pull Profile Name for Validation Rules</description>
+        <externalId>false</externalId>
+        <formula>Profile.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Profile Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RL_On_Quota__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Temporary field used for R&amp;L sales review reporting</description>
+        <externalId>false</externalId>
+        <label>RL_On_Quota</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Role_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>UserRole.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Role Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAP_DTN__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>SAP DTN</label>
+        <length>7</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>SFS_User__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>SFS User</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SSLT_Manager__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>SSLT Manager</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sales411_Email__c</fullName>
+        <defaultValue>&quot;Sales411Responses@Wolterskluwer.com&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Sales411 Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Rep_Count__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Rep Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Corporate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medium/Large Market</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research &amp; Learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Market</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>First day of employment</inlineHelpText>
+        <label>Hire Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Today__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( 
+MONTH( TODAY()), 
+1, &quot;January&quot;, 
+2, &quot;February&quot;, 
+3, &quot;March&quot;, 
+4, &quot;April&quot;, 
+5, &quot;May&quot;, 
+6, &quot;June&quot;, 
+7, &quot;July&quot;, 
+8, &quot;August&quot;, 
+9, &quot;September&quot;, 
+10, &quot;October&quot;, 
+11, &quot;November&quot;, 
+&quot;December&quot;) 
+
+&amp; &quot; &quot; &amp; TEXT(DAY(TODAY())) &amp; &quot;, &quot; &amp; TEXT(YEAR(TODAY()))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Today</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>USER_18_digit_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>USER 18 digit ID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UniqueDocID__c</fullName>
+        <externalId>false</externalId>
+        <label>Unique Doc ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Upper_Management__c</fullName>
+        <externalId>false</externalId>
+        <formula>Manager.Manager.FirstName + &quot; &quot; +  Manager.Manager.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Upper Management</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Image_Small__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( User_Image_URL_Small__c =&quot;&quot;,
+IMAGE( &quot;https://c.na25.content.force.com/profilephoto/005/T&quot; , &quot;No User Image&quot;),
+IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>User Image - Small</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Image_URL_Small__c</fullName>
+        <externalId>false</externalId>
+        <label>User Image URL - Small</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__Default_ET_Page__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Marketing Cloud Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ExactTargetForAppExchangeAdmin__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marketing Cloud for AppExchange Admin</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ExactTargetForAppExchangeUser__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marketing Cloud for AppExchange User</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ExactTargetUsername__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marketing Cloud Username</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ExactTarget_OAuth_Token__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marketing Cloud OAuth Token</label>
+        <length>175</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ValidExactTargetAdmin__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Valid Marketing Cloud Admin</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ValidExactTargetUser__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Valid Marketing Cloud User</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>pi__Can_View_Not_Assigned_Prospects__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Can View Not Assigned Prospects</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>pi__Pardot_Api_Key__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot Api Key</label>
+        <length>100</length>
+        <maskChar>X</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>pi__Pardot_Api_Version__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot Api Version</label>
+        <length>1</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pi__Pardot_User_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot User Id</label>
+        <length>100</length>
+        <maskChar>X</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>pi__Pardot_User_Key__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot User Key</label>
+        <length>100</length>
+        <maskChar>X</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>pi__Pardot_User_Role__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pardot User Role</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>ActiveUsers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>Division__c</columns>
+        <columns>SAP_DTN__c</columns>
+        <columns>DTN__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Active Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Active_Users</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>DTN__c</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>SU_ACCESS_EXPIRATION</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Active Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>AdminUsers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.PROFILE.NAME</field>
+            <operation>equals</operation>
+            <value>System Administrator</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Admin Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>AllUsers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>DTN__c</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>SU_ACCESS_EXPIRATION</columns>
+        <columns>UPDATEDBY_USER.NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Data_com</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>JIGSAW_PROSPECTING_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>High_Level_Division__c</field>
+            <operation>notEqual</operation>
+            <value>,Software,Sales Operations,Solution Design,Training &amp; Consulting,Executives</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <operation>notEqual</operation>
+            <value>Territory</value>
+        </filters>
+        <filters>
+            <field>CORE.USER_ROLE.NAME</field>
+            <operation>notEqual</operation>
+            <value>TAA Sales Executives,Billing Team,Manager - R&amp;L Training &amp; Consulting</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <operation>notEqual</operation>
+            <value>Point,Sure,Service</value>
+        </filters>
+        <label>Data.com</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Sales_Ops_Admin</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FrozenUsers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>Division__c</columns>
+        <columns>SAP_DTN__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>IS_FROZEN</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Frozen Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>InActiveUsers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>DTN__c</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>InActive Users</label>
+    </listViews>
+    <listViews>
+        <fullName>Never_Logged_In</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>MANAGER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.LAST_LOGIN</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <operation>notEqual</operation>
+            <value>Territory</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Never Logged In</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Open_Territory_users</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>DTN__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>Territory</value>
+        </filters>
+        <label>Open Territory users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Recently_add_users</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>DTN__c</columns>
+        <columns>CORE.USERS.EMAIL</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterThan</operation>
+            <value>9/1/2016 12:00 AM</value>
+        </filters>
+        <label>Recently added users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SFS_Users</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>DTN__c</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>SU_ACCESS_EXPIRATION</columns>
+        <columns>SFS_User__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SFS_User__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.LAST_LOGIN</field>
+            <operation>equals</operation>
+        </filters>
+        <label>SFS Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Unfrozen_Users</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>Division__c</columns>
+        <columns>SAP_DTN__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>IS_FROZEN</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Unfrozen Users</label>
+        <language>en_US</language>
+    </listViews>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USER_ROLE.NAME</lookupDialogsAdditionalFields>
+        <lookupFilterFields>FULL_NAME</lookupFilterFields>
+        <lookupFilterFields>CORE.USER_ROLE.NAME</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USER_ROLE.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.PHONE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.EXTENSION</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.CELL</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.TITLE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.PHONE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.EMAIL</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>Custodial_Rep_no_Identified</fullName>
+        <active>true</active>
+        <errorConditionFormula>FirstName = &quot;Territory&quot; &amp;&amp;  ISBLANK(Custodial_Rep__c)&amp;&amp; IsActive = TRUE</errorConditionFormula>
+        <errorMessage>You must select a Custodial Rep for Open Territory User Accounts</errorMessage>
+    </validationRules>
+</CustomObject>

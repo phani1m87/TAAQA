@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Post to Chatter &amp; Update Quote Technical Failure field - On Automated Order Failure</description>
+    <label>Post to Chatter &amp; Update Quote Technical Failure field - On Automated Order Failure</label>
+    <processType>Workflow</processType>
+</Flow>

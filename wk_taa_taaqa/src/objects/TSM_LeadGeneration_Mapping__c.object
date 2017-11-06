@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Defines the field mapping for lead creation from campaign member.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>CM_Contact_FieldName__c</fullName>
+        <description>Represents the Campaign Member Field Name when converting to Lead from Campaign Member Contact.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Represents the Campaign Member Field Name when converting to Lead from Campaign Member Contact.</inlineHelpText>
+        <label>CM Contact FieldName</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CM_Lead_FieldName__c</fullName>
+        <description>Represents the Campaign Member Field Name when converting to Lead from Campaign Member Lead.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Represents the Campaign Member Field Name when converting to Lead from Campaign Member Lead.</inlineHelpText>
+        <label>CM Lead FieldName</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Default_Value__c</fullName>
+        <description>Default text value to be set for lead field on conversion</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default text value to be set for lead field on conversion</inlineHelpText>
+        <label>Default Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>TSM_LeadGeneration_Mapping</label>
+    <visibility>Public</visibility>
+</CustomObject>

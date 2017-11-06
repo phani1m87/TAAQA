@@ -1,0 +1,272 @@
+<apex:page showHeader="true" sidebar="true" standardController="Lead" extensions="TSM_LeadConvertController" Id="LeadConvertPage" >
+	
+	<apex:variable var="companyName" rendered="{!NOT(leadToConvert.Company == null)}" value=" - {!leadToConvert.Company}" />
+	
+	<apex:sectionHeader title="Convert Lead" subtitle="{!leadToConvert.name}{!companyName}"/>
+	<apex:form id="theForm">
+		<apex:pageBlock mode="edit" id="pageBlock">
+			<apex:pageMessages />
+            <apex:pageBlockButtons >       
+                <apex:commandButton action="{!convertLead}" value="Convert"/> 
+                <apex:commandButton action="{!cancel}" value="Cancel"/>                              
+            </apex:pageBlockButtons> 
+
+			<apex:pageBlockSection title="Lead Status" id="LeadStatusSection">
+				<apex:pageBlockSectionItem id="leadStatusItem" >
+					<apex:outputLabel value="Lead Status" for="LeadStatus" />
+					<apex:actionRegion >
+						<apex:inputField Id="LeadStatus"  value="{!leadToConvert.Status}" required="true" >
+							<apex:actionSupport event="onchange" action="{!setLeadStatusDependentFields}" rerender="pageBlock" oncomplete="setLeadStatusValues()"/>
+		                </apex:inputField>
+	                </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+
+				<apex:inputField Id="LeadReason" value="{!leadToConvert.Reason__c}" required="true" >
+					<apex:actionSupport event="onchange" action="{!updateLeadReason}" rerender="LeadReason" />
+				</apex:inputField>	
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection title="Account and Contact Information" id="AccountContactTypeSection">
+				<apex:pageBlockSectionItem >
+                    <apex:outputLabel value="New or Existing Account?" for="AccountType" />
+                    <apex:actionRegion >
+                    <apex:outputPanel styleClass="requiredInput" layout="block">
+                        <div class="requiredBlock"></div>
+                        <apex:selectList id="AccountType" value="{!selectedAccountType}"  size="1" multiselect="false" required="{! NOT(leadToConvert.Status == $Label.TSM_LeadStatus_NotViable)}"
+                        	disabled="{!NOT(leadToConvert.Related_Account__c == null) || leadToConvert.Status == $Label.TSM_LeadStatus_NotViable}" >
+                        	<apex:selectOptions value="{!accountTypes}"/>
+                        	<apex:actionSupport event="onchange" action="{!resetFields}" rerender="AccountContactTypeSection,AccountContactInformationSection" />
+                        </apex:selectList>
+                    </apex:outputPanel>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="New or Existing Contact?" for="ContactType" />
+                    <apex:actionRegion >
+                    <apex:outputPanel styleClass="requiredInput" layout="block">
+                        <div class="requiredBlock"></div>
+                        <apex:selectList id="ContactType" value="{!selectedContactType}" size="1" multiselect="false" required="{! NOT(leadToConvert.Status == $Label.TSM_LeadStatus_NotViable)}"
+                        	disabled="{!NOT(leadToConvert.Related_Contact__c == null) || leadToConvert.Status == $Label.TSM_LeadStatus_NotViable}">
+                            <apex:selectOptions value="{!contactTypes}"/>
+                            <apex:actionSupport event="onchange" action="{!resetFields}" rerender="AccountContactTypeSection,AccountContactInformationSection" />
+                        </apex:selectList>
+                    </apex:outputPanel>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection Id="AccountContactInformationSection">
+
+                <apex:pageBlockSectionItem rendered="{!(selectedAccountType == $Label.TSM_LeadConversion_Existing)}" id="RelatedAccountItem"> 
+                	<apex:outputLabel value="Existing Account" for="RelatedAccount" />
+                	<apex:actionRegion >
+	                	<apex:outputPanel layout="block" Id="RelatedAccountPanel">
+	                	<apex:inputField Id="RelatedAccount" value="{!leadToConvert.Related_Account__c}" required="{!selectedAccountType == $Label.TSM_LeadConversion_Existing && NOT(leadToConvert.Status == $Label.TSM_LeadStatus_NotViable)}">
+	                		<apex:actionSupport event="onchange" action="{!setExistingAccount}" rerender="RelatedAccountPanel" />
+	                	</apex:inputField>
+	                	</apex:outputPanel>
+                	</apex:actionRegion>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem rendered="{!(selectedContactType == $Label.TSM_LeadConversion_Existing)}" > 
+                	<apex:outputLabel value="Existing Contact" for="RelatedContact" />
+                	<apex:actionRegion >
+	                	<apex:inputField Id="RelatedContact" value="{!leadToConvert.Related_Contact__c}" required="{!selectedContactType == $Label.TSM_LeadConversion_Existing && NOT(leadToConvert.Status == $Label.TSM_LeadStatus_NotViable)}">
+	                		 <apex:actionSupport event="onchange" action="{!setExistingAccount}" rerender="RelatedAccountPanel" />
+	                	</apex:inputField>
+                	</apex:actionRegion>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem rendered="{!(selectedAccountType == $Label.TSM_LeadConversion_New) && NOT(leadToConvert.Status == $Label.TSM_LeadStatus_NotViable)}" > 
+                	<apex:outputLabel value="New Account Name" for="newAccountName" />
+                	<apex:outputPanel layout="block">
+                		<apex:inputField value="{!newAccount.Name}" Id="newAccountName" />
+            		</apex:outputPanel>
+                </apex:pageBlockSectionItem>
+				
+                <apex:pageBlockSectionItem rendered="{!(selectedAccountType == $Label.TSM_LeadConversion_None)}" > 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem rendered="{!(selectedContactType == $Label.TSM_LeadConversion_New)  && NOT(leadToConvert.Status == $Label.TSM_LeadStatus_NotViable)}" > 
+                	<apex:outputLabel value="New Contact First Name" for="NewContactFN" />
+                	<apex:outputPanel >
+                		<apex:inputField Id="NewContactSalutation" value="{!newContact.Salutation}"/>
+                		<apex:inputField Id="NewContactFN" value="{!newContact.FirstName}"/>
+                	</apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem rendered="{!(selectedContactType == $Label.TSM_LeadConversion_New) && NOT(leadToConvert.Status == $Label.TSM_LeadStatus_NotViable)}" > 
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem rendered="{!(selectedContactType == $Label.TSM_LeadConversion_New) && NOT(leadToConvert.Status == $Label.TSM_LeadStatus_NotViable)}" > 
+                	<apex:outputLabel value="New Contact Last Name" for="NewContactLN" />
+                	<apex:outputPanel layout="block">
+                		<apex:inputField Id="NewContactLN" value="{!newContact.LastName}"/>
+            		</apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection title="New Opportunity Information" rendered="{!leadToConvert.status == $Label.TSM_LeadStatus_NewOpportunity}">
+				<apex:repeat value="{!$ObjectType.Opportunity.Fieldsets.TSM_LeadConvertFields}" var="oppFieldName" >                  
+                    <apex:inputField value="{!newOpportunity[oppFieldName]}" required="{!leadToConvert.status == $Label.TSM_LeadStatus_NewOpportunity && (oppFieldName != 'VAR_Account__c' &&  oppFieldName != 'ERP_Technology__c' )}"/>
+                </apex:repeat>
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection title="Existing Opportunity Information" rendered="{!leadToConvert.status == $Label.TSM_LeadStatus_ExistingOpportunity}">
+				<apex:pageBlockSectionItem > 
+                	<apex:outputLabel value="Related Opportunity" for="RelatedOpportunity" />
+					<apex:actionRegion >
+						<apex:inputField Id="RelatedOpportunity" value="{!leadToConvert.Related_Opportunity__c}" required="{!leadToConvert.status == $Label.TSM_LeadStatus_ExistingOpportunity}" >
+							<apex:actionSupport event="onchange" action="{!setExistingAccount}" rerender="RelatedAccountPanel" />
+						</apex:inputField>
+					</apex:actionRegion>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+
+		</apex:pageBlock>
+	</apex:form>
+
+	<script language="javascript" src="/soap/ajax/32.0/connection.js" type="text/javascript"></script>
+	<script language="javascript" src="/soap/ajax/24.0/apex.js" type="text/javascript"></script>
+	<script type="text/javascript"> 
+		setLeadStatusValues();
+
+		function setLeadStatusValues(){
+			//from Lead status field definition retain the converted values and remove all non converted values.
+			var leadStatusQueryResult = sforce.connection.query("SELECT Id, MasterLabel FROM LeadStatus WHERE IsConverted = TRUE");
+			var selectobject = document.getElementById('{!$Component.LeadConvertPage.theForm.pageBlock.LeadStatusSection.leadStatusItem.LeadStatus}');
+
+			var opt = document.createElement('option');
+		    opt.value = '--None--';
+		    opt.innerHTML = '--None--';
+			selectobject.prepend(opt);
+
+			if(leadStatusQueryResult.size != 0) {
+                var convertedStatusValues = leadStatusQueryResult.getArray("records");
+				for (var i=0; i<selectobject.length; i++){
+					var isConvertedValue = false;
+					for(var j=0; j<convertedStatusValues.length; j++){
+						
+						if(selectobject.options[i].value == convertedStatusValues[j].MasterLabel){
+							isConvertedValue = true;
+							break;
+						}
+					}
+					if(isConvertedValue == false && selectobject.options[i].value != '--None--'){
+						selectobject.remove(i);
+						i--
+					}
+			  	}
+		  	}
+	  	}
+
+		function openLookup(baseURL, width, modified, searchParam){
+		    var originalbaseURL = baseURL;
+		    var originalwidth = width;
+		    var originalmodified = modified;
+		    var originalsearchParam = searchParam;
+
+		    var lookupType = baseURL.substr(baseURL.length-3, 3);
+		    if (modified == '1') baseURL = baseURL + searchParam;
+
+		    var isCustomLookup = false;
+		    console.log('lookupType - '+ lookupType);
+		    // Following "001" is the lookup type for Account object
+		    if(lookupType == "001"){
+
+		      var urlArr = baseURL.split("&");
+		      var txtId = '';
+		      if(urlArr.length > 2) {
+		        urlArr = urlArr[1].split('=');
+		        txtId = urlArr[1];
+		      }
+
+		      // Following is the url of Custom Lookup page.
+		      baseURL = "/apex/TSM_CustomAccountLookup?txt=" + txtId;
+
+		      // Following is the id of apex:form control "theForm".
+		      baseURL = baseURL + "&frm=" + escapeUTF("{!$Component.theForm}");
+		      if (modified == '1') {
+		        baseURL = baseURL + "&lksearch=" + searchParam;
+		      }
+
+		      // Following is the ID of inputField that is the lookup to be customized as custom lookup
+		      if(txtId.indexOf('RelatedAccount') > -1 ){
+		        isCustomLookup = true;
+		      }
+		    }
+
+		    // Following "003" is the lookup type for Contact object. But this field has filters.
+		    if(lookupType == "%5D"){
+		   	  var relatedAccountId=document.getElementById('LeadConvertPage:theForm:pageBlock:AccountContactInformationSection:RelatedAccountItem:RelatedAccount_lkid');
+		   	  
+		      var urlArr = baseURL.split("&");
+		      var txtId = '';
+		      if(urlArr.length > 2) {
+		        urlArr = urlArr[1].split('=');
+		        txtId = urlArr[1];
+		      }
+
+		      // Following is the url of Custom Lookup page.
+		      baseURL = "/apex/TSM_CustomContactLookup?txt=" + txtId;
+
+		      // Following is the id of apex:form control "theForm". 
+		      baseURL = baseURL + "&frm=" + escapeUTF("{!$Component.theForm}");
+		      if (modified == '1') {
+		        baseURL = baseURL + "&lksearch=" + searchParam;
+		      }
+
+		      if(relatedAccountId != null && relatedAccountId.value != null && relatedAccountId.value != '000000000000000'){
+		        baseURL = baseURL + "&relatedAccountId=" + relatedAccountId.value;
+		      }
+
+		      // Following is the ID of inputField that is the lookup to be customized as custom lookup
+		      if(txtId.indexOf('RelatedContact') > -1 ){
+		        isCustomLookup = true;
+		      }
+		    }
+
+		    // Following "006" is the lookup type for Opportunity object
+		    if(lookupType == "006"){
+		      var relatedAccountId=document.getElementById('LeadConvertPage:theForm:pageBlock:AccountContactInformationSection:RelatedAccountItem:RelatedAccount_lkid');
+		   	  
+		      var urlArr = baseURL.split("&");
+		      var txtId = '';
+		      if(urlArr.length > 2) {
+		        urlArr = urlArr[1].split('=');
+		        txtId = urlArr[1];
+		      }
+
+		      // Following is the url of Custom Lookup page.
+		      baseURL = "/apex/TSM_CustomOpportunityLookup?txt=" + txtId;
+
+		      // Following is the id of apex:form control "theForm". 
+		      baseURL = baseURL + "&frm=" + escapeUTF("{!$Component.theForm}");
+		      if (modified == '1') {
+		        baseURL = baseURL + "&lksearch=" + searchParam;
+		      }
+
+		      if(relatedAccountId != null && relatedAccountId.value != null && relatedAccountId.value != '000000000000000'){
+		        baseURL = baseURL + "&relatedAccountId=" + relatedAccountId.value;
+		      }
+
+
+		      // Following is the ID of inputField that is the lookup to be customized as custom lookup
+		      if(txtId.indexOf('RelatedOpportunity') > -1 ){
+		        isCustomLookup = true;
+		      }
+		    }
+
+
+		    if(isCustomLookup == true){
+		      openPopup(baseURL, "lookup", 350, 480, "width="+width+",height=480,toolbar=no,status=no,directories=no,menubar=no,resizable=yes,scrollable=no", true);
+		    }
+		    else {
+		      if (modified == '1') originalbaseURL = originalbaseURL + originalsearchParam;
+		      openPopup(originalbaseURL, "lookup", 350, 480, "width="+originalwidth+",height=480,toolbar=no,status=no,directories=no,menubar=no,resizable=yes,scrollable=no", true);
+		    } 
+	  	}	  	
+	</script>
+</apex:page>

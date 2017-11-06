@@ -1,0 +1,154 @@
+<apex:page standardController="Account">
+<script>
+      function setFocusOnLoad() {}
+</script>
+<apex:form style="padding-left:2px;">
+
+<apex:pageblock >
+ <b><apex:outputlabel Style="Font-size:14px" value="Product Flags"/></b>
+</apex:pageblock>  
+<div> 
+<b><u><apex:outputlabel style="font-size:10px"  value="Tax"/></u></b>     
+<br/>
+<br/>
+<apex:outputlabel value=" Tax" /><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Tax__c}"/> 
+<apex:outputlabel style="position:absolute;left:170px" value=" Axcess Tax"/><apex:inputCheckbox style="position:absolute;left:260px" disabled="true" label="" value="{!account.Has_Axcess_Tax__c}"/> <br/><hr/>
+<apex:outputlabel value=" GFX"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_GFX__c}"/>
+<apex:outputlabel style="position:absolute;left:170px" value=" Outsource"/><apex:inputCheckbox style="position:absolute;left:260px" disabled="true" label="" value="{!account.Has_Outsource__c}"/><br/><hr/>
+<apex:outputlabel value=" Scan"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Scan__c}"/>
+<apex:outputlabel style="position:absolute;left:170px" value=" Scan SaaS"/><apex:inputCheckbox style="position:absolute;left:260px;" disabled="true" label="" value="{!account.Has_Scan_SaaS__c}"/><br/><hr/>
+<apex:outputlabel value=" PDFlyer"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_PDFlyer__c}"/>
+<apex:outputlabel style="position:absolute;left:170px" value=" Fixed Assets"/><apex:inputCheckbox style="position:absolute;left:260px" disabled="true" label="" value="{!account.Has_Fixed_Assets__c}"/>
+<hr/>
+<apex:outputlabel value="ATX" /><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_ATX__c}"/> 
+<apex:outputlabel style="position:absolute;left:170px" value="TaxWise" /><apex:inputCheckbox style="position:absolute;left:260px" disabled="true" label="" value="{!account.Has_TaxWise__c}"/> 
+<br/>
+</div>
+<hr style="height:5px;background-color:#000"/>
+<br/>
+ <div>     
+    <b><u><apex:outputlabel style="font-size:10px"  value="Workflow"/></u></b>
+<br/>
+<br/>
+<apex:outputlabel value=" Practice Management"/>&nbsp;<apex:inputCheckbox style="position:absolute;left:140px;" disabled="true" label="" value="{!account.Has_Practice_Management__c}"/>
+<apex:outputlabel style="position:absolute;left:170px" value=" Axcess Practice"/><apex:inputCheckbox disabled="true" style="position:absolute;left:260px;" label="" value="{!account.Has_Axcess_Practice__c}"/><br/><hr/>
+<apex:outputlabel value=" Practice Advantage"/><apex:inputCheckbox disabled="true" label="" style="position:absolute;left:140px;" value="{!account.Has_Practice__c}"/>
+<apex:outputlabel style="position:absolute;left:170px" value=" Practice Manager"/><apex:inputCheckbox disabled="true" style="position:absolute;left:260px;" label="" value="{!account.Has_Practice_Manager__c}"/><br/><hr/>
+<apex:outputlabel value=" Axcess Document" />&nbsp;<apex:inputCheckbox style="position:absolute;left:140px;" disabled="true" label="" value="{!account.Has_Axcess_Document__c}"/>
+<apex:outputlabel value=" Document OP" style="position:absolute;left:170px"/>&nbsp;<apex:inputCheckbox style="position:absolute;left:260px;" disabled="true" label="" value="{!account.Has_Document_On_Premise__c}"/><br/><hr/>
+<apex:outputlabel Value=" Document ASP" /> &nbsp;<apex:inputCheckbox disabled="true" label="" style="position:absolute;left:140px;" value="{!account.Has_Document_ASP__c}"/>
+<apex:outputlabel style="position:absolute;left:170px;" value=" Doc Foundation"/><apex:inputCheckbox disabled="true" style="position:absolute;left:260px;" label="" value="{!account.Has_Document__c}"/><br/><hr/>
+<apex:outputlabel value=" Portal SaaS"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Portal_SaaS__c}"/>
+<apex:outputlabel style="position:absolute;left:170px;" value=" Workstream"/><apex:inputCheckbox disabled="true" style="position:absolute;left:260px;" label="" value="{!account.Has_Axcess_Workstream__c}"/><br/><hr/>
+<apex:outputlabel value=" KnowledgeConnect"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Knowledge_Connect__c}"/>
+<hr/>
+<apex:outputlabel value="IFirm" /><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_IFirm__c}"/> 
+<apex:outputlabel style="position:absolute;left:170px" value="SFS Other" /><apex:inputCheckbox style="position:absolute;left:260px;" disabled="true" label="" value="{!account.Has_SFS_Other_Ancillary__c}"/> 
+<hr style="height:5px;background-color:#000"/>
+ </div>
+ <div>
+ <b><u><apex:outputlabel style="font-size:10px"  value="AA"/></u></b>
+<br/> 
+<br/>     
+<apex:outputlabel value=" Engagement"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Engagement__c}"/>
+<apex:outputlabel style="position:absolute;left:170px;" value=" Trial Balance" /><apex:inputCheckbox disabled="true" style="position:absolute;left:260px;" label="" value="{!account.Has_Trial_Balance__c}"/><br/><hr/>
+<apex:outputlabel value=" Knowledge Tools"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Knowledge_Tools__c}"/>
+<apex:outputlabel style="position:absolute;left:170px;" value=" Knowledge Coach"/><apex:inputCheckbox disabled="true" style="position:absolute;left:260px;" label="" value="{!account.Has_Knowledge_Coach__c}"/><br/><hr/>
+<apex:outputlabel value=" Active Data"/><apex:inputCheckbox disabled="true" style="position:absolute;left:140px;" label="" value="{!account.Has_Active_Data__c}"/>
+</div>
+<hr style="height:5px;background-color:#000"/>
+<div>
+<b><u><apex:outputlabel style="font-size:10px"  value="Indirect"/></u></b>
+<br/>
+<br/>
+<apex:outputlabel value="Compliance Services"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Compliance_Services__c}"/>
+<apex:outputlabel style="position:absolute;left:170px;" value="Database/LU/RADAR"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Database_Lookup_RADAR__c}"/><br/><hr/> 
+<apex:outputlabel value="POS Tax Portal"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_POS_Tax_Portal__c}"/> 
+<apex:outputlabel style="position:absolute;left:170px;" value="Returns"/><apex:inputCheckbox style="position:absolute;left:300px;" disabled="true" label="" value="{!account.Has_Returns__c}"/><br/><hr/>
+<apex:outputlabel value="Sales Tax Office"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Sales_Tax_Office__c}"/>
+<apex:outputlabel style="position:absolute;left:170px;" value="Sales Tax Online/CORE"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Sales_Tax_Online_CORE__c}"/><br/><hr/>
+<apex:outputlabel value="SureTax"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_SureTax__c}"/>
+<apex:outputlabel style="position:absolute;left:170px;" value="Telecom DB/LU/RADAR"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Telecom_DB_Lookup_RADAR_Flag__c}"/><br/><hr/> 
+<apex:outputlabel value="Utility DB/LU/RADAR"/><apex:inputCheckbox style="position:absolute;left:140px" disabled="true" label="" value="{!account.Has_Utility_DB_Lokup_RADAR_Flag__c}"/> 
+<apex:outputlabel style="position:absolute;left:170px;" value="Load Utilities"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Load_Utilities__c}"/><br/><hr/> 
+</div>
+<hr style="height:5px;background-color:#000"/>
+  <div>
+ <b><u><apex:outputlabel style="font-size:10px"  value="Research"/></u></b>
+<br/>
+<br/>
+<apex:outputlabel value="COMPL1: Master Tax Guide"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_COMPL1_Master_Tax_Guide__c}"/>
+<br/><hr/>
+<apex:outputlabel value="COMPL2: PTE & Single TPP" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_COMPL2_PTE_Single_TPP__c}"/>
+<br/><hr/>
+<apex:outputlabel value="COMPL3: PTE & Core TPP" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_COMPL3_PTE_Core_TPP__c}"/>
+<br/><hr/>
+<apex:outputlabel value="PROP1: PTP & Core TPP"  /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_PROP1_PTP_Core_TPP__c}"/>
+<br/><hr/>
+<apex:outputlabel value="PROT2: TRC Lite & Core TPP" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_PROT2_TRC_Lite_Core_TPP__c}"/>
+<br/><hr/>
+<apex:outputlabel value="PROT3: TRC"  /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_PROT3_TRC__c}"/>
+<br/><hr/>
+<apex:outputlabel value="PROS4: Standard FED"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_PROS4_Standard_FED__c}"/>
+<br/><hr/>
+<apex:outputlabel value="PROT5: TRC, Federal TPP & 1 State" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_PROT5_TRC_Federal_TPP_1_State__c}"/>
+<br/><hr/>
+<apex:outputlabel value="PROS6: FED, Federal TPP & 1 State" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_PROS6_FED_Federal_TPP_1_State__c}"/>
+<br/><hr/>
+<apex:outputlabel value="TAX0: TRC and FED" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_TAX0_TRC_and_FED__c}"/>
+<br/><hr/>
+<apex:outputlabel value="TAX1: TRC, FED, Federal TPP, 1 State Forms" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_TAX1_TRC_FED_Federal_TPP_1_State__c}"/>
+<br/><hr/>
+<apex:outputlabel value="TAX2A: TRC, FED, Fed TPP, 1 State , Entities & Forms"  /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_TAX2A_TRC_FED_Fed_TPP_1_State_Enti__c}"/>
+<br/><hr/>
+<apex:outputlabel value="CORPC: MTG + PTP + 3 Full or 5 Lite States +Forms"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_CORPC_MTG_PTP_3_Full_or_5_Lite_Stat__c}"/>
+<br/><hr/>
+<apex:outputlabel value="CORPP: MTG + TRC + 50 States Lite +Forms" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_CORPP_MTG_TRC_50_States_Lite_Forms__c}"/>
+<br/><hr/>
+<apex:outputlabel value="CORPS1: MTG + FED +TRC + 50 States Full" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_CORPS1_MTG_FED_TRC_50_States_Full__c}"/>
+<br/><hr/>
+<apex:outputlabel value="CORPS2: MTG + FED +TRC + All St. + Multi St. Guides"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_CORPS2_MTG_FED_TRC_All_States_Mu__c}"/>
+<br/><hr/>
+<apex:outputlabel value="State Tax Specialty" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_State_Tax_Specialty__c}"/>
+<br/><hr/>
+<apex:outputlabel value="State Tax Reporters" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_State_Tax_Reporters__c}"/> 
+<br/><hr/>
+<apex:outputlabel value="International Tax"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_International_Tax__c}"/>
+<br/><hr/>
+<apex:outputlabel value="IntelliForms" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_IntelliForms__c}"/>
+<br/><hr/>
+<apex:outputlabel value="Schools" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Schools__c}"/>
+<br/><hr/>
+<apex:outputlabel value="Tax Prep Partner" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Tax_Prep_Partner__c}"/>
+<br/><hr/>
+<apex:outputlabel value="Financial and Estate Tax" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Financial_and_Estate_Tax__c}"/> 
+<br/><hr/>
+<apex:outputlabel value="Specialty Planning" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Specialty_Planning__c}"/>
+<br/><hr/>
+<apex:outputlabel value="Federal Add Ons" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Federal_Add_Ons__c}"/> 
+<br/><hr/>
+<apex:outputlabel value="CCH Expert Treatises" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_CCH_Expert_Treatises__c}"/>
+<br/><hr/>
+<apex:outputlabel value="Journals" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Journals__c}"/>
+<br/><hr/>
+<apex:outputlabel value="Accounting & Auditing Internet" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Accounting_Auditing_Internet__c}"/> 
+<br/><hr/>
+<apex:outputlabel value="Entity Planning"/><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Entity_Planning__c}"/>
+<br/><hr/>
+<apex:outputlabel value="ClientRelate" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_ClientRelate__c}"/>
+<br/><hr/>
+<apex:outputlabel value="ARM" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_ARM__c}"/> 
+<br/><hr/>
+<apex:outputlabel value="Learning and Seminars" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_Learning_and_Seminars__c}"/>
+<hr/>
+<apex:outputlabel value="SFS Research" /><apex:inputCheckbox style="position:absolute;left:300px" disabled="true" label="" value="{!account.Has_SFS_Research__c}"/> 
+<br/>
+</div>
+ </apex:form>
+ 
+
+
+  
+
+ 
+</apex:page>

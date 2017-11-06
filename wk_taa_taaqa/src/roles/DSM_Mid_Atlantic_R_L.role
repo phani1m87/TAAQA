@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>DSM - Mid-Atlantic R&amp;L</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>DSM - Mid-Atlantic R&amp;L</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Research_Learning</parentRole>
+</Role>

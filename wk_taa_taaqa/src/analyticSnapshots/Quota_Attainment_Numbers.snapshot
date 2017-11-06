@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnalyticSnapshot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <mappings>
+        <sourceField>JobName</sourceField>
+        <sourceType>snapshot</sourceType>
+        <targetField>Analytics__c.Name</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>ForecastingQuota$Owner</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Analytics__c.Sales_Rep__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>ForecastingQuota$Owner.Start_Date__c</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Analytics__c.Employment_Start_Date__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>ForecastingQuota$QuotaAmount</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Analytics__c.Quota_Amount__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>ForecastingQuota.ForecastingQuotaItems$OwnerOnlyAmount</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Analytics__c.Amount_Sold__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>ForecastingQuota$StartDate</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Analytics__c.Quota_Month__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>ForecastingQuota$Owner.High_Level_Division__c</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Analytics__c.High_Level_Division__c</targetField>
+    </mappings>
+    <name>Quota Attainment Numbers</name>
+    <runningUser>alex.cardona@wolterskluwer.com</runningUser>
+    <sourceReport>Analytic_Snapshots/Quota_Attainment_numbers</sourceReport>
+    <targetObject>Analytics__c</targetObject>
+</AnalyticSnapshot>

@@ -1,0 +1,3940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Add</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fieldSets>
+        <fullName>Apttus_Config2__ProductDetailFields</fullName>
+        <availableFields>
+            <field>Apttus_Config2__Customizable__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__IconId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__Icon__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__Version__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Set of display fields for the Detail page in Admin Console</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ProductCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Family</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__Uom__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__EffectiveDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__ExpirationDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__ConfigurationType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__HasOptions__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__HasAttributes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsActive</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Product Detail Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Apttus_Config2__ProductListFields</fullName>
+        <availableFields>
+            <field>Apttus_Config2__Customizable__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__EffectiveDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__ExpirationDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__IconId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__Icon__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__Version__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Set of display fields for the List page in Admin Console</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ProductCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Family</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__ConfigurationType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__Uom__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__HasOptions__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Apttus_Config2__HasAttributes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsActive</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Product List Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Apttus_Config2__QuickSearchFilterFields</fullName>
+        <availableFields>
+            <field>Apttus_Config2__ConfigurationType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Family</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ProductCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__Uom__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>QuickAdd</description>
+        <label>Quick Search Filter Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Apttus_Config2__QuickSearchResultFields</fullName>
+        <availableFields>
+            <field>Apttus_Config2__ConfigurationType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__EffectiveDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__ExpirationDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Family</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__HasAttributes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__HasOptions__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ProductCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Apttus_Config2__Uom__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>QuickAdd</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Quick Search Result Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>ACRO__c</fullName>
+        <externalId>false</externalId>
+        <label>ACRO</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AMS_Product_Category__c</fullName>
+        <description>Stores the AMS product category information</description>
+        <externalId>false</externalId>
+        <label>AMS Product Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Active Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Active Data Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Active Data Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Additional CDs (3D)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Annual Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Archival Tax Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Audit Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Autoflow Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Autoflow Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Academy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax 1000 Package with Document and Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax 1000 Package with Document and Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax 500 Package with Document and Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax 500 Package with Document and Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Portal Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Accounting Suite Premier Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Accounting Suite Premier Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Intelligence Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Intelligence Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Intelligence Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Link Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Comtax Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Comtax Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Conversion Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Customized Letterhead (1A)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eLearning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Data Conversion</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Filing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Filing Business (4C)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Filing Individual (4A)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Filing Individual (4B)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Filing Individual - Unlimited (4B)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Filing Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Filing - Specialty (5)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eSign Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ETax Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ETAX Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Products (2A)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets Manager Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets Manager Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fujitsu Scanner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GainsKeeper Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Globalfx Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Integrator Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Integrator Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iMask Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Intangible Value Database (3A)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Integration Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach Titles</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Library Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manual Data Conversion (3C)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Network Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Network Licensing (3E)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Off-Site License (3F)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Organizer/Pro Forma/Tax Notebook Software (3G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outsource Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payroll Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PDFlyer Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PFX Mobile Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Planning Software (4F)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portal Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portal Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portal Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Conversion Service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Intelligence Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Intelligence Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management Conversion</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Productivity Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Productivity Software (4E)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Program Pricing (5A)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Saas Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Site Builder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Productivity Bundle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software Delivery Download</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 1 - Corporation (2D)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 1 - Exempt Org (2Q)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 1 - Fiduciary (2F)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 1 - Individual (2B)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 1 - Partnership (2C)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 1 - S Corporation (2E)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 2 - Corporation (2I)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 2 - Fiduciary (2K)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 2 - Individual (2G)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 2 - Partnership (2H)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 2 - S Corporation (2J)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 3 - Corporation (2N)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 3 - Estate/Gift Tax (2R)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 3 - Exempt Organization (2Q)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 3 - Fiduciary (2P)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 3 - Individual (2L)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 3 - Partnership (2M)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group 3 - S Corporation (2O)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Group - All (2S)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Balance Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Balance Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workpaper Manager Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workpaper Manager Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workpaper Manager Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workstream Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workstream Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workstream Training</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Aptps_Product_Image__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Image</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Aptps_Sales_term__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales term</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Aptps_Upload_Image__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (Name&lt;&gt;&quot;&quot;, HYPERLINK(&quot;/apex/SelectField?id=&quot;&amp;Id&amp;&quot;&amp;obj=Product2&quot;, IMAGE(&quot;/resource/Button_UploadImage&quot;, 
+&quot;Upload Image&quot;),&quot;_self&quot;), NULL)</formula>
+        <label>Upload Image</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__BundleInvoiceLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The invoice level associated with the bundle</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The invoice level associated with the bundle</inlineHelpText>
+        <label>Bundle Invoice Level</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bundle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Detail</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ConfigurationType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product configuration type</description>
+        <externalId>false</externalId>
+        <label>Configuration Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Standalone</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Bundle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Option</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Customizable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the product must be configured during selection.</description>
+        <externalId>false</externalId>
+        <label>Must Configure</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DiscontinuedDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the product is pulled out and rendered unavailable for sale on the store</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the product is pulled out and rendered unavailable for sale on the store</inlineHelpText>
+        <label>Discontinued Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product effective date. The product becomes available for selection on this date and time.</description>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EffectiveStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The start date of the product in a store</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The start date of the product in a store</inlineHelpText>
+        <label>Effective Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ExcludeFromSitemap__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the product is listed for indexing by search engines.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the product is listed for indexing by search engines.</inlineHelpText>
+        <label>Exclude From Sitemap</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ExpirationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product expiration date. The product is unavailable for selection after this date and time.</description>
+        <externalId>false</externalId>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__HasAttributes__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the product has attributes.</description>
+        <externalId>false</externalId>
+        <label>Has Attributes</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__HasDefaults__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the product has default rules</description>
+        <externalId>false</externalId>
+        <label>Has Defaults</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__HasOptions__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the product has options.</description>
+        <externalId>false</externalId>
+        <label>Has Options</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__HasSearchAttributes__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>When set to true the product can be considered as base product for searching related products</description>
+        <externalId>false</externalId>
+        <label>Has Search Attributes</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__IconId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The attachment object ID of the uploaded icon image file.</description>
+        <externalId>false</externalId>
+        <label>Icon Image</label>
+        <length>32</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__IconSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The actual size of the icon.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The actual size of the icon.</inlineHelpText>
+        <label>Actual Icon Size</label>
+        <length>32</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Icon__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Displays the icon uploaded using the icon button.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( &quot;/apex/Apttus_Config2__IconUploader?productId=&quot;+Id, IF(ISBLANK(Apttus_Config2__IconId__c) , IMAGE(&quot;/resource/Apttus_Config2__Image_UploadIcon&quot;, &quot;Upload Icon&quot;, 50, 50), IMAGE(&quot;/servlet/servlet.FileDownload?file=&quot;+Apttus_Config2__IconId__c , &quot;Icon&quot;, 50, 50)) , &quot;_top&quot; )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Product Icon for display in application. Click on the icon to add/change the image.</inlineHelpText>
+        <label>Icon</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LaunchDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the product is launched for selling.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the product is launched for selling.</inlineHelpText>
+        <label>Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Uom__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default unit of measure for the product</description>
+        <externalId>false</externalId>
+        <label>Uom</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Each</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Hour</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Day</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Year</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quarter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Case</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gallon</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Version__c</fullName>
+        <defaultValue>1.00</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Version</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Banded_Discount__c</fullName>
+        <externalId>false</externalId>
+        <label>Banded Discount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Concurrent_Users__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Concurrent Users</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cyclical_vs_Non_Cyclical__c</fullName>
+        <externalId>false</externalId>
+        <label>Cyclical vs Non Cyclical</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Cyclical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non Cyclical</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DisplayUrl</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ERP__c</fullName>
+        <externalId>false</externalId>
+        <label>ERP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AMS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAP</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Everest_Summary__c</fullName>
+        <externalId>false</externalId>
+        <label>Everest Summary</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Books</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Complete Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORE/ARM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Tax Maintenance &amp; SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax (including Tax SaaS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transactional</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other - Software</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ExternalDataSourceId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ExternalId</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ExternalId_P__c</fullName>
+        <externalId>true</externalId>
+        <label>ExternalId_P</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Family</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>GEAC_1__c</fullName>
+        <externalId>false</externalId>
+        <label>GEAC 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Total Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Total Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Total SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Total Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Total Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GEAC_2__c</fullName>
+        <externalId>false</externalId>
+        <label>GEAC 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Active Data - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Active Data - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Active Data - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>All other - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH University - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Intelligent - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client WU - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Complete Tax - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ComTax - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Conferences - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coolbar - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coolbar - Maintenanc</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPAS-Mgmt - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPAS-Mgmt - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPAS Mgr - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPAS Mgr - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPAS Shipping - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPAS - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document - SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ELF - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement Shipping - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance Fee Revenue - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Asset - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Asset - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GLOBAL FX - Maintenanc</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Integrator - SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Integrator - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Intercompany Revenue-Canada - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>JH Development - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Tools - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ktools - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outsource - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Click - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pfx Tax - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PFX Tax Shipping - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PFX Write Up - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portal - SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portal - SaaS Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Intelligence (Qliktech) License</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Intelligence (Qliktech) - Maint</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Intelligence - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice - SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Shipping - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prof Driver Shipping - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RedMoon - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RedMoon - SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Redmoon Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Returns - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan and Flow - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SCAN - SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan SaaS - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan Shipping - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service Bureau - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sitebuilder - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supplies - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax/Best Practice - Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Notebook - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax - SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Balance - Licensing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Balance - Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workstream - SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workstream - Training</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Included_Products__c</fullName>
+        <externalId>false</externalId>
+        <label>Included Products</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Is_Axcess_Implementation_Product__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Axcess Implementation Product</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Professional_Services__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Professional Services</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LAN__c</fullName>
+        <externalId>false</externalId>
+        <label>LAN</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>06</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>08</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>09</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>11</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>17</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>18</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>19</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>23</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>24</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>28</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>34</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>45</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>46</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>47</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>49</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>51</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>52</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>66</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>67</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>94</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Marketing_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Marketing Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Material_Pricing_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Material Pricing Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>7</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>9</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>11</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>13</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>14</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>15</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>16</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>17</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>18</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>19</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>21</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>22</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>23</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>24</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>25</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>26</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>27</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>28</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>29</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>31</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>32</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>33</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>34</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>35</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>36</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>37</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>38</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>39</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>40</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>41</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>42</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>43</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>44</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>45</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>46</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>47</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>48</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>49</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>51</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>52</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>53</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>54</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>55</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>56</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>57</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>58</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>59</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>60</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AC1</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Media_Format__c</fullName>
+        <externalId>false</externalId>
+        <label>Media Format</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Digital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Print</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Services</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Media_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Media Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Binder (BR)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BOM Header (BM)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bound book (BB)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Case (CA)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CD-Rom (CD)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consulting sess (CS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Prod (EL)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Journal (editio (JI)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Journal (JO)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loose leaf (LL)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Magazine (MG)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Module on CD (CC)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Newsletter (edi (NI)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Newsletter (NL)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Online content (OL)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other (DV)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Seminar session (SS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Services (SP)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Services (SV)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software offlin (ES)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software online (OS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training session (TS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yearbook (YB)</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>My_Listed_Products_Column_3__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;Special Instructions: &apos; + Special_Instructions__c + BR() + &apos;ACRO       : &apos; + ACRO__c + BR() + &apos;PAC Code : &apos; + text(PAC_Code__c)</formula>
+        <label>My Listed Products Column 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>My_Listed_Products_Desc__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Instructions</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>PAC_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>PAC Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>BCN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BCR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BGB</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BNH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BRN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FAB</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FSS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LSS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TNS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TRM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TST</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WSB</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PAC_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>PAC Description</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pipeline_Designation__c</fullName>
+        <externalId>false</externalId>
+        <label>Pipeline Designation</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Platform__c</fullName>
+        <externalId>false</externalId>
+        <label>Platform</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CCH Axcess</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Prosystem fx</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IntelliConnect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Portfolio__c</fullName>
+        <externalId>false</externalId>
+        <label>Portfolio</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>AMS Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMS Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ARM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CHICAGOBOOK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CHICAGO LRNCNTR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CHICAGO SEMINAR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EBOOKS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FEDERAL TAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FINESTPLAN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LCG</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LLL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SALES TAX GROUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SPEEDTAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STATE TAX</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Price_book__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Price book</label>
+        <referenceTo>Pricebook2</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pricebook_Name_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>Price_book__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Pricebook Name (Text)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Product_18_Character_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product 18 Character ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Line__c</fullName>
+        <description>Defines the product line for Wolters TAA portfolio</description>
+        <externalId>false</externalId>
+        <label>Product Line</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ERP__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research &amp; Learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Indirect Software (STG)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Books</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>AMS</controllingFieldValue>
+                <valueName>Software</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>SAP</controllingFieldValue>
+                <valueName>Research &amp; Learning</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>SAP</controllingFieldValue>
+                <valueName>Corporate Indirect Software (STG)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>SAP</controllingFieldValue>
+                <valueName>Books</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Record_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Record ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Sub_Family__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Sub Family</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Accounting &amp; Audit Internet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounting Research Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Active Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Active Data for Business</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Autoflow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Practice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Workstream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BC Retirement &amp; Benefit Subscription</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Books</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Academy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Audit Accelerator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax 1000 Package with Document and Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax 1000 Package with Document and Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax 500 Package with Document and Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax 500 Package with Document and Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax Solution 1000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax Solution 150</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax Solution 1500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax Solution 2000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax Solution 300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax Solution 500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax Solution 75</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax Solution 750</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH eSign</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Expert Treatises</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx for Business Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Accounting Suite Premier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Intelligence</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Link</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ClientRelate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COMPL1: Master Tax Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COMPL2: PTE &amp; Single TPP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COMPL3: PTE &amp; Core TPP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Comtax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORPC: Master Tax Guide + PTP + 3 Full or 5 Lite States + Forms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORPP: Master Tax Guide + TRC + 50 States Lite + Forms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORPP: Master Tax Guide + TRC + 50 States Lite +IntelliForms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORPP: Master Tax Guide + TRC + 50 States Lite + IntelliForms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORPS1: Master Tax Guide + FED +TRC + 50 States Full</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORPS1: Master Tax Guide + FED + TRC + 50 States Full</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORPS2: Master Tax Guide + FED + TRC + 50 States Full + MultistateTax Guides</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORPS2: Master Tax Guide + FED + TRC + 50 States Full + Multistate Tax Guides</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document On-Premise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eLearning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Entity Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ETax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Add-On</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>File and Remit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial and Estate Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General &amp; Retail Databases, Lookups &amp; RADAR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global fx</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Integrator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Grading Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hardware</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Integration Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IntelliForms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>International Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Journals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Connect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KnowledgeConnect On-Premise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KnowledgeConnect SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Law &amp; Business</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning Center &amp; Seminars</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Open Integration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outsource</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PFX Portal SAAS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>POS Tax Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Advantage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Intelligence</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management Basic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management Enterprise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management Office</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Professional Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PROP1: PTP &amp; Core TPP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PROS4: Standard FED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PROS6: FED, Federal TPP &amp; 1 Full State Reporter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem fx Tax Solution 1000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem fx Tax Solution 150</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem fx Tax Solution 1500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem fx Tax Solution 2000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem fx Tax Solution 300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem fx Tax Solution 500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem fx Tax Solution 75</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem fx Tax Solution 750</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ProSystem Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PROT2: TRC Lite &amp; Core TPP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PROT3: TRC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PROT5: TRC, Federal TPP &amp; 1 Full State Reporter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L e-Book</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Renewal Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Compliance Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Load Utilities for Dynamics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Load Utilities for Sage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office for AX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office for GP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office for NAV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office for Oracle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office for SAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Returns Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS CORE for AX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS CORE for GP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS CORE for NetSuite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS CORE for Sage 100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS CORE for Sage 101</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS CORE for Sage 300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS CORE for Sage 301</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS CORE  - Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS PLUS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS PRO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan SAAS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Schools</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Site Builder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Productivity Bundle (Pfx Scan)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Productivity Bundle (Scan SaaS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Specialty Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Tax Reporters</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Tax Specialty Libraries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SureTax Telecom</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAX0: TRC and FED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAX1: TRC, FED, Federal TPP, 1 Full State Reporter &amp; Forms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAX2A: TRC, FED, Federal TPP, 1 Full State Reporter, Entity Treatises &amp; Forms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Prep Partner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TeamMate Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Telecom Databases, Lookups and RADAR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Balance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Utility Databases, Lookups and RADAR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workpaper Manager</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training &amp; Consulting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Implementation Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subscription</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Subscription</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Fee</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_year__c</fullName>
+        <externalId>false</externalId>
+        <label>Product year</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Q2_Contest__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to identify 800+ Products for Q2-2016 Sales Contest</description>
+        <externalId>false</externalId>
+        <label>Q2 Contest</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>QuantityUnitOfMeasure</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Revenue_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Revenue Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Non Sub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sub</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SAP_Intellectual_Property_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>SAP Intellectual Property Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFDC_Product_HIDDEN__c</fullName>
+        <description>Original Auto number was changed to Text and never reverted back to Auto Number. Tat field have been integrated into several pieces of code which will take hours to correct,. This field will be used to populate the auto number and update SFDC Product # field that is used in the integration.</description>
+        <displayFormat>{0000000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>SFDC Product # (HIDDEN)</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>SFDC_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>SFDC Product #</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFS_Product_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SFS Product ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>STG_Renewal_Percentage__c</fullName>
+        <externalId>false</externalId>
+        <label>STG Renewal Percentage</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SaaS_Product_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SaaS Product ID</label>
+        <length>6</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Terms_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Terms 2</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Service_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Offer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Package</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Special_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Instructions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StockKeepingUnit</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Suppress_From_Order_Form__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Suppress From Order Form</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Suppress_Quote_Totals__c</fullName>
+        <description>Used to suppress quote totals on the shopping cart. Don&apos;t use for anything else.</description>
+        <externalId>false</externalId>
+        <label>Suppress Quote Totals</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Test_RTF__c</fullName>
+        <externalId>false</externalId>
+        <label>Test RTF</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Visible_to_UserRole__c</fullName>
+        <externalId>false</externalId>
+        <label>Visible to UserRole</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Everybody</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>TAA Sales Executives</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DSM - Corporate Direct</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vice President - R&amp;L Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STG Overall</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>WK_Product_Status__c</fullName>
+        <description>Stores the Wolters Product status</description>
+        <externalId>false</externalId>
+        <label>WK Product Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Renewal Product Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Stopped</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Normal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Returns Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Stop Delivery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not Published</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X15_2nd_Media__c</fullName>
+        <externalId>false</externalId>
+        <label>15 2nd Media</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Training Services</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X15_Media_Format__c</fullName>
+        <externalId>false</externalId>
+        <label>15 Media Format</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Services</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X15_Media_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>15 Media Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Regular Services</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X2ND_PORT_Parent3__c</fullName>
+        <externalId>false</externalId>
+        <label>2ND PORT/Parent3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounting &amp; Audit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounting &amp; Audit for Tax Professionals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ADDRESS VALIDATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Almanac Bus Ind Financial Ratios</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BULK HOURS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Certificate Programs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CONSULTING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Copyright Clearance Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CUSTOM OFFERS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DATABASE\LOOKUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ebooks</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Add-On</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Estate and Gift Taxes-Code/ Regs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FIT of Debt Instruments</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Freight</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GAAP Guide and Handbook</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Guidebooks</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Income Tax Regs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal Revenue Code</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>International</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Journals and Newsletters</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Key Facts and Figures</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Large Corps</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning Center Single Courses</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning Center Subscription</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lexis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loose-Leaf - Financial Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loose-Leaf -R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Master Sales and Use Tax Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mid Corps</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Multistate Corporate Tax Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nationals Transfer/Revenue Transfer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OBR reserve</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>POS TAX PORTAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practical Guides</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PRINT GRADING FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RATES DATABASE LOOKUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reserve</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Schools</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMINAR COURSES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Seminar Subscriptions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Add-On</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Tax Handbook</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STCOMSERV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STCOMSERV SETUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STLU</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STOL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STOL SETUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STO PLUG-INS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STROL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STROL SET UP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS CORE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS CORE PLUG-INS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS CORE SETUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS FILE AND REMIT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS FILE AND REMIT SETUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS PLUS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS PLUS SETUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STS PRO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SURETAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SURETAX CONSULTING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SURETAX SETUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Compliance Library</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Consultant Library</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAX INTERCHANGE FOR RETAIL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Professional Library</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TELECOM DATABASE\LOOKUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Textbooks</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Master Depreciation Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Master Estate &amp; Gift Tax Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Master Tax Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UTILITY DATABASE\LOOKUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Add-ons</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Titles</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X2nd_Media__c</fullName>
+        <externalId>false</externalId>
+        <label>2nd Media</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Books</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Content Access</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Digital product related Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>e-books</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>e-learning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Implementation Fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Journals / Newsletters / Magazines</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>License fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loose-leafs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Maintenance fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SaaS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Transactional</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Software/Workflow Tools</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Zero_Opportunity_Amount__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Zero Opportunity Amount</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>iFirm_Monthly__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used in workflow to calculate correct value for iFirm Monthly Subscriptions</description>
+        <externalId>false</externalId>
+        <label>iFirm Monthly</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <listViews>
+        <fullName>AllProducts</fullName>
+        <columns>PRODUCT2.FAMILY</columns>
+        <columns>Apttus_Config2__ConfigurationType__c</columns>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>Price__c</columns>
+        <columns>Product_Line__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Products</label>
+        <language>en_US</language>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>PRODUCT2.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PRODUCT2.DESCRIPTION</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.DESCRIPTION</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.FAMILY</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.DESCRIPTION</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.FAMILY</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Is_Axcess_Implementation_Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.DESCRIPTION</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.FAMILY</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AMS_Product_Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Special_Instructions__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Aptps_Sales_term__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <webLinks>
+        <fullName>Apttus_Config2__Options</fullName>
+        <availability>online</availability>
+        <description>Create or manage options for the product</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Options</masterLabel>
+        <openType>sidebar</openType>
+        <page>Apttus_Config2__ProductOptions</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Apttus_Config2__ProductConsole</fullName>
+        <availability>online</availability>
+        <description>Navigates to the product console</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Product Console</masterLabel>
+        <openType>sidebar</openType>
+        <page>Apttus_Config2__ProductConsole</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

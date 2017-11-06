@@ -1,0 +1,27 @@
+<apex:page standardController="Apttus_Proposal__Proposal__c">
+<script src="/soap/ajax/10.0/connection.js"> </script >
+<script src="/soap/ajax/10.0/apex.js"> </script >
+
+
+<script type="text/javascript">
+
+window.onload=init()
+
+function init()
+
+{
+var p = new sforce.SObject('Apttus_Proposal__Proposal__c'); 
+p.Id = "{!Apttus_Proposal__Proposal__c.Id}";
+p.apttus_proposal__approval_stage__c = "Submitted to COP";
+p.SAP_Order_Processing_Stage__c = "Submitted to COP";
+
+
+result = sforce.connection.update([p]); 
+
+location.href="https://wktaa--taaqa.cs18.my.salesforce.com/"+p.Id;
+
+};
+
+</script>
+
+</apex:page>

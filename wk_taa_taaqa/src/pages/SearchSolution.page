@@ -1,0 +1,104 @@
+<apex:page standardController="Solution" extensions="searchSolutionController">
+ <style>
+  td.pbTitle{
+  width:80% !important;
+ }
+ </style>
+ <!-- ----------------------Search PageBolck1------------------------------>
+  <apex:pageBlock Title="Solution Search">
+    <apex:pageBlockSection id="searchstring">
+      <apex:form >
+        <apex:pagemessages ></apex:pagemessages>
+              Enter keywords to find matching solutions.<p/>        
+        <apex:inputtext value="{!searchString}" />
+        <apex:CommandButton action="{!findSolution}" Title="Find Solution"  value="Find Solution" style="margin-left: 5px" >       
+          <apex:actionSupport event="onclick" reRender="out2"/>
+        </apex:CommandButton>
+      </apex:form>
+    </apex:pageBlockSection>
+  </apex:pageBlock>   
+<!-- -----------------------Filter Page Block---------------------------------------------  -->  
+  <apex:pageBlock Title="Relevant Unreviewed Solutions[{!solutionList.size}]"   rendered="{!isSearchStringblank== false}" id="pbblk2">
+     <apex:form > 
+        <table>
+          <tr>
+            <td colspan="2">
+                <div class= "searchFilterFieldsHolder searchFilterFieldsHolderFirst">
+                <table class="searchFilterFields">
+                  <tr>
+                    <td>
+                        <apex:outputLabel for="bs" value="Business Segment"  style="font:10px"></apex:outputLabel>
+                    </td>
+                    <td>
+                        <apex:selectList value="{!businessSegment }" id="bs" label="Business Segment"  size="1" > 
+                            <apex:selectOptions value="{!BusinessSegments}"></apex:selectOptions>
+                        </apex:selectList>
+                    </td>
+                    <td>                    
+                        <apex:outputLabel for="category" value="Category"  style="font:10px"></apex:outputLabel>
+                    </td>
+                    
+                    <td>                    
+                        <apex:selectList value="{!category }" id="category" label="Category"  size="1" style="width:200px">
+                           <apex:selectOptions value="{!Categories}" ></apex:selectOptions>
+                        </apex:selectList>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>                    
+                        <apex:outputLabel for="pcs" value="Professional Client Services"  style="font:10px"></apex:outputLabel>
+                    </td>
+                    <td>                    
+                        <apex:selectList value="{!professionalClientServicesTopics }"  id="pcs"   size="1" style="width:200px">
+                          <apex:selectOptions value="{!ProfessionalClientsServices}"></apex:selectOptions>
+                        </apex:selectList>
+                    </td>
+                 
+                              
+                    <td>
+                       <apex:outputLabel for="product" value="Product"  style="font:10px"></apex:outputLabel>
+                    </td>
+                    <td>                    
+                       <apex:selectList value="{!product}" id="product" label="Product"  size="1"> 
+                         <apex:selectOptions value="{!Products}"></apex:selectOptions>
+                       </apex:selectList>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">                    
+                       <apex:commandButton value="Apply Filter" action="{!findSolution}" style="margin-top: 20px;" />
+                    </td>
+                  </tr>
+                </table>
+               </div>
+            </td>
+          </tr>        
+        </table>                
+     </apex:form> 
+   </apex:pageBlock>
+<!-----------------------------Search Result Page Block----------------------------------------------  -->   
+   <apex:outputPanel id="out2">
+     <apex:pageBlock rendered="{!And(solutionList.size>0, isSearchStringblank== false)}" id="pgblk3">
+       <apex:form >
+          <apex:commandLink value="Next>>>" action="{!next}" rendered="{!if(offsetCounter+(2*pageSize)<=listSize, true, false )}" style="margin-right:10px">
+             <apex:actionSupport event="onclick" reRender="out2"/>
+          </apex:commandLink>     
+          <apex:commandLink value="<<<Previous" action="{!previous}" rendered="{!if(offsetCounter-2>=0,true,false)}" style="margin-left:10px" >
+             <apex:actionSupport event="onclick" reRender="out2"/>
+          </apex:commandLink> 
+          <div class="pbBody">
+          <apex:dataTable value="{!solutionList}" var="sol" id="dtable"  styleClass="list" headerClass="headerRow" rowClasses="datarow even,datarow odd">
+            <apex:column headerValue="Solution Title"  width="30%" headerClass="zen-deemphasize" styleClass="dataCell">
+               <a href="/{!sol.Id}" target= "_blank" > <apex:outputText value="{!sol.SolutionName}" /></a><br/>
+               <apex:outputPanel styleClass="solutionShortDescription"><apex:outputText value="{!sol.SolutionNote}"/></apex:outputPanel>
+            </apex:column>
+            <apex:column value="{!sol.Business_Segment__c}" headerValue="Business Segment" headerClass="zen-deemphasize" width="20%" styleClass="dataCell"/>      
+            <apex:column value="{!sol.Category__c}" headerValue="Category" headerClass="zen-deemphasize" width="20%" styleClass="dataCell"/>
+            <apex:column value="{!sol.Products__c}" headerValue="Products" headerClass="zen-deemphasize" width="20%" styleClass="dataCell"/>      
+            <apex:column value="{!sol.Professional_Client_Services__c}" headerValue="Professionsl Clients Services Topics" width="20%" headerClass="zen-deemphasize" styleClass="dataCell" />
+         </apex:dataTable>
+         </div>
+       </apex:form> 
+     </apex:pageBlock>  
+   </apex:outputPanel>
+</apex:page>

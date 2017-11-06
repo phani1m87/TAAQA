@@ -1,0 +1,33 @@
+<apex:page standardController="Account" extensions="WK_TAA_RelatedAccountsExtension">
+    <apex:outputText value="{!Account.DandBCompany}" rendered="false"/>
+    <apex:outputText value="{!Account.DandBCompany.GlobalUltimateDunsNumber}" rendered="false"/>
+  <apex:form >
+    <apex:pageBlock id="pb_relatedAccountList">
+    <apex:outputLabel rendered="{! RelatedAccounts.size <= 0}" value="No Records Found!"/>
+            <apex:panelGrid columns="7" style="float: right;"> 
+                <!--rendered="{! noOfRecords > size}" -->
+                <apex:commandButton status="fetchStatus" reRender="pb_relatedAccountList" value="First" action="{!relatedAccountSetController.first}" disabled="{!!relatedAccountSetController.hasPrevious}" title="First Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb_relatedAccountList" value="Prev" action="{!relatedAccountSetController.previous}" disabled="{!!relatedAccountSetController.hasPrevious}" title="Previous Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb_relatedAccountList" value="Next" action="{!relatedAccountSetController.next}" disabled="{!!relatedAccountSetController.hasNext}" title="Next Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb_relatedAccountList" value="Last" action="{!relatedAccountSetController.last}" disabled="{!!relatedAccountSetController.hasNext}" title="Last Page"/>
+                <apex:outputText >{!(relatedAccountSetController.pageNumber * size)+1-size}-{!IF((relatedAccountSetController.pageNumber * size)>noOfRecords, noOfRecords,(relatedAccountSetController.pageNumber * size))} of {!noOfRecords}</apex:outputText>
+                <apex:outputPanel style="color:#4AA02C;font-weight:bold">
+                    <apex:actionStatus id="fetchStatus" startText="Fetching..." stopText=""/>
+                </apex:outputPanel>
+            </apex:panelGrid>
+    <apex:pageBlockTable value="{!RelatedAccounts}" var="a" rendered="{! RelatedAccounts.size > 0}">
+        <apex:column headerValue="Name"> 
+            <apex:outputLink value="/{!a.id}" target="_blank" rendered="{! userRecordAccess[a.id] == true}">{!a.Name}
+                      </apex:outputLink>
+            <apex:outputLabel styleClass="inlineEditLock" rendered="{! userRecordAccess[a.id] == false}">
+                        {!a.Name} &nbsp; <img title="Account" class="inlineEditLock" alt="Account" src="/img/func_icons/util/lock12.gif"/></apex:outputLabel>
+               
+                 </apex:column>
+                <apex:column value="{!a.Type}"/>
+                <apex:column value="{!a.BillingCity}"/>
+                <apex:column value="{!a.BillingState}"/>
+                <apex:column value="{!a.BillingCountry}"/>
+            </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

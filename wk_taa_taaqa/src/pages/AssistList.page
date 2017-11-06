@@ -1,0 +1,152 @@
+<apex:page >
+
+<style>  
+   .colstyle {width:400px} 
+   .pbTitle{width:70%;}
+</style> 
+    <h1>Sales Consultant Usage</h1>
+    <div>
+    <apex:panelGrid columns="3" columnClasses="colstyle">
+        <apex:pageblock id="blockA">
+        <div style="text-align:left;">
+        <c:HelpText helpText="Med-Market Tax Assist Contacts and Processes"/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Med-Market Tax">
+        <br/>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">1. Sales 411-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions)</apex:outputLabel>
+            <apex:outputLabel style="font-size:12x;color:black">2. Product Support Phone #- 800-739-9998(Press 1,1)</apex:outputLabel><apex:outputLink value="https://support.cch.com/chat/"> or Online Chat Support  </apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions and or Product Support)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">3. Sales Support-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Salesforce Issues, Opportunities, Questions and Linking Accounts)</apex:outputLabel>
+         	<apex:outputLabel style="font-size:12x;color:black">4. Account Renewals Phone #- 800-739-9998(Press 1,2)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">5. Service Cloud-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Order, Processing and Billing Issues)</apex:outputLabel>
+            <apex:outputLink value="https://support.cch.com/ticket/ContactUs.aspx">6. WK Support Login-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Prod Support, Billing, Accounts, Orders/Returns)</apex:outputLabel>
+            </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockA.section1}').getElementsByTagName('img')[0])
+            </script>
+         </apex:pageblock>
+
+                <apex:pageblock id="blockB"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Small-Market Software (Steelbrick & TAA) Tax Assist Contacts and Processes"/>
+        </div>
+            <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Small-Market">
+        <br/>
+
+ 			<apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">1. Sales 411-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions)</apex:outputLabel>
+            <apex:outputLabel style="font-size:12x;color:black">2. TAA Product Support Phone #- 800-739-9998(Press 1,1)</apex:outputLabel><apex:outputLink value="https://support.cch.com/chat/"> or Online Chat Support  </apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions and or Product Support)</apex:outputLabel>
+            <apex:outputLink value="https://www.cchsfs.com/login/">3. SFM Support Online</apex:outputLink>
+            <apex:outputLink value="mailto:SFS-S-SFSOutReach@wolterskluwer.com">4. SFM Outreach</apex:outputLink>
+            <apex:outputLabel style="font-size:12px;color:black">5. ATX Product Support- 770-857-5602 </apex:outputLabel>
+            <apex:outputLabel style="font-size:12px;color:black">6. ATX PRS Product Support- 866-641-9473 </apex:outputLabel>
+            <apex:outputLabel style="font-size:12px;color:black">7. TaxWise Product Support- 770-857-5601 </apex:outputLabel>
+            <apex:outputLabel style="font-size:12px;color:black">8. TaxWise PRS Product Support- 800-354-6223 </apex:outputLabel>
+            <apex:outputLabel style="font-size:12px;color:black">9. iFirm CAS Product Support- 770-857-5602 </apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?id=0680Z000003Nl8o">10. SFS AR Contact Cheat Sheet</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">11. Sales Support-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Salesforce Issues, Opportunities, Questions and Linking Accounts)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">12. Service Cloud-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Order, Processing and Billing Issues)</apex:outputLabel>
+                    </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockB.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+                       <apex:pageblock id="blockC"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Small Market R&L Assist Contacts and Processes"/>
+        </div>
+            <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Small Market R&L">
+        <br/>
+
+ 			<apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">1. Sales 411-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions)</apex:outputLabel>
+            <apex:outputLabel style="font-size:12x;color:black">2. Product Support Phone #- 800-739-9998(Press 1,1)</apex:outputLabel><apex:outputLink value="https://support.cch.com/chat/"> or Online Chat Support  </apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions and or Product Support)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">3. Sales Support-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Salesforce Issues, Opportunities, Questions and Linking Accounts)</apex:outputLabel>
+         	<apex:outputLabel style="font-size:12x;color:black">4. Account Renewels Phone #- 800-739-9998(Press 1,2)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">5. Service Cloud-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Order, Processing and Billing Issues)</apex:outputLabel>
+
+                           </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockC.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+                              <apex:pageblock id="blockD"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Corporate Direct & Trust Assist Contacts and Processes"/>
+        </div>
+            <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Corporate Direct & Trust">
+        <br/>
+
+ 			<apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">1. Sales 411-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions)</apex:outputLabel>
+            <apex:outputLabel style="font-size:12x;color:black">2. Product Support Phone #- 800-739-9998(Press 1,1)</apex:outputLabel><apex:outputLink value="https://support.cch.com/chat/"> or Online Chat Support  </apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions and or Product Support)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">3. Sales Support-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Salesforce Issues, Opportunities, Questions and Linking Accounts)</apex:outputLabel>
+         	<apex:outputLabel style="font-size:12x;color:black">4. Account Renewels Phone #- 800-739-9998(Press 1,2)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">5. Service Cloud-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Order, Processing and Billing Issues)</apex:outputLabel>
+             <apex:outputLink value="https://support.cch.com/ticket/ContactUs.aspx">6. WK Support Login-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Prod Support, Billing, Accounts, Orders/Returns)</apex:outputLabel>
+        
+                   </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockD.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+                                      <apex:pageblock id="blockE"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Corporate Software Assist Contacts and Processes"/>
+        </div>
+            <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Corporate Software">
+        <br/>
+
+ 			<apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">1. Sales 411-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions)</apex:outputLabel>
+            <apex:outputLabel style="font-size:12x;color:black">2. Product Support Phone #- 800-739-9998(Press 1,1)</apex:outputLabel><apex:outputLink value="https://support.cch.com/chat/"> or Online Chat Support  </apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions and or Product Support)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">3. Sales Support-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Salesforce Issues, Opportunities, Questions and Linking Accounts)</apex:outputLabel>
+         	<apex:outputLabel style="font-size:12x;color:black">4. Account Renewels Phone #- 800-739-9998(Press 1,2)</apex:outputLabel>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">5. Service Cloud-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Order, Processing and Billing Issues)</apex:outputLabel>
+                    </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockE.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+        </apex:panelGrid>
+        </div>
+    <h1>Sales Leadership/Sales Ops Usage</h1>
+        <div>
+    <apex:panelGrid columns="3" columnClasses="colstyle">
+        <apex:pageblock id="blockF"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Sales Leadership Escalation"/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Sales Leadership">
+        <br/>
+                
+			<apex:outputLink value="https://wktaa.my.salesforce.com/500/e?retURL=%2F500%2Fo&RecordType=01231000001IeLq&ent=Case">1. Sales 411-</apex:outputLink><apex:outputLabel style="font-size:11px;color:black">(Product Questions)</apex:outputLabel>
+           </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockF.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>  
+        
+        <apex:pageblock id="blockH"  >
+        <div style="text-align:left;">
+        <c:HelpText helpText="Sales Operations Processes"/>
+        </div>
+        <apex:pageBlockSection id="section1" columns="1" collapsible="true" title="Sales Operations">
+        <br/>
+       		<apex:outputLabel style="font-size:12x;color:black">1. TAA SFDC Functionalty Questions and Errors-</apex:outputLabel><apex:outputLink value="mailto:Alex.Cardona@wolterskluwer.com">Alex Cardona</apex:outputLink>
+            <apex:outputLabel style="font-size:12x;color:black">1. Steelbrick SFDC Functionalty Questions and Errors-</apex:outputLabel><apex:outputLink value="mailto:Alex.Cardona@wolterskluwer.com">Alex Cardona</apex:outputLink>
+            <apex:outputLabel style="font-size:12x;color:black">2. Apttus Issues/Questions-</apex:outputLabel><apex:outputLink value="mailto:tony.truong@wolterskluwer.com">Tony Truong</apex:outputLink><apex:outputLink value="mailto:jim.montgomery@wolterskluwer.com">Jim Montgomery</apex:outputLink><apex:outputLink value="mailto:cyndi.morris@wolterskluwer.com">Cyndi Morris</apex:outputLink>
+            <apex:outputLabel style="font-size:12x;color:black">3. Steelbrick Issues/Questions-</apex:outputLabel><apex:outputLink value="mailto:Geoffrey.Rubin@wolterskluwer.com">Geoffrey Rubin</apex:outputLink><apex:outputLink value="mailto: Glenda.Rice@wolterskluwer.com ">Glenda Rice</apex:outputLink><apex:outputLink value="mailto:Nathan.Sultemeier@wolterskluwer.com">Nathan Sultemeier</apex:outputLink>
+  			<apex:outputLabel style="font-size:12x;color:black">4. Lead Errors and Questions-</apex:outputLabel><apex:outputLink value="mailto:Daniel.Brandeis@wolterskluwer.com">Daniel Brandeis</apex:outputLink>
+            <apex:outputLabel style="font-size:12x;color:black">5. RL Issues/Questions-</apex:outputLabel><apex:outputLink value="mailto:Peter.Cherr@wolterskluwer.com">Peter Cherr</apex:outputLink>
+            <apex:outputLabel style="font-size:12x;color:black">7. Nat/SAM Issues/Questions-</apex:outputLabel><apex:outputLink value="mailto:Andrea.Coca@wolterskluwer.com">Andrea Coca</apex:outputLink>
+            <apex:outputLabel style="font-size:12x;color:black">8. SFDC Report/Dashboard Requests and Questions-</apex:outputLabel><apex:outputLink value="mailto:Daniel.Brandeis@wolterskluwer.com">Daniel Brandeis</apex:outputLink><apex:outputLink value="mailto:Nathan.Sultemeier@wolterskluwer.com">Nathan Sultemeier</apex:outputLink>
+            <apex:outputLabel style="font-size:12x;color:black">9. Wave Issues/Questions-</apex:outputLabel><apex:outputLink value="mailto:James.Newman@wolterskluwer.com">James Newman</apex:outputLink><apex:outputLink value="mailto:Nathan.Sultemeier@wolterskluwer.com">Nathan Sultemeier</apex:outputLink>
+            <apex:outputLabel style="font-size:12x;color:black">10. Activity Question-</apex:outputLabel><apex:outputLink value="mailto:Nathan.Sultemeier@wolterskluwer.com">Nathan Sultemeier</apex:outputLink>
+  
+        </apex:pageBlockSection>
+            <script>
+        twistSection(document.getElementById('{!$Component.blockH.section1}').getElementsByTagName('img')[0])
+            </script>
+        </apex:pageblock>
+     </apex:panelGrid>
+    </div>
+   
+    <br/>
+       <apex:form ><b> For further questions please reach out to your DSM or contact <b><apex:commandButton value="Salesforce Support" action="mailto:WKNA-GSS_SalesSupport@wolterskluwer.com" /></b>.</b> </apex:form> .    
+</apex:page>

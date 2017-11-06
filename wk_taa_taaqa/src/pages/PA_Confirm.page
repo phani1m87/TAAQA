@@ -1,0 +1,98 @@
+<!--
+    ###########################################################################
+    # File..................: Visualforce - PA_Confirm
+    # Created by............: The Hunley Group
+    # Created Date..........: 1/1/2016
+    # Description...........: Visualforce page used as confirmation page for Force.com Sites 
+								based Email Preference Center.
+    ########################################################################### -->
+<apex:page standardStylesheets="false" Controller="PreferenceCenterController" showHeader="false" >
+<html>
+<head>
+
+<title>Manage Your Email Preferences Confirmation | Wolters Kluwer</title>
+<link rel="stylesheet" href="http://image.cchemail.com/lib/fe9b13707560047871/m/1/preference-styles.css" type="text/css" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.min.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<script src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/respond.js"></script>
+
+</head>
+<body>
+<div class="main-con">
+  <div class="header">
+    <div class="content-con">
+        <div class="logo"><a href="http://cchgroup.com"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/cch_logo.gif" alt="Wolters Kluwer" border="0" /></a></div>
+      <div class="contact">
+        <div class="social"> <span class="contactus">Contact Us: 800-344-3734</span> 
+        <span class="social-icons"><a href="https://www.linkedin.com/company/wolterskluwertaaus"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/linkedin-24.png" alt="Wolters Kluwer on LinkedIn" height="24" border="0" align="top" style="vertical-align: top;-ms-interpolation-mode:bicubic;" /></a> <a href="https://www.facebook.com/CCH.USA"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/facebook-24.png" alt="Wolters Kluwer on Facebook" height="24" border="0" align="top" style="vertical-align: top;" /></a> <a href="https://twitter.com/wktaaus"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/twitter-24.png" alt="Wolters Kluwer on Twitter" height="24" border="0" align="top" style="vertical-align: top;" /></a> <a href="http://www.youtube.com/cchwolterskluwer"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/youtube-24.png" alt="Wolters Kluwer on YouTube" height="24" border="0" align="top" style="vertical-align: top;" /></a></span>
+         </div>
+        <!--social--> 
+      </div>
+      <!--contact--> 
+    </div>
+    <!--content-con--> 
+  </div>
+  <!--header-->
+  <div class="banner">
+    <div class="banner-con"> 
+      <!--<div class="bannerBreadcrumbs">
+	 			<a href="https://www.cchgroup.com">Home</a> / <span>News &amp; Insights</span>
+			</div>-->
+      <h1>Manage Your Email Preferences</h1>
+    </div>
+    <!--banner-con--> 
+  </div>
+  <!--banner-->
+  
+  <div class="body-con">
+
+      <h3>Thank you for your interest in Wolters Kluwer.</h3><br />
+     <p>We look forward to bringing you the content that matters most to you and your business. </p>
+        <p>To ensure that you continue to receive the information you  care about, please add <a href="mailto:email@cchemail.com">email@cchemail.com</a> to your address book.</p>
+        <p>
+          Follow us on Twitter for more updates and information on late breaking news and  events. Have an idea, comment or suggestion? We'd love to hear from you.  Contact us at 800-344-3734.</p>
+     
+   <div class="line"></div>
+
+<div style="text-align:center">
+<a style="text-decoration:none;border:none" href="http://www.cchgroup.com/webapp/wcs/stores/servlet/content_CCHAxcess_default.html?cm_mmc=CCH%20Axcess%20Mar%202014-_-BANNER-_-AICPA%20iPad%20App-_-CCHAxcess%20728x90"> <img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/CCHAxcess-banner.gif" /></a>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</div><!--center-->
+
+</div>
+<!--body-con-->
+
+</div>
+<!--main-con-->
+
+<div class="footer">
+  <p>To ensure delivery: please add email@cchemail.com to your email address book or safe-senders list.</p>
+  <p><a href="http://support.cch.com/privacy/" target="_blank">Privacy Policy</a>: We do not share, rent or sell your email address.</p>
+</div>
+<!--footer-->
+
+<!-- Google Tag Manager -->
+		<noscript>
+			<iframe src="//www.googletagmanager.com/ns.html?id=GTM-HRM4"
+					height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+				var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-HRM4');
+		</script>
+<!-- End Google Tag Manager -->
+
+</body>
+</html>
+    
+    <!--<a href="http://taatest-wolterskluwertaatest.cs28.force.com/prefcenter?confirm={!Random}&Id={!pcid}">Return to Pref Center</a>-->
+
+
+</apex:page>

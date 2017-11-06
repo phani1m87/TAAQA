@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Market Sub Segment Mapping</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>GTE_AnnualRevenue__c</fullName>
+        <description>GTE - greater than or equal</description>
+        <externalId>false</externalId>
+        <label>GTE_AnnualRevenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>GTE_NumberOfEmployees__c</fullName>
+        <description>GTE - greater than or equal</description>
+        <externalId>false</externalId>
+        <label>GTE_NumberOfEmployees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LTE_AnnualRevenue__c</fullName>
+        <description>LTE - less than or equall</description>
+        <externalId>false</externalId>
+        <label>LTE_AnnualRevenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>LTE_NumberOfEmployees__c</fullName>
+        <description>LTE - less than or equal</description>
+        <externalId>false</externalId>
+        <label>LTE_NumberOfEmployees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rule_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Rule Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sub_Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Segment</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Market Sub Segment Mapping</label>
+    <visibility>Public</visibility>
+</CustomObject>

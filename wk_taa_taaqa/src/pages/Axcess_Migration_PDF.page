@@ -1,0 +1,49 @@
+<apex:page standardcontroller="Apttus_Proposal__Proposal__c" sidebar="False">
+<apex:includeScript value="//code.jquery.com/jquery-1.11.1.min.js"/>
+<apex:includeScript value="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"/>
+
+<apex:form >
+<apex:pageblock >
+<apex:OutputLabel style="font-size:2EM" value="Axcess Migration Report for "/><apex:OutputText value="{!Apttus_Proposal__Proposal__c.ERP_Account_Name__c}"/>
+<br/>
+<apex:commandButton value="Print" onclick="window.print()" />
+<br/>
+</apex:pageblock>
+<apex:datatable id="items" value="{!Apttus_Proposal__Proposal__c.Proposal_Line_Items__r}" var="item">
+  //<apex:repeat value="{!Apttus_Proposal__Proposal__c.Proposal_Line_Items__r}" var="item">
+
+      
+
+      <apex:outputPanel rendered="{!NOT(item.Apttus_QPConfig__LineStatus__c = 'Cancelled')}">
+<tr>
+<td>{!item.Apttus_QPConfig__LineNumber__c}</td><td/>    
+<td>{!item.Product_Code__c}</td><td/>
+<td>{!Item.Product_Name__c}</td> <td/>
+<td>{!Item.AMS_Renewals_Price__c}</td><td/>
+<td>{!item.AMS_Renewal_Product_Tier__c}</td>
+         
+
+          </tr>
+
+       </apex:outputPanel>
+
+  </apex:repeat>
+</apex:datatable>
+
+
+</apex:form>
+<script>
+
+    $(document).ready(function() {
+
+        $("[id$='Items']").dataTable( {
+
+            "order": [[ 0, "desc" ]]    // specify the index of column that you want sort (index start by 0) and if you want an asc or desc sort
+
+        } );
+
+    } );
+    </script>
+
+
+  </apex:page>

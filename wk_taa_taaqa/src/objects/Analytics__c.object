@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used for Creating Analytic Snapshots</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Amount_Sold__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount Sold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Average_Number_of_Activities_Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Average Number of Activities/Opportunity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Average_Time_to_Closed_by_Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Average Time to Closed by Opportunity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employment_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Employment Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Month_of_Quota__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(DAY(Employment_Start_Date__c)&lt;15,
+	Date(
+	Case( Month (Employment_Start_Date__c ),
+		1, YEAR(Employment_Start_Date__c),
+		2, YEAR(Employment_Start_Date__c),
+		3, YEAR(Employment_Start_Date__c),
+		4, YEAR(Employment_Start_Date__c),
+		5, YEAR(Employment_Start_Date__c),
+		6, YEAR(Employment_Start_Date__c),
+		7, YEAR(Employment_Start_Date__c),
+		8, YEAR(Employment_Start_Date__c),
+		9, YEAR(Employment_Start_Date__c),
+		10, YEAR(Employment_Start_Date__c)+1,
+		11, YEAR(Employment_Start_Date__c)+1,
+		YEAR(Employment_Start_Date__c)+1)
+	,
+	Case( Month (Employment_Start_Date__c ),
+		1, 4,
+		2, 5,
+		3, 6,
+		4, 7,
+		5, 8,
+		6, 9,
+		7, 10,
+		8, 11,
+		9, 12,
+		10, 1,
+		11, 2,
+		3)
+	,1)
+,
+	Date(
+	Case( Month (Employment_Start_Date__c ),
+		1, YEAR(Employment_Start_Date__c),
+		2, YEAR(Employment_Start_Date__c),
+		3, YEAR(Employment_Start_Date__c),
+		4, YEAR(Employment_Start_Date__c),
+		5, YEAR(Employment_Start_Date__c),
+		6, YEAR(Employment_Start_Date__c),
+		7, YEAR(Employment_Start_Date__c),
+		8, YEAR(Employment_Start_Date__c),
+		9, YEAR(Employment_Start_Date__c)+1,
+		10, YEAR(Employment_Start_Date__c)+1,
+		11, YEAR(Employment_Start_Date__c)+1,
+		YEAR(Employment_Start_Date__c)+1)
+	,
+	Case( Month (Employment_Start_Date__c ),
+		1, 5,
+		2, 6,
+		3, 7,
+		4, 8,
+		5, 9,
+		6, 10,
+		7, 11,
+		8, 12,
+		9, 1,
+		10, 2,
+		11, 3,
+		4)
+	,1)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Month of Quota</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>High_Level_Division__c</fullName>
+        <externalId>false</externalId>
+        <label>High Level Division</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Months_of_Quota__c</fullName>
+        <description>Number of months on quota as of last month</description>
+        <externalId>false</externalId>
+        <formula>IF((MONTH( Quota_Month__c ) + 12 - MONTH( Employment_Start_Date__c ) +
+12 * (YEAR(Quota_Month__c) - YEAR(Employment_Start_Date__c) -1 ))-3 &lt; 0, 0,
+IF(DAY(Employment_Start_Date__c)&lt;15,
+(MONTH( Quota_Month__c ) + 12 - MONTH( Employment_Start_Date__c ) +
+12 * (YEAR(Quota_Month__c) - YEAR(Employment_Start_Date__c) -1 ))-2
+,
+(MONTH( Quota_Month__c ) + 12 - MONTH( Employment_Start_Date__c ) +
+12 * (YEAR(Quota_Month__c) - YEAR(Employment_Start_Date__c) -1 ))-3
+))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Number of months on quota as of last month</inlineHelpText>
+        <label>Months of Quota</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Emails_Opportunity_12_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Emails/Opportunity-12 Month</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Opportunities__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Opportunities</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quota_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Quota Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Quota_Attainment__c</fullName>
+        <externalId>false</externalId>
+        <formula>Amount_Sold__c /  Quota_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quota Attainment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Quota_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Quota Month</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Rep__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Rep</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Win_Rate_Last_12_Months__c</fullName>
+        <externalId>false</externalId>
+        <label>Win Rate Last 12 Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <label>Analytics</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Sales_Rep__c</columns>
+        <columns>Employment_Start_Date__c</columns>
+        <columns>Months_of_Quota__c</columns>
+        <columns>Quota_Amount__c</columns>
+        <columns>Amount_Sold__c</columns>
+        <columns>Quota_Attainment__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Analytic Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Analytics</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

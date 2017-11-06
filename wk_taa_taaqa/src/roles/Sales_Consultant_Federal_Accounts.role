@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Sales Rep - Federal Accounts</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Sales Consultant  - Federal Accounts</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Sales_Manager_Corporate_National_Accounts</parentRole>
+</Role>

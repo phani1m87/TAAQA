@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>VP National &amp; Strategic Accounts - Small Firm</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>VP National &amp; Strategic Accounts - Small Firm</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>VP_Nat_l_Strategic_Accounts</parentRole>
+</Role>

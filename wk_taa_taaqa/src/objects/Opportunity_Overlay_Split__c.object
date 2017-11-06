@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This custom setting will be used to map Opportunity Owner to Opportunity Split Assignee for Overlay Opportunity Split Function (SMS-828)</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Opportunity_Split_Assignee_Id__c</fullName>
+        <description>15 digit SFDC User Id of the user who should be added to Opportunity Split with 100% cut</description>
+        <externalId>false</externalId>
+        <inlineHelpText>15 digit SFDC User Id of the user who should be added to Opportunity Split with 100% cut</inlineHelpText>
+        <label>Opportunity Split Assignee Id</label>
+        <length>15</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Opportunity Overlay Split</label>
+    <visibility>Protected</visibility>
+</CustomObject>

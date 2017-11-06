@@ -1,0 +1,180 @@
+<apex:page standardController="ERP_Order__c" extensions="EOI_Order_OrderProduct_Controller_V7" showHeader="true" showChat="false" >
+<apex:pageMessages />
+<apex:form >
+    <apex:actionFunction action="{!EOI_InsertRecord}" name="InsertRecord_JS" Rerender="statuses" status="Status1" oncomplete="CallWebService_JS();"/>
+    <apex:actionFunction action="{!EOI_RedirectToOrderProduct}" name="CallWebService_JS" status="Status2" reRender="statuses, msg, myRerender"/>
+    <apex:outputPanel id="statuses">
+        <apex:actionStatus id="Status1" startText="...Inserting Record Into DB..."/>
+        <apex:actionStatus id="Status2" startText="...Calling Web Service..." />
+    </apex:outputPanel>
+    <apex:pageBlock >
+    <apex:outputText style="font-weight:600; font-size:120%;color:blue;" value="Endpoint  :-  {!$Setup.EOI_Order_Integration__c.WK_URLOrderIntegration__c}" />
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Save" onclick="InsertRecord_JS();return false;"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Order Header">
+            <apex:inputField label="Stub Year Flag" value="{!newERPOrder.Stub_Flag__c}"/>
+            <apex:inputField label="MYA" value="{!newERPOrder.MYA__c}"/>
+            <apex:inputField label="ASA" value="{!newERPOrder.ASA__c}"/>
+            <apex:inputField label="Rush Order" value="{!newERPOrder.Rush_Order__c}"/>
+            <apex:inputField label="Stub year Start Date" value="{!newERPOrder.Stub_Year_Start_Date__c}"/>
+            <apex:inputField label="Stub Year End Date" value="{!newERPOrder.Stub_Year_End_Date__c}"/>
+            <apex:inputField label="Advance Start Date" value="{!newERPOrder.Advance_Start_Date__c}"/>
+            <apex:inputField label="Advance End Date" value="{!newERPOrder.Advance_End_Date__c}"/>
+            <apex:inputField label="Contract Start Date" value="{!newERPOrder.Contract_Start_Date__c}"/>
+            <apex:inputField label="Contract End Date" value="{!newERPOrder.Contract_End_Date__c}"/>
+            <!-- ><apex:inputField label="Your Reference" value="{!newERPOrder.Name}"/> -->
+            <apex:inputField label="Payment Term" value="{!newERPOrder.Payment_Term__c}"/>
+            <apex:inputField label="Shipping Method" value="{!newERPOrder.Shipping_Method__c}"/>
+            <apex:inputField label="Authentication Type" value="{!newERPOrder.Authentication_Type__c}"/>
+            <apex:inputField label="IDs to be issued" value="{!newERPOrder.IDs_to_be_issued__c}"/>
+            <apex:inputField label="Max Users" value="{!newERPOrder.Max_IDs_allowed__c}"/>
+            <apex:inputField label="Concurrent User" value="{!newERPOrder.Number_of_Concurrent_Users__c}"/>
+            <apex:inputField label="Renewal Type" value="{!newERPOrder.Renewal_Type__c}"/>
+            <apex:inputField label="Quote Record Type" value="{!newERPOrder.Quote_Record_Type__c}"/> 
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2" title="Order Header Text">
+           <apex:inputField label="Header Text" value="{!newERPOrder.One_Line_Invoice_Header__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2" title="Split Sales">
+           <apex:inputField label="Sales DTN" value="{!newERPOrder.Selling_DTN__c}"/>
+           <apex:inputField label="Split Percentage" value="{!newERPOrder.Split_Commission__c}"/>
+           <apex:inputField label="Inventory DTN" value="{!newERPOrder.Inventory_DTN__c}"/>
+           <apex:inputField label="Split Percentge" value="{!newERPOrder.Split_Commission__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2" title="Credit Card">
+           <apex:inputField label="Payment cards: Card type" value="{!newERPOrder.Credit_Card_Type__c}"/>
+           <apex:inputField label="Payment cards: Cyber Source token generated for the Credit Card" value="{!newERPOrder.Credit_Card_Cyber_Source_Token__c}"/>
+           <apex:inputField label="Payment cards: Valid To" value="{!newERPOrder.Credit_Card_Expiration__c}"/>
+           <apex:inputField label="Payment cards: Name of cardholder" value="{! newERPOrder.Name_on_Card__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2" title="Customer Information">
+           <apex:inputField label="Partner Number" value="{!newERPOrder.Customer_X_Ref__c}"/>
+           <apex:inputField label="Primary Contact" value="{!newERPOrder.Primary_Contact__c}"/>
+           <apex:inputField label="Identification Number" value="{!newERPOrder.SFDC_Account__c}"/>
+           <apex:inputField label="Access Type" value="{!newERPOrder.Access_Type__c}"/>
+           <apex:inputField label="Delegated Admin First Name" value="{!newERPOrder.IC_Admin_First_Name__c}"/>
+           <apex:inputField label="Delegated Admin Last Name" value="{!newERPOrder.IC_Admin_Last_Name__c}"/>
+           <apex:inputField label="Delegated Admin Phone" value="{!newERPOrder.IC_Admin_Phone__c}"/>
+           <apex:inputField label="Delegated Admin E-Mail Address" value="{!newERPOrder.IC_Admin_Phone__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2" title="Customer Address">
+        
+            <apex:inputField label="Bill To Partner Number" value="{!newERPOrder.Bill_To_Partner_Number__c}"/>
+            <apex:inputField label="Billing Street" value="{!newERPOrder.Bill_To_Street_1__c}"/>
+            <apex:inputField label="Building" value="{!newERPOrder.Bill_To_Street_2__c}"/>
+           <apex:inputField label="City" value="{!newERPOrder.Bill_To_City__c}"/>
+           <apex:inputField label="Postal Code" value="{!newERPOrder.Bill_To_Postal_Code__c}"/>
+           <apex:inputField label="State" value="{!newERPOrder.Bill_To_State__c}"/>
+           <apex:inputField label="Country" value="{!newERPOrder.Bill_To_Country__c}"/>
+           <apex:inputField label="Phone" value="{!newERPOrder.Bill_To_Phone__c}"/>
+           <apex:inputField label="Ship To Partner Number" value="{!newERPOrder.Ship_To_Partner_Number__c}"/>
+           <apex:inputField label="Shipping Street" value="{!newERPOrder.Ship_To_Street_1__c}"/>
+           <apex:inputField label="Building" value="{!newERPOrder.Ship_To_Street_2__c}"/>
+           <apex:inputField label="City" value="{!newERPOrder.Ship_To_City__c}"/>                
+           <apex:inputField label="Postal Code" value="{!newERPOrder.Ship_To_Postal_Code__c}"/>    
+           <apex:inputField label="State" value="{!newERPOrder.Ship_To_State__c}"/>
+           <apex:inputField label="Country" value="{!newERPOrder.Ship_To_Country__c}"/>
+           <apex:inputField label="Phone" value="{!newERPOrder.Ship_To_Phone__c}"/>                            
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="2" title="uuidMetaData">
+           <apex:inputText label="UUID" value="{!uuid}"/>
+           <apex:inputText label="source System Name" value="{!sourceSystemName}"/>
+           <apex:inputText label="providing  SystemName" value="{!providingSystemName}"/>
+           <apex:inputText label="transaction Monitoring Flag" value="{!transactionMonitoringFlag}"/>
+           <apex:inputText label="logging Flag" value="{!loggingFlag}"/>
+           <apex:inputText label="Service Version" value="{!serviceVersion}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Trigger Invoke">
+        <apex:pageBlockSectionItem HelpText="{!$ObjectType.ERP_Order__c.fields.UseOrderTriggerCallout__c.inlineHelpText}">
+        <apex:outputLabel value="{!$ObjectType.ERP_Order__c.fields.UseOrderTriggerCallout__c.label}"/>
+        <apex:inputField label="Use Order Trigger Callout" value="{!newERPOrder.UseOrderTriggerCallout__c}"/>
+        </apex:pageBlockSectionItem>
+        
+        </apex:pageBlockSection>
+        <apex:pageBlock title="ERP Order Products" id="pb">
+            <apex:variable var="rowNumber" value="{!0}"/>
+            <apex:pageBlockTable value="{!listERPOrderLineItems}" var="wrapper" >
+                <apex:column headerValue="false">
+                    <apex:outputText value="{0}" style="text-align:center;"> 
+ <apex:param value="{!rowNumber+1}" /> 
+ </apex:outputText>
+                 </apex:column>
+                 <apex:column headerValue="Product Code">
+                    <apex:inputField value="{!wrapper.Product_Code__c}"/>
+                 </apex:column>
+                <apex:column headerValue="Quantity">
+                    <apex:inputField value="{!wrapper.Quantity__c}"/>
+                 </apex:column>
+                <apex:column headerValue="Promo Code">
+                    <apex:inputField value="{!wrapper.Promo_Code__c}"/>
+                 </apex:column>
+                 <apex:column headerValue="Net Adjustment">
+                    <apex:inputField value="{!wrapper.Net_Adjustment__c}"/>
+                 </apex:column>
+                 <apex:column headerValue="List Price">
+                    <apex:inputField value="{!wrapper.List_Price__c}"/>
+                 </apex:column>
+                 <!-- <apex:column headerValue="Parent Product">
+                    <apex:inputField value="{!wrapper.Parent_Product__c}"/>
+                 </apex:column>
+                 <apex:column headerValue="Product">
+                    <apex:inputField value="{!wrapper.Product__c}"/>
+                 </apex:column>-->
+                 <!-- <apex:column headerValue="Action">
+                    <apex:commandButton value="Delete" action="{!EOI_DelERPOrderProduct}" rerender="wtable" immediate="true">
+                       <apex:param name="toDelIdent" value="{!rowNum}"/> 
+                    </apex:commandButton>
+                 </apex:column>
+                <apex:variable var="rowNum" value="{!rowNum+1}" />
+            </apex:pageBlockTable>
+            <!--  immediate="true": execute action immediatly - without validation of fields - 
+            so we can duplicate fields if on page some another required fields is unfilled - ->
+            <apex:commandButton value="Add new record" action="{!EOI_AddERPOrderProduct}" rerender="wtable" immediate="true"/> -->
+            <apex:column headerValue="Action" >
+             <apex:commandButton value="Delete" action="{!EOI_DelERPOrderProduct}" reRender="pb">
+             <apex:param name="rowIndex" value="{!rowNumber}"/>
+             </apex:commandButton>
+             <apex:variable var="rowNumber" value="{!rowNumber+1}"/>
+             </apex:column> 
+             </apex:pageBlockTable>
+             <apex:commandButton action="{!EOI_AddERPOrderProduct}" value="Add Order Product" reRender="pb"/>
+ 
+ 
+    </apex:pageBlock>
+    </apex:pageBlock>
+    <apex:pageBlock title="Response from Webservice" id="responseBlock">
+        <apex:outputPanel id="myRerender">
+        <apex:pageBlockSection columns="1" title="ERP Order">
+        <a href="{!orderURL}" target="_blank" style="font-weight:600; font-size:130%;color:blue;">Go To ERP Order</a>
+        <apex:outputText value="{!controllerVersion}"></apex:outputText>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1" title="Error Messages">
+            <div style="word-wrap:break-word"><apex:outputText value="{!errorMessagesFromResult}"> </apex:outputText></div>
+        </apex:pageBlockSection>
+        <!-- <apex:pageBlockSection columns="1" title="Message Id">
+           <div style="word-wrap:break-word"><apex:outputText value="{!messageIdFromResult}"> </apex:outputText></div>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1" title="Return element from result">
+           <div style="word-wrap:break-word"><apex:outputText value="{!returnElementFromResult}"> </apex:outputText></div>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1" title="Sales Documents">
+           <div style="word-wrap:break-word"><apex:outputText value="{!salesDocFromResult}"> </apex:outputText></div>
+        </apex:pageBlockSection> 
+        <apex:pageBlockSection columns="1" title="IIBACK">
+           <div style="word-wrap:break-word"><apex:outputText value="{!IIBACKFromResult}"> </apex:outputText></div>
+        </apex:pageBlockSection>-->
+        <apex:pageBlockSection columns="1" title="Order Submission Acknowledgement">
+           <div style="word-wrap:break-word"><apex:outputText value="{!acknoledgementTypeResult}"> </apex:outputText></div>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1" title="UUIDMetadata Request">
+           <div style="word-wrap:break-word"><apex:outputText value="{!uuidMetaDataRequestFromResult}"> </apex:outputText></div>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1" title="UUIDMetadata Response">
+           <div style="word-wrap:break-word"><apex:outputText value="{!uuidMetaDataResponseFromResult}"> </apex:outputText></div>
+           
+        </apex:pageBlockSection>
+        </apex:outputPanel>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,17 @@
+<apex:page standardController="Account">
+
+<apex:OutputLink value="/apex/LogContactCall?id={!account.id}" target="_Blank">
+<apex:OutputText style="color:blue;" value="Log a Contact Call"/>
+</apex:OutputLink>
+&nbsp;&nbsp;
+
+<apex:OutputLink value="/00T/e?title=Call&who_id={!Account.Id}&followup=1&tsk5=Call&tsk3_lkid={!Account.Id}&tsk3={!Account.Id}&retURL=%2F{!Account.Id}" target="_blank">
+<apex:OutputText style="color:blue;" value="Log a Call"/>
+</apex:OutputLink>
+&nbsp;&nbsp;
+<apex:OutputLink value="/_ui/core/email/author/EmailAuthor?p2_lkid={!Account.Id}&rtype=003&p3_lkid={!Account.Id}&rtype=003retURL=%2F{!Account.Id}" Target="_blank">
+<apex:OutputText value="Send an Email" style="Color:blue;"/>
+</apex:OutputLink>
+
+  
+</apex:page>

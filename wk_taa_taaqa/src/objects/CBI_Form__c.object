@@ -1,0 +1,2535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Appointment_Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Appointment Goals:</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Attendees__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter names/roles of presentation attendees.</inlineHelpText>
+        <label>Attendees and Roles</label>
+        <length>2500</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Audit_Fines__c</fullName>
+        <externalId>false</externalId>
+        <label>Audit/Fines</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Competitor_use_proposed_solution__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Does that CPA competitor use the solution(s) we are proposing?</inlineHelpText>
+        <label>Competitor using proposed solution?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Consolidations_of_fixed_assets_needed__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you need to consolidated fixed assets between companies?</inlineHelpText>
+        <label>Consolidations of fixed assets needed?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_Client_Challenges__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What are the top priorities or initiatives the firm or company has in place? What business problem are they trying to solve? Is their approach solid and what insight and recommendations should you provide to make it better?</inlineHelpText>
+        <label>Current Client Challenges</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_GL_package_TB_format__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What GL package are you using? What format are your tb&apos;s in</inlineHelpText>
+        <label>Current GL package? TB format?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_TB_process_managing__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How are your currently managing your TB process</inlineHelpText>
+        <label>Current TB process managing?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_document_management__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How are you handling your document management currently?</inlineHelpText>
+        <label>Current document management?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_process_for_sign_off_and_review__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is your current your process for sign off and review?</inlineHelpText>
+        <label>Current process for sign off and review?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Customer_Meeting_Closing__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>•	Recap Visual Roadmap (Circle Slide)
+•	Revisit Opening Message/Story
+•	Summarize the value tied to CBIs
+•	Action Plan and Next Steps</inlineHelpText>
+        <label>Customer Meeting Closing</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Customer_Meeting_Opening__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>•	Introductions - Customer and SA/WK 
+•	Confirm current state and CBIs
+•	Additional Discovery</inlineHelpText>
+        <label>Customer Meeting Opening</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Customers_Stage_in_the_Buyers_Process__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What stage is the customer in the Buyer’s Process?</inlineHelpText>
+        <label>Customer&apos;s Stage in the Buyer&apos;s Process</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Awareness that a problem exists</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Understand impact the problem has on their business</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Identify and scope options to solve problem</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Determine decision making process and criteria and narrow options</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Make a decision and negotiate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Implementation</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DSM_Blueprint_Rating__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>DSM will rate blueprint on a scale of 1-5 with 1 being the Lowest and 5 being the Highest</inlineHelpText>
+        <label>DSM Blueprint Rating</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1_Lowest</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5_Highest</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DSM_Director_Blueprint_Review_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>DSM/Director will review Blueprint and add notes to help advance opportunity, highlight additional areas for discovery and help RSC develop craft</inlineHelpText>
+        <label>DSM/Director Blueprint Review Notes</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Demo2Win_Considerations__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Meeting opening
+-Introductions
+-Recap current state
+-Visual road map 
+
+Tell-Show-Tell:Connect A to B
+-Show software
+-Less is more
+-Show solution as easy and relevant
+-Deliver value statement
+
+Meeting Closing
+-Recap visual road map
+-Next steps</inlineHelpText>
+        <label>Demo2Win! Framework</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Department_implementing_WPM__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Are you implementing WPM in a tax or account department (or other)?</inlineHelpText>
+        <label>Department implementing WPM</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Do_XBRL_reporting_How__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you currently do XBRL reporting, and if so, what do you use? ???</inlineHelpText>
+        <label>Do XBRL reporting? How?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Do_you_use_Outloook_for_your_email__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you use Outloook for your email</inlineHelpText>
+        <label>Do you use Outlook for your email?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Efile_returns_or_send_offsite_for_review__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Will you E-File your returns? Or will you be sending them to your outside CPA firm to review/sign-off/file them?</inlineHelpText>
+        <label>Efile returns or send offsite for review</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Experience_Pfx_Engagement_E_Paper__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Does anyone in the organization have experience with &quot;Pfx Engagement” or “E-Pace&quot; (if so, list name)?</inlineHelpText>
+        <label>Experience &quot;Pfx Engagement”/“E-Paper&quot;</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Expertise__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>- Attracting, Developing &amp; Retaining Talent
+- Succession Planning
+- What’s next for your business? Grow, Do more with less, Merge/Split</inlineHelpText>
+        <label>Expertise</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Firm_Organization_Objectives__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What are their strategic goals? What plans do  they have in place to reach those goals?</inlineHelpText>
+        <label>Firm/Organization Objectives</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Hot_Buttons_Critical_Pain_Points__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What are the business challenges faced in day-to-day functions that have significant impact on how a company or firm performs?  Exp: streamlining internal processes, improving efficiency, attracting &amp; keeping top talent, data accuracy &amp; security, growth.</inlineHelpText>
+        <label>Critical Business Issues:</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>How_are_we_countering__c</fullName>
+        <externalId>false</externalId>
+        <label>How are we countering?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>How_do_we_match_our_selling_process_to_i__c</fullName>
+        <externalId>false</externalId>
+        <label>How we match our selling process to it:</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>How_many_users_of_the_system__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many users of the system</inlineHelpText>
+        <label>How many users of the system?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>How_they_trial_balance_amounts_in_return__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Are the interested in GL Direct?)  or…Would you like to import your trial balance data or manually key tax amounts into our worksheets?</inlineHelpText>
+        <label>How they trial balance amounts in return</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>How_tracking_FA_is_being_done__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How are you currently tracking FA</inlineHelpText>
+        <label>How tracking FA is being done?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Impacts_of_those_Challenges__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What will happen if the problems go unsolved? What is the impact to the business or the long term ramifications?</inlineHelpText>
+        <label>Impacts of those Challenges</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Increased_Risk_of_Data_Breach__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>e.g. Increased risk of data breach</inlineHelpText>
+        <label>Data</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Partner_included_in_the_demo__c</fullName>
+        <externalId>false</externalId>
+        <label>Is Partner included in the demo?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Key_Process_Workflow__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What are the key areas and workflows? Identify the gaps and the desired state.</inlineHelpText>
+        <label>Key Process/Workflow</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Last_Contact_Date_2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Primary_Contact_for_Proposal__r.LastActivityDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Shows Last Activity Date for Primary Contact on the Associated Opportunity. 
+
+If the date is in the future, it represents a scheduled meeting that will be taking place.</inlineHelpText>
+        <label>Last Contact Date 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Contact_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Contact Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Onsite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Webinar</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lower_Profit_Margins__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>e.g. Lower Profit Margins</inlineHelpText>
+        <label>Growth</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lower_Realization_Rates__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>e.g. Lower realization rates</inlineHelpText>
+        <label>Talent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Maintain_historical_document_versions__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you have concerns of maintaining historical versions of documents?</inlineHelpText>
+        <label>Maintain historical document versions?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Manager_Email_2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Owner.Manager.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Provides the Sales Rep Manager&apos;s email</inlineHelpText>
+        <label>Manager Email 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Manager Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Membership_Groups_Different__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Are state consolidated membership groups different than the federal membership group?</inlineHelpText>
+        <label>Membership Groups Different?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Moving_to_Paperless_system__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Why are you moving paperless system? (do you have a document management system) / What are you doing with your files</inlineHelpText>
+        <label>Moving to Paperless system?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>My_Team__c</fullName>
+        <externalId>false</externalId>
+        <formula>($User.FirstName + &quot; &quot; + $User.LastName ) = Solution_Architect_Manager__c || 
+($User.FirstName + &quot; &quot; + $User.LastName ) = Solution_Architect_Upper_Management__c</formula>
+        <label>My Team</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Assets_add_during_the_year__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many Assets do you add during the year</inlineHelpText>
+        <label>Number of Assets add during the year?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Number_of_assets_added_during_the_year__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many assets do you add during the year, would you like to import additions/retirements/transfers?</inlineHelpText>
+        <label>Number of assets added during the year?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Number_of_fixed_assets_for_each_company__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many fixed assets do you maintain for each company?</inlineHelpText>
+        <label>Number of fixed assets for each company?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Amount</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>CBI_Forms</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Other_needs_for_fixed_asset_tracking__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you have any other special needs for fixed asset tracking?</inlineHelpText>
+        <label>Other needs for fixed asset tracking?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Outside_auditor_CPA_use_ProSystem_Tax__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Does your outside auditor/CPA firm currently use ProSystem fx Tax?</inlineHelpText>
+        <label>Outside auditor/CPA use ProSystem Tax?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Pain_points_complexities_to_discuss__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Any specific &quot;pain points&quot;/complexities in your compliance process that you would like to mention/discuss?</inlineHelpText>
+        <label>Pain points/complexities to discuss?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Perform_consolidations_Which_ones__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you perform any consolidations?  If so, describe membership group(s)?</inlineHelpText>
+        <label>Perform consolidations? Which ones?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Perform_interim_reporting_Frequency__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you do interim reporting and if yes, on what frequency?</inlineHelpText>
+        <label>Perform interim reporting? Frequency?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Post_Call_Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that the post-call occurred. Solution Architect should complete after the post call happens. Ideally the same day as the presentation.</inlineHelpText>
+        <label>Post-Call Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Post_Call_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Complete same day as presentation if possible.</inlineHelpText>
+        <label>Post Call Completed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Potential_Objections__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Brainstorm potential objections like timing and implementation, pricing request, change management, potential competitors and how we will respond.</inlineHelpText>
+        <label>Potential Objections</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Pre_Call_Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that the pre-call occurred. Solution Architect should populate once the pre-call is completed. Cannot future date.</inlineHelpText>
+        <label>Pre-Call Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Call_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Complete at least 24 hours prior to presentation.</inlineHelpText>
+        <label>Pre-Call Completed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Prepare_foreign_forms_Which_ones__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you prepare foreign forms?  (If so, which ones if not listed above.)</inlineHelpText>
+        <label>Prepare foreign forms? Which ones?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Presentation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Presentation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Presentation_Focus__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Get a signed contract, beat out the competition, advance to meet with the decision maker, move to defined next steps - provide information for competitive analysis and/or prepare proposal and pricing</inlineHelpText>
+        <label>Presentation Focus</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Presentation_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Presentation Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Presentation - SA Required</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Presentation - SA Not Required</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Webinar</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Presenting_Bundle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Are we presenting a bundle?</inlineHelpText>
+        <label>Presenting Bundle</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Contact Role</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;+ Opportunity__r.Primary_Contact_for_Proposal__r.Id ,  Opportunity__r.Primary_Contact_for_Proposal__r.FirstName + &quot; &quot; + Opportunity__r.Primary_Contact_for_Proposal__r.LastName)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProSystem_Tax_experience_If_so_who__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Does anyone on your team have experience using ProSystem Tax?  If so, list those names here.</inlineHelpText>
+        <label>ProSystem Tax experience? If so who?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_Category__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text( Opportunity__r.Product_Category__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Productivity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>- People, process &amp; workflow efficiency: do more with less, more with same, or more with more
+- Profitability:  grow your business or increase your margins</inlineHelpText>
+        <label>Productivity</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Products_Currently_Used__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What product do you use now?</inlineHelpText>
+        <label>Products Currently Used</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Products_to_Present__c</fullName>
+        <externalId>false</externalId>
+        <label>Products Shown</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Accounting Research Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ActiveData</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AnswerConntect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AutoFlow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Practice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Axcess Workstream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Accounting Suite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compliance Dashboard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document On-Premise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eTax Audit Room</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eTax Calendar</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eTax Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Asset Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fixed Assets (CorpSystem)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global fx</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Integrator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IC - Client Relate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IC - Estate Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IC - Fast Answers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IC - International</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IC - RADAR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IC - Smart Charts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IC - Tax Prep Partner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IntelliConnect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Knowledge Coach</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KnowledgeConnect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning CPE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outsource</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Paperless Plus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payroll Compliance Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PDFlyer Standalone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portal Standalone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>POS Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Intelligence</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Load Utilities</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office Dynamics AX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office Dynamics GP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office Dynamics NAV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office Oracle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Office SAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax On Line (STOL)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Returns On Line (STROL)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax SaaS Dynamics ERP&apos;s</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax Saas Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Use Tax Databases General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Site Builder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sure Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suretax AX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suretax GP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suretax Magento</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suretax NAV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suretax Netsuite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suretax Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suretax SAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax (CorpSystem)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax (ProSystem fx)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Interchange for Retail (TIfR)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Desktop</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Balance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workpaper Manager</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Proposed_Demo_Flow__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How do you recommend the SA facilitate the demo? What order should products be shown, what are key areas to highlight?</inlineHelpText>
+        <label>Proposed Demo Flow</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Provide_sample_financial_or_other_report__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Could you provide us with sample financial or other reports you’d like to use WPM to help you produce?</inlineHelpText>
+        <label>Provide sample financial or other report</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Report_on_a_consolidated_basis__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you report on a consolidated basis?</inlineHelpText>
+        <label>Report on a consolidated basis?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Reports_on_calendar_month_quarter_year__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you report on a calendar month, quarter, and/or year?  If not, describe your annual and interim periods.  (Please note: If customer has more than 12 periods or a 52/53 week year, Pfx Fixed Assets is not an option).</inlineHelpText>
+        <label>Reports on calendar month, quarter, year</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Response_to_Objections__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use the APQC Ask-Position-Question-Confirm technique to assure you field the objection properly. Go to Libraries to find job aids and battle cards.</inlineHelpText>
+        <label>Response to Objections</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Risk__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>- Data security and integrity  
+- In the PRO market: accuracy and security in client deliverable and advice
+- In the CORP market:  avoid incorrect filings, audits, fines, research and compliance</inlineHelpText>
+        <label>Managing Risk</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SA_Email_Warning__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( NOT(ISPICKVAL(Status__c,&quot;Submitted&quot;)),&quot;You must set status to Submitted for the SA to receive the notification email&quot;+IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;, 12, 12) , &quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>.</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SA_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>SA Manager Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SA_Note_s__c</fullName>
+        <externalId>false</externalId>
+        <label>SA Note&apos;s</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sales_Rep__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Owner.FirstName &amp; &quot; &quot; &amp; Opportunity__r.Owner.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Rep</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Search_capability_importance__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Search capability importance?</inlineHelpText>
+        <label>Search capability importance?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Seller_s_Strategy_on_the_Buyer_s_Stage__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What interventions will you use to address the phase they are in?</inlineHelpText>
+        <label>Seller’s Strategy on the Buyer’s Stage</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Solution_Architect_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Solution_Architect__r.Manager_Full_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Solution Architect Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solution_Architect_Upper_Management__c</fullName>
+        <externalId>false</externalId>
+        <formula>Solution_Architect__r.Manager.Manager_Full_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Solution Architect Upper Management</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solution_Architect__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This field must be populated in order for the Solution Architect to be notified that the Solution Blueprint is available.</inlineHelpText>
+        <label>Solution Architect</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CBI_Forms_SA</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Solution_Blue_Print_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISNULL(Presentation_Date__c), NULL,
+    IF(Opportunity__r.IsClosed = TRUE,
+          Opportunity__r.CloseDate  - DATEVALUE( Presentation_Date__c ),
+          TODAY()- DATEVALUE(Presentation_Date__c )
+))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Solution Blue Print Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solution_Presentation_Opening__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>•	Engaging Opening using Story or Theme
+•	Describe the Visual Road Map tied to customer goals</inlineHelpText>
+        <label>Solution Presentation Opening</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Solutions_needed_for_existing_problems__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Is there something your current system doesn’t do or doesn’t do well that you are hoping our solution will provide?</inlineHelpText>
+        <label>Solutions needed for existing problems?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>States_Currently_Filing_In__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Which Sates do they file in?</inlineHelpText>
+        <label>States Currently Filing In</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This field must be changed to Submitted when you are ready to submit to the Solution Architect and your manager for their review.</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Strategy_for_defeating_the_competition__c</fullName>
+        <externalId>false</externalId>
+        <label>Strategy for defeating the competition?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Tax_Competitor_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Tax_Competitor_End_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax Competitor End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Competitor__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Opportunity__r.Account.Tax_Competitor__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Tax Competitor Located on Account</inlineHelpText>
+        <label>Tax Competitor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Technology_Comments__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>- What is the customers/prospects current technology environment?
+
+Note: Product and Competitive Information from the Account will be pulled into the form automatically.</inlineHelpText>
+        <label>Technology Comments</label>
+        <length>6000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Total_Cost_of_Ownership__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Cost of Ownership</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Types_of_Return_Currently_Filing__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>specifically list the form numbers – the more the better</inlineHelpText>
+        <label>Types of Return Currently Filing</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>User_and_office_count_roles_utilizing__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many Employees would be utilizing?  What are their roles ( TB or WP only)? How many offices?</inlineHelpText>
+        <label>User and office count, roles utilizing?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Users_needing_access_to_software__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many users need access to the software?</inlineHelpText>
+        <label>Users needing access to software?</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Using_now_for_tax_and_fixed_assets__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What are you using for tax and fixed assets</inlineHelpText>
+        <label>Using now for tax and fixed assets?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>What_are_our_blind_spots_Critical__c</fullName>
+        <externalId>false</externalId>
+        <label>What are our blind spots? (Critical)</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>What_are_the_competition_s_strategies__c</fullName>
+        <externalId>false</externalId>
+        <label>What are the competition’s strategies?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>What_are_your_retention_policies__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What are your retention policies?</inlineHelpText>
+        <label>What are your retention policies?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>What_bad_thing_happens_if_they_do_not__c</fullName>
+        <externalId>false</externalId>
+        <label>What “bad” thing happens if they do not</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>What_don_t_we_know__c</fullName>
+        <externalId>false</externalId>
+        <label>What don’t we know?</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>What_is_the_buying_process__c</fullName>
+        <externalId>false</externalId>
+        <label>What is the buying process?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Who_is_SAP_Microsoft_NetSuite_Partner__c</fullName>
+        <externalId>false</externalId>
+        <label>Who is SAP/Microsoft/NetSuite Partner?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>provide_current_workpaper_structure__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Could you provide us with a sample of your current workpaper structure (index structure)?</inlineHelpText>
+        <label>provide current workpaper structure</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>state_calculations_being_maintained__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many unique/discrete state deprecation calculations are you maintaining?</inlineHelpText>
+        <label>state calculations being maintained?</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <label>Solution Blueprint</label>
+    <nameField>
+        <displayFormat>SB-{00000}</displayFormat>
+        <label>Solution Blueprint</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Solution Blueprints</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Corporate_Direct</fullName>
+        <active>true</active>
+        <description>Use for Corporate Direct deals only</description>
+        <label>Corporate Direct</label>
+        <picklistValues>
+            <picklist>Is_Partner_included_in_the_demo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Onsite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Type__c</picklist>
+            <values>
+                <fullName>Presentation - SA Not Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation - SA Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Products_to_Present__c</picklist>
+            <values>
+                <fullName>Accounting Research Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ActiveData</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AutoFlow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Document</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Tax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Workstream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Document On-Premise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engagement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Asset Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Assets %28CorpSystem%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Integrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global fx</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Client Relate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Fast Answers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Smart Charts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Tax Prep Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IntelliConnect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Knowledge Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KnowledgeConnect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Learning CPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outsource</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PDFlyer Standalone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POS Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal Standalone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Practice Intelligence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Practice Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Oracle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax On Line %28STOL%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Use Tax Databases General</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site Builder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sure Tax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax %28CorpSystem%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax %28ProSystem fx%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Workpaper Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Audit Room</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Calendar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Portal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Corporate_Indirect</fullName>
+        <active>true</active>
+        <description>Use for Corporate Indirect deals only</description>
+        <label>Corporate Indirect</label>
+        <picklistValues>
+            <picklist>Customers_Stage_in_the_Buyers_Process__c</picklist>
+            <values>
+                <fullName>Awareness that a problem exists</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Determine decision making process and criteria and narrow options</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Identify and scope options to solve problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Implementation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Make a decision and negotiate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Understand impact the problem has on their business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DSM_Blueprint_Rating__c</picklist>
+            <values>
+                <fullName>1 - Lowest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 - Highest</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_Partner_included_in_the_demo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Onsite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Type__c</picklist>
+            <values>
+                <fullName>Presentation - SA Not Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation - SA Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Products_to_Present__c</picklist>
+            <values>
+                <fullName>Compliance Dashboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - RADAR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Load Utilities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Dynamics AX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Dynamics GP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Dynamics NAV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office SAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Returns On Line %28STROL%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax SaaS Dynamics ERP%27s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Saas Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Use Tax Databases General</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suretax AX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suretax GP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suretax Magento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suretax NAV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suretax Netsuite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suretax Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suretax SAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Interchange for Retail %28TIfR%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Standard_Blueprint</fullName>
+        <active>true</active>
+        <description>Used for R&amp;L and Professional Software deals</description>
+        <label>Standard Blueprint</label>
+        <picklistValues>
+            <picklist>Customers_Stage_in_the_Buyers_Process__c</picklist>
+            <values>
+                <fullName>Awareness that a problem exists</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Determine decision making process and criteria and narrow options</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Identify and scope options to solve problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Implementation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Make a decision and negotiate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Understand impact the problem has on their business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DSM_Blueprint_Rating__c</picklist>
+            <values>
+                <fullName>1 - Lowest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 - Highest</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_Partner_included_in_the_demo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Onsite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Type__c</picklist>
+            <values>
+                <fullName>Presentation - SA Not Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation - SA Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Products_to_Present__c</picklist>
+            <values>
+                <fullName>ATX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounting Research Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ActiveData</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AnswerConntect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AutoFlow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Document</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Tax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axcess Workstream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Accounting Suite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Document On-Premise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engagement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Asset Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Assets %28CorpSystem%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Integrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global fx</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Client Relate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Fast Answers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Smart Charts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC - Tax Prep Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IntelliConnect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Knowledge Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KnowledgeConnect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Learning CPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outsource</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PDFlyer Standalone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POS Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paperless Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payroll Compliance Reporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal Standalone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Practice Intelligence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Practice Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax Office Oracle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Tax On Line %28STOL%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Use Tax Databases General</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site Builder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sure Tax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax %28CorpSystem%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax %28ProSystem fx%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TaxWise Desktop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TaxWise Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Workpaper Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Audit Room</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Calendar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eTax Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iFirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iFirm Portal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Solution_Architect_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISPICKVAL( Presentation_Type__c, &quot;Presentation - SA Required&quot;) &amp;&amp;  Solution_Architect__c =&quot;&quot;</errorConditionFormula>
+        <errorDisplayField>Solution_Architect__c</errorDisplayField>
+        <errorMessage>Solution Architect is required.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Solution_Blueprint</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Solution Blueprint</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if (&apos;{!Opportunity.Product_Category__c}&apos; == &apos;Corporate Software&apos;){
+
+window.open(&apos;/setup/ui/recordtypeselect.jsp?ent=01Ii0000001uXGH&amp;retURL=%2F{!Opportunity.Id}&amp;save_new_url=%2Fa0C%2Fe%3FCF00Ni000000EI8C4%3D{!SUBSTITUTE( Opportunity.Name , &apos; &apos;, &apos;%2B&apos;) }%26CF00Ni000000EI8C4_lkid%3D{!Opportunity.Id}%26retURL%3D%252F{!Opportunity.Id}&apos;)
+
+}else{
+
+window.open(&apos;/a0C/e?CF00Ni000000EI8C4={!Opportunity.Name}&amp;CF00Ni000000EI8C4_lkid={!Opportunity.Id}&amp;retURL=/{!Opportunity.Id}&amp;RecordType=01231000001AieH&apos;)
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Prod_Info</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Product Info</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>https://c.cs16.visual.force.com/apex/compinfoRO?scontrolCaching=1&amp;id={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>View_CBI</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Print Solution Blueprint</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if (&apos;{!CBI_Form__c.Solution_Architect__c}&apos; ==&apos;&apos;){
+       alert(&quot;You must select a solution architect.&quot;);
+       }else{
+       if (&apos;{!CBI_Form__c.RecordTypeId}&apos; == &apos;01231000001AieG&apos;){
+	      window.open(&apos;https://c.na25.visual.force.com/apex/CBI_Form_Indirect?id={!CBI_Form__c.Id}&apos;);
+	      }else{
+	      if (&apos;{!CBI_Form__c.RecordTypeId}&apos; == &apos;01231000001AieF&apos;){
+		    window.open(&apos;https://c.na25.visual.force.com/apex/CBI_Form_Corporate_Direct?id={!CBI_Form__c.Id}&apos;);
+	            }else{
+     	            if (&apos;{!Opportunity.Product_Category__c}&apos; == &apos;Med/Large Software&apos;){
+			  window.open(&apos;https://c.na25.visual.force.com/apex/cbiform?id={!CBI_Form__c.Id}&apos;);
+			  }else{
+if (&apos;{!Opportunity.Product_Category__c}&apos; == &apos;Small Firm Software&apos;){
+			  window.open(&apos;https://c.na25.visual.force.com/apex/cbiform2?id={!CBI_Form__c.Id}&apos;);
+}else{
+			  window.open(&apos;https://c.na25.visual.force.com/apex/cbiform2?id={!CBI_Form__c.Id}&apos;);
+		     }
+		}
+	}  
+}
+}</url>
+    </webLinks>
+</CustomObject>

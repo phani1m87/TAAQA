@@ -1,0 +1,322 @@
+<!--
+    ###########################################################################
+    # File..................: Visualforce - WK_Pref_Center
+    # Created by............: The Hunley Group
+    # Created Date..........: 1/1/2016
+    # Description...........: Visualforce page used for Force.com Sites based Email Preference 
+								Center which replaces Exact Target preference center.
+    ########################################################################### -->
+<apex:page standardStylesheets="false" Controller="PreferenceCenterController" showHeader="false" >
+<html>
+<head>
+
+<title>Manage Your Email Preferences | Wolters Kluwer</title>
+<link rel="stylesheet" href="http://image.cchemail.com/lib/fe9b13707560047871/m/1/preference-styles.css" type="text/css" />
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.min.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<script src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/respond.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript">
+            $(document).ready(function(){
+                $('.all').click(function() {
+                    var $checkboxes = $(this).parent().find('input[type=checkbox]');
+                    $checkboxes.prop('checked', $(this).is(':checked') ? true : false);
+
+                });
+                $('.subcheck').change( function () {
+                if (!$(this).is(':checked')) {
+                        
+                $('.all').prop('checked', false)
+                   
+                }
+                });
+                $('.uncheckall').click(function() {
+                       $('.checkoption').prop('checked', $(this).is(':checked') ? false : false);
+                });
+                $('.checkoption').change( function () {
+                if ($(this).is(':checked')) {
+                        
+                $('.uncheckall').prop('checked', false)
+                   
+                }
+                });
+            });
+            function formReset()
+                {
+                document.getElementById("emailsub").reset();
+                }
+
+       </script>
+
+<script language="javascript">
+    function validate()
+        {
+        try
+        {
+            var fNameObj = document.getElementById("{!$Component.theForm.fName}");
+        	var lNameObj = document.getElementById("{!$Component.theForm.lName}");
+            if(lNameObj.value == "" || fNameObj.value == "")
+        {
+        alert("First Name and Last Name must be filled in!");
+        return false;
+        }
+        return true;
+        }
+        catch(e)
+        {
+        alert(e);
+        return false;
+        }
+    }
+</script>  
+ <script type="text/javascript">
+
+        function toggle2(showHideDiv, switchTextDiv) {
+            var ele = document.getElementById(showHideDiv);
+            var text = document.getElementById(switchTextDiv);
+            if(ele.style.display == "block") {
+                    ele.style.display = "none";
+                text.innerHTML = "[+]";
+            }
+            else {
+                ele.style.display = "block";
+                text.innerHTML = "[&#150;]";
+            }
+        }
+
+</script>
+
+
+</head>
+<body>
+<div class="main-con">
+  <div class="header">
+    <div class="content-con">
+      <div class="logo"><a href="http://cchgroup.com"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/cch_logo.gif" alt="Wolters Kluwer" border="0" /></a></div>
+      <div class="contact">
+        <div class="social"> <span class="contactus">Contact Us: 800-344-3734</span> 
+        <span class="social-icons"><a href="https://www.linkedin.com/company/wolterskluwertaaus"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/linkedin-24.png" alt="Wolters Kluwer on LinkedIn" height="24" border="0" align="top" style="vertical-align: top;-ms-interpolation-mode:bicubic;" /></a> <a href="https://www.facebook.com/CCH.USA"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/facebook-24.png" alt="Wolters Kluwer on Facebook" height="24" border="0" align="top" style="vertical-align: top;" /></a> <a href="https://twitter.com/wktaaus"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/twitter-24.png" alt="Wolters Kluwer on Twitter" height="24" border="0" align="top" style="vertical-align: top;" /></a> <a href="http://www.youtube.com/cchwolterskluwer"><img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/youtube-24.png" alt="Wolters Kluwer on YouTube" height="24" border="0" align="top" style="vertical-align: top;" /></a></span>
+         </div>
+        <!--social--> 
+      </div>
+      <!--contact--> 
+    </div>
+    <!--content-con--> 
+  </div>
+  <!--header-->
+  <div class="banner">
+    <div class="banner-con"> 
+      <h1>Manage Your Email Preferences</h1>
+    </div>
+    <!--banner-con--> 
+  </div>
+  <!--banner-->
+  
+  <div class="body-con">
+ 
+     <apex:form id="theForm" > 
+      <h3>Marketing Emails, Newsletters &amp; Alerts</h3>
+      <p>Pre-checked boxes are the current emails that you may currently receive. Simply check the boxes of those emails you would like to receive or uncheck the boxes of those emails you would like to stop receiving.</p>
+      <div class="column1">
+        <div class="header-box-software">
+          <h2>Software</h2>
+        </div>
+        <h4>Software Product Info</h4>
+        <p>Whether you work at a CPA firm or within a Corporate Tax &amp; Accounting department, we have several industry acclaimed products to help you do your job better. Get product updates and even request demos for our software products within the following areas:</p>
+        <div class="checklist-con">
+          <div class="checkbox-item">
+              <apex:inputCheckbox value="{!SP_AAW}" id="c2" html-class="checkoption" />
+            <label for="c2">Accounting &amp; Audit Workflow</label>
+          </div>
+           <div class="checkbox-item">
+              <apex:inputCheckbox value="{!SP_CDT}" id="c3" html-class="checkoption" />
+            <label for="c3">Corporate Direct Tax</label>
+          </div>
+          <div class="checkbox-item">
+              <apex:inputCheckbox value="{!SP_CIT}" id="c4" html-class="checkoption"/>
+            <label for="c4">Corporate Indirect Tax</label>
+          </div>
+          <div class="checkbox-item">
+              <apex:inputCheckbox value="{!SP_CFM}" id="c1" html-class="checkoption"/>	
+            <label for="c1">CPA Firm Management &amp; Workflow</label>
+          </div>
+          <div class="checkbox-item">
+              <apex:inputCheckbox value="{!SP_CFT}" id="c5" html-class="checkoption"/>
+            <label for="c4">CPA Firm Technology</label>
+          </div>
+        </div>
+        <!--checklist-con--> 
+      </div>
+      <!--column1-->
+      
+      <div class="column2 last">
+        <div class="header-box-research">
+          <h2>Research &amp; Learning</h2>
+        </div>
+        <h4>Seminars, Learning and CPE</h4>
+        <p>Our world class research products such as our Intelliconnect platform provide the right tools and instant answers to all your Tax &amp; Accounting questions. Get Demos and Free Trials of our research products, as well as, discounts on our online bookstore to our vast library of Tax &amp; Accounting publications such as U.S. Master Tax Guide.</p>
+        <div class="checklist-con">
+
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_AAR}" html-name="AAC1000" id="sc1" html-class="checkoption" /><!--<input type="checkbox" value="1" name="AAC1000" id="sc1" class="subcheck" />--><label for="sc1">Accounting &amp; Audit: Research</label></div>
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_SAA}" html-name="AAC1004" id="sc2" html-class="checkoption" /><!--<input type="checkbox" value="1" name="AAC1004" id="sc2" class="subcheck" />--><label for="sc2">Accounting &amp; Audit: CPE/Seminars</label></div>
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_FTR}" html-name="AAC1000" id="sc3" html-class="checkoption" /><!--<input type="checkbox" value="1" name="AAC1000" id="sc3" class="subcheck" />--><label for="sc3">Federal Tax: Research</label></div>
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_SFI}" html-name="AAC1000" id="sc4" html-class="checkoption" /><!--<input type="checkbox" value="1" name="AAC1000" id="sc4" class="subcheck" />--><label for="sc4">Federal Tax: CPE/Seminars</label></div>
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_FEPR}" html-name="TPC1004" id="sc5" html-class="checkoption" /><!--<input type="checkbox" value="1" name="TPC1004" id="sc5" class="subcheck" />--><label for="sc5">Finance &amp; Estate Planning: Research</label></div>
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_SFE}" html-name="TPC1005" id="sc9" html-class="checkoption" /><!--<input type="checkbox" value="1" name="TPC1004" id="sc5" class="subcheck" />--><label for="sc5">Finance &amp; Estate Planning: CPE/Seminars</label></div>
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_ITR}" html-name="INC1004" id="sc6" html-class="checkoption" /><!--<input type="checkbox" value="1" name="INC1004" id="sc6" class="subcheck" />--><label for="sc6">International Tax: Research</label></div>
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_SIT}" html-name="INC1005" id="sc10" html-class="checkoption" /><!--<input type="checkbox" value="1" name="INC1004" id="sc6" class="subcheck" />--><label for="sc6">International Tax: CPE/Seminars</label></div>                
+            	<div class="checkbox-item"><apex:inputCheckbox value="{!RL_STR}" html-name="WPC1004" id="sc7" html-class="checkoption" /><!--<input type="checkbox" value="1" name="WPC1004" id="sc7" class="subcheck" />--><label for="sc7">State Tax: Research</label></div>
+                <div class="checkbox-item"><apex:inputCheckbox value="{!RL_SST}" html-name="WPC1004" id="sc8" html-class="checkoption" /><!--<input type="checkbox" value="1" name="WPC1004" id="sc8" class="subcheck" />--><label for="sc8">State Tax: CPE/Seminars</label></div>
+
+        </div>
+        <!--checklist-con--> 
+      </div>
+      <!--column2-->
+      
+      <div class="line"></div>
+      <img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/cch-user-conference_th.jpg" alt="CCH Connections"  class="thumbnail-img" />
+      <div class="description">
+        <h4>
+            <apex:inputCheckbox value="{!NA_CCC}" id="c12" html-class="checkoption"/>
+          <label for="c12">CCH Connections Conference</label>
+        </h4>
+        <p><strong>User Conference</strong>: Updates on everything from early bird registration discounts and monthly giveaways to details on the keynote speakers, events, and networking opportunities for CPAs and corporations.</p>
+      </div>
+      <!--description-->
+      
+      <div class="clear"></div>
+      <img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/intelligence-for-taxation_th.jpg" alt="Intelligence for Taxation" class="thumbnail-img" />
+      <div class="description">
+        <h4>
+          <apex:inputCheckbox value="{!NA_IFT}" id="c13" html-class="checkoption"/>
+          <label for="c13">Intelligence for Taxation (Monthly)</label>
+        </h4>
+        <p>A monthly eNewsletter that provides a comprehensive, state-by-state roundup of tax-related news and analysis for corporate clients.</p>
+      </div>
+      <!--description-->
+      
+      <div class="clear"></div>
+      <img src="http://image.cchemail.com/lib/fe9b13707560047871/m/1/tax-news-headlines_th.jpg" alt="Tax News Headlines" class="thumbnail-img" />
+      <div class="description">
+        <h4>
+          <apex:inputCheckbox value="{!NA_TNH}" id="c14" html-class="checkoption"/>
+          <label for="c14">Tax News Headlines (Daily)</label>
+        </h4>
+        <p>A daily summary of the most important federal and state tax news stories</p>
+      </div>
+      <!--description-->
+     
+      <div class="line"></div> 
+      <h4>Global Opt Out</h4>
+      <div class="checkbox-item">
+            <p><apex:inputCheckbox value="{!GOO}" id="unsub" HTML-class="uncheckall"/><!--<input type="checkbox" value="0" name="unsubscribe" id="unsub" class="uncheckall" />-->
+            <label for="unsub">I no longer wish to receive any marketing emails from Wolters Kluwer.</label></p>
+            <p><em>Please check the box and then click on Submit to unsubscribe from future marketing emails</em>.</p>
+      </div><!--checkbox-item-->
+          
+      <div class="line"></div>
+      <div class="CFA-mainDiv">
+      <input type="hidden" value="%%=v(@SubscriberKey)=%%" name="SubscriberKey" />
+      <input type="hidden" value="%%=v(@IsPartner)=%%" name="IsPartner" />
+      <div class="fieldBoxCon">
+        <div class="fieldBoxLabel">
+          <label for="firstname">First name: </label>
+        </div>
+        <div class="fieldBox">
+            <apex:inputText value="{!FirstName}" id="fName" />
+        </div>
+      </div>
+      <!--fieldBoxCon-->
+      <div class="fieldBoxCon">
+        <div class="fieldBoxLabel">
+          <label for="lastname">Last name: </label>
+        </div>
+        <div class="fieldBox">
+            <apex:inputText value="{!LastName}" id="lName" />
+        </div>
+      </div>
+      <!--fieldBoxCon-->
+      <div class="fieldBoxCon">
+        <div class="fieldBoxLabel">
+          <label for="title">Title: </label>
+        </div>
+        <div class="fieldBox">
+            <apex:inputText value="{!Title}" />
+        </div>
+      </div>
+      <div class="fieldBoxCon">
+        <div class="fieldBoxLabel">
+          <label for="company">Company: </label>
+        </div>
+        <div class="fieldBox">
+            <apex:outputText value="{!Company}" />
+        </div>
+      </div>
+      <!--fieldBoxCon-->
+      <div class="fieldBoxCon">
+        <div class="fieldBoxLabel">
+          <label for="email">Email:</label>
+        </div>
+        <div class="fieldBox">
+            <apex:outputText value="{!Email}" />
+        </div>
+      </div>
+      <!--fieldBoxCon-->
+      <div class="fieldBoxCon">
+        <div class="fieldBoxLabel">
+          <label for="workphone">Work Phone: </label>
+        </div>
+        <div class="fieldBox">
+            <apex:outputText value="{!Phone}" />
+        </div>
+      </div>
+      <div class="fieldBoxCon">
+        <div class="fieldBoxLabel">
+          <label for="mobilephone">Mobile Phone: </label>
+        </div>
+        <div class="fieldBox">
+            <apex:inputText value="{!MobilePhone}" />
+        </div>
+      </div>
+      <!----- end questions --->
+      
+      <!--<div class="g-recaptcha" data-sitekey="6LcVHQgTAAAAAELASK7g8Ewwx7XDqRtm0GyVV1LB"></div>-->
+      <!--reCaptcha-->
+      
+      <div class="submit-con"> <span class="disclaimer fleft"><!--* <em>Required information</em>--></span>
+        <div class="sendbutton">
+          <apex:commandButton action="{!quickSave}" value="Submit" onclick="return validate()"/>
+
+            <!--<input type="submit" value="Update Preferences" name="submit" />-->
+        </div>
+        <!--sendbutton--> 
+        <span class="cancel"><a href="#">Cancel</a></span> 
+      </div>
+      <!--fieldBoxCon-->
+     </div>
+      </apex:form>     
+    <!--</form>-->
+  </div>
+  <!--CFA-maindiv--> 
+  
+
+<!--body-con-->
+
+</div>
+<!--main-con-->
+
+<div class="footer">
+  <p>To ensure delivery: please add email@cchemail.com to your email address book or safe-senders list.</p>
+  <p><a href="http://support.cch.com/privacy/" target="_blank">Privacy Policy</a>: We do not share, rent or sell your email address.</p>
+</div>
+<!--footer-->
+
+</body>
+</html>
+</apex:page>

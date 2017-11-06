@@ -1,0 +1,69 @@
+<apex:page standardcontroller="Account" docType="html-5.0">
+<apex:form style="padding-left:2px;">
+<apex:pageblock >
+ <b><apex:outputlabel style="font-size:14px;" value="Competitor Info"/></b>
+ </apex:pageblock>
+  <apex:pageblock >
+    <apex:pageBlockButtons >
+ <apex:commandButton style="Position:absolute;left:20px;Top:55px;" value="Save"  action="{!quicksave}"/>
+  <apex:commandButton style="Position:absolute;left:75px;Top:55px;" value="Cancel" action="{!cancel}"/>
+  <apex:commandbutton style="Position:absolute;left:150px;Top:55px;" value="Save & Return to Account" action="{!save}"/>
+ </apex:pageBlockButtons>
+ </apex:pageblock>
+ <div>
+ <b><u><apex:OutputLabel value="Software" Style="Font-Size:10px;"/></u></b>
+ <br/>
+ <br/>
+ <apex:outputlabel value="Tax"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Tax_Competitor__c}"/>
+ <br/><br/><hr/>
+<apex:outputlabel value="Second Tax"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Tax_Second_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Scan"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Scan_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Outsource"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.outsource_competitor__c}"/> 
+<br/><br/><hr/>
+<apex:outputlabel value="Fixed Assets"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Fixed_Assets_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Practice"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Practice_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Document"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Document_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Portal SaaS"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Portal_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Workstream"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Axcess_Workstream_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Website"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.website_competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Engagement"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Engagement_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Trial Balance"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Trial_Balance_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Knowledge Management"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Knowledge_Management_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Audit"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Audit_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:Outputlabel value="Number of Audits"/><apex:InputField type="number" style="position:absolute;left:100px;width:50px;" value="{!Account.Number_of_Audits__c}"/>
+<br/><br/>
+<hr style="height:5px;background-color:#000"/>
+<b><u><apex:OutputLabel value="Indirect" Style="Font-Size:10px;"/></u></b>
+<br/>
+<apex:outputlabel value="Compliance"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.STG_Compliance_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Calculation"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.STG_Calculation_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Database"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.STG_database_Competitor__c}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="Industry"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.Industry}"/>
+<br/><br/><hr/>
+<apex:outputlabel value="VAR"/><apex:OutputText style="position:absolute;left:100px;width:200px;" value="{!account.VAR_Account1__c}"/>
+<br/><hr/>
+<apex:outputlabel value="ERP"/><apex:OutputText style="position:absolute;left:100px;width:200px;" value="{!account.ERP_Vendor_Account1__c}"/>
+<hr style="height:5px;background-color:#000"/>
+ <b><u><apex:OutputLabel value="Research" Style="Font-Size:10px;"/></u></b><br/>
+ <apex:outputlabel value="Tax Research"/><apex:InputField style="position:absolute;left:100px;width:200px;" value="{!account.research_competitor__c}"/>
+<br/>
+<hr/>
+ </div>
+ 
+ </apex:form>
+</apex:page>
