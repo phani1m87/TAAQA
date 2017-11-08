@@ -17392,6 +17392,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Role_Assignment__c.AccountTeamAssignment__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>S2S_LogFile__c.API_Request_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>

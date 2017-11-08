@@ -1374,6 +1374,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ATA_AssignmentType_Map__mdt.Assignment_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_AssignmentType_Map__mdt.Field_API_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_AssignmentType_Map__mdt.Field_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.AD_Approve_FSR__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17428,6 +17443,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Role_Assignment__c.AccountTeamAssignment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>S2S_LogFile__c.API_Request_Time__c</field>
         <readable>false</readable>
@@ -19686,6 +19706,9 @@
         <layout>APTS_Promotion_Detail__c-Promotion Detail Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ATA_AssignmentType_Map__mdt-ATA AssignmentType Map Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -19702,6 +19725,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>AccountContactRole-Account Contact Role Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AccountTeamAssignment__c-TeamAssignment_Rule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AccountTeamMember-Account Team Member Layout</layout>
@@ -19956,6 +19982,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Risk_Issue__c-Risk%2FIssue Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Role_Assignment__c-Role Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>S2S_LogFile__c-S2S LogFile Layout</layout>
