@@ -9,4 +9,5 @@
     <tab>standard-ContentSearch</tab>
     <tab>standard-Workspace</tab>
     <tab>Assist_List</tab>
+    <tab>ATA_AssignmentType_Map__c</tab>
 </CustomApplication>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
+        <application>ATA_Account_Team_Management</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>PSA</application>
         <visible>false</visible>
     </applicationVisibilities>
@@ -158,6 +162,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>APTS_ValidationCallBackTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATA_Utility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATestVersion</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1354,6 +1366,26 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>APTS_Promotion_Detail__c.APTS_Product_Group__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_AssignmentType_Map__c.Assignment_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_AssignmentType_Map__c.Field_API_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_AssignmentType_Map__c.Field_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_Role_Assignment__c.ATA_AccountTeamAssignment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17393,11 +17425,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Role_Assignment__c.AccountTeamAssignment__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>S2S_LogFile__c.API_Request_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -20054,6 +20081,10 @@
     </tabSettings>
     <tabSettings>
         <tab>APTS_Promotion_Detail__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>ATA_AssignmentType_Map__c</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>

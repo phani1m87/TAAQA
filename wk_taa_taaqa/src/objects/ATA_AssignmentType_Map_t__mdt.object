@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Defines a Collection of Field API Name, Field Value Pairs, mapped to a particular Assignment Type Value</description>
+    <fields>
+        <fullName>Assignment_Type__c</fullName>
+        <description>The assignment type defines the roles through the TeamAssignment_Rule and Role_Assignment objects</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Assignment Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Business_Segment_Market_Segment</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Named_National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Partner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named_Corp_National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named_Strategic</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Field_API_Name__c</fullName>
+        <description>Field API Name e.g. mycustomfield__c, Name, etc</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Field API Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Value__c</fullName>
+        <description>Field Value for the Rule</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Field Value</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>ATA AssignmentType Map</label>
+    <pluralLabel>ATA AssignmentType Map</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

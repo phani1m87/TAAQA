@@ -132,6 +132,22 @@
         <unique>false</unique>
     </fields>
     <label>Zip Assignment Table</label>
+    <listViews>
+        <fullName>All_Details</fullName>
+        <columns>NAME</columns>
+        <columns>CAM__c</columns>
+        <columns>CAM_DTN__c</columns>
+        <columns>Software_ISC__c</columns>
+        <columns>Software_ISC_DTN__c</columns>
+        <columns>Software_RC__c</columns>
+        <columns>Software_RC_DTN__c</columns>
+        <columns>Software_RSC__c</columns>
+        <columns>Software_RSC_DTN__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Details</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <label>Zip Name</label>
         <type>Text</type>

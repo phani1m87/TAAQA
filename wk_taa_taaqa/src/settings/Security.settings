@@ -114,6 +114,21 @@
             <start>68.232.200.1</start>
         </ipRanges>
         <ipRanges>
+            <description>Pardot</description>
+            <end>67.228.223.107</end>
+            <start>67.228.223.106</start>
+        </ipRanges>
+        <ipRanges>
+            <description>Pardot</description>
+            <end>67.228.168.141</end>
+            <start>67.228.168.139</start>
+        </ipRanges>
+        <ipRanges>
+            <description>Pardot</description>
+            <end>67.228.95.145</end>
+            <start>67.228.95.145</start>
+        </ipRanges>
+        <ipRanges>
             <end>67.184.183.163</end>
             <start>67.184.183.163</start>
         </ipRanges>

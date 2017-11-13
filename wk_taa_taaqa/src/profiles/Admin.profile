@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
+        <application>ATA_Account_Team_Management</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>PSA</application>
         <default>false</default>
         <visible>true</visible>
@@ -174,6 +179,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>APTS_ValidationCallBackTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATA_Utility</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATestVersion</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1373,19 +1386,39 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_AssignmentType_Map__c.Assignment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_AssignmentType_Map__c.Field_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_AssignmentType_Map__c.Field_Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
-        <field>ATA_AssignmentType_Map__mdt.Assignment_Type__c</field>
+        <field>ATA_AssignmentType_Map_t__mdt.Assignment_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ATA_AssignmentType_Map__mdt.Field_API_Name__c</field>
+        <field>ATA_AssignmentType_Map_t__mdt.Field_API_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ATA_AssignmentType_Map__mdt.Field_Value__c</field>
+        <field>ATA_AssignmentType_Map_t__mdt.Field_Value__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Role_Assignment__c.ATA_AccountTeamAssignment__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -17443,11 +17476,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Role_Assignment__c.AccountTeamAssignment__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>S2S_LogFile__c.API_Request_Time__c</field>
         <readable>false</readable>
@@ -19706,7 +19734,16 @@
         <layout>APTS_Promotion_Detail__c-Promotion Detail Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ATA_AssignmentType_Map__mdt-ATA AssignmentType Map Layout</layout>
+        <layout>ATA_AccountTeamAssignment__c-TeamAssignment_Rule Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ATA_AssignmentType_Map__c-ATA AssignmentType Map Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ATA_AssignmentType_Map_t__mdt-ATA AssignmentType Map Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ATA_Role_Assignment__c-Role Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
@@ -19725,9 +19762,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>AccountContactRole-Account Contact Role Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AccountTeamAssignment__c-TeamAssignment_Rule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AccountTeamMember-Account Team Member Layout</layout>
@@ -19989,9 +20023,6 @@
         <layout>Risk_Issue__c-Risk%2FIssue Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Role_Assignment__c-Role Assignment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>S2S_LogFile__c-S2S LogFile Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -20136,7 +20167,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Account</object>
+        <object>ATA_AccountTeamAssignment__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -20145,7 +20176,25 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>AccountTeamAssignment__c</object>
+        <object>ATA_AssignmentType_Map__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>ATA_Role_Assignment__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -20551,15 +20600,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Risk_Issue__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Role_Assignment__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -21209,6 +21249,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>APTS_Promotion_Detail__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>ATA_AssignmentType_Map__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

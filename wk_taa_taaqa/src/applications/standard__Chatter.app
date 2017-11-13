@@ -9,4 +9,5 @@
     <tab>standard-File</tab>
     <tab>Useful_Links</tab>
     <tab>Assist_List</tab>
+    <tab>ATA_AssignmentType_Map__c</tab>
 </CustomApplication>

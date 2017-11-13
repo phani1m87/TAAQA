@@ -22,4 +22,5 @@
     <tab>S2S_LogFile__c</tab>
     <tab>ReplicationMonitoringLog__c</tab>
     <tab>Assist_List</tab>
+    <tab>ATA_AssignmentType_Map__c</tab>
 </CustomApplication>

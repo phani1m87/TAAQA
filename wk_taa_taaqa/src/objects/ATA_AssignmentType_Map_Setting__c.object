@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Map of distinct assignment types to Account Field API Names and the values that drive the 
+assignment: This is used in conjunction with the ATA_AccountTeamAssignment object and the ATA_Role_Assignment object to obtain the list of Account Team Roles for a given combination of fields values that uniquely determine the Role Assignment.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>ATA AssignmentType_Map</label>
+    <visibility>Protected</visibility>
+</CustomObject>
