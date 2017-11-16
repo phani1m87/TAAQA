@@ -3,5 +3,5 @@
     <description>This is IIB host name used in Automated Order Processing (AOP)</description>
     <disableProtocolSecurity>false</disableProtocolSecurity>
     <isActive>true</isActive>
-    <url>http://taadvpp.wkgbssvcs.com</url>
+    <url>https://taaqa.wkgbssvcs.com</url>
 </RemoteSiteSetting>

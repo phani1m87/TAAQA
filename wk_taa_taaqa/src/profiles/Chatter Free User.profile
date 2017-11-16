@@ -1422,6 +1422,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ATA_Rule__c.Field_API_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_Rule__c.Rule_Enabled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_Rule__c.Sobject_c__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_Rule__c.rule_type_c__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.AD_Approve_FSR__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9044,11 +9064,6 @@
         <editable>false</editable>
         <field>Case.IsEscalated</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Is_Urgent__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19746,6 +19761,9 @@
         <layout>ATA_Role_Assignment__c-Role Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ATA_Rule__c-ATA Rule Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -20524,6 +20542,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>ATA_AssignmentType_Map__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>ATA_Rule__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

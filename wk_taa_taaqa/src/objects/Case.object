@@ -1050,18 +1050,6 @@ ROUND( 8 * (
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>Is_Urgent__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>SMS-863: this field has been used in Sales integration, please do not delete</description>
-        <externalId>false</externalId>
-        <inlineHelpText>SMS-863: this field has been used in Sales integration, please do not delete</inlineHelpText>
-        <label>Is Urgent</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>My_Cases__c</fullName>
         <externalId>false</externalId>
         <formula>IF( OR(CreatedBy.Id = $User.Id,  OwnerId =  $User.Id) , TRUE , FALSE)</formula>

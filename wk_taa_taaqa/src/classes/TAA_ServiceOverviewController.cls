@@ -67,6 +67,7 @@ public with sharing class TAA_ServiceOverviewController
 	public String internalComment {get; set;}
 	
 	List<Support_Site_Product_Details__c> lstSupportSiteProductSeed;
+	Map<String, Support_Site_Product_Details__c> mapSupportSiteProductSeed;
 	List<Support_Site_Feature_Details__c> lstSupportSiteFeatureSeed;
 	public List<SelectOption> lstSupportSiteProducts {get; set;}
 	public List<SelectOption> lstSupportSiteFeatures {get; set;}
@@ -128,13 +129,13 @@ public with sharing class TAA_ServiceOverviewController
 		lstEscalation.add(new SelectOption('E4', 'Escalation Level 4'));
 		if(!String.isBlank(currentUser.UserRole.Name))
 		{
-			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.UserRole.Name.contains('Supervisor') || currentUser.UserRole.Name.contains('Manager') || currentUser.UserRole.Name.contains('Director') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
+			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.Profile.Name.contains('Sales Manager') || currentUser.UserRole.Name.contains('Supervisor') || currentUser.UserRole.Name.contains('Manager') || currentUser.UserRole.Name.contains('Director') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
 				lstEscalation.add(new SelectOption('E3', 'Escalation Level 3'));
 			}
-			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.UserRole.Name.contains('Manager') || currentUser.UserRole.Name.contains('Director') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
+			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.UserRole.Name.contains('Director') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
 				lstEscalation.add(new SelectOption('E2', 'Escalation Level 2'));
 			}
-			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.UserRole.Name.contains('Director') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
+			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
 				lstEscalation.add(new SelectOption('E1', 'Escalation Level 1'));	
 			}
 		}
@@ -242,7 +243,7 @@ public with sharing class TAA_ServiceOverviewController
 			numberOfDays = String.valueOf(dateDifference);
 	        if(objAuthenticationInfo.access_token != null)
 	        {
-				String endPoint = objAuthenticationInfo.instance_url + '/services/data/v40.0/query?q=SELECT+Id,+(SELECT+Id,ContactEmail,Is_Urgent__c,Escalation__c,Support_Category__c,Support_Product_Family_Name__c,Support_Product_Name__c,IsClosed,CaseNumber,CreatedDate,LastModifiedDate,Contact.Name,Product.Name,Account.AccountNumber,Description,Status+FROM+Cases+CASEWHERECLAUSE)+FROM+Account+ACCOUNTWHERECLAUSE';
+				String endPoint = objAuthenticationInfo.instance_url + '/services/data/v40.0/query?q=SELECT+Id,+(SELECT+Id,ContactEmail,Escalation__c,Support_Category__c,Support_Product_Family_Name__c,Support_Product_Name__c,IsClosed,CaseNumber,CreatedDate,LastModifiedDate,Contact.Name,Product.Name,Account.AccountNumber,Description,Status+FROM+Cases+CASEWHERECLAUSE)+FROM+Account+ACCOUNTWHERECLAUSE';
 				String caseWhereClause = '';
 				String accountWhereClause = '';
 				if(!String.isBlank(selectedDateRange)){
@@ -449,7 +450,7 @@ public with sharing class TAA_ServiceOverviewController
 	        if(objAuthenticationInfo.access_token != null)
 	        {
 	        	
-				String endPoint = objAuthenticationInfo.instance_url + '/services/data/v40.0/query?q=SELECT+Id,ContactEmail,Is_Urgent__c,Escalation__c,Support_Category__c,Support_Product_Family_Name__c,Support_Product_Name__c,IsClosed,CaseNumber,CreatedDate,LastModifiedDate,Contact.Name,Owner.Name,Account.Name,Account.AccountNumber,Description,Resolution__c,Status,Priority,+(SELECT+Id,ParentId,IsPublished,CreatedBy.Name,CreatedDate,CommentBody+FROM+CaseComments+ORDER+BY+CreatedDate+DESC),(SELECT+Id,Name,Description,IsPrivate,CreatedBy.Name,LastModifiedBy.Name,ContentType,CreatedDate,LastModifiedDate+FROM+Attachments+ORDER+BY+CreatedDate+DESC)+FROM+Case+CASEWHERECLAUSE';
+				String endPoint = objAuthenticationInfo.instance_url + '/services/data/v40.0/query?q=SELECT+Id,ContactEmail,Escalation__c,Support_Category__c,Support_Product_Family_Name__c,Support_Product_Name__c,IsClosed,CaseNumber,CreatedDate,LastModifiedDate,Contact.Name,Owner.Name,Account.Name,Account.AccountNumber,Description,Resolution__c,Status,Priority,+(SELECT+Id,ParentId,IsPublished,CreatedBy.Name,CreatedDate,CommentBody+FROM+CaseComments+ORDER+BY+CreatedDate+DESC),(SELECT+Id,Name,Description,IsPrivate,CreatedBy.Name,LastModifiedBy.Name,ContentType,CreatedDate,LastModifiedDate+FROM+Attachments+ORDER+BY+CreatedDate+DESC)+FROM+Case+CASEWHERECLAUSE';
 				String caseWhereClause = '';
 				system.debug('selectedCaseId ' + selectedCaseId);
 				if(!String.isBlank(selectedCaseId)){
@@ -570,14 +571,21 @@ public with sharing class TAA_ServiceOverviewController
 		if(lstSupportSiteProductSeed == NULL){
 			lstSupportSiteProductSeed = Support_Site_Product_Details__c.getAll().values();
 		}
+		
+		if(mapSupportSiteProductSeed == NULL){
+			mapSupportSiteProductSeed = new Map<String, Support_Site_Product_Details__c>();
+		}
+		
 		if(lstSupportSiteProducts == NULL)
 		{
 			lstSupportSiteProducts = new List<SelectOption>();
 			lstSupportSiteProducts.add(new SelectOption('', '--NONE--'));
-			for(Support_Site_Product_Details__c objProductSeed : lstSupportSiteProductSeed){
+			for(Support_Site_Product_Details__c objProductSeed : lstSupportSiteProductSeed)
+			{
 				if(objProductSeed.AccountType__c == accountType){
 					lstSupportSiteProducts.add(new SelectOption(objProductSeed.Product_Id__c, objProductSeed.Product_Name__c));
-				}	
+					mapSupportSiteProductSeed.put(objProductSeed.Product_Id__c, objProductSeed);
+				}
 			}
 			//lstSupportSiteProducts.sort();
 		}
@@ -734,6 +742,18 @@ public with sharing class TAA_ServiceOverviewController
 				newCaseOverview.caseOrigin = !String.isBlank(WK_Utility.CreateCaseServiceIntegrations().CaseOrigin__c) ? WK_Utility.CreateCaseServiceIntegrations().CaseOrigin__c : 'Sales Cloud'; 
 				newCaseOverview.accountSourceSystem = mapAccountNumberNSourceSystem.get(accountNumber);
 				newCaseOverview.ticketVisibleToCustomer = isVisibleToCustomer;
+				
+				if(contactReason == 'p' || contactReason == 'i')
+				{
+					if(mapSupportSiteProductSeed.get(productId) != NULL)
+					{
+						newCaseOverview.product = mapSupportSiteProductSeed.get(productId).Product_Cloud_Name__c;
+						newCaseOverview.productFamily = mapSupportSiteProductSeed.get(productId).Product_Family_Name__c;
+						
+						//newCaseOverview.product = 'xyz';
+						//newCaseOverview.productFamily = 'xyz';
+					}
+				}
 				
 				caseInfo.caseOverview = newCaseOverview;
 				
@@ -921,9 +941,17 @@ public with sharing class TAA_ServiceOverviewController
 	        			}else if(response.errorMessages.ErrorMessage.customErrorMessageCode == WK_Constants.SVC_CREATECASE_FAILED_LASTNAME_BLANK){
 	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, WK_Constants.SVC_CREATECASE_FAILED_LASTNAME_BLANK_MESSAGE));	
 	        			}else if(response.errorMessages.ErrorMessage.customErrorMessageCode == WK_Constants.SVC_CREATECASE_FAILED_PRODUCT_NOT_PRESENT){
-	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, WK_Constants.SVC_CREATECASE_FAILED_PRODUCT_NOT_PRESENT_MESSAGE));	
+	        				String productName = '';
+	        				if(!String.isBlank(caseInfo.caseOverview.product)){
+	        					productName = caseInfo.caseOverview.product;
+	        				}
+	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, WK_Constants.SVC_CREATECASE_FAILED_PRODUCT_NOT_PRESENT_MESSAGE.replace('PRODNAME', productName)));	
 	        			}else if(response.errorMessages.ErrorMessage.customErrorMessageCode == WK_Constants.SVC_CREATECASE_FAILED_PRODUCTFAMILY_NOT_PRESENT){
-	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, WK_Constants.SVC_CREATECASE_FAILED_PRODUCTFAMILY_NOT_PRESENT_MESSAGE));	
+	        				String productFamilyName = '';
+	        				if(!String.isBlank(caseInfo.caseOverview.productFamily)){
+	        					productFamilyName = caseInfo.caseOverview.productFamily;
+	        				}
+	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, WK_Constants.SVC_CREATECASE_FAILED_PRODUCTFAMILY_NOT_PRESENT_MESSAGE.replace('PRODFAMNAME', productFamilyName)));	
 	        			}else if(response.errorMessages.ErrorMessage.customErrorMessageCode == WK_Constants.SVC_INTERNAL_SERVER_ERRORCODE){
 	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, WK_Constants.SVC_INTERNAL_SERVER_ERROR_MESSAGE));
 	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, response.errorMessages.ErrorMessage.customErrorMessageDescription));	

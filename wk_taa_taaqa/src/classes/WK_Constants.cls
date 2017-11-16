@@ -245,10 +245,10 @@ public with sharing class WK_Constants
     public static final String SVC_CREATECASE_FAILED_LASTNAME_BLANK_MESSAGE = 'Contact last name is required.';
     
     public static final String SVC_CREATECASE_FAILED_PRODUCT_NOT_PRESENT = '202';
-    public static final String SVC_CREATECASE_FAILED_PRODUCT_NOT_PRESENT_MESSAGE = 'Product does not exist in service org.';
+    public static final String SVC_CREATECASE_FAILED_PRODUCT_NOT_PRESENT_MESSAGE = 'Product \' PRODNAME \' does not exist in service org.';
     
     public static final String SVC_CREATECASE_FAILED_PRODUCTFAMILY_NOT_PRESENT = '203';
-    public static final String SVC_CREATECASE_FAILED_PRODUCTFAMILY_NOT_PRESENT_MESSAGE = 'Product family does not exist in service org.';
+    public static final String SVC_CREATECASE_FAILED_PRODUCTFAMILY_NOT_PRESENT_MESSAGE = 'Product family \' PRODFAMNAME \' does not exist in service org.';
     
     public static final String SVC_INTERNAL_SERVER_ERRORCODE = '500';
     public static final String SVC_INTERNAL_SERVER_ERROR_MESSAGE = 'Technical error, please contact System Administrator with the screen shot.';

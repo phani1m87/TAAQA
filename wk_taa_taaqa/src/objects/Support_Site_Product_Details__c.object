@@ -16,6 +16,30 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Product_Cloud_Name__c</fullName>
+        <description>Holds the Product Name to pass to Service Org.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Holds the Product Name to pass to Service Org.</inlineHelpText>
+        <label>Product Cloud Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Family_Name__c</fullName>
+        <description>Holds the Product Family Name.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Holds the Product Family Name.</inlineHelpText>
+        <label>Product Family Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Product_Id__c</fullName>
         <description>This holds the Product Id (can be duplicates as per seed file data)</description>
         <externalId>false</externalId>

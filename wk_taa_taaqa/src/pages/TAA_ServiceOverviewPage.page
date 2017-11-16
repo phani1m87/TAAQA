@@ -297,10 +297,11 @@
 	                                                <th>Contact Name</th>
 	                                                <th>Contact Email</th>
 	                                                <th>Product Name</th>
+	                                                <!-- 
 	                                                <th>Product Family Name</th>
+	                                                -->
 	                                                <th>Account Number</th>
 	                                                <th>Description</th>
-	                                                <!-- <th>Escalated?</th> -->
 	                                                <th>Status</th>
 	                                            </tr>
 	                                        </thead>
@@ -323,10 +324,11 @@
 	                                                        <td>{!objCase.Contact.Name}</td>
 	                                                        <td>{!objCase.ContactEmail}</td>
 	                                                        <td>{!objCase.Support_Product_Name__c}</td>
+	                                                        <!--
 	                                                        <td>{!objCase.Support_Product_Family_Name__c}</td>
+	                                                        -->
 	                                                        <td>{!objCase.Account.AccountNumber}</td>
 	                                                        <td>{!objCase.Description}</td>
-	                                                        <!-- <td><apex:outputField value="{!objCase.Is_Urgent__c}"/></td> -->
 	                                                        <td>{!objCase.Status}</td>
 	                                                    </tr>
 	                                                    </apex:repeat>
@@ -357,14 +359,14 @@
 		                            <apex:outputField value="{!caseDetailWithComments.records[0].Account.Name}"/>
 		                            <apex:outputField value="{!caseDetailWithComments.records[0].Account.AccountNumber}"/>
 		                            
-		                            <!-- <apex:outputField value="{!caseDetailWithComments.records[0].Escalation__c}"/> -->
-		                            <apex:selectList id="escalationLevel" value="{!caseDetailWithComments.records[0].Escalation__c}" multiselect="false" size="1" disabled="{!caseDetailWithComments.records[0].IsClosed}">
+		                            <apex:selectList id="escalationLevel" label="Escalate To" value="{!caseDetailWithComments.records[0].Escalation__c}" multiselect="false" size="1" disabled="{!caseDetailWithComments.records[0].IsClosed}">
 		                            	<apex:selectOptions value="{!lstEscalation}"/>
 		                        	</apex:selectList>
-		                        	<apex:outputField value="{!caseDetailWithComments.records[0].Priority}"/>
+		                        	
+	                        		<apex:outputText label="Escalation Level" value="{!caseDetailWithComments.records[0].Escalation__c}"/>
 		                        	
 		                            <apex:outputField value="{!caseDetailWithComments.records[0].Support_Category__c}"/>
-		                            <apex:outputText value=""/>
+		                            <apex:outputField value="{!caseDetailWithComments.records[0].Priority}"/>
 		                            
 		                            <apex:outputField value="{!caseDetailWithComments.records[0].Support_Product_Name__c}"/>
 		                            <apex:outputField value="{!caseDetailWithComments.records[0].Support_Product_Family_Name__c}"/>
@@ -375,60 +377,64 @@
 		                            <apex:outputField value="{!caseDetailWithComments.records[0].Description}"/>
 		                            <apex:outputField value="{!caseDetailWithComments.records[0].Resolution__c}"/>
 		                        </apex:pageBlockSection>
+		                        <span style="position:absolute;left:34em;margin-top:-10em;">
+	                        		<img src="/s.gif" class="imgclass" title="Click to see more details about each escalation level." onclick="$('#escalationHelpDialog').dialog();" />
+	                        	</span>
+	                        	<apex:outputPanel id="testHere" rendered="{!showCaseDetail = 'yes'}">
+			                        <apex:pageBlockSection title="Case Comments" rendered="{!caseDetailWithComments.records[0].CaseComments.size == 0}">
+			                            <apex:outputText style="font-size:1.2em;" value="No Case Comments"/>
+			                        </apex:pageBlockSection>
+			                        <apex:pageBlockSection title="Case Comments" rendered="{!caseDetailWithComments.records[0].CaseComments.size != 0}">
+			                            <apex:pageBlockTable value="{!caseDetailWithComments.records[0].CaseComments}" var="objCaseComment">
+			                                <apex:column value="{!objCaseComment.IsPublished}"/>
+			                                <!-- //** commenting based on feedback received during the demo as all comments shows created by Integration User 
+			                                <apex:column value="{!objCaseComment.CreatedBy.Name}">
+			                                    <apex:facet name="header">Comment By</apex:facet>
+			                                </apex:column>
+			                                -->
+			                                <apex:column value="{!objCaseComment.CommentBody}"/>
+			                                <apex:column value="{!objCaseComment.CreatedDate}"/>
+			                            </apex:pageBlockTable>
+			                        </apex:pageBlockSection>
+		                        	<apex:commandLink onClick="$('#newCaseCommentBlock').css('display', 'block'); $('#isCasePublic').scrollTop();" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink>
+			                        <div id="newCaseCommentBlock" style="display:none;">
+						        		<apex:pageBlockSection title="Comment Details" columns="1">		
+						        			<apex:pageBlockSectionItem >
+						                        <apex:outputLabel value="Public" for="isCasePublic"/>
+						                        <apex:inputCheckbox id="isCasePublic" value="{!isCaseCommentPublic}"/>    
+						                    </apex:pageBlockSectionItem>
+						                    <apex:pageBlockSectionItem >
+						                        <apex:outputLabel value="Comment" for="caseComment"/>
+						                        <apex:inputTextArea id="caseComment" value="{!caseCommentBody}" required="false" cols="80" rows="8" html-maxlength="1024"/>
+						                    </apex:pageBlockSectionItem>
+						        		</apex:pageBlockSection>
+					                    <apex:commandButton value="SAVE" action="{!addNewCaseComment}" onComplete="$('#newCaseCommentBlock').css('display', 'none');" reRender="caseDetails" status="loadResults" style="margin-left:36.1em;"/>			                    
+						        	</div>
+	                        	</apex:outputPanel>
 	                        
-	                        <apex:outputPanel id="testHere" rendered="{!showCaseDetail = 'yes'}">
-		                        <apex:pageBlockSection title="Case Comments" rendered="{!caseDetailWithComments.records[0].CaseComments.size == 0}">
-		                            <apex:outputText style="font-size:1.2em;" value="No Case Comments"/>
-		                        </apex:pageBlockSection>
-		                        <apex:pageBlockSection title="Case Comments" rendered="{!caseDetailWithComments.records[0].CaseComments.size != 0}">
-		                            <apex:pageBlockTable value="{!caseDetailWithComments.records[0].CaseComments}" var="objCaseComment">
-		                                <apex:column value="{!objCaseComment.IsPublished}"/>
-		                                <apex:column value="{!objCaseComment.CreatedBy.Name}">
-		                                    <apex:facet name="header">Comment By</apex:facet>
-		                                </apex:column>
-		                                <apex:column value="{!objCaseComment.CommentBody}"/>
-		                                <apex:column value="{!objCaseComment.CreatedDate}"/>
-		                            </apex:pageBlockTable>
-		                        </apex:pageBlockSection>
-		                        <apex:commandLink onClick="$('#newCaseCommentBlock').css('display', 'block'); $('#isCasePublic').scrollTop();" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink>
-		                        <div id="newCaseCommentBlock" style="display:none;">
-					        		<apex:pageBlockSection title="Comment Details" columns="1">		
-					        			<apex:pageBlockSectionItem >
-					                        <apex:outputLabel value="Public" for="isCasePublic"/>
-					                        <apex:inputCheckbox id="isCasePublic" value="{!isCaseCommentPublic}"/>    
-					                    </apex:pageBlockSectionItem>
-					                    <apex:pageBlockSectionItem >
-					                        <apex:outputLabel value="Comment" for="caseComment"/>
-					                        <apex:inputTextArea id="caseComment" value="{!caseCommentBody}" required="false" cols="80" rows="8" html-maxlength="1024"/>
-					                    </apex:pageBlockSectionItem>
-					        		</apex:pageBlockSection>
-				                    <apex:commandButton value="SAVE" action="{!addNewCaseComment}" onComplete="$('#newCaseCommentBlock').css('display', 'none');" reRender="caseDetails" status="loadResults" style="margin-left:36.1em;"/>			                    
-					        	</div>
-	                        </apex:outputPanel>
-	                        
-	                        <apex:outputPanel rendered="{!showCaseDetail = 'yes'}">
-		                        <apex:pageBlockSection title="Case Attachments" rendered="{!caseDetailWithComments.records[0].Attachments.size == 0}">
-		                            <apex:outputText style="font-size:1.2em;" value="No Case Attachments"/>
-		                        </apex:pageBlockSection>
-		                        <apex:pageBlockSection title="Case Attachments" rendered="{!caseDetailWithComments.records[0].Attachments.size != 0}">
-		                            <apex:pageBlockTable value="{!caseDetailWithComments.records[0].Attachments}" var="objCaseAttachment"> 
-		                                <apex:column value="{!objCaseAttachment.IsPrivate}"/>
-		                                <apex:column value="{!objCaseAttachment.CreatedBy.Name}">
-		                                    <apex:facet name="header">Attachment Created By</apex:facet>
-		                                </apex:column>
-		                                <apex:column value="{!objCaseAttachment.Name}"/>
-		                                <apex:column value="{!objCaseAttachment.Description}"/>
-		                                <apex:column value="{!objCaseAttachment.CreatedDate}"/>
-		                                <apex:column value="{!objCaseAttachment.LastModifiedBy.Name}">
-											<apex:facet name="header">Attachment Last Modified By</apex:facet>
-		                                </apex:column>
-		                                <apex:column value="{!objCaseAttachment.LastModifiedDate}"/>
-		                                <!-- <apex:column value="{!objCaseAttachment.ContentType}"/> -->
-		                            </apex:pageBlockTable>
-		                        </apex:pageBlockSection>
-		                        <!-- <apex:commandLink onClick="window.open('/apex/TAA_CaseAttachmentUploadPage?id={!caseDetailWithComments.records[0].Id}&accountId={!currentAccount.Id}','_blank','height=350,width=600');" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink> -->
-		                        <apex:commandLink onClick="$('#newCaseAttachment').dialog();" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink>
-	                        </apex:outputPanel>
+	                        	<apex:outputPanel rendered="{!showCaseDetail = 'yes'}">
+			                        <apex:pageBlockSection title="Case Attachments" rendered="{!caseDetailWithComments.records[0].Attachments.size == 0}">
+			                            <apex:outputText style="font-size:1.2em;" value="No Case Attachments"/>
+			                        </apex:pageBlockSection>
+			                        <apex:pageBlockSection title="Case Attachments" rendered="{!caseDetailWithComments.records[0].Attachments.size != 0}">
+			                            <apex:pageBlockTable value="{!caseDetailWithComments.records[0].Attachments}" var="objCaseAttachment"> 
+			                                <apex:column value="{!objCaseAttachment.IsPrivate}"/>
+			                                <apex:column value="{!objCaseAttachment.CreatedBy.Name}">
+			                                    <apex:facet name="header">Attachment Created By</apex:facet>
+			                                </apex:column>
+			                                <apex:column value="{!objCaseAttachment.Name}"/>
+			                                <apex:column value="{!objCaseAttachment.Description}"/>
+			                                <apex:column value="{!objCaseAttachment.CreatedDate}"/>
+			                                <apex:column value="{!objCaseAttachment.LastModifiedBy.Name}">
+												<apex:facet name="header">Attachment Last Modified By</apex:facet>
+			                                </apex:column>
+			                                <apex:column value="{!objCaseAttachment.LastModifiedDate}"/>
+			                                <!-- <apex:column value="{!objCaseAttachment.ContentType}"/> -->
+			                            </apex:pageBlockTable>
+			                        </apex:pageBlockSection>
+			                        <!-- <apex:commandLink onClick="window.open('/apex/TAA_CaseAttachmentUploadPage?id={!caseDetailWithComments.records[0].Id}&accountId={!currentAccount.Id}','_blank','height=350,width=600');" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink> -->
+		                        	<apex:commandLink onClick="$('#newCaseAttachment').dialog();" status="loadResults" onComplete="" style="margin-left:1em;"><font color="blue">New</font></apex:commandLink>
+	                        	</apex:outputPanel>
 	                        </div>
 	                        <apex:pageBlockButtons location="top" style="position:relative;top:-4.7em;left:9em;" rendered="{!showCaseDetail = 'yes'}">
 	                    		<apex:commandButton value="SAVE" action="{!updateCase}" status="loadResults" onComplete="" reRender="pb" rendered="{!caseDetailWithComments.records[0].IsClosed != true}"/>
@@ -711,8 +717,8 @@
                 <ul>
                     <li>E4 – anyone can escalate to this level</li>
                     <li>E3 – Only Supervisor, Manager, Director, VP can escalate to this level</li>
-                    <li>E2 – Only Manager, Director, VP can escalate to this level</li>
-                    <li>E1 – Only Director, VP can escalate to this level</li>
+                    <li>E2 – Only Director, VP can escalate to this level</li>
+                    <li>E1 – Only VP can escalate to this level</li>
                 </ul>
             </p>
         </div>
