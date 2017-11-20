@@ -22740,12 +22740,12 @@ NOT(IF(Came_from_Lead__c=TRUE, TRUE,
         <hasScrollbars>true</hasScrollbars>
         <hasToolbar>false</hasToolbar>
         <height>600</height>
-        <isResizable>true</isResizable>
+        <isResizable>false</isResizable>
         <linkType>page</linkType>
         <masterLabel>Support Overview</masterLabel>
         <openType>newWindow</openType>
         <page>TAA_ServiceOverviewPage</page>
-        <position>none</position>
+        <position>fullScreen</position>
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
