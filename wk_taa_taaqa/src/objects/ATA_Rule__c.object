@@ -53,6 +53,18 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>FieldSet__c</fullName>
+        <description>FieldSet Name</description>
+        <externalId>false</externalId>
+        <label>FieldSet</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Field_API_Name__c</fullName>
         <externalId>false</externalId>
         <label>Field API Name</label>
@@ -73,21 +85,9 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Sobject_c__c</fullName>
-        <description>Object to which we apply the rule</description>
+        <fullName>Rule_Type_c__c</fullName>
         <externalId>false</externalId>
-        <label>Sobject__c</label>
-        <length>100</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>rule_type_c__c</fullName>
-        <externalId>false</externalId>
-        <label>rule_type__c</label>
+        <label>Rule Type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -103,11 +103,30 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>Sobject__c</fullName>
+        <description>Object to which we apply the rule</description>
+        <externalId>false</externalId>
+        <label>Sobject</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>ATA Rule</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Rule_Type_c__c</columns>
+        <columns>FieldSet__c</columns>
+        <columns>Field_API_Name__c</columns>
+        <columns>Rule_Enabled__c</columns>
+        <columns>Sobject__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>A-{00000}</displayFormat>
@@ -118,8 +137,9 @@
     <pluralLabel>ATA Rule</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Rule_Enabled__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>rule_type_c__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Sobject_c__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Rule_Type_c__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sobject__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FieldSet__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Field_API_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
     </searchLayouts>

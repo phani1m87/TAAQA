@@ -57,28 +57,23 @@ assignment: This is used in conjunction with the ATA_AccountTeamAssignment objec
         <fullName>Assignment_Type__c</fullName>
         <externalId>false</externalId>
         <label>Assignment Type</label>
+        <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Business Segment Market Segment</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Named National</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Named Strategic</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FieldSet__c</fullName>
+        <externalId>false</externalId>
+        <label>FieldSet</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Field_API_Name__c</fullName>
@@ -102,6 +97,17 @@ assignment: This is used in conjunction with the ATA_AccountTeamAssignment objec
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Rule_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Rule Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>ATA AssignmentType Map</label>
     <listViews>
         <fullName>All</fullName>
@@ -109,6 +115,7 @@ assignment: This is used in conjunction with the ATA_AccountTeamAssignment objec
         <columns>Assignment_Type__c</columns>
         <columns>Field_API_Name__c</columns>
         <columns>Field_Value__c</columns>
+        <columns>Rule_Type__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -122,6 +129,8 @@ assignment: This is used in conjunction with the ATA_AccountTeamAssignment objec
     <pluralLabel>ATA AssignmentType Map</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Assignment_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Rule_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FieldSet__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Field_API_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Field_Value__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>

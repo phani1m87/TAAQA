@@ -1392,12 +1392,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ATA_AssignmentType_Map__c.FieldSet__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ATA_AssignmentType_Map__c.Field_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>ATA_AssignmentType_Map__c.Field_Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_AssignmentType_Map__c.Rule_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1417,7 +1427,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ATA_Role_Assignment__c.ATA_AccountTeamAssignment__c</field>
+        <field>ATA_Role_Assignment__c.Assignment_Mechanism__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Role_Assignment__c.Assignment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Role_Assignment__c.Role_Assignment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Role_Assignment__c.Role_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Rule__c.FieldSet__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1432,12 +1462,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ATA_Rule__c.Sobject_c__c</field>
+        <field>ATA_Rule__c.Rule_Type_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ATA_Rule__c.rule_type_c__c</field>
+        <field>ATA_Rule__c.Sobject__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -20827,6 +20857,10 @@
     <tabVisibilities>
         <tab>ATA_AssignmentType_Map__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>ATA_Role_Assignment__c</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>ATA_Rule__c</tab>

@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <formFactors>Large</formFactors>
     <label>ATA Account Team Management</label>
-    <tab>ATA_AssignmentType_Map__c</tab>
     <tab>ATA_Rule__c</tab>
+    <tab>ATA_AssignmentType_Map__c</tab>
+    <tab>ATA_Role_Assignment__c</tab>
 </CustomApplication>

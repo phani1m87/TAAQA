@@ -53,19 +53,97 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>ATA_AccountTeamAssignment__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <fullName>Assignment_Mechanism__c</fullName>
         <externalId>false</externalId>
-        <label>ATA_AccountTeamAssignment</label>
-        <referenceTo>ATA_AccountTeamAssignment__c</referenceTo>
-        <relationshipLabel>ATA Role Assignment</relationshipLabel>
-        <relationshipName>Role_Assignment</relationshipName>
+        <label>Assignment Mechanism</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Geographic PostalCode</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Geographic County</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Geographic Region</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Geographic State</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Geographic Country</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Name Match</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Assignment_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Assignment Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role_Assignment_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Role Assignment Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Segment/Subsegment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/Strategic</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Role_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Role Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>ATA Role Assignment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>ATARA-{0000}</displayFormat>
         <label>Role Assignment Name</label>
@@ -73,6 +151,12 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>ATA Role Assignment</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Assignment_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Role_Assignment_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Role_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Assignment_Mechanism__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
