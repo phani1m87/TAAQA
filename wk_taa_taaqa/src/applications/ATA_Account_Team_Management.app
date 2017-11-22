@@ -6,4 +6,6 @@
     <tab>ATA_Rule__c</tab>
     <tab>ATA_AssignmentType_Map__c</tab>
     <tab>ATA_Role_Assignment__c</tab>
+    <tab>ATA_Geographic_Assignment__c</tab>
+    <tab>ATA_Non_Geographic_Assignment__c</tab>
 </CustomApplication>

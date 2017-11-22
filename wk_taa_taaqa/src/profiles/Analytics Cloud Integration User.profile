@@ -1427,6 +1427,86 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.County__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.DTN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_Geographic_Assignment__c.Geographic_Assignment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.Latitude__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.Longitude__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.PostalCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.Role_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.State__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Non_Geographic_Assignment__c.Account_FieldName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Non_Geographic_Assignment__c.Account_FieldValue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Non_Geographic_Assignment__c.DTN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Non_Geographic_Assignment__c.RoleName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Non_Geographic_Assignment__c.Role_Assignment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ATA_Role_Assignment__c.Account_FieldName_Nongeographic__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ATA_Role_Assignment__c.Assignment_Mechanism__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19788,6 +19868,12 @@
         <layout>ATA_AssignmentType_Map_t__mdt-ATA AssignmentType Map Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ATA_Geographic_Assignment__c-ATA Geographic Assignment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ATA_Non_Geographic_Assignment__c-ATA Non Geographic Assignment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ATA_Role_Assignment__c-Role Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -20183,6 +20269,24 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>ATA_AssignmentType_Map_t__mdt</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ATA_Geographic_Assignment__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ATA_Non_Geographic_Assignment__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -21012,6 +21116,14 @@
     <tabVisibilities>
         <tab>ATA_AssignmentType_Map__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>ATA_Geographic_Assignment__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>ATA_Non_Geographic_Assignment__c</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>ATA_Role_Assignment__c</tab>

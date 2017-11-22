@@ -43,7 +43,6 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Defines collection of field driving a rule.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -53,10 +52,9 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>FieldSet__c</fullName>
-        <description>FieldSet Name</description>
+        <fullName>Account_FieldName__c</fullName>
         <externalId>false</externalId>
-        <label>FieldSet</label>
+        <label>Account FieldName</label>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -65,9 +63,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Field_API_Name__c</fullName>
+        <fullName>Account_FieldValue__c</fullName>
         <externalId>false</externalId>
-        <label>Field API Name</label>
+        <label>Account FieldValue</label>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -76,38 +74,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Rule_Enabled__c</fullName>
-        <defaultValue>false</defaultValue>
+        <fullName>DTN__c</fullName>
         <externalId>false</externalId>
-        <label>Rule Enabled</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Rule_Type_c__c</fullName>
-        <externalId>false</externalId>
-        <label>Rule Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>ATA</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Sobject__c</fullName>
-        <description>Object to which we apply the rule</description>
-        <externalId>false</externalId>
-        <label>Sobject</label>
+        <label>DTN</label>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -115,32 +84,54 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>ATA Rule</label>
+    <fields>
+        <fullName>RoleName__c</fullName>
+        <externalId>false</externalId>
+        <label>RoleName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role_Assignment_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Role Assignment Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>ATA Non Geographic Assignment</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Rule_Type_c__c</columns>
-        <columns>FieldSet__c</columns>
-        <columns>Field_API_Name__c</columns>
-        <columns>Rule_Enabled__c</columns>
-        <columns>Sobject__c</columns>
+        <columns>Account_FieldName__c</columns>
+        <columns>Account_FieldValue__c</columns>
+        <columns>RoleName__c</columns>
+        <columns>DTN__c</columns>
+        <columns>Role_Assignment_Type__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
     </listViews>
     <nameField>
-        <displayFormat>ATARULE-{00000}</displayFormat>
-        <label>ATA Rule Name</label>
+        <displayFormat>ATANGA-{00000}</displayFormat>
+        <label>ATA Non-Geographic Assignment Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>ATA Rule</pluralLabel>
+    <pluralLabel>ATA Non Geographic Assignments</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Rule_Enabled__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Rule_Type_c__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Sobject__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>FieldSet__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Field_API_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Role_Assignment_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_FieldName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_FieldValue__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RoleName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DTN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
