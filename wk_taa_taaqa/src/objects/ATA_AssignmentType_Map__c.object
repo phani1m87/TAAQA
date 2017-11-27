@@ -113,6 +113,7 @@ assignment: This is used in conjunction with the ATA_AccountTeamAssignment objec
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Assignment_Type__c</columns>
+        <columns>FieldSet__c</columns>
         <columns>Field_API_Name__c</columns>
         <columns>Field_Value__c</columns>
         <columns>Rule_Type__c</columns>

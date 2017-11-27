@@ -12,7 +12,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Rule_Type_c__c</field>
+                <field>Rule_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

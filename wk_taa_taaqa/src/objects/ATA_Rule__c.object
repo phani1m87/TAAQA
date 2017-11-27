@@ -85,7 +85,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Rule_Type_c__c</fullName>
+        <fullName>Rule_Type__c</fullName>
         <externalId>false</externalId>
         <label>Rule Type</label>
         <required>false</required>
@@ -119,7 +119,7 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Rule_Type_c__c</columns>
+        <columns>Rule_Type__c</columns>
         <columns>FieldSet__c</columns>
         <columns>Field_API_Name__c</columns>
         <columns>Rule_Enabled__c</columns>
@@ -137,7 +137,7 @@
     <pluralLabel>ATA Rule</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Rule_Enabled__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Rule_Type_c__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Rule_Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Sobject__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>FieldSet__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Field_API_Name__c</customTabListAdditionalFields>

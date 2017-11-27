@@ -182,6 +182,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ATA_AccountTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATA_ComposeAccountTeam</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATA_CurrentAccountTeam</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ATA_Utility</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1542,7 +1554,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ATA_Rule__c.Rule_Type_c__c</field>
+        <field>ATA_Rule__c.Rule_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
