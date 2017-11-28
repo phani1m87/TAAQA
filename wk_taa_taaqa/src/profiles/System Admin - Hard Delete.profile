@@ -194,6 +194,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ATA_PostAccountTeam</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ATA_Utility</apexClass>
         <enabled>false</enabled>
     </classAccesses>

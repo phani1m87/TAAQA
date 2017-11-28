@@ -2,9 +2,9 @@ public with sharing class ATA_ComposeAccountTeam {
     
     // Contains the logic to create the Account Team for a given Account
    	static Map<Id, List<ATA_AccountRuleValue>> mapAccountIdNListATA_AccountRuleValue = new Map<Id, List<ATA_AccountRuleValue>>();
-    static Set<String> setFieldAPINames = new Set<String>();
-    static Set<String> setFieldValues = new Set<String>();
-    static Map<String, User> userMap = new Map<String, User>();
+    //static Set<String> setFieldAPINames = new Set<String>();
+    //static Set<String> setFieldValues = new Set<String>();
+    static Map<String, User> mapUserDTNAndUser = new Map<String, User>();
     static Set<String> validAssignmentTypeSet = new Set<String>();
     static Map<Id, Account> newMapAccounts = new Map<Id, Account>();
     static Map<Id, Account> oldMapAccounts = new Map<Id, Account>();
@@ -17,10 +17,10 @@ public with sharing class ATA_ComposeAccountTeam {
 		oldMapAccounts = oldMap; // keep old map preserved in the memory
 		
 		// get list of valid users
-		List<User> lstUsers = [SELECT Id, DTN__c FROM User WHERE DTN__c != NULL];
+		List<User> lstUsers = [SELECT Id, DTN__c, IsActive, Custodial_Rep__c FROM User WHERE DTN__c != NULL];
 		
 		for(User objUser : lstUsers){ // build map DTN and User
-			userMap.put(objUser.DTN__c, objUser);	
+			mapUserDTNAndUser.put(objUser.DTN__c, objUser);	
 		}	    	
     	
     	// query active ATA Rules
@@ -39,9 +39,9 @@ public with sharing class ATA_ComposeAccountTeam {
 				mapFieldSetNFieldAPINames.put(rule.FieldSet__c, setFieldAPINames);
 			}else{
 				mapFieldSetNFieldAPINames.put(rule.FieldSet__c, new Set<String>{rule.Field_API_Name__c});	
-			}
-			setFieldAPINames.add(rule.Field_API_Name__c);
-		}
+			} // end if then else
+			//setFieldAPINames.add(rule.Field_API_Name__c);
+		} // end for
 		
 		System.debug('###: ' + mapFieldSetNFieldAPINames);
 		
@@ -63,12 +63,12 @@ public with sharing class ATA_ComposeAccountTeam {
 	    				isChanged = true; 				// set if there is a change
 	    				ruleType = rule.Rule_Type__c;	// capture ruleType
 	    				break;							// break the loop since we know there is a change
-	    			}
-	    		}
+	    			} // end if
+	    		} // end for
     		}else{ // oldMap is empty means its an Account Insert event
     			isChanged = true; 						// set if there is a change
     			ruleType = lstATARules[0].Rule_Type__c; // capture ruleType
-    		}
+    		} // end if then else
     		
     		// isChanges = TRUE
     		if(isChanged)
@@ -84,9 +84,9 @@ public with sharing class ATA_ComposeAccountTeam {
 	    			{
     					// collect the fieldAPINames & fieldValues
     					newAccountRule.fieldApiName_fieldValue_Map.put(fieldAPIName, String.valueOf(newMap.get(accountId).get(fieldAPIName)));
-    					if(newMap.get(accountId).get(fieldAPIName) != NULL){
-    						setFieldValues.add(String.valueOf(newMap.get(accountId).get(fieldAPIName)));
-    					}
+    					//if(newMap.get(accountId).get(fieldAPIName) != NULL){
+    						//setFieldValues.add(String.valueOf(newMap.get(accountId).get(fieldAPIName)));
+    					//}
 	    			} // end for
 	    			
 	    			// build a collection of ATA_AccountRule for an Account
@@ -304,8 +304,8 @@ public with sharing class ATA_ComposeAccountTeam {
     		}
     		
     		
-    		//*** Non-geographic 'Name Match' mechanism
-    		if(mechanism == 'Name Match' && !String.isBlank(nonGeoFieldName))
+    		//*** Non-geographic mechanism
+    		if(!String.isBlank(nonGeoFieldName))
     		{
     			List<ATA_Non_Geographic_Assignment__c> lstNonGeographicAssignment = [SELECT Id, DTN__c 
 																						FROM ATA_Non_Geographic_Assignment__c
@@ -316,9 +316,9 @@ public with sharing class ATA_ComposeAccountTeam {
     		}
     		
     		//*** if we get the DTN and its valid then prepare AccountTeamMember
-    		if(!String.isBlank(dtn) && userMap.containsKey(dtn))
+    		if(!String.isBlank(dtn) && mapUserDTNAndUser.containsKey(dtn))
     		{
-				AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = roleName, UserId = userMap.get(dtn).Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
+				AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = roleName, UserId = mapUserDTNAndUser.get(dtn).Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
 				
 				return objATM;	    			
     		}	
@@ -326,6 +326,7 @@ public with sharing class ATA_ComposeAccountTeam {
     	return null;
     }
     
+   	/*
    	//***** insert / update / delete DML operations on AccountTeamMember object
     public static List<Monitoring_Log__c> saveAccountTeamMembers(Map<Id, List<AccountTeamMember>> mapAccountNTeamMembers)
     {
@@ -340,13 +341,11 @@ public with sharing class ATA_ComposeAccountTeam {
     	if(lstAccountTeamMembers.size() > 0)
     	{
     		Database.SaveResult[] memberslst = Database.insert(lstAccountTeamMembers,false);
-    		
-    		//**** perform DML error handling ******//
     	}
     	
     	return lstMonitoringLogs;
     }
-    
+    */
     private class ATA_AccountRuleValue 
     {
 		String ruleType;								 // ruleType
