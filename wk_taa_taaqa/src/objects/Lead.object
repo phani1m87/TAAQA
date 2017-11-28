@@ -693,9 +693,6 @@ RIGHT( First_Page_Seen__c ,(LEN(First_Page_Seen__c )-FIND(&quot;?gclid=&quot;, F
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>IqScore</fullName>
-    </fields>
-    <fields>
         <fullName>Jigsaw</fullName>
         <trackHistory>false</trackHistory>
     </fields>

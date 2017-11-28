@@ -6,22 +6,31 @@ public with sharing class ATA_ComposeAccountTeam {
     static Set<String> setFieldValues = new Set<String>();
     static Map<String, User> userMap = new Map<String, User>();
     static Set<String> validAssignmentTypeSet = new Set<String>();
-    static Map<Id, Account> mapAccounts = new Map<Id, Account>();
+    static Map<Id, Account> newMapAccounts = new Map<Id, Account>();
+    static Map<Id, Account> oldMapAccounts = new Map<Id, Account>();
+    static Map<Id, List<AccountTeamMember>> accountNAccountTeamMembersMap = new Map<Id, List<AccountTeamMember>>();
     
-    public ATA_ComposeAccountTeam(List<Account> newAccountList, Map<Id, Account> oldMap)
+    //*** Constructor
+    public ATA_ComposeAccountTeam(Map<Id, Account> newMap, Map<Id, Account> oldMap)
     {
+		newMapAccounts = new Map<Id, Account>([SELECT Id, Name, BillingPostalCode, BillingState, BillingCountry, Market_Segment__c, Market_Sub_Segment__c, Named_Account_Type__c, Named_Account__c FROM Account WHERE Id IN: newMap.keySet()]); // keep new map preserved in the memory
+		oldMapAccounts = oldMap; // keep old map preserved in the memory
+		
+		// get list of valid users
 		List<User> lstUsers = [SELECT Id, DTN__c FROM User WHERE DTN__c != NULL];
 		
-		for(User objUser : lstUsers){
+		for(User objUser : lstUsers){ // build map DTN and User
 			userMap.put(objUser.DTN__c, objUser);	
 		}	    	
     	
+    	// query active ATA Rules
     	List<ATA_Rule__c> lstATARules = [SELECT Id, Rule_Type__c, FieldSet__c, Field_API_Name__c 
     										FROM ATA_Rule__c 
     										WHERE Rule_Enabled__c = true];
     										
     	Map<String, Set<String>> mapFieldSetNFieldAPINames = new Map<String, Set<String>>();
     	
+    	// loop through ATA Rules to build map of fieldSet and FieldAPINames
     	for(ATA_Rule__c rule : lstATARules)
 		{
 			if(mapFieldSetNFieldAPINames.containsKey(rule.FieldSet__c)){
@@ -36,65 +45,75 @@ public with sharing class ATA_ComposeAccountTeam {
 		
 		System.debug('###: ' + mapFieldSetNFieldAPINames);
 		
-    	for(Account account : newAccountList)
+		// loop through accounts to build structure of ATA_AccountRuleValue map		
+    	for(Id accountId : newMap.keySet())
     	{
-    		Boolean isChanged = false;
-    		String ruleType;
-    		ATA_AccountRuleValue newAccountRule = NULL;
+    		Boolean isChanged = false; 					// flag used to indicate if there is change
+    		String ruleType;							// ruleType
+    		ATA_AccountRuleValue newAccountRule = NULL; // ATA_AccountRuleValue
     		
-    		if(oldMap != NULL)
+    		// if oldMap not empty means its an Account Update event so check if there is a change
+    		if(oldMap != NULL) 
     		{
-	    		for(ATA_Rule__c rule : lstATARules)
+	    		for(ATA_Rule__c rule : lstATARules) // loop through ATA Rules
 	    		{
-	    			if(account.get(rule.Field_API_Name__c) != oldMap.get(account.Id).get(rule.Field_API_Name__c))
+	    			// compare rule fields
+	    			if(newMap.get(accountId).get(rule.Field_API_Name__c) != oldMap.get(accountId).get(rule.Field_API_Name__c))
 	    			{
-	    				isChanged = true;
-	    				ruleType = rule.Rule_Type__c;
+	    				isChanged = true; 				// set if there is a change
+	    				ruleType = rule.Rule_Type__c;	// capture ruleType
+	    				break;							// break the loop since we know there is a change
 	    			}
 	    		}
-    		}else{
-    			isChanged = true;
-    			ruleType = lstATARules[0].Rule_Type__c;
+    		}else{ // oldMap is empty means its an Account Insert event
+    			isChanged = true; 						// set if there is a change
+    			ruleType = lstATARules[0].Rule_Type__c; // capture ruleType
     		}
     		
+    		// isChanges = TRUE
     		if(isChanged)
     		{
+    			// loop through the map of fielSet and fieldAPINames
     			for(String fieldSet : mapFieldSetNFieldAPINames.keySet())
     			{
-    				newAccountRule = new ATA_AccountRuleValue();
-    				newAccountRule.ruleType = ruleType;
-	    			newAccountRule.fieldset = fieldSet;
+    				newAccountRule = new ATA_AccountRuleValue();  
+    				newAccountRule.ruleType = ruleType; 			// assign ruleType
+	    			newAccountRule.fieldset = fieldSet;				// assign fieldSet
 	    			newAccountRule.fieldApiName_fieldValue_Map = new Map<String, String>();
 	    			for(String fieldAPIName : mapFieldSetNFieldAPINames.get(fieldSet))
 	    			{
-    					newAccountRule.fieldApiName_fieldValue_Map.put(fieldAPIName, String.valueOf(account.get(fieldAPIName)));
-    					if(account.get(fieldAPIName) != NULL){
-    						setFieldValues.add(String.valueOf(account.get(fieldAPIName)));
+    					// collect the fieldAPINames & fieldValues
+    					newAccountRule.fieldApiName_fieldValue_Map.put(fieldAPIName, String.valueOf(newMap.get(accountId).get(fieldAPIName)));
+    					if(newMap.get(accountId).get(fieldAPIName) != NULL){
+    						setFieldValues.add(String.valueOf(newMap.get(accountId).get(fieldAPIName)));
     					}
-	    			}
+	    			} // end for
 	    			
+	    			// build a collection of ATA_AccountRule for an Account
 	    			if(newAccountRule != NULL)
 		    		{
-		    			if(mapAccountIdNListATA_AccountRuleValue.containsKey(account.Id)){
-		    				List<ATA_AccountRuleValue> lstAccountRule = mapAccountIdNListATA_AccountRuleValue.get(account.Id);
+		    			if(mapAccountIdNListATA_AccountRuleValue.containsKey(accountId)){
+		    				List<ATA_AccountRuleValue> lstAccountRule = mapAccountIdNListATA_AccountRuleValue.get(accountId);
 		    				lstAccountRule.add(newAccountRule);
-		    				mapAccountIdNListATA_AccountRuleValue.put(account.Id, lstAccountRule);
+		    				mapAccountIdNListATA_AccountRuleValue.put(accountId, lstAccountRule);
 		    			}else{
-		    				mapAccountIdNListATA_AccountRuleValue.put(account.Id, new List<ATA_AccountRuleValue>{newAccountRule});
-		    			}
-		    		}
-    			}
-    		}
-    	}
+		    				mapAccountIdNListATA_AccountRuleValue.put(accountId, new List<ATA_AccountRuleValue>{newAccountRule});
+		    			} // end if then else
+		    		} // end if
+    			} // end for
+    		} // end if
+    	} // end for
     	
     	System.debug('###: ' + mapAccountIdNListATA_AccountRuleValue);
     }
     
+    // *** just returns the map constructed by constructor 
     public static Map<Id, List<ATA_AccountRuleValue>> createAccountRoleValueMap() 
     {
 		return mapAccountIdNListATA_AccountRuleValue;
     }
     
+    // *** get assignment types based on ATA_AccountRuleValue map
     public static Map<Id, Set<String>> getAssignmentTypes(Map<Id, List<ATA_AccountRuleValue>> accountRuleValueMap) 
     {
 		Map<Id, Set<String>> validAssignmnentTypesMap = new Map<Id, Set<String>>();
@@ -130,33 +149,33 @@ public with sharing class ATA_ComposeAccountTeam {
 			}
 		} 
 		System.debug('## : ' + validAssignmnentTypesMap);
+		System.debug('## : ' + validAssignmentTypeSet);
 		return validAssignmnentTypesMap;
     }
-
+	
+	// *** get role assignments and then prepare AccountTeamMembers for list of Accounts
     public static Map<Id, List<AccountTeamMember>> getListAccountTeamMembers(Map<Id, Set<String>> accountAssignmentType) 
     {
-    	Map<Id, List<AccountTeamMember>> accountNAccountTeamMembersMap = new Map<Id, List<AccountTeamMember>>();
-    	
-    	mapAccounts = new Map<Id, Account>([SELECT Id, BillingPostalCode FROM Account WHERE Id IN: accountAssignmentType.keySet()]);
-    	
-    	if(accountAssignmentType != NULL)
+    	// input parameter is required
+    	if(accountAssignmentType != NULL && accountAssignmentType.size() > 0)
     	{
 	    	// *** get role assignments
 	    	
 	    	Map<Id, Set<ATA_Role_Assignment__c>> accountGeographicRoles = new Map<Id, Set<ATA_Role_Assignment__c>>();
 	    	Map<Id, Set<ATA_Role_Assignment__c>> accountNongeographicRoles = new Map<Id, Set<ATA_Role_Assignment__c>>();
 	    	
+	    	// query ATA Role Assignment for valid assignment types 
 	    	List<ATA_Role_Assignment__c> lstRoleAssignments = [SELECT Id, Role_Name__c, Role_Assignment_Type__c, Assignment_Type__c, Assignment_Mechanism__c, Account_FieldName_Nongeographic__c
 	    														FROM ATA_Role_Assignment__c
 	    														WHERE Assignment_Type__c IN: validAssignmentTypeSet];
 	    	
-	    	for(Id accountId : accountAssignmentType.keySet())
-	    	{
-	    		for(ATA_Role_Assignment__c objRoleAssignment : lstRoleAssignments)
+	    	for(Id accountId : accountAssignmentType.keySet()) // loop through the accounts
+	    	{ 
+	    		for(ATA_Role_Assignment__c objRoleAssignment : lstRoleAssignments) // loop through the ATA Role Assignments
 	    		{
-	    			if(objRoleAssignment.Account_FieldName_Nongeographic__c == NULL)
+	    			if(objRoleAssignment.Account_FieldName_Nongeographic__c == NULL) // check if it's geographic / non-geo
 	    			{
-		    			if(accountAssignmentType.get(accountId).contains(objRoleAssignment.Assignment_Type__c))
+		    			if(accountAssignmentType.get(accountId).contains(objRoleAssignment.Assignment_Type__c)) // filter out the ATA Role Assignments for valid assignment types
 		    			{
 		    				if(accountGeographicRoles.containsKey(accountId))
 		    				{
@@ -165,8 +184,8 @@ public with sharing class ATA_ComposeAccountTeam {
 		    					accountGeographicRoles.put(accountId, alreadyAddedRoles);
 		    				}else{
 		    					accountGeographicRoles.put(accountId, new Set<ATA_Role_Assignment__c>{objRoleAssignment});
-		    				}				
-		    			}
+		    				} // end if then else				
+		    			} // end if
 	    			}else{
 	    				if(accountAssignmentType.get(accountId).contains(objRoleAssignment.Assignment_Type__c))
 		    			{
@@ -177,26 +196,26 @@ public with sharing class ATA_ComposeAccountTeam {
 		    					accountNongeographicRoles.put(accountId, alreadyAddedRoles);
 		    				}else{
 		    					accountNongeographicRoles.put(accountId, new Set<ATA_Role_Assignment__c>{objRoleAssignment});
-		    				}				
-		    			}
-	    			}
-	    		}
-	    	}
+		    				} // end if then else				
+		    			} // end if
+	    			} // end if then else
+	    		} // end for
+	    	} // end for
 	    	
 	    	// *** get Account Team Members based on geo & non-geo role assignments
-	    	// geo
+	    	// geo role computation
 	    	if(accountGeographicRoles.size() > 0)
 	    	{
-	    		accountNAccountTeamMembersMap = computeAccountTeamUsingRoles(accountGeographicRoles);
-	    	}
+	    		computeAccountTeamUsingRoles(accountGeographicRoles);
+	    	} // end if
 	    	
-	    	// non-geo
+	    	System.debug('###: ' + accountNongeographicRoles);
+	    	
+	    	// non-geo role computation
 			if(accountNongeographicRoles.size() > 0)
 	    	{
-	    		if(accountNAccountTeamMembersMap != NULL && accountNAccountTeamMembersMap.size() > 0){
-	    			accountNAccountTeamMembersMap.putAll(computeAccountTeamUsingRoles(accountNongeographicRoles));
-	    		}
-	    	}
+				computeAccountTeamUsingRoles(accountNongeographicRoles);
+	    	} // end if
 	    	
 	    	System.debug('###: ' + accountNAccountTeamMembersMap);
 	    	return accountNAccountTeamMembersMap;
@@ -207,39 +226,42 @@ public with sharing class ATA_ComposeAccountTeam {
     
     public static Map<Id, List<AccountTeamMember>> computeAccountTeamUsingRoles(Map<Id, Set<ATA_Role_Assignment__c>> accountRoles)
     {
-    	Map<Id, List<AccountTeamMember>> accountTeamMembers = new Map<Id, List<AccountTeamMember>>();
-    	
+    	//*** input parameter is required
     	if(accountRoles != NULL)
     	{
-	    	for(Id accountId : accountRoles.keySet())
+	    	for(Id accountId : accountRoles.keySet()) // loop through accounts to compute the AccountTeamMembers
 	    	{
-	    		for(ATA_Role_Assignment__c objATARoleAssignment : accountRoles.get(accountId))
+	    		for(ATA_Role_Assignment__c objATARoleAssignment : accountRoles.get(accountId)) // loop through Role Assignments for the Account
 	    		{
-	    			AccountTeamMember objATM = getAccountTeamMember(objATARoleAssignment.Role_Name__c, mapAccounts.get(accountId), objATARoleAssignment.Assignment_Mechanism__c, objATARoleAssignment.Account_FieldName_Nongeographic__c);
-	    			if(objATM != NULL){
-	    				if(accountTeamMembers.containsKey(accountId))
+	    			AccountTeamMember objATM = prepareAccountTeamMemberRecord(objATARoleAssignment.Role_Name__c, newMapAccounts.get(accountId), objATARoleAssignment.Assignment_Mechanism__c, objATARoleAssignment.Account_FieldName_Nongeographic__c);
+	    			
+	    			if(objATM != NULL){ // it should not NULL to add in the collection
+	    				if(accountNAccountTeamMembersMap.containsKey(accountId))
 	    				{
-	    					List<AccountTeamMember> lstAlreadyAddedMembers = accountTeamMembers.get(accountId);
+	    					List<AccountTeamMember> lstAlreadyAddedMembers = accountNAccountTeamMembersMap.get(accountId);
 	    					lstAlreadyAddedMembers.add(objATM); 
-	    					accountTeamMembers.put(accountId, lstAlreadyAddedMembers);
+	    					accountNAccountTeamMembersMap.put(accountId, lstAlreadyAddedMembers);
 	    				}else{
-	    					accountTeamMembers.put(accountId, new List<AccountTeamMember>{objATM});
-	    				}
-	    			}
-	    		}
-	    	}
+	    					accountNAccountTeamMembersMap.put(accountId, new List<AccountTeamMember>{objATM});
+	    				} //end if then else 
+	    			} // end if
+	    		} // end for
+	    	} // end for
 	    	
-	    	return accountTeamMembers;
-    	}
+	    	return accountNAccountTeamMembersMap;
+    	} // end if
     	
     	return null;
     }
 
-    public static AccountTeamMember getAccountTeamMember(String roleName, Account objAccount, String mechanism, String nonGeoFieldName)
+    public static AccountTeamMember prepareAccountTeamMemberRecord(String roleName, Account objAccount, String mechanism, String nonGeoFieldName)
     {
+    	//*** all parameters are required
     	if(!String.isEmpty(roleName) && objAccount != NULL && !String.isEmpty(mechanism))
     	{
     		String dtn;
+    		
+    		//*** Geographic PostalCode mechanism
     		if(mechanism == 'Geographic PostalCode')
     		{
     			List<ATA_Geographic_Assignment__c> lstGeographicAssignment = [SELECT Id, DTN__c 
@@ -251,9 +273,38 @@ public with sharing class ATA_ComposeAccountTeam {
     		
     		}
     		
-    		// *** conditions for other geo fields *** //
+    		//*** Geographic State mechanism
+    		if(mechanism == 'Geographic State')
+    		{
+    			List<ATA_Geographic_Assignment__c> lstGeographicAssignment = [SELECT Id, DTN__c 
+																				FROM ATA_Geographic_Assignment__c
+																				WHERE Role_Name__c =: roleName
+																				AND State__c =: objAccount.BillingState];
+    			
+    			dtn = lstGeographicAssignment[0].DTN__c;
+    		
+    		}
+    		
+    		//*** Geographic Region mechanism
+    		// Technical Debt: which field on Account address should be checked for region
+    		
+    		//*** Geographic County mechanism 
+    		// Technical Debt: which field on Account address should be checked for county
+    		
+    		//*** Geographic Country mechanism
+    		if(mechanism == 'Geographic Country')
+    		{
+    			List<ATA_Geographic_Assignment__c> lstGeographicAssignment = [SELECT Id, DTN__c 
+																				FROM ATA_Geographic_Assignment__c
+																				WHERE Role_Name__c =: roleName
+																				AND Country__c =: objAccount.BillingCountry];
+    			
+    			dtn = lstGeographicAssignment[0].DTN__c;
+    		
+    		}
     		
     		
+    		//*** Non-geographic 'Name Match' mechanism
     		if(mechanism == 'Name Match' && !String.isBlank(nonGeoFieldName))
     		{
     			List<ATA_Non_Geographic_Assignment__c> lstNonGeographicAssignment = [SELECT Id, DTN__c 
@@ -264,7 +315,8 @@ public with sharing class ATA_ComposeAccountTeam {
 				dtn = lstNonGeographicAssignment[0].DTN__c;								
     		}
     		
-    		if(!String.isBlank(dtn))
+    		//*** if we get the DTN and its valid then prepare AccountTeamMember
+    		if(!String.isBlank(dtn) && userMap.containsKey(dtn))
     		{
 				AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = roleName, UserId = userMap.get(dtn).Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
 				
@@ -272,6 +324,27 @@ public with sharing class ATA_ComposeAccountTeam {
     		}	
     	}
     	return null;
+    }
+    
+   	//***** insert / update / delete DML operations on AccountTeamMember object
+    public static List<Monitoring_Log__c> saveAccountTeamMembers(Map<Id, List<AccountTeamMember>> mapAccountNTeamMembers)
+    {
+    	List<Monitoring_Log__c> lstMonitoringLogs;
+    	List<AccountTeamMember> lstAccountTeamMembers = new List<AccountTeamMember>();
+    	
+    	for(Id accountId : mapAccountNTeamMembers.keySet())
+    	{
+    		lstAccountTeamMembers.addAll(mapAccountNTeamMembers.get(accountId));
+    	} 
+    	
+    	if(lstAccountTeamMembers.size() > 0)
+    	{
+    		Database.SaveResult[] memberslst = Database.insert(lstAccountTeamMembers,false);
+    		
+    		//**** perform DML error handling ******//
+    	}
+    	
+    	return lstMonitoringLogs;
     }
     
     private class ATA_AccountRuleValue 
