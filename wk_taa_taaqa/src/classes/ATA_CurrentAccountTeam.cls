@@ -8,14 +8,14 @@ public with sharing class ATA_CurrentAccountTeam
 	//***** This class will be responsible for retriving the current account team members and return
 	//***** collection holding AccountId with list of roles & team member 
 	
-	public static Map<Id, Map<String, AccountTeamMember>> getCurrentAccountTeam(Set<Id> setAccountIds)
+	public static Map<Id, List<AccountTeamMember>> getCurrentAccountTeam(Set<Id> setAccountIds)
 	{
 		//*** map of accountid with list of roles & team member
-		Map<Id, Map<String, AccountTeamMember>> mapAccountIdNAccountTeamMembers;
+		Map<Id, List<AccountTeamMember>> mapAccountIdNAccountTeamMembers;
 		
 		if(setAccountIds != NULL && setAccountIds.size() > 0) // check if input is not empty
 		{
-			mapAccountIdNAccountTeamMembers = new Map<Id, Map<String, AccountTeamMember>>(); 
+			mapAccountIdNAccountTeamMembers = new Map<Id, List<AccountTeamMember>>(); 
 			
 			//*** query AccountTeamMembers for the set of accounts
 			List<AccountTeamMember> lstAccountTeamMembers = [SELECT Id, AccountId, Account.Name, TeamMemberRole, User.Id, User.DTN__c, User.Name 
@@ -31,15 +31,15 @@ public with sharing class ATA_CurrentAccountTeam
 					if(mapAccountIdNAccountTeamMembers.containsKey(objATM.AccountId))
 					{
 						//*** get already added role & team members
-						Map<String, AccountTeamMember> mapAlreadyAddedRoleNAccountTeamMember = mapAccountIdNAccountTeamMembers.get(objATM.AccountId);
+						List<AccountTeamMember> lstAlreadyAddedRoleNAccountTeamMember = mapAccountIdNAccountTeamMembers.get(objATM.AccountId);
 						
 						//*** add new one to the already added list
-						mapAlreadyAddedRoleNAccountTeamMember.put(objATM.TeamMemberRole, objATM);
+						lstAlreadyAddedRoleNAccountTeamMember.add(objATM);
 						
 						//*** put it into the map
-						mapAccountIdNAccountTeamMembers.put(objATM.AccountId, mapAlreadyAddedRoleNAccountTeamMember);
+						mapAccountIdNAccountTeamMembers.put(objATM.AccountId, lstAlreadyAddedRoleNAccountTeamMember);
 					}else{ //*** if account doesn't exists in the map then add
-						mapAccountIdNAccountTeamMembers.put(objATM.AccountId, new Map<String, AccountTeamMember>{objATM.TeamMemberRole => objATM});
+						mapAccountIdNAccountTeamMembers.put(objATM.AccountId, new List<AccountTeamMember>{objATM});
 					} // end if then else
 				} // end for
 			} // end if
