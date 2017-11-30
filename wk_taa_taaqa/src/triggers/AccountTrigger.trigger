@@ -13,10 +13,10 @@
 
 trigger AccountTrigger on Account (before insert, after insert, before update, after update) {
     
-    UtilDTNStampingAndTeamMemberCreation dtnHandler = new UtilDTNStampingAndTeamMemberCreation(trigger.new, trigger.oldMap); 
-    system.debug('TAA Custom setting Status :: ' +UtilCustomSettings.TAACustomSetting().IsTriggerOff__c);
+    System.debug('TAA ATA Trigger Switch Status :: ' + UtilCustomSettings.TAACustomSetting().IsTriggerOff__c);
     
     if(UtilCustomSettings.TAACustomSetting().IsTriggerOff__c == false){
+    	UtilDTNStampingAndTeamMemberCreation dtnHandler = new UtilDTNStampingAndTeamMemberCreation(trigger.new, trigger.oldMap);
         //for before insert event
         system.debug('Inside ::');
         list<Monitoring_Log__c> monitoringLogslist = new list<Monitoring_Log__c>();
@@ -91,5 +91,13 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
                 Database.SaveResult[] monitorslst = Database.insert(monitoringLogslist,false);
             }
         }
+    }
+    // **** Trigger ATA 2.0
+    else if(UtilCustomSettings.TAACustomSetting().IsTriggerOff__c)
+    {
+    	if(trigger.isAfter)
+    	{
+    		ATA_AccountTriggerHandler.generateAccountTeam(trigger.newMap,trigger.oldMap);
+    	}
     }
 }

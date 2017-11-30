@@ -537,6 +537,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Forecast_Type_to_Closed</fullName>
+        <field>Forecast_Type__c</field>
+        <literalValue>Closed</literalValue>
+        <name>Update Forecast Type to Closed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Renewal_Close_Date</fullName>
         <description>Update Close Date - Only Populated for Renewal Opportunities</description>
         <field>Renewal_Close_Date__c</field>
@@ -1254,6 +1263,31 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
         <active>true</active>
         <formula>AND(TEXT(PRIORVALUE(StageName)) &lt;&gt;&quot;Renewal Won&quot;, ISPICKVAL(StageName , &quot;Renewal Won&quot;),  Is_AMS_Renewal__c = true,  AND(ISBLANK( PFX_Email_Address__c ) &lt;&gt; true, ISBLANK(  AMS_Renewal_Email__c )=true), Account.Corporate_Segment__c=true)</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Forecast Type to Closed</fullName>
+        <actions>
+            <name>Update_Forecast_Type_to_Closed</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Renewal Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>6. Closed Won</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Forecast_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>In cases where Opportunity is Closed Won but Forecast Type is not properly updated, it updates the Forecast Type.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>closed date update</fullName>

@@ -8,9 +8,9 @@ public with sharing class ATA_PostAccountTeam
     //***** This class will be responsible for create / update / delete the account team members
     
     // *** Set this flag to decide if delete all & recreate or just create
-    // isDeleteNRecreate = false : just create new ones and delete the ones which needed to be updated
-    // isDeleteNRecreate = true : delete all existing which doesn't need to be there and recreate the ones which supposed to be there
-    public static Boolean isDeleteNRecreate = false;  
+    // isDeleteExistingNRecreate = false : just create new ones and delete the ones which needed to be updated
+    // isDeleteExistingNRecreate = true : delete all existing which doesn't need to be there and recreate the ones which supposed to be there
+    public static Boolean isDeleteExistingNRecreate = false;  
 	
 	// *** create Account Team Members
 	public static List<Monitoring_Log__c> constructAccountTeam(Map<Id, List<AccountTeamMember>> currentAccountTeam, Map<Id, List<AccountTeamMember>> ruleDerivedAccountTeam)
@@ -162,7 +162,7 @@ public with sharing class ATA_PostAccountTeam
 				} // end for
 				
 				// *** DELETE
-				if(isDeleteNRecreate){
+				if(isDeleteExistingNRecreate){
 					// consider left over ATMs to add into delete operation element of the map				
 					for(AccountTeamMember objCurrentATM : currentAccountTeam.get(accountId))
 					{
@@ -173,7 +173,7 @@ public with sharing class ATA_PostAccountTeam
 				}
 				
 			} //end for	
-		}else{
+		}else if(ruleDerivedAccountTeam != NULL){
 			// if currentAccountTeam is NULL it means all ATMs needs to be inserted
 			for(Id accountId : ruleDerivedAccountTeam.keySet())
 			{

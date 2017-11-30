@@ -182,6 +182,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ATA_AccountTeamHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ATA_AccountTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -19887,6 +19891,9 @@
         <layout>ATA_Geographic_Assignment__c-ATA Geographic Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ATA_Messages__mdt-ATA Message Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ATA_Non_Geographic_Assignment__c-ATA Non Geographic Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -19896,18 +19903,18 @@
         <layout>ATA_Rule__c-ATA Rule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Customer Account</layout>
-        <recordType>Account.Customer_Account</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account-Partner Account</layout>
         <recordType>Account.Partner_Account</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Prospect Account</layout>
+        <layout>Account-Sys Admin Account Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Sys Admin Customer Account</layout>
+        <recordType>Account.Customer_Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Sys Admin Prospect Account</layout>
         <recordType>Account.Prospect_Account</recordType>
     </layoutAssignments>
     <layoutAssignments>

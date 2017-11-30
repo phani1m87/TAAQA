@@ -182,6 +182,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ATA_AccountTeamHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ATA_AccountTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -19887,6 +19891,9 @@
         <layout>ATA_Geographic_Assignment__c-ATA Geographic Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ATA_Messages__mdt-ATA Message Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ATA_Non_Geographic_Assignment__c-ATA Non Geographic Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -20294,6 +20301,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>ATA_Geographic_Assignment__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ATA_Messages__mdt</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>

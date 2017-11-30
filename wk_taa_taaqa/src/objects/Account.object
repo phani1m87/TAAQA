@@ -6104,11 +6104,35 @@ IF(Last_SAP_Non_Sub_Order_Date__c &gt; Last_SAP_Inventory_Stop_Date__c , Last_SA
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Corporate National</fullName>
+                    <fullName>Small Firm Customer</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Service Source</fullName>
+                    <fullName>Small Firm Key Account</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Refunds Today</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Premier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MainStreet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trust</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Profit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Non-Profit</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -13398,7 +13422,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <picklistValues>
             <picklist>Named_Account_Type__c</picklist>
             <values>
-                <fullName>Corporate National</fullName>
+                <fullName>MainStreet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13406,11 +13430,35 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Source</fullName>
+                <fullName>Non-Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunds Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Firm Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Firm Key Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Firm Non-Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Firm Premier</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Strategic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trust</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17254,15 +17302,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <picklistValues>
             <picklist>Named_Account_Type__c</picklist>
             <values>
-                <fullName>Corporate National</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>National</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Source</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20179,7 +20219,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <picklistValues>
             <picklist>Named_Account_Type__c</picklist>
             <values>
-                <fullName>Corporate National</fullName>
+                <fullName>MainStreet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20187,11 +20227,35 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Source</fullName>
+                <fullName>Non-Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunds Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Firm Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Firm Key Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Firm Non-Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Firm Premier</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Strategic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trust</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22712,6 +22776,21 @@ NOT(IF(Came_from_Lead__c=TRUE, TRUE,
         <openType>replace</openType>
         <protected>false</protected>
         <url>https://na25.salesforce.com/apex/ProfessionalSoftwareRevenue?scontrolCaching=1&amp;id={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Re_create_Account_Team</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Re-create Account Team</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/18.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/18.0/apex.js&quot;)} 
+
+sforce.apex.execute(&quot;ATA_AccountTeamHandler&quot;,&quot;reCreateAccountTeamInteractive&quot;,{accountId:&quot;{!Account.Id}&quot;});
+
+location.reload();</url>
     </webLinks>
     <webLinks>
         <fullName>SAP_Active_Inventory_Report</fullName>
