@@ -106,6 +106,18 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Terminate_Account_Team_Role_Names__c</fullName>
+        <description>Collection of role name strings for which if no assignment is found then prevents the account team creation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Collection of role name strings for which if no assignment is found then prevents the account team creation.</inlineHelpText>
+        <label>Terminate Account Team Role Names</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>AccountAutomationSetting</label>
     <visibility>Public</visibility>
 </CustomObject>

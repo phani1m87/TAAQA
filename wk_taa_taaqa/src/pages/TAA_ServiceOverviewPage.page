@@ -715,10 +715,10 @@
         <div id="escalationHelpDialog" title="Escalation Level Help" style="display:none;">
             <p>
                 <ul>
-                    <li>E4 – anyone can escalate to this level</li>
-                    <li>E3 – Only Supervisor, Manager, Director, VP can escalate to this level</li>
-                    <li>E2 – Only Director, VP can escalate to this level</li>
-                    <li>E1 – Only VP can escalate to this level</li>
+                    <li>Support Supervisor – anyone can escalate to this level</li>
+                    <li>Support Manager – Only Supervisor, Manager, Director, VP can escalate to this level</li>
+                    <li>Support Director – Only Director, VP can escalate to this level</li>
+                    <li>Support VP – Only VP can escalate to this level</li>
                 </ul>
             </p>
         </div>

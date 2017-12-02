@@ -126,17 +126,17 @@ public with sharing class TAA_ServiceOverviewController
 		
 		lstEscalation = new List<SelectOption>();
 		lstEscalation.add(new SelectOption('', 'NONE'));
-		lstEscalation.add(new SelectOption('E4', 'Escalation Level 4'));
+		lstEscalation.add(new SelectOption('E4', 'Support Supervisor'));
 		if(!String.isBlank(currentUser.UserRole.Name))
 		{
 			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.Profile.Name.contains('Sales Manager') || currentUser.UserRole.Name.contains('Supervisor') || currentUser.UserRole.Name.contains('Manager') || currentUser.UserRole.Name.contains('Director') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
-				lstEscalation.add(new SelectOption('E3', 'Escalation Level 3'));
+				lstEscalation.add(new SelectOption('E3', 'Support Manager'));
 			}
 			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.UserRole.Name.contains('Director') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
-				lstEscalation.add(new SelectOption('E2', 'Escalation Level 2'));
+				lstEscalation.add(new SelectOption('E2', 'Support Director'));
 			}
 			if(currentUser.Profile.Name.contains('System Administrator') || currentUser.UserRole.Name.contains('VP') || currentUser.UserRole.Name.contains('Vice President')){
-				lstEscalation.add(new SelectOption('E1', 'Escalation Level 1'));	
+				lstEscalation.add(new SelectOption('E1', 'Support VP'));	
 			}
 		}
 	}

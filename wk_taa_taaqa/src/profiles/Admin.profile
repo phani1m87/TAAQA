@@ -194,7 +194,15 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ATA_Constants</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ATA_CurrentAccountTeam</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATA_LogUtil</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

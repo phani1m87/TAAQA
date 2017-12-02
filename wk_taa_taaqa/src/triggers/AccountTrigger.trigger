@@ -93,9 +93,9 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
         }
     }
     // **** Trigger ATA 2.0
-    else if(UtilCustomSettings.TAACustomSetting().IsTriggerOff__c)
+    else if(ATA_Utility.ATACustomSettings().IsTriggerOff__c)
     {
-    	if(trigger.isAfter)
+    	if(trigger.isAfter && CheckRecursive.runOnce())
     	{
     		ATA_AccountTriggerHandler.generateAccountTeam(trigger.newMap,trigger.oldMap);
     	}
