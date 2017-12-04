@@ -40,7 +40,7 @@ public with sharing class ATA_Constants
 	public static final String ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_MESSAGE  		= 'Could not find entry into Geographic Role Assignment table for role: ';
 	
 	public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE 		= 'ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT';
-    public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE 	= 'Account does not have any data configured in ATA Non Geographic Assignment table but rule is';
+    public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE 	= 'Preveting Account Team Assignment. Account does not have any data configured in ATA Non Geographic Assignment table but rule is';
     
     public static final String ATA_DATA_MISSING_POSTALCODE_CODE                 	= 'ATA_DATA_MISSING_POSTALCODE';
     public static final String ATA_DATA_MISSING_POSTALCODE_MESSAGE                 	= 'Postal Code is missing in ATA_Geographic_Assignment__c for geographic assignment.';
@@ -49,6 +49,8 @@ public with sharing class ATA_Constants
     public static final String ATA_DATA_MISSING_NAMEMATCH_MESSAGE                 	= 'Account name is missing in ATA_Non_Geographic_Assignment__c for Named Account assignment.';
     
     public static final String ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE	               	= 'ATA_ACCOUNT_DATA_CHANGEDETECTED';
+    
+    public static final String ATA_NEWACCOUNT_DATA_CONSIDEREDFORATA_CODE	        = 'ATA_NEWACCOUNT_DATA_CONSIDERED_FOR_ATA';
     
     public static final String ATA_ZIPCODE_CHANGED                          		= 'Zipcode is changed';
     public static final String ATA_MARKET_SEGMENT_CHANGED                   		= 'Market segment is changed';

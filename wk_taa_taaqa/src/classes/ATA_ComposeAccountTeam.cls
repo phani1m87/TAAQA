@@ -146,7 +146,11 @@ public with sharing class ATA_ComposeAccountTeam
 	                    } // end if
 	                } // end for
 	                System.debug('###: ' + lstMonitoringLog);
-	                lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'ATA_ComposeAccountTeam', logMessage, String.valueOf(accountId), ATA_Constants.ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE));
+	                String logCode = ATA_Constants.ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE;
+	                if(isNew){
+	                	logCode = ATA_Constants.ATA_NEWACCOUNT_DATA_CONSIDEREDFORATA_CODE;
+	                }
+	                lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'ATA_ComposeAccountTeam', logMessage, String.valueOf(accountId), logCode));
 	            } // end if
 	        } // end for
         }
@@ -191,6 +195,7 @@ public with sharing class ATA_ComposeAccountTeam
             {
                 
                 //*** Technical debt SOQL in for loop
+                //*** need to write the logging for different condition when work on matcher 
                 
                 //*** Query the Assignment Map for the specific fieldSet and fieldAPINames & values for that fieldSet
                 List<AggregateResult> lstAssignmentTypeMap = [SELECT COUNT(Id) assignmentTypeCount, Assignment_Type__c, FieldSet__c 

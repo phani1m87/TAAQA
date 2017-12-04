@@ -11,11 +11,15 @@ public with sharing class ATA_PostAccountTeam
     // isDeleteExistingNRecreate = false : just create new ones and delete the ones which needed to be updated
     // isDeleteExistingNRecreate = true : delete all existing which doesn't need to be there and recreate the ones which supposed to be there
     public static Boolean isDeleteExistingNRecreate = false;  
+    
+    public static List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
+    
+    static Map<Id, User> mapUserIdAndUser = new Map<Id, User>();
 	
 	// *** create Account Team Members
 	public static List<Monitoring_Log__c> constructAccountTeam(Map<Id, List<AccountTeamMember>> currentAccountTeam, Map<Id, List<AccountTeamMember>> ruleDerivedAccountTeam)
 	{
-		List<Monitoring_Log__c> lstMonitoringLog;
+		mapUserIdAndUser = new Map<Id, User>([SELECT Id, DTN__c, Name, IsActive, Custodial_Rep__c FROM User WHERE DTN__c != NULL]);
 		
 		Map<String, Set<AccountTeamMember>> mapOperationNAccountTeam = determineDMLOperation(currentAccountTeam, ruleDerivedAccountTeam);
 		
@@ -101,6 +105,7 @@ public with sharing class ATA_PostAccountTeam
 		mapOperationNAccountTeamMembers.put('insert', new Set<AccountTeamMember>());
 		mapOperationNAccountTeamMembers.put('delete', new Set<AccountTeamMember>());
 		
+		
 		integer i = 0;
 		
 		// if currentAccountTeam is not NULL then do comparison to find which one to insert / update / delete 
@@ -108,6 +113,7 @@ public with sharing class ATA_PostAccountTeam
 		{
 			for(Id accountId : ruleDerivedAccountTeam.keySet())
 			{
+				String logMessage = '';
 				for(AccountTeamMember objDerivedATM : ruleDerivedAccountTeam.get(accountId))
 				{
 					i = 0;
@@ -123,6 +129,9 @@ public with sharing class ATA_PostAccountTeam
 							currentAccountTeam.get(accountId).remove(i);
 							i++;
 							isConsiderd = true;
+							
+							logMessage = logMessage + '\n No change for the role: ' + objDerivedATM.TeamMemberRole + ' User: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')';
+							
 							break;
 						}else if(objDerivedATM.TeamMemberRole == objCurrentATM.TeamMemberRole && objDerivedATM.UserId != objCurrentATM.UserId){
 							// Role matches but user doesn't match so add it for update	
@@ -145,6 +154,10 @@ public with sharing class ATA_PostAccountTeam
 							currentAccountTeam.get(accountId).remove(i);
 							i++;
 							isConsiderd = true;
+							
+							logMessage = logMessage + '\n Change for the role: ' + objDerivedATM.TeamMemberRole + ' from the old user: ' + mapUserIdAndUser.get(objCurrentATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objCurrentATM.UserId).DTN__c + ')'
+																												+ ' to the new user: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')';
+							
 							break;
 						} // end if
 						i++;
@@ -156,7 +169,10 @@ public with sharing class ATA_PostAccountTeam
 					{
 						Set<AccountTeamMember> alreadyAddedATMs = mapOperationNAccountTeamMembers.get('insert');
 						alreadyAddedATMs.add(objDerivedATM);
-						mapOperationNAccountTeamMembers.put('insert', alreadyAddedATMs);						
+						mapOperationNAccountTeamMembers.put('insert', alreadyAddedATMs);
+						
+						logMessage = logMessage + '\n Added the role: ' + objDerivedATM.TeamMemberRole + ' with the user: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')';
+												
 					} // end if
 					
 				} // end for
@@ -169,9 +185,12 @@ public with sharing class ATA_PostAccountTeam
 						Set<AccountTeamMember> leftOverATMs = mapOperationNAccountTeamMembers.get('delete');
 						leftOverATMs.addAll(currentAccountTeam.get(accountId));
 						mapOperationNAccountTeamMembers.put('delete', leftOverATMs);
+						
+						logMessage = logMessage + '\n Deleted the role: ' + objCurrentATM.TeamMemberRole + ' with the user: ' + mapUserIdAndUser.get(objCurrentATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objCurrentATM.UserId).DTN__c + ')';
+						
 					} // end for
 				}
-				
+				lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_PostAccountTeam', 'determineDMLOperation', logMessage, String.valueOf(accountId), ATA_Constants.ATA_TEAM_MEMBER_CREATED));
 			} //end for	
 		}else if(ruleDerivedAccountTeam != NULL){
 			// if currentAccountTeam is NULL it means all ATMs needs to be inserted
@@ -186,6 +205,12 @@ public with sharing class ATA_PostAccountTeam
 					List<AccountTeamMember> accountTeam = ruleDerivedAccountTeam.get(accountId);
 					mapOperationNAccountTeamMembers.put('insert', new Set<AccountTeamMember>(accountTeam));
 				} // end if then else
+				String logMessage = '';
+				for(AccountTeamMember objDerivedATM : ruleDerivedAccountTeam.get(accountId))
+				{
+					logMessage = logMessage + '\n Added the role: ' + objDerivedATM.TeamMemberRole + ' with the user: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')';
+				}
+				lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_PostAccountTeam', 'determineDMLOperation', logMessage, String.valueOf(accountId), ATA_Constants.ATA_TEAM_MEMBER_CREATED));
 			} //end for
 		} // end if then else		
 		
