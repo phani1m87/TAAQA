@@ -31,16 +31,16 @@ public with sharing class ATA_Constants
 	public static final String ATA_DATA_MISSING_ROLES_MESSAGE              			= 'No roles found from ATA_Role_Assignment__c.';
 	
 	public static final String ATA_ABORT_MISSINGUSER_MANDATORYROLE_CODE             = 'ATA_ABORT_MISSINGUSER_MANDATORYROLE';
-	public static final String ATA_ABORT_MISSINGUSER_MANDATORYROLE_MESSAGE          = 'Preventing Account Team Assignment since could not find user for mandatory role.';
+	public static final String ATA_ABORT_MISSINGUSER_MANDATORYROLE_MESSAGE          = 'Not creating Account Team: No matching user found for mandatory role.';
 	
 	public static final String ATA_WARNING_MISSINGUSER_ROLE_CODE             		= 'ATA_WARNING_MISSINGUSER_ROLE';
 	public static final String ATA_WARNING_MISSINGUSER_ROLE_MESSAGE            		= 'Could not find user for the role.';
 	
 	public static final String ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_CODE     		= 'ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE';
-	public static final String ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_MESSAGE  		= 'Could not find entry into Geographic Role Assignment table for role: ';
+	public static final String ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_MESSAGE  		= 'Could not find entry into ATA_Geographic_Assignment__c table for role: ';
 	
 	public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE 		= 'ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT';
-    public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE 	= 'Preveting Account Team Assignment. Account does not have any data configured in ATA Non Geographic Assignment table but rule is';
+    public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE 	= 'Not creating Account Team: No matching data in ATA_Non_Geographic_Assignment__c table, attempted match was ';
     
     public static final String ATA_DATA_MISSING_POSTALCODE_CODE                 	= 'ATA_DATA_MISSING_POSTALCODE';
     public static final String ATA_DATA_MISSING_POSTALCODE_MESSAGE                 	= 'Postal Code is missing in ATA_Geographic_Assignment__c for geographic assignment.';

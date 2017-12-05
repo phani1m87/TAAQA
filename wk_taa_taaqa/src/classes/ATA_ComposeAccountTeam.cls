@@ -9,13 +9,17 @@ public with sharing class ATA_ComposeAccountTeam
     
     static Map<Id, List<ATA_AccountRuleValue>> mapAccountIdNListATA_AccountRuleValue = new Map<Id, List<ATA_AccountRuleValue>>();
     static Map<String, User> mapUserDTNAndUser = new Map<String, User>();
-    static Set<String> validAssignmentTypeSet = new Set<String>();
     static Map<Id, sObject> newMapAccounts = new Map<Id, Account>();
     static Map<Id, Account> oldMapAccounts = new Map<Id, Account>();
     static Map<Id, List<AccountTeamMember>> accountNAccountTeamMembersMap = new Map<Id, List<AccountTeamMember>>();
     static Boolean terminateAccountTeamAssignment = false;
-    public static List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
     static Set<String> setMandatoryRole = new Set<String>();
+    static Set<String> validAssignmentTypeSet = new Set<String>();
+    static Set<String> setValidFieldSets = new Set<String>();
+    static Set<String> setValidFieldAPINames = new Set<String>();
+    static Set<String> setValidValues = new Set<String>();
+    
+    public static List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
     
     //*** Constructor
     public ATA_ComposeAccountTeam(Map<Id, Account> newMap, Map<Id, Account> oldMap)
@@ -50,6 +54,10 @@ public with sharing class ATA_ComposeAccountTeam
 	            }else{
 	                mapFieldSetNFieldAPINames.put(rule.FieldSet__c, new Set<String>{rule.Field_API_Name__c});   
 	            } // end if then else
+	            
+	            setValidFieldSets.add(rule.FieldSet__c);
+	            setValidFieldAPINames.add(rule.Field_API_Name__c);
+	            
 	            accountFieldAPINames = accountFieldAPINames + ' ' + rule.Field_API_Name__c + ',';
             }else{
             	objLog = ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'ATA_ComposeAccountTeam', ATA_Constants.ATA_RULE_INCONSISTANCY_MESSAGE + ' Incorrect Field: ' + rule.Field_API_Name__c, null, ATA_Constants.ATA_RULE_INCONSISTANCY_CODE);
@@ -66,7 +74,7 @@ public with sharing class ATA_ComposeAccountTeam
 				objLog.Account__c = String.valueOf(accountId);
 				lstMonitoringLog.add(objLog);		
 			}        	
-        }else{ 
+        }else if(lstATARules.size() > 0){ 
 	        accountFieldAPINames = accountFieldAPINames.subString(0, accountFieldAPINames.length() - 1);
 	        
 	        System.debug('###: ' + accountFieldAPINames);
@@ -107,7 +115,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                } // end for
 	            }else{ // oldMap is empty means its an Account Insert event
 	                isChanged = true;                       // set if there is a change
-	                isNew = true;
+	                isNew = true;							// set isNew to TRUE since it is new account creation
 	                ruleType = lstATARules[0].Rule_Type__c; // capture ruleType
 	            } // end if then else
 	            
@@ -129,6 +137,9 @@ public with sharing class ATA_ComposeAccountTeam
 		                        newAccountRule.fieldApiName_fieldValue_Map.put(fieldAPIName, String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName)));
 		                        if(isNew){
 		                        	logMessage = logMessage + '\n Field Name: ' + fieldAPIName + ' Value: ' + String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName));
+		                        }
+		                        if(newMapAccounts.get(accountId).get(fieldAPIName) != NULL){
+		                        	setValidValues.add(String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName)));
 		                        }
 	                        //}
 	                    } // end for
@@ -186,6 +197,66 @@ public with sharing class ATA_ComposeAccountTeam
     
     // *** get assignment types based on ATA_AccountRuleValue map
     public static Map<Id, Set<String>> getAssignmentTypes(Map<Id, List<ATA_AccountRuleValue>> accountRuleValueMap) 
+    {
+    	Map<Id, Set<String>> validAssignmnentTypesMap = new Map<Id, Set<String>>();
+    	Set<String> assignmentTypeSet = new Set<String>();
+    	
+    	//*** Query the Assignment Map for the specific fieldSet and fieldAPINames & values for that fieldSet
+    	List<ATA_AssignmentType_Map__c> lstAssignmentTypeMap = [SELECT Assignment_Type__c, FieldSet__c, Field_API_Name__c, Field_Value__c
+	                                                                FROM ATA_AssignmentType_Map__c
+	                                                                WHERE FieldSet__c IN: setValidFieldSets
+	                                                                AND Field_API_Name__c IN: setValidFieldAPINames
+	                                                                AND Field_Value__c IN:setValidValues];
+    	
+    	if(lstAssignmentTypeMap.size() > 0)
+    	{
+	    	for(Id accountId : accountRuleValueMap.keySet()) // loop over the account rule value map
+	        {
+	            for(ATA_AccountRuleValue objRuleValue : accountRuleValueMap.get(accountId)) // loop through each fielSet rule set for selected account 
+	            {
+					Set<String> tempAssignmentTypeSet = new Set<String>();
+					for(String fieldAPIName : objRuleValue.fieldApiName_fieldValue_Map.keySet()) // loop through each fielAPIName & Value map for the fieldSet
+					{
+						for(ATA_AssignmentType_Map__c objAssignmentType : lstAssignmentTypeMap) // loop through lstAssignmentTypeMap and find matching AssignmentType
+						{
+							if(objAssignmentType.Field_API_Name__c == fieldAPIName && objAssignmentType.Field_Value__c == objRuleValue.fieldApiName_fieldValue_Map.get(fieldAPIName)){
+								assignmentTypeSet.add(objAssignmentType.Assignment_Type__c);	
+							} // end if
+						} // end for 
+						
+						if(tempAssignmentTypeSet.size() == 0) // hold the set of AssignmentTypes matching first field in the map
+						{  
+							tempAssignmentTypeSet.addAll(assignmentTypeSet);
+							assignmentTypeSet.clear();
+						} // end if						
+					}
+					
+					for(String assignmentType : tempAssignmentTypeSet) // loop through the assignment types to find match for combination of the fields
+					{
+						if(assignmentTypeSet.contains(assignmentType) || assignmentTypeSet.size() == 0)
+						{
+							// map of account id and associated assignment types
+		                    if(validAssignmnentTypesMap.containsKey(accountId)){
+		                        Set<String> setAssignmentTypes = validAssignmnentTypesMap.get(accountId);
+		                        setAssignmentTypes.add(assignmentType);
+		                        validAssignmnentTypesMap.put(accountId, setAssignmentTypes);
+		                    }else{
+		                        validAssignmnentTypesMap.put(accountId, new Set<String>{assignmentType});
+		                    } // end if then else
+		                    validAssignmentTypeSet.add(assignmentType);
+						} // end if   
+					} // end for
+	            } // end for
+	        } // end for    	
+    	} // end if
+    	System.debug('## : ' + validAssignmnentTypesMap);
+        System.debug('## : ' + validAssignmentTypeSet);
+    	return validAssignmnentTypesMap;
+    }
+    
+    
+    // *** get assignment types based on ATA_AccountRuleValue map
+    public static Map<Id, Set<String>> deprecated_getAssignmentTypes(Map<Id, List<ATA_AccountRuleValue>> accountRuleValueMap) 
     {
         Map<Id, Set<String>> validAssignmnentTypesMap = new Map<Id, Set<String>>();
 
