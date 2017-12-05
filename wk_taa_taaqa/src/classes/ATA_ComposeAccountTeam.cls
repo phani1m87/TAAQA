@@ -38,7 +38,8 @@ public with sharing class ATA_ComposeAccountTeam
         // query active ATA Rules
         List<ATA_Rule__c> lstATARules = [SELECT Id, Rule_Type__c, FieldSet__c, Field_API_Name__c 
                                             FROM ATA_Rule__c 
-                                            WHERE Rule_Enabled__c = true];
+                                            WHERE Rule_Enabled__c = true
+                                            AND Rule_Type__c = 'ATA'];
                                             
         Map<String, Set<String>> mapFieldSetNFieldAPINames = new Map<String, Set<String>>();
         
@@ -499,15 +500,15 @@ public with sharing class ATA_ComposeAccountTeam
 	            //*** Non-geographic mechanism
                 List<ATA_Non_Geographic_Assignment__c> lstNonGeographicAssignment = [SELECT Id, DTN__c 
                                                                                         FROM ATA_Non_Geographic_Assignment__c
-                                                                                        WHERE Account_FieldName__c =: nonGeoFieldName
-                                                                                        AND Account_FieldValue__c =: String.valueOf(objAccount.get(nonGeoFieldName))
+                                                                                        WHERE FieldName__c =: nonGeoFieldName
+                                                                                        AND FieldValue__c =: String.valueOf(objAccount.get(nonGeoFieldName))
                                                                                         AND RoleName__c =: roleName];
                 if(lstNonGeographicAssignment.size() > 0){
                     dtn = lstNonGeographicAssignment[0].DTN__c;
                 }else{
                 	lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE + ' ' + nonGeoFieldName + ' = ' + String.valueOf(objAccount.get(nonGeoFieldName)), String.valueOf(objAccount.Id), ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE));
                 	terminateAccountTeamAssignment = true;
-                }                                   
+                }
             }
             
             if(!String.isBlank(dtn))

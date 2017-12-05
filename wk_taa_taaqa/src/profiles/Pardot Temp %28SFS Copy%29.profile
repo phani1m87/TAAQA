@@ -1505,17 +1505,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ATA_Non_Geographic_Assignment__c.Account_FieldName__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>ATA_Non_Geographic_Assignment__c.Account_FieldValue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>ATA_Non_Geographic_Assignment__c.DTN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Non_Geographic_Assignment__c.FieldName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Non_Geographic_Assignment__c.FieldValue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Non_Geographic_Assignment__c.Ownership_NamedType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -52,28 +52,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Account_FieldName__c</fullName>
-        <externalId>false</externalId>
-        <label>Account FieldName</label>
-        <length>100</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Account_FieldValue__c</fullName>
-        <externalId>false</externalId>
-        <label>Account FieldValue</label>
-        <length>100</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>DTN__c</fullName>
         <externalId>false</externalId>
         <label>DTN</label>
@@ -83,6 +61,53 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FieldName__c</fullName>
+        <externalId>false</externalId>
+        <label>FieldName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FieldValue__c</fullName>
+        <externalId>false</externalId>
+        <label>FieldValue</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ownership_NamedType__c</fullName>
+        <description>Named type to be used during Lead Ownership assignment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Named type to be used during Lead Ownership assignment.</inlineHelpText>
+        <label>Ownership NamedType</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>RoleName__c</fullName>
@@ -106,17 +131,65 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Functional type, this rule is used for, either AccountTeam / LeadOwnership</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Functional type, this rule is used for, either AccountTeam / LeadOwnership</inlineHelpText>
+        <label>Type</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AccountTeam</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LeadOwnership</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <label>ATA Non Geographic Assignment</label>
     <listViews>
-        <fullName>All</fullName>
+        <fullName>AccountTeam_Rules</fullName>
         <columns>NAME</columns>
-        <columns>Account_FieldName__c</columns>
-        <columns>Account_FieldValue__c</columns>
+        <columns>Type__c</columns>
+        <columns>FieldName__c</columns>
+        <columns>FieldValue__c</columns>
         <columns>RoleName__c</columns>
         <columns>DTN__c</columns>
         <columns>Role_Assignment_Type__c</columns>
         <filterScope>Everything</filterScope>
-        <label>All</label>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>AccountTeam</value>
+        </filters>
+        <label>AccountTeam Rules</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>LeadOwnership_Rules</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <columns>FieldName__c</columns>
+        <columns>FieldValue__c</columns>
+        <columns>DTN__c</columns>
+        <columns>Ownership_NamedType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>LeadOwnership</value>
+        </filters>
+        <label>LeadOwnership Rules</label>
         <language>en_US</language>
     </listViews>
     <nameField>
@@ -128,8 +201,8 @@
     <pluralLabel>ATA Non Geographic Assignments</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Role_Assignment_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Account_FieldName__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Account_FieldValue__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FieldName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FieldValue__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RoleName__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>DTN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
