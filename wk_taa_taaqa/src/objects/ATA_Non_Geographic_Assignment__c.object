@@ -200,7 +200,9 @@
     </nameField>
     <pluralLabel>ATA Non Geographic Assignments</pluralLabel>
     <searchLayouts>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Role_Assignment_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Ownership_NamedType__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>FieldName__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>FieldValue__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RoleName__c</customTabListAdditionalFields>
