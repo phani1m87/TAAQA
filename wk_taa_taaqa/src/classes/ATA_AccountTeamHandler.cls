@@ -26,7 +26,9 @@ global with sharing class ATA_AccountTeamHandler
 		{      	
 			for(Id accountId : newMap.keySet())
 			{
-				if(newMap.get(accountId).RecordTypeId == excludeRecordTypeId){
+				// exclude the accounts based on record type filters & exclude account automation flag
+				if(newMap.get(accountId).RecordTypeId == excludeRecordTypeId && newMap.get(accountId).Exclude_Account_Automation__c == true)
+				{
 					newMap.remove(accountId);
 					// check if it is also in oldMap and remove
 					if(oldMap != NULL && oldMap.containsKey(accountId)){
@@ -65,6 +67,7 @@ global with sharing class ATA_AccountTeamHandler
 			}
 		}
 		
+		// DML: Monitoring Log 
 		if(lstGlobalMonitoringLog.size() > 0)
 		{
 			Database.SaveResult[] saveResults = Database.insert(lstGlobalMonitoringLog, false);
@@ -73,12 +76,14 @@ global with sharing class ATA_AccountTeamHandler
 		}
 	}
 	
+	// **** this method is called from UI (Account Page Layout: Re-create Account Team Button)
 	webservice static void reCreateAccountTeamInteractive(String accountId)
 	{
-		Map<Id, Account> mapAccountIdNAccount = new Map<Id, Account>([SELECT Id, RecordTypeId FROM Account WHERE Id =: accountId]);
+		Map<Id, Account> mapAccountIdNAccount = new Map<Id, Account>([SELECT Id, RecordTypeId, Exclude_Account_Automation__c FROM Account WHERE Id =: accountId]);
 		
+		// feed account back to the generateAccountTeam method
 		if(mapAccountIdNAccount != NULL && mapAccountIdNAccount.size() > 0){
 			generateAccountTeam(mapAccountIdNAccount, null, true);	
-		}
+		} // end if
 	}    
 }

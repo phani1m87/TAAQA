@@ -11,92 +11,76 @@ public with sharing class ATA_PostAccountTeam
     // isDeleteExistingNRecreate = false : just create new ones and delete the ones which needed to be updated
     // isDeleteExistingNRecreate = true : delete all existing which doesn't need to be there and recreate the ones which supposed to be there
     public static Boolean isDeleteExistingNRecreate = false;  
-    
     public static List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
-    
     static Map<Id, User> mapUserIdAndUser = new Map<Id, User>();
+    static Map<Id, Account> mapAccountIdNAccountToUpdate = new Map<Id, Account>();
+    static List<ATA_Role_to_DTN_Field_Mapping__c> lstRoleToDTNFieldMapping = ATA_Role_to_DTN_Field_Mapping__c.getAll().values();
 	
 	// *** create Account Team Members
 	public static List<Monitoring_Log__c> constructAccountTeam(Map<Id, List<AccountTeamMember>> currentAccountTeam, Map<Id, List<AccountTeamMember>> ruleDerivedAccountTeam)
 	{
-		mapUserIdAndUser = new Map<Id, User>([SELECT Id, DTN__c, Name, IsActive, Custodial_Rep__c FROM User WHERE DTN__c != NULL]);
+		mapUserIdAndUser = new Map<Id, User>([SELECT Id, DTN__c, Name, IsActive, Custodial_Rep__c FROM User]);
 		
 		Map<String, Set<AccountTeamMember>> mapOperationNAccountTeam = determineDMLOperation(currentAccountTeam, ruleDerivedAccountTeam);
 		
 		if(mapOperationNAccountTeam != NULL && mapOperationNAccountTeam.size() > 0)
 		{
-			//*** DELETE
+			//*** DELETE Account Team Members
 			// since we cannot replace user on existing ATM record so delete the ones which supposed to be updated
 			if(mapOperationNAccountTeam.containsKey('delete'))
 			{
 				Set<AccountTeamMember> deleteAccountTeam = mapOperationNAccountTeam.get('delete');
-				
-				if(deleteAccountTeam != NULL && deleteAccountTeam.size() > 0)
+				List<AccountTeamMember> lstAccountTeamMembersToDelete = new List<AccountTeamMember>(deleteAccountTeam);
+				if(lstAccountTeamMembersToDelete != NULL && lstAccountTeamMembersToDelete.size() > 0)
 				{
-					Database.DeleteResult[] memberslst = Database.delete(new List<AccountTeamMember>(deleteAccountTeam), false);
+					Database.DeleteResult[] deleteResults = Database.delete(lstAccountTeamMembersToDelete, false);
 					
-					//**** DML error handling ****//
+					//**** DML results handling ****//
+					
+					for(integer i = 0; i < deleteResults.size(); i++)
+					{
+						if(deleteResults[i].isSuccess())
+						{
+							assignOwnerNDTN(lstAccountTeamMembersToDelete[i], true);	
+						}	
+					}
 				}
 			}
 			
-			//*** INSERT
+			//*** INSERT Account Team Members
 			// insert ATMs supposed to be there
-			if(mapOperationNAccountTeam.containsKey('insert')){
+			if(mapOperationNAccountTeam.containsKey('insert'))
+			{
 				Set<AccountTeamMember> insertAccountTeam = mapOperationNAccountTeam.get('insert');
-				
-				if(insertAccountTeam != NULL && insertAccountTeam.size() > 0)
+				List<AccountTeamMember> lstAccountTeamMembersToInsert = new List<AccountTeamMember>(insertAccountTeam);
+				if(lstAccountTeamMembersToInsert != NULL && lstAccountTeamMembersToInsert.size() > 0)
 				{
-					Database.SaveResult[] memberslst = Database.insert(new List<AccountTeamMember>(insertAccountTeam), false);
+					Database.SaveResult[] insertResults = Database.insert(lstAccountTeamMembersToInsert, false);
 					
-					//**** DML error handling ****//
+					//**** DML results handling ****//
+					
+					for(integer i = 0; i < insertResults.size(); i++)
+					{
+						if(insertResults[i].isSuccess())
+						{
+							assignOwnerNDTN(lstAccountTeamMembersToInsert[i], false);	
+						}	
+					}
 				}
-			}  
+			}
+			System.debug('###: ' + mapAccountIdNAccountToUpdate);
+			//*** UPDATE Accounts with Owner & DTN fields
+			if(mapAccountIdNAccountToUpdate.size() > 0)
+			{
+				Database.SaveResult[] insertResults = Database.update(mapAccountIdNAccountToUpdate.values(), false);
+				
+				//**** DML results handling ****//
+			}	
 		}
 		
 		return lstMonitoringLog;
 	}
 	
-	/*
-	// *** delete existing & re-create Account Team Members
-	public static List<Monitoring_Log__c> deleteExistingNRecreateAccountTeam(Map<Id, List<AccountTeamMember>> currentAccountTeam, Map<Id, List<AccountTeamMember>> ruleDerivedAccountTeam)
-	{
-		List<Monitoring_Log__c> lstMonitoringLog;
-		
-		Map<String, List<AccountTeamMember>> mapOperationNAccountTeamMembers = determineDMLOperation(currentAccountTeam, ruleDerivedAccountTeam);
-		
-		if(mapOperationNAccountTeamMembers != NULL && mapOperationNAccountTeamMembers.size() > 0)
-		{
-			//*** DELETE
-			// delete the existing ones which doesn't matches with derived Account Team Roles
-			if(mapOperationNAccountTeamMembers.containsKey('delete'))
-			{
-				List<AccountTeamMember> deleteAccountTeam = mapOperationNAccountTeamMembers.get('delete');
-				
-				if(deleteAccountTeam != NULL && deleteAccountTeam.size() > 0)
-				{
-					Database.DeleteResult[] memberslst = Database.delete(deleteAccountTeam, false);
-					
-					//**** DML error handling **** //
-				}
-			}
-			
-			//*** INSERT
-			// insert ATMs supposed to be there
-			if(mapOperationNAccountTeamMembers.containsKey('insert')){
-				List<AccountTeamMember> insertAccountTeam = mapOperationNAccountTeamMembers.get('insert');
-				
-				if(insertAccountTeam != NULL && insertAccountTeam.size() > 0)
-				{
-					Database.SaveResult[] memberslst = Database.insert(insertAccountTeam, false);
-					
-					//**** DML error handling **** //
-				}
-			}  
-		}
-		
-		return lstMonitoringLog;
-	}
-	*/
 	// *** compare existing & to-be account team and determine DML operations
 	public static Map<String, Set<AccountTeamMember>> determineDMLOperation(Map<Id, List<AccountTeamMember>> currentAccountTeam, Map<Id, List<AccountTeamMember>> ruleDerivedAccountTeam)
 	{
@@ -186,8 +170,7 @@ public with sharing class ATA_PostAccountTeam
 						leftOverATMs.addAll(currentAccountTeam.get(accountId));
 						mapOperationNAccountTeamMembers.put('delete', leftOverATMs);
 						
-						logMessage = logMessage + '\n Deleted the role: ' + objCurrentATM.TeamMemberRole + ' with the user: ' + mapUserIdAndUser.get(objCurrentATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objCurrentATM.UserId).DTN__c + ')';
-						
+						logMessage = logMessage + '\n Deleted the role: ' + objCurrentATM.TeamMemberRole + ' with the user: ' + mapUserIdAndUser.get(objCurrentATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objCurrentATM.UserId).DTN__c + ')'; 
 					} // end for
 				}
 				lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_PostAccountTeam', 'determineDMLOperation', logMessage, String.valueOf(accountId), ATA_Constants.ATA_TEAM_MEMBER_CREATED));
@@ -217,5 +200,37 @@ public with sharing class ATA_PostAccountTeam
 		System.debug('### : ' + mapOperationNAccountTeamMembers);
 		
 		return mapOperationNAccountTeamMembers;
+	}
+	
+	// *** assign owner and DTN fields on Account
+	public static void assignOwnerNDTN(AccountTeamMember atmRecord, Boolean isDeleted)
+	{
+		if(atmRecord != NULL && atmRecord.TeamMemberRole != NULL && atmRecord.AccountId != NULL)
+		{
+			for(ATA_Role_to_DTN_Field_Mapping__c roleToDTNMapping : lstRoleToDTNFieldMapping)
+			{
+				if(atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c)
+				{
+					String DTN = mapUserIdAndUser.get(atmRecord.UserId).DTN__c;
+					if(isDeleted){
+						DTN = '';
+					}
+					if(mapAccountIdNAccountToUpdate.containsKey(atmRecord.AccountId))
+					{
+						mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).put(roleToDTNMapping.Account_DTN_Field_API_Name__c, DTN);
+					}else{
+						Account objAccount = new Account(Id = atmRecord.AccountId);
+						objAccount.put(roleToDTNMapping.Account_DTN_Field_API_Name__c, DTN);
+						mapAccountIdNAccountToUpdate.put(atmRecord.AccountId, objAccount);
+					}
+					
+					//Change Account owner
+		            if(String.isNotBlank(ATA_Utility.ATACustomSettings().Default_Account_UserId__c)){
+						mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).put('OwnerId', ATA_Utility.ATACustomSettings().Default_Account_UserId__c);
+		            }
+					
+				}	
+			}	
+		}
 	} 
 }

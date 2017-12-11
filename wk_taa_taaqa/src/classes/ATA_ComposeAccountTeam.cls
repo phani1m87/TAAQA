@@ -110,7 +110,6 @@ public with sharing class ATA_ComposeAccountTeam
 	                    {
 	                        isChanged = true;               // set if there is a change
 	                        ruleType = rule.Rule_Type__c;   // capture ruleType
-	                        logMessage = logMessage + '\n Field Name: ' + rule.Field_API_Name__c + ' Old Value: ' + String.valueOf(oldMapAccounts.get(accountId).get(rule.Field_API_Name__c)) + ' New Value: ' + String.valueOf(newMapAccounts.get(accountId).get(rule.Field_API_Name__c));
 	                        break;                          // break the loop since we know there is a change
 	                    } // end if
 	                } // end for
@@ -136,12 +135,16 @@ public with sharing class ATA_ComposeAccountTeam
 	                        //{
 		                        // collect the fieldAPINames & fieldValues
 		                        newAccountRule.fieldApiName_fieldValue_Map.put(fieldAPIName, String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName)));
-		                        if(isNew){
+		                        if(isNew || String.valueOf(oldMapAccounts.get(accountId).get(fieldAPIName)) == String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName))){
 		                        	logMessage = logMessage + '\n Field Name: ' + fieldAPIName + ' Value: ' + String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName));
-		                        }
+		                        }else{
+		                        	if(String.valueOf(oldMapAccounts.get(accountId).get(fieldAPIName)) != String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName))){
+		                        		logMessage = logMessage + '\n Field Name: ' + fieldAPIName + ' Old Value: ' + String.valueOf(oldMapAccounts.get(accountId).get(fieldAPIName)) + ' New Value: ' + String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName));
+		                        	} // end if
+		                        } // end if then else
 		                        if(newMapAccounts.get(accountId).get(fieldAPIName) != NULL){
 		                        	setValidValues.add(String.valueOf(newMapAccounts.get(accountId).get(fieldAPIName)));
-		                        }
+		                        } // end if
 	                        //}
 	                    } // end for
 	                    
@@ -158,11 +161,9 @@ public with sharing class ATA_ComposeAccountTeam
 	                    } // end if
 	                } // end for
 	                System.debug('###: ' + lstMonitoringLog);
-	                String logCode = ATA_Constants.ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE;
-	                if(isNew){
-	                	logCode = ATA_Constants.ATA_NEWACCOUNT_DATA_CONSIDEREDFORATA_CODE;
+	                if(String.isNotBlank(logMessage)){
+	                	lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'ATA_ComposeAccountTeam', logMessage, String.valueOf(accountId), ATA_Constants.ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE));
 	                }
-	                lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'ATA_ComposeAccountTeam', logMessage, String.valueOf(accountId), logCode));
 	            } // end if
 	        } // end for
         }
@@ -180,7 +181,7 @@ public with sharing class ATA_ComposeAccountTeam
         {
         	// **** get the valid assignment type (internally gets ATA_Rule__c, computes the assignment types and returns)
 			validAssignmnentTypesMap = getAssignmentTypes(mapAccountIdNListATA_AccountRuleValue);
-        }
+        } // end if
         
         // STOP since some abrupt condition happened in earlier stage
         if(validAssignmnentTypesMap != NULL && !terminateAccountTeamAssignment)
@@ -188,11 +189,11 @@ public with sharing class ATA_ComposeAccountTeam
         	
         	if(ATA_Utility.ATACustomSettings() != NULL && !String.isBlank(ATA_Utility.ATACustomSettings().Terminate_Account_Team_Role_Names__c)){
         		setMandatoryRole = (Set<String>)System.JSON.deserialize(ATA_Utility.ATACustomSettings().Terminate_Account_Team_Role_Names__c, Set<String>.class);
-        	}
+        	} // end if
         	
         	// **** get the map of AccountId and associated rule derived Account Teams (internally computes role and then forms the AccountTeamMember based on Geo / Non-geo mechanism)
 			accountNRuleDerivedAccountTeamMap = getListAccountTeamMembers(validAssignmnentTypesMap);
-        }
+        } // end if
         return accountNRuleDerivedAccountTeamMap;
     }
     
@@ -289,15 +290,12 @@ public with sharing class ATA_ComposeAccountTeam
 	                        validAssignmnentTypesMap.put(accountId, setAssignmentTypes);
 	                    }else{
 	                        validAssignmnentTypesMap.put(accountId, new Set<String>{String.valueOf(objAssignmentType.get('Assignment_Type__c'))});
-	                    }
+	                    } // end if then else
 	                    validAssignmentTypeSet.add(String.valueOf(objAssignmentType.get('Assignment_Type__c')));            
-	                }
-                }/*
-                else{
-                	lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'ATA_ComposeAccountTeam', ATA_Constants.ATA_DATA_MISSING_ASSIGNMENTTYPE_MESSAGE, String.valueOf(accountId), ATA_Constants.ATA_DATA_MISSING_ASSIGNMENTTYPE_CODE));
-                }*/
-            }
-        } 
+	                } // end for
+                } // end if
+            } // end for
+        } // end for
         System.debug('## : ' + validAssignmnentTypesMap);
         System.debug('## : ' + validAssignmentTypeSet);
         return validAssignmnentTypesMap;
@@ -355,7 +353,7 @@ public with sharing class ATA_ComposeAccountTeam
                 if(!(accountGeographicRoles.containsKey(accountId)) && !(accountNongeographicRoles.containsKey(accountId)))
                 {
 					lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'getListAccountTeamMembers', ATA_Constants.ATA_DATA_MISSING_ROLES_MESSAGE, String.valueOf(accountId), ATA_Constants.ATA_DATA_MISSING_ROLES_CODE));
-                }
+                } // end if
                 
             } // end for
             
@@ -388,6 +386,7 @@ public with sharing class ATA_ComposeAccountTeam
         {
             for(Id accountId : accountRoles.keySet()) // loop through accounts to compute the AccountTeamMembers
             {
+                String logMessage = '';
                 for(ATA_Role_Assignment__c objATARoleAssignment : accountRoles.get(accountId)) // loop through Role Assignments for the Account
                 {
                     AccountTeamMember objATM = prepareAccountTeamMemberRecord(objATARoleAssignment.Role_Name__c, (Account)newMapAccounts.get(accountId), objATARoleAssignment.Assignment_Mechanism__c, objATARoleAssignment.Account_FieldName_Nongeographic__c);
@@ -402,14 +401,23 @@ public with sharing class ATA_ComposeAccountTeam
                         }else{
                             accountNAccountTeamMembersMap.put(accountId, new List<AccountTeamMember>{objATM});
                         } //end if then else 
-                    }else if(terminateAccountTeamAssignment){
-                    	// STOP since engine could not locate the user for mandatory role
-                    	accountNAccountTeamMembersMap.remove(accountId);
-                    	// set the flag to false so it should not affect other accounts
-                    	terminateAccountTeamAssignment = false;
-                    	break;
+                    }else{
+						logMessage = logMessage + ATA_Constants.ATA_WARNING_MISSING_DRIVERDATA_MESSAGE + objATARoleAssignment.Role_Name__c + ' ' + objATARoleAssignment.Assignment_Mechanism__c + '\n';                    
+                    	if(terminateAccountTeamAssignment)
+                    	{
+	                    	// STOP since engine could not locate the user for mandatory role
+	                    	accountNAccountTeamMembersMap.remove(accountId);
+	                    	// set the flag to false so it should not affect other accounts
+	                    	terminateAccountTeamAssignment = false;
+	                    	break;
+                    	}	
                     } // end if then else
                 } // end for
+                
+                if(String.isNotBlank(logMessage))
+                {
+                	lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', logMessage, String.valueOf(accountId), ATA_Constants.ATA_WARNING_MISSING_DRIVERDATA_CODE));
+                }
             } // end for
             
             return accountNAccountTeamMembersMap;
@@ -433,14 +441,20 @@ public with sharing class ATA_ComposeAccountTeam
 	            //*** Geographic PostalCode mechanism
 	            if(mechanism == 'Geographic PostalCode')
 	            {
+	                String postalCode = objAccount.BillingPostalCode;
+	                if(!String.isBlank(postalCode) && postalCode.length() > 5)
+	                {
+	                	postalCode = postalCode.subString(0,5);
+	                }
+	                
 	                lstGeographicAssignment = [SELECT Id, DTN__c 
 	                                            FROM ATA_Geographic_Assignment__c
 	                                            WHERE Role_Name__c =: roleName
-	                                            AND PostalCode__c =: objAccount.BillingPostalCode
+	                                            AND PostalCode__c =: postalCode
 	                                            AND Role_Name__c =: roleName];
 	            	
-	            	logMessage = 'Postal Code = ' + objAccount.BillingPostalCode;
-	            }
+	            	logMessage = 'Postal Code = ' + postalCode;
+	            } // end if
 	            
 	            //*** Geographic County mechanism 
 	            if(mechanism == 'Geographic County')
@@ -452,7 +466,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                                            AND Role_Name__c =: roleName];
 	            
 	            	logMessage = 'County = ' + objAccount.Billing_County__c;
-	            }
+	            } // end if
 	            
 	            //*** Geographic State mechanism
 	            if(mechanism == 'Geographic State')
@@ -464,7 +478,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                                            AND Role_Name__c =: roleName];
 	                
 	            	logMessage = 'State = ' + objAccount.BillingState;
-	            }
+	            } // end if
 	            
 	            //*** Geographic Region mechanism
 	            if(mechanism == 'Geographic Region')
@@ -477,7 +491,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                                            AND State__c =: objAccount.BillingState];
 	                */
 	            
-	            }
+	            } // end if
 	            
 	            //*** Geographic Country mechanism
 	            if(mechanism == 'Geographic Country')
@@ -489,13 +503,13 @@ public with sharing class ATA_ComposeAccountTeam
 	                                            AND Role_Name__c =: roleName];
 	                
 	            	logMessage = 'Country = ' + objAccount.BillingCountry;
-	            }
+	            } // end if
 	            
 	            if(lstGeographicAssignment != NULL && lstGeographicAssignment.size() > 0){
 	                dtn = lstGeographicAssignment[0].DTN__c;
-	            }else{
+	            }/*else{
                 	lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_MESSAGE + roleName + ' for ' + logMessage, String.valueOf(objAccount.Id), ATA_Constants.ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_CODE));
-                } 
+                }*/ // end if then else 
             }else{
 	            //*** Non-geographic mechanism
                 List<ATA_Non_Geographic_Assignment__c> lstNonGeographicAssignment = [SELECT Id, DTN__c 
@@ -508,8 +522,8 @@ public with sharing class ATA_ComposeAccountTeam
                 }else{
                 	lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE + ' ' + nonGeoFieldName + ' = ' + String.valueOf(objAccount.get(nonGeoFieldName)), String.valueOf(objAccount.Id), ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE));
                 	terminateAccountTeamAssignment = true;
-                }
-            }
+                } // end if then else
+            } // end if then else
             
             if(!String.isBlank(dtn))
             {
@@ -521,12 +535,12 @@ public with sharing class ATA_ComposeAccountTeam
 	            		terminateAccountTeamAssignment = true;
 	            	}else{
 	            		lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_WARNING_MISSINGUSER_ROLE_MESSAGE + ' Role Name: ' + roleName + ' DTN: ' + dtn, String.valueOf(objAccount.Id), ATA_Constants.ATA_WARNING_MISSINGUSER_ROLE_CODE));
-	            	}
+	            	} // end if then else
 	            }else{
 		            //*** if we get the DTN and its valid then prepare AccountTeamMember
 	                AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = roleName, UserId = mapUserDTNAndUser.get(dtn).Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
 	                return objATM;                  
-	            } 
+	            } // end of then else 
             }  
         }
         return null;
@@ -540,8 +554,8 @@ public with sharing class ATA_ComposeAccountTeam
     	{
     		if(setMandatoryRole.contains(roleName)){
     			isRoleMandatory = true;
-    		}	
-    	}
+    		} // end if	
+    	} // end if
     	
     	return isRoleMandatory;
     }

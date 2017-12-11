@@ -4235,6 +4235,29 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <label>3 - Hot &amp; Warm Leads Not Started</label>
     </listViews>
     <listViews>
+        <fullName>Last_3_days_Leads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.CITY</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Market_Segment__c</columns>
+        <columns>Market_Sub_Segment__c</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <columns>LEAD.LAST_ACTIVITY</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:3</value>
+        </filters>
+        <label>Last 3 days Leads</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>Learning_Olympics_Seminars_cash_item_b</fullName>
         <columns>LEAD.STATUS</columns>
         <columns>LEAD.FIRST_NAME</columns>

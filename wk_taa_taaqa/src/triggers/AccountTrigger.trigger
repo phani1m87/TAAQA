@@ -95,9 +95,18 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
     // **** Trigger ATA 2.0
     else if(ATA_Utility.ATACustomSettings().IsTriggerOff__c)
     {
+    	if(trigger.isBefore)
+    	{
+            //**** populate segment & sub-segment based on SIC Code
+            // this is required for the accounts coming from data.com
+            AccountTriggerHandler handler = new AccountTriggerHandler();
+            handler.onBeforeInsert(trigger.new);
+    	}
+    	
     	if(trigger.isAfter && CheckRecursive.runOnce())
     	{
-    		ATA_AccountTriggerHandler.generateAccountTeam(trigger.newMap,trigger.oldMap);
+    		// generate account team and log
+    		ATA_AccountTriggerHandler.generateAccountTeam(trigger.newMap, trigger.oldMap);
     	}
     }
 }

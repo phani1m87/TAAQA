@@ -36,8 +36,8 @@ public with sharing class ATA_Constants
 	public static final String ATA_WARNING_MISSINGUSER_ROLE_CODE             		= 'ATA_WARNING_MISSINGUSER_ROLE';
 	public static final String ATA_WARNING_MISSINGUSER_ROLE_MESSAGE            		= 'Could not find user for the role.';
 	
-	public static final String ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_CODE     		= 'ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE';
-	public static final String ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_MESSAGE  		= 'Could not find entry into ATA_Geographic_Assignment__c table for role: ';
+	public static final String ATA_WARNING_MISSING_DRIVERDATA_CODE     				= 'ATA_WARNING_MISSING_DRIVERDATA';
+	public static final String ATA_WARNING_MISSING_DRIVERDATA_MESSAGE  				= 'No entry in Assignment table for the role: ';
 	
 	public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE 		= 'ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT';
     public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE 	= 'Not creating Account Team: No matching data in ATA_Non_Geographic_Assignment__c table, attempted match was ';
@@ -48,9 +48,7 @@ public with sharing class ATA_Constants
     public static final String ATA_DATA_MISSING_NAMEMATCH_CODE                 		= 'ATA_DATA_MISSING_NAMEMATCH';
     public static final String ATA_DATA_MISSING_NAMEMATCH_MESSAGE                 	= 'Account name is missing in ATA_Non_Geographic_Assignment__c for Named Account assignment.';
     
-    public static final String ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE	               	= 'ATA_ACCOUNT_DATA_CHANGEDETECTED';
-    
-    public static final String ATA_NEWACCOUNT_DATA_CONSIDEREDFORATA_CODE	        = 'ATA_NEWACCOUNT_DATA_CONSIDERED_FOR_ATA';
+    public static final String ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE	               	= 'ATA_ACCOUNT_DATA_CONSIDERED_FOR_ASSIGNMENT';
     
     public static final String ATA_ZIPCODE_CHANGED                          		= 'Zipcode is changed';
     public static final String ATA_MARKET_SEGMENT_CHANGED                   		= 'Market segment is changed';
