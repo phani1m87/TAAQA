@@ -74,6 +74,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
+            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -103,6 +104,11 @@
                 <value>
                     <fullName>ATA Category Match</fullName>
                     <default>false</default>
+                </value>
+                <value>
+                    <fullName>Geographic_PostalCode</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
                 </value>
             </valueSetDefinition>
         </valueSet>
