@@ -18,12 +18,14 @@ global class ATA_AccountTeamUpdateBatch implements Database.Batchable<sObject>
     	this.startLog = startLog;
     }
     
+    // start method
     global Database.queryLocator start(Database.BatchableContext bc)
     {
 		// query locator to find affected accounts
 		return Database.getQueryLocator(QueryServiceClass.queryToFindAffectedAccounts);	
     }
     
+    // execute method
 	global void execute(Database.BatchableContext bc, List<sObject> scope)
 	{
      	// set apex job id to log into Monitoring Log
@@ -33,6 +35,7 @@ global class ATA_AccountTeamUpdateBatch implements Database.Batchable<sObject>
      	ATA_AccountTeamHandler.generateAccountTeam((List<Account>)scope, isDeleteExistingNRecreate);
 	}
 	
+	// finish method
 	global void finish(Database.BatchableContext bc)
 	{
 		List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
@@ -45,10 +48,16 @@ global class ATA_AccountTeamUpdateBatch implements Database.Batchable<sObject>
         String logMessage = 'The batch Apex job processed ' + a.TotalJobItems + ' batches with ' + a.NumberOfErrors + ' failures.' +'\n'; 
         if(a.ExtendedStatus != NULL){
         	logMessage = logMessage + ' Status : ' + a.ExtendedStatus;
+        }
+        
+        String finishLogCode = ATA_Constants.ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_SUCCESS_CODE;
+        // check if there are any errors then flip the log code
+        if(a.NumberOfErrors > 0){
+        	finishLogCode = ATA_Constants.ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_FAILURE_CODE;
         }					
         
         // prepare finish monitoring log
-        Monitoring_Log__c finishLog = ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_AccountTeamUpdateBatch', 'finish', logMessage, null, ATA_Constants.ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_CODE);
+        Monitoring_Log__c finishLog = ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_AccountTeamUpdateBatch', 'finish', logMessage, null, finishLogCode);
         finishLog.Apex_Job_ID__c = a.Id;
         
         // set apex job id to the start log

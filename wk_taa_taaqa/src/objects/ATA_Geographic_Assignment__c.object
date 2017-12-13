@@ -209,6 +209,23 @@ Batch program will pick all DTNs that are marked as updated and recompute accoun
         <label>All</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>X80503</fullName>
+        <columns>Role_Name__c</columns>
+        <columns>DTN__c</columns>
+        <columns>PostalCode__c</columns>
+        <columns>Geographic_Assignment_Type__c</columns>
+        <columns>External_ID__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PostalCode__c</field>
+            <operation>equals</operation>
+            <value>80503</value>
+        </filters>
+        <label>80503</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>ATAGA-{00000}</displayFormat>
         <label>ATA Geographic Assignment Name</label>

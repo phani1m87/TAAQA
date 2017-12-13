@@ -132,6 +132,20 @@
         <type>Lookup</type>
     </fields>
     <label>Custodial</label>
+    <listViews>
+        <fullName>ALL</fullName>
+        <columns>NAME</columns>
+        <columns>DTN_Current_Rep__c</columns>
+        <columns>DTN_Custodial_Rep__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>ALL</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>C-{0000}</displayFormat>
         <label>Custodial Name</label>

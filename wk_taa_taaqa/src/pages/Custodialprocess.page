@@ -54,7 +54,7 @@
                 <tr>
                    <td style="padding-left: 300px;">
                        <center>
-                           <apex:commandButton value="Search User" action="{!SearchUserDetial}"/>
+                           <apex:commandButton value="Search User" action="{!searchUserDetail}"/>
                        </center>
                    </td>
                 </tr>

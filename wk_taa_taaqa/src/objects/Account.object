@@ -2090,7 +2090,9 @@ Full Service: significant accounting and audit work, and tax compliance and advi
     <fields>
         <fullName>Corp_Software_Retention_Owner__c</fullName>
         <externalId>false</externalId>
-        <formula>&quot;Corporate Software&quot;</formula>
+        <formula>IF( Named_Account__c , &quot;&quot;,
+	IF( Corporate_Segment__c , &quot;Corporate Software&quot;, &quot;&quot;)
+)</formula>
         <label>Corp Software Retention Owner</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2136,7 +2138,9 @@ Full Service: significant accounting and audit work, and tax compliance and advi
     <fields>
         <fullName>Corporate_Software_New_Sales__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Corporate_Segment__c , &quot;Corporate Software&quot;, &quot;&quot;)</formula>
+        <formula>IF( Named_Account__c , &quot;&quot;,
+	IF( Corporate_Segment__c , &quot;Corporate Software&quot;, &quot;&quot;)
+)</formula>
         <label>Corporate Software New Sales</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -6572,7 +6576,9 @@ OR(
     <fields>
         <fullName>PFX_Axcess_Retention_Owner__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( PFX_Axcess_Customer__c ,&quot;Software Retention&quot;,&quot;&quot;)</formula>
+        <formula>IF( Named_Account__c ,&quot;&quot;,
+	IF( PFX_Axcess_Customer__c ,&quot;Software Retention&quot;,&quot;&quot;)
+)</formula>
         <label>PFX/Axcess Retention Owner</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -9130,7 +9136,9 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
 	),
 	IF( Mid_Market_Corporate__c , &quot;Corporate Direct&quot;,
 		IF( Mid_Market_Other_Verticals__c  , &quot;Mid-Market Other Verticals&quot;,
-			IF( ISC_Account__c , &quot;Small Firm New-to-New&quot;, &quot;Mid-Market Professional&quot; )
+			IF( ISC_Account__c , &quot;Small Firm New-to-New&quot;,  
+				IF(ISPICKVAL( Market_Segment__c , &quot;Accounting Firms&quot;),&quot;Mid-Market Professional&quot;,&quot;&quot;)
+			)
 		)
 	)
 )</formula>
