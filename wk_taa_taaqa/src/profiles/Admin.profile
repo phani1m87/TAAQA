@@ -186,6 +186,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ATA_AccountTeamUpdateBatch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ATA_AccountTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -203,6 +207,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ATA_LogUtil</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATA_ManageBatchAccountTeamUpdates</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1481,6 +1489,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ATA_Geographic_Assignment__c.Geographic_Assignment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ATA_Geographic_Assignment__c.IsUpdated__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

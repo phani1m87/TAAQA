@@ -50,6 +50,9 @@ public with sharing class ATA_Constants
     
     public static final String ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE	               	= 'ATA_ACCOUNT_DATA_CONSIDERED_FOR_ASSIGNMENT';
     
+   	public static final String ATA_ACCOUNTTEAM_UPDATEBATCH_START_CODE	            = 'ATA_ACCOUNTTEAM_UPDATEBATCH_START';
+   	public static final String ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_CODE	            = 'ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH';
+    
     public static final String ATA_ZIPCODE_CHANGED                          		= 'Zipcode is changed';
     public static final String ATA_MARKET_SEGMENT_CHANGED                   		= 'Market segment is changed';
     public static final String ATA_MARKET_SUB_SEGMENT_CHANGED               		= 'Market sub-segment is changed';

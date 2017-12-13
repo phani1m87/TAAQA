@@ -915,6 +915,8 @@ public with sharing class TAA_ServiceOverviewController
 	    	}
 	    	totalTime = System.now().getTime() - startTime;
 	        System.debug('Round Trip Time Required (to IIB) : ' + totalTime);
+	        System.debug('Response : ' + response);
+	        
 	        if(response != NULL)
 	        {
 	        	if(response != NULL && response.createCase != NULL && !String.isBlank(response.createCase.sfdcCaseUrl))
@@ -955,6 +957,8 @@ public with sharing class TAA_ServiceOverviewController
 	        			}else if(response.errorMessages.ErrorMessage.customErrorMessageCode == WK_Constants.SVC_INTERNAL_SERVER_ERRORCODE){
 	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, WK_Constants.SVC_INTERNAL_SERVER_ERROR_MESSAGE));
 	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, response.errorMessages.ErrorMessage.customErrorMessageDescription));	
+	        			}else{
+	        				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, response.errorMessages.ErrorMessage.customErrorMessageDescription));
 	        			}
 	        			
 	        		}else if(response.errorMessages.ErrorMessage.errorMessageCode != NULL){

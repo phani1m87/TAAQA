@@ -7,7 +7,7 @@ public with sharing class ATA_ComposeAccountTeam
 {
     // ***** contains the logic to compute the Account Team for given Accounts
     
-    static Map<Id, List<ATA_AccountRuleValue>> mapAccountIdNListATA_AccountRuleValue = new Map<Id, List<ATA_AccountRuleValue>>();
+    static Map<Id, List<ATA_AccountRuleValue>> mapAccountIdNListATA_AccountRuleValue;
     static Map<String, User> mapUserDTNAndUser = new Map<String, User>();
     static Map<Id, sObject> newMapAccounts = new Map<Id, Account>();
     static Map<Id, Account> oldMapAccounts = new Map<Id, Account>();
@@ -26,6 +26,7 @@ public with sharing class ATA_ComposeAccountTeam
     {
         String accountFieldAPINames = '';
         Monitoring_Log__c objLog;
+        mapAccountIdNListATA_AccountRuleValue = new Map<Id, List<ATA_AccountRuleValue>>();
 		Set<String> accountFields = Schema.SObjectType.Account.fields.getMap().keySet();
 		
         // get list of valid users
@@ -402,7 +403,7 @@ public with sharing class ATA_ComposeAccountTeam
                             accountNAccountTeamMembersMap.put(accountId, new List<AccountTeamMember>{objATM});
                         } //end if then else 
                     }else{
-						logMessage = logMessage + ATA_Constants.ATA_WARNING_MISSING_DRIVERDATA_MESSAGE + objATARoleAssignment.Role_Name__c + ' ' + objATARoleAssignment.Assignment_Mechanism__c + '\n';                    
+						logMessage = logMessage + ATA_Constants.ATA_WARNING_MISSING_DRIVERDATA_MESSAGE + objATARoleAssignment.Role_Name__c + ' for ' + objATARoleAssignment.Assignment_Mechanism__c + '\n';                    
                     	if(terminateAccountTeamAssignment)
                     	{
 	                    	// STOP since engine could not locate the user for mandatory role
@@ -450,8 +451,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                lstGeographicAssignment = [SELECT Id, DTN__c 
 	                                            FROM ATA_Geographic_Assignment__c
 	                                            WHERE Role_Name__c =: roleName
-	                                            AND PostalCode__c =: postalCode
-	                                            AND Role_Name__c =: roleName];
+	                                            AND PostalCode__c =: postalCode];
 	            	
 	            	logMessage = 'Postal Code = ' + postalCode;
 	            } // end if
@@ -462,8 +462,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                lstGeographicAssignment = [SELECT Id, DTN__c 
 	                                            FROM ATA_Geographic_Assignment__c
 	                                            WHERE Role_Name__c =: roleName
-	                                            AND County__c =: objAccount.Billing_County__c
-	                                            AND Role_Name__c =: roleName];
+	                                            AND County__c =: objAccount.Billing_County__c];
 	            
 	            	logMessage = 'County = ' + objAccount.Billing_County__c;
 	            } // end if
@@ -474,8 +473,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                lstGeographicAssignment = [SELECT Id, DTN__c 
 	                                            FROM ATA_Geographic_Assignment__c
 	                                            WHERE Role_Name__c =: roleName
-	                                            AND State__c =: objAccount.BillingState
-	                                            AND Role_Name__c =: roleName];
+	                                            AND State__c =: objAccount.BillingState];
 	                
 	            	logMessage = 'State = ' + objAccount.BillingState;
 	            } // end if
@@ -499,8 +497,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                lstGeographicAssignment = [SELECT Id, DTN__c 
 	                                            FROM ATA_Geographic_Assignment__c
 	                                            WHERE Role_Name__c =: roleName
-	                                            AND Country__c =: objAccount.BillingCountry
-	                                            AND Role_Name__c =: roleName];
+	                                            AND Country__c =: objAccount.BillingCountry];
 	                
 	            	logMessage = 'Country = ' + objAccount.BillingCountry;
 	            } // end if

@@ -57,7 +57,23 @@ public with sharing class QueryServiceClass {
                                                 ' '+
                                                 'Where Exclude_Account_Automation__c=false and '+
                                                 '(IsMassUpdated__c=true';
-
+    
+    /*
+    @   Variable: queryToFindAffectedAccounts is String varible.
+    @   It is used in ATA_AccountTeamUpdateBatch to query the data for start 
+    */
+    public static String queryToFindAffectedAccounts = 'SELECT '+
+			                                                'Id,'+
+			                                                'Name,'+
+			                                                'BillingPostalCode,'+
+			                                                'RecordTypeId,'+
+			                                                'Exclude_Account_Automation__c'+
+			                                                ' '+
+			                                                'FROM Account'+
+			                                                ' '+
+			                                                'WHERE Exclude_Account_Automation__c = false AND IsMassUpdated__c = true';
+    
+    
     public static String dirtyDTNAccounts(set<String>setDirtyZipcodeDTN){
         return 'Select '+
             'BillingPostalCode,'+
@@ -124,7 +140,7 @@ public with sharing class QueryServiceClass {
                          +'\''+'CITY__C'+'\''+','+'\''+'STATE__C'+'\''+','+'\''+'CITY__C'+'\''+','+'\''+'SHIP_TO_ZIP_POSTAL_CODE__C'+'\''+','+'\''+'POSTALCODE__C'+'\''+','+'\''+'Country__c' +'\''+','+'\''+'Created'+'\''+')'+'limit 40000';
       }
 
-	public static String getReplicationMonitorLogQuery(){
-		return 'SELECT Id, ObjectID__c, PartnerNetworkRecord_StartDate__c FROM ReplicationMonitoringLog__c WHERE PartnerNetworkRecord_StartDate__c = NULL';
-	}
+    public static String getReplicationMonitorLogQuery(){
+        return 'SELECT Id, ObjectID__c, PartnerNetworkRecord_StartDate__c FROM ReplicationMonitoringLog__c WHERE PartnerNetworkRecord_StartDate__c = NULL';
+    }
 }

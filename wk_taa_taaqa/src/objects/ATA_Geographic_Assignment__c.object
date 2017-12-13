@@ -115,6 +115,17 @@ if (!isblank(Country__c), &apos;COUNTRY&apos;, NULL
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>IsUpdated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Mark TRUE when there is a change in DTN
+Batch program will pick all DTNs that are marked as updated and recompute account team, unmark this flag.</description>
+        <externalId>false</externalId>
+        <label>Is Updated</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Latitude__c</fullName>
         <externalId>false</externalId>
         <label>Latitude</label>

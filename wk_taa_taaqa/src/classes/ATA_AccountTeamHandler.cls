@@ -6,7 +6,9 @@
 global with sharing class ATA_AccountTeamHandler 
 {
 	//***** This class works as delegator for Account Team Automation functionality
-	public static List<Monitoring_Log__c> lstGlobalMonitoringLog = new List<Monitoring_Log__c>();
+	public static Set<Monitoring_Log__c> lstGlobalMonitoringLog = new Set<Monitoring_Log__c>();
+	
+	public static String apexJobId;
 	
 	public static void generateAccountTeam(Map<Id, Account> newMap, Map<Id, Account> oldMap, Boolean isDeleteExistingNRecreate)
 	{
@@ -67,10 +69,20 @@ global with sharing class ATA_AccountTeamHandler
 			}
 		}
 		
+		System.debug('###: ' + lstGlobalMonitoringLog);
+		
 		// DML: Monitoring Log 
 		if(lstGlobalMonitoringLog.size() > 0)
 		{
-			Database.SaveResult[] saveResults = Database.insert(lstGlobalMonitoringLog, false);
+			if(String.isNotBlank(apexJobId))
+			{
+				for(Monitoring_Log__c objLog : lstGlobalMonitoringLog)
+				{
+					objLog.Apex_Job_ID__c = apexJobId;
+				}	
+			}
+			
+			Database.SaveResult[] saveResults = Database.insert(new List<Monitoring_Log__c>(lstGlobalMonitoringLog), false);
 			
 			// **** DML error handling ***** //
 		}
@@ -80,6 +92,22 @@ global with sharing class ATA_AccountTeamHandler
 	webservice static void reCreateAccountTeamInteractive(String accountId)
 	{
 		Map<Id, Account> mapAccountIdNAccount = new Map<Id, Account>([SELECT Id, RecordTypeId, Exclude_Account_Automation__c FROM Account WHERE Id =: accountId]);
+		
+		// feed account back to the generateAccountTeam method
+		if(mapAccountIdNAccount != NULL && mapAccountIdNAccount.size() > 0){
+			generateAccountTeam(mapAccountIdNAccount, null, true);	
+		} // end if
+	} 
+	
+	// **** this method is called from batch (ATA_AccountTeamUpdateBatch)
+	public static void generateAccountTeam(List<Account> lstAffectedAccounts, Boolean isDeleteExistingNRecreate)
+	{
+		Map<Id, Account> mapAccountIdNAccount = new Map<Id, Account>();
+		
+		for(Account objAccount : lstAffectedAccounts)
+		{
+			mapAccountIdNAccount.put(objAccount.Id, objAccount);	
+		}
 		
 		// feed account back to the generateAccountTeam method
 		if(mapAccountIdNAccount != NULL && mapAccountIdNAccount.size() > 0){

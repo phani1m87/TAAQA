@@ -72,7 +72,7 @@ public with sharing class ATA_PostAccountTeam
 			//*** UPDATE Accounts with Owner & DTN fields
 			if(mapAccountIdNAccountToUpdate.size() > 0)
 			{
-				Database.SaveResult[] insertResults = Database.update(mapAccountIdNAccountToUpdate.values(), false);
+				Database.SaveResult[] updateResults = Database.update(mapAccountIdNAccountToUpdate.values(), false);
 				
 				//**** DML results handling ****//
 			}	
@@ -88,7 +88,6 @@ public with sharing class ATA_PostAccountTeam
 		
 		mapOperationNAccountTeamMembers.put('insert', new Set<AccountTeamMember>());
 		mapOperationNAccountTeamMembers.put('delete', new Set<AccountTeamMember>());
-		
 		
 		integer i = 0;
 		
@@ -119,13 +118,6 @@ public with sharing class ATA_PostAccountTeam
 							break;
 						}else if(objDerivedATM.TeamMemberRole == objCurrentATM.TeamMemberRole && objDerivedATM.UserId != objCurrentATM.UserId){
 							// Role matches but user doesn't match so add it for update	
-							System.debug('### : 1.0 ' + objDerivedATM.TeamMemberRole);
-							System.debug('### : 1.1 ' + objCurrentATM.TeamMemberRole);
-							
-							System.debug('### : 1.2 ' + objDerivedATM.UserId);
-							System.debug('### : 1.3 ' + objCurrentATM.UserId);
-							System.debug('### : 1.4 ' + i);
-							//objDerivedATM.Id = objCurrentATM.Id;
 							Set<AccountTeamMember> alreadyAddedATMs = mapOperationNAccountTeamMembers.get('insert');
 							alreadyAddedATMs.add(objDerivedATM);
 							mapOperationNAccountTeamMembers.put('insert', alreadyAddedATMs);
@@ -143,7 +135,27 @@ public with sharing class ATA_PostAccountTeam
 																												+ ' to the new user: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')';
 							
 							break;
-						} // end if
+						}else if(objDerivedATM.TeamMemberRole != objCurrentATM.TeamMemberRole && objDerivedATM.UserId == objCurrentATM.UserId){
+							// Role matches but user doesn't match so add it for update	
+							Set<AccountTeamMember> alreadyAddedATMs = mapOperationNAccountTeamMembers.get('insert');
+							alreadyAddedATMs.add(objDerivedATM);
+							mapOperationNAccountTeamMembers.put('insert', alreadyAddedATMs);
+							
+							// since we cannot replace user on existing ATM so delete existing one and recreate new
+							Set<AccountTeamMember> leftOverATMs = mapOperationNAccountTeamMembers.get('delete');
+							leftOverATMs.add(objCurrentATM);
+							mapOperationNAccountTeamMembers.put('delete', leftOverATMs);
+							
+							currentAccountTeam.get(accountId).remove(i);
+							i++;
+							isConsiderd = true;
+							
+							logMessage = logMessage + '\n Change the role for the user: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')' 
+																												+ '	from the old role: ' + objCurrentATM.TeamMemberRole 
+																												+ ' to the new role: ' + objDerivedATM.TeamMemberRole;
+							
+							break;
+						} // end if then else
 						i++;
 					} // end for
 					
@@ -162,7 +174,8 @@ public with sharing class ATA_PostAccountTeam
 				} // end for
 				
 				// *** DELETE
-				if(isDeleteExistingNRecreate){
+				if(isDeleteExistingNRecreate)
+				{
 					// consider left over ATMs to add into delete operation element of the map				
 					for(AccountTeamMember objCurrentATM : currentAccountTeam.get(accountId))
 					{
@@ -172,7 +185,7 @@ public with sharing class ATA_PostAccountTeam
 						
 						logMessage = logMessage + '\n Deleted the role: ' + objCurrentATM.TeamMemberRole + ' with the user: ' + mapUserIdAndUser.get(objCurrentATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objCurrentATM.UserId).DTN__c + ')'; 
 					} // end for
-				}
+				} // end if
 				lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_PostAccountTeam', 'determineDMLOperation', logMessage, String.valueOf(accountId), ATA_Constants.ATA_TEAM_MEMBER_CREATED));
 			} //end for	
 		}else if(ruleDerivedAccountTeam != NULL){
@@ -192,7 +205,7 @@ public with sharing class ATA_PostAccountTeam
 				for(AccountTeamMember objDerivedATM : ruleDerivedAccountTeam.get(accountId))
 				{
 					logMessage = logMessage + '\n Added the role: ' + objDerivedATM.TeamMemberRole + ' with the user: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')';
-				}
+				} // end for
 				lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_PostAccountTeam', 'determineDMLOperation', logMessage, String.valueOf(accountId), ATA_Constants.ATA_TEAM_MEMBER_CREATED));
 			} //end for
 		} // end if then else		
@@ -209,12 +222,15 @@ public with sharing class ATA_PostAccountTeam
 		{
 			for(ATA_Role_to_DTN_Field_Mapping__c roleToDTNMapping : lstRoleToDTNFieldMapping)
 			{
-				if(atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c)
+				if(atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c) // match role
 				{
 					String DTN = mapUserIdAndUser.get(atmRecord.UserId).DTN__c;
+					// if team member is deleted then reset DTN to BLANK 
 					if(isDeleted){
 						DTN = '';
-					}
+					} // end if
+					
+					// assign DTN to field
 					if(mapAccountIdNAccountToUpdate.containsKey(atmRecord.AccountId))
 					{
 						mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).put(roleToDTNMapping.Account_DTN_Field_API_Name__c, DTN);
@@ -222,15 +238,17 @@ public with sharing class ATA_PostAccountTeam
 						Account objAccount = new Account(Id = atmRecord.AccountId);
 						objAccount.put(roleToDTNMapping.Account_DTN_Field_API_Name__c, DTN);
 						mapAccountIdNAccountToUpdate.put(atmRecord.AccountId, objAccount);
-					}
+					} // end if then else
 					
-					//Change Account owner
+					// Change Account Owner
 		            if(String.isNotBlank(ATA_Utility.ATACustomSettings().Default_Account_UserId__c)){
 						mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).put('OwnerId', ATA_Utility.ATACustomSettings().Default_Account_UserId__c);
-		            }
+		            } // end if
 					
-				}	
-			}	
-		}
+					// Set IsMassUpdated__c to FALSE so if it was TRUE by batch then this sets to FALSE
+					mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).put('IsMassUpdated__c', false);
+				} // end if	
+			} // end for	
+		} // end if
 	} 
 }
