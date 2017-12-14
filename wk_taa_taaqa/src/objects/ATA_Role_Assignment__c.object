@@ -56,7 +56,7 @@
         <fullName>Account_FieldName_Nongeographic__c</fullName>
         <description>Computes the Account Field API Name which drives the assignment for non-geographic assignment.</description>
         <externalId>false</externalId>
-        <formula>IF(TEXT(Assignment_Mechanism__c) == &apos;Name Match&apos;, &apos;Name&apos;, IF(TEXT(Assignment_Mechanism__c) == &apos;ATA Category Match&apos;, &apos;New_ATA_Category__c&apos;, &apos;&apos;))</formula>
+        <formula>IF(TEXT(Assignment_Mechanism__c) == &apos;Name Match&apos;, &apos;Name&apos;, IF(TEXT(Assignment_Mechanism__c) == &apos;Id Match&apos;, &apos;Id&apos;, &apos;&apos;))</formula>
         <inlineHelpText>Computes the Account Field API Name which drives the assignment for non-geographic assignment.</inlineHelpText>
         <label>Account FieldName Nongeographic</label>
         <required>false</required>
@@ -103,6 +103,10 @@
                 </value>
                 <value>
                     <fullName>ATA Category Match</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Id Match</fullName>
                     <default>false</default>
                 </value>
                 <value>

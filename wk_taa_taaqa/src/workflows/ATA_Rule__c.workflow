@@ -20,6 +20,6 @@
             <field>ATA_Rule__c.Name</field>
             <operation>notEqual</operation>
         </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

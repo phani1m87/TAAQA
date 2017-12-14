@@ -14,11 +14,13 @@ public with sharing class ATA_PostAccountTeam
     public static List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
     static Map<Id, User> mapUserIdAndUser = new Map<Id, User>();
     static Map<Id, Account> mapAccountIdNAccountToUpdate = new Map<Id, Account>();
+    static Map<Id, sObject> newMapAccounts = new Map<Id, Account>();
     static List<ATA_Role_to_DTN_Field_Mapping__c> lstRoleToDTNFieldMapping = ATA_Role_to_DTN_Field_Mapping__c.getAll().values();
 	
 	// *** create Account Team Members
-	public static List<Monitoring_Log__c> constructAccountTeam(Map<Id, List<AccountTeamMember>> currentAccountTeam, Map<Id, List<AccountTeamMember>> ruleDerivedAccountTeam)
+	public static List<Monitoring_Log__c> constructAccountTeam(Map<Id, List<AccountTeamMember>> currentAccountTeam, Map<Id, List<AccountTeamMember>> ruleDerivedAccountTeam, Map<Id, sObject> newTriggerMap)
 	{
+		newMapAccounts = newTriggerMap;
 		mapUserIdAndUser = new Map<Id, User>([SELECT Id, DTN__c, Name, IsActive, Custodial_Rep__c FROM User]);
 		
 		Map<String, Set<AccountTeamMember>> mapOperationNAccountTeam = determineDMLOperation(currentAccountTeam, ruleDerivedAccountTeam);
@@ -222,7 +224,8 @@ public with sharing class ATA_PostAccountTeam
 		{
 			for(ATA_Role_to_DTN_Field_Mapping__c roleToDTNMapping : lstRoleToDTNFieldMapping)
 			{
-				if(atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c) // match role
+				if((!isDeleted && atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c) 
+						|| (isDeleted && atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c && mapUserIdAndUser.get(atmRecord.UserId).DTN__c == newMapAccounts.get(atmRecord.AccountId).get(roleToDTNMapping.Account_DTN_Field_API_Name__c))) // match role
 				{
 					String DTN = mapUserIdAndUser.get(atmRecord.UserId).DTN__c;
 					// if team member is deleted then reset DTN to BLANK 

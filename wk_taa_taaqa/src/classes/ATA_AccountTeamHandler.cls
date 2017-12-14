@@ -62,7 +62,7 @@ global with sharing class ATA_AccountTeamHandler
 			ATA_PostAccountTeam.isDeleteExistingNRecreate = isDeleteExistingNRecreate;
 			
 			// **** compare existing and derived account team and perform appropriate DML (insert / delete)
-			List<Monitoring_Log__c> lstMonitoringLog = ATA_PostAccountTeam.constructAccountTeam(accountNCurrentAccountTeamMap, accountNRuleDerivedAccountTeamMap);
+			List<Monitoring_Log__c> lstMonitoringLog = ATA_PostAccountTeam.constructAccountTeam(accountNCurrentAccountTeamMap, accountNRuleDerivedAccountTeamMap, ATA_ComposeAccountTeam.newMapAccounts);
 			
 			if(lstMonitoringLog != NULL){
 				lstGlobalMonitoringLog.addAll(lstMonitoringLog);

@@ -9,7 +9,7 @@ public with sharing class ATA_ComposeAccountTeam
     
     static Map<Id, List<ATA_AccountRuleValue>> mapAccountIdNListATA_AccountRuleValue;
     static Map<String, User> mapUserDTNAndUser = new Map<String, User>();
-    static Map<Id, sObject> newMapAccounts = new Map<Id, Account>();
+    public static Map<Id, sObject> newMapAccounts = new Map<Id, Account>();
     static Map<Id, Account> oldMapAccounts = new Map<Id, Account>();
     static Map<Id, List<AccountTeamMember>> accountNAccountTeamMembersMap = new Map<Id, List<AccountTeamMember>>();
     static Boolean terminateAccountTeamAssignment = false;
@@ -24,7 +24,7 @@ public with sharing class ATA_ComposeAccountTeam
     //*** Constructor
     public ATA_ComposeAccountTeam(Map<Id, Account> newMap, Map<Id, Account> oldMap)
     {
-        String accountFieldAPINames = '';
+        List<String> accountFieldAPINames = new List<String>(Account.SObjectType.getDescribe().fields.getMap().keySet());
         Monitoring_Log__c objLog;
         mapAccountIdNListATA_AccountRuleValue = new Map<Id, List<ATA_AccountRuleValue>>();
 		Set<String> accountFields = Schema.SObjectType.Account.fields.getMap().keySet();
@@ -40,10 +40,25 @@ public with sharing class ATA_ComposeAccountTeam
         List<ATA_Rule__c> lstATARules = [SELECT Id, Rule_Type__c, FieldSet__c, Field_API_Name__c 
                                             FROM ATA_Rule__c 
                                             WHERE Rule_Enabled__c = true
-                                            AND Rule_Type__c = 'ATA'];
+                                            AND Rule_Type__c =: ATA_Utility.ATACustomSettings().ATA_RuleType__c];
                                             
+                                            
+        // query to see what fields changes needs to be considered for non-geo assignments
+        List<ATA_Role_Assignment__c> lstNonGeoAssignments = [SELECT Id, Account_FieldName_Nongeographic__c
+                                                     FROM ATA_Role_Assignment__c
+                                                     WHERE Account_FieldName_Nongeographic__c != NULL];
+        Set<String> setNonGeoFields = new Set<String>();
+        for(ATA_Role_Assignment__c obj : lstNonGeoAssignments)
+        {
+        	if(!setNonGeoFields.contains(obj.Account_FieldName_Nongeographic__c))
+        	{
+        		setNonGeoFields.add(obj.Account_FieldName_Nongeographic__c);
+        		lstATARules.add(new ATA_Rule__c(Rule_Type__c = 'ATA', Field_API_Name__c = obj.Account_FieldName_Nongeographic__c));
+        	} // end if
+        } // end for
+		setNonGeoFields.clear();
+		
         Map<String, Set<String>> mapFieldSetNFieldAPINames = new Map<String, Set<String>>();
-        
         // loop through ATA Rules to build map of fieldSet and FieldAPINames
         for(ATA_Rule__c rule : lstATARules)
         {
@@ -60,7 +75,7 @@ public with sharing class ATA_ComposeAccountTeam
 	            setValidFieldSets.add(rule.FieldSet__c);
 	            setValidFieldAPINames.add(rule.Field_API_Name__c);
 	            
-	            accountFieldAPINames = accountFieldAPINames + ' ' + rule.Field_API_Name__c + ',';
+	            //accountFieldAPINames = accountFieldAPINames + ' ' + rule.Field_API_Name__c + ',';
             }else{
             	objLog = ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'ATA_ComposeAccountTeam', ATA_Constants.ATA_RULE_INCONSISTANCY_MESSAGE + ' Incorrect Field: ' + rule.Field_API_Name__c, null, ATA_Constants.ATA_RULE_INCONSISTANCY_CODE);
             	terminateAccountTeamAssignment = true;
@@ -77,13 +92,13 @@ public with sharing class ATA_ComposeAccountTeam
 				lstMonitoringLog.add(objLog);		
 			}        	
         }else if(lstATARules.size() > 0){ 
-	        accountFieldAPINames = accountFieldAPINames.subString(0, accountFieldAPINames.length() - 1);
+	        //accountFieldAPINames = accountFieldAPINames.subString(0, accountFieldAPINames.length() - 1);
 	        
 	        System.debug('###: ' + accountFieldAPINames);
 	        System.debug('###: ' + mapFieldSetNFieldAPINames);
 	        
 	        Set<Id> keys = newMap.keySet();
-	        String query = 'SELECT Id, Name, RecordTypeId, BillingPostalCode, BillingState, BillingCountry,' + accountFieldAPINames + ' FROM Account WHERE Id IN: keys';
+	        String query = 'SELECT ' + String.join(accountFieldAPINames, ',') + ' FROM Account WHERE Id IN: keys';
 	        System.debug('## : ' + query); 
 	        //newMapAccounts = new Map<Id, Account>([SELECT Id, Name, BillingPostalCode, BillingState, BillingCountry, Market_Segment__c, Market_Sub_Segment__c, Named_Account_Type__c, Named_Account__c FROM Account WHERE Id IN: newMap.keySet()]); // keep new map preserved in the memory
 	        newMapAccounts = new Map<Id, sObject>(Database.Query(query)); // query new map to be preserved in the memory
@@ -447,10 +462,20 @@ public with sharing class ATA_ComposeAccountTeam
 	                {
 	                	postalCode = postalCode.subString(0,5);
 	                }
-	                
+	                System.debug('roleName: ' + roleName);
+	                System.debug('postalCode: ' + postalCode);
+	                // commenting below query since Role_Name__c & PostalCode__c is not indexed
+	                /*
 	                lstGeographicAssignment = [SELECT Id, DTN__c 
 	                                            FROM ATA_Geographic_Assignment__c
 	                                            WHERE Role_Name__c =: roleName
+	                                            AND PostalCode__c =: postalCode];
+	            	*/
+	            	String externalId = roleName + postalCode;
+	            	lstGeographicAssignment = [SELECT Id, DTN__c 
+	                                            FROM ATA_Geographic_Assignment__c
+	                                            WHERE External_ID__c =: externalId
+	                                            AND Role_Name__c =: roleName
 	                                            AND PostalCode__c =: postalCode];
 	            	
 	            	logMessage = 'Postal Code = ' + postalCode;
@@ -509,9 +534,11 @@ public with sharing class ATA_ComposeAccountTeam
                 }*/ // end if then else 
             }else{
 	            //*** Non-geographic mechanism
+	            String externalId = nonGeoFieldName + String.valueOf(objAccount.get(nonGeoFieldName)) + roleName + 'AccountTeam';
                 List<ATA_Non_Geographic_Assignment__c> lstNonGeographicAssignment = [SELECT Id, DTN__c 
                                                                                         FROM ATA_Non_Geographic_Assignment__c
-                                                                                        WHERE FieldName__c =: nonGeoFieldName
+                                                                                        WHERE External_ID__c =: externalId				
+                                                                                        AND FieldName__c =: nonGeoFieldName
                                                                                         AND FieldValue__c =: String.valueOf(objAccount.get(nonGeoFieldName))
                                                                                         AND RoleName__c =: roleName];
                 if(lstNonGeographicAssignment.size() > 0){

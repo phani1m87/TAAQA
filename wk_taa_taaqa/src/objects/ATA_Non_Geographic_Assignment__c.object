@@ -178,6 +178,7 @@
         <columns>RoleName__c</columns>
         <columns>DTN__c</columns>
         <columns>Role_Assignment_Type__c</columns>
+        <columns>External_ID__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Type__c</field>

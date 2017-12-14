@@ -657,7 +657,7 @@
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="" for="phoneNumber"/>
-                        <apex:input id="phoneNumber" value="{!contactPhone}" type="text" html-maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57" size="67"/>
+                        <apex:input id="phoneNumber" value="{!contactPhone}" type="text" html-maxlength="10" onkeypress="return (event.charCode == 0 || (event.charCode >= 48 && event.charCode <= 57))" size="67"/>
                     </apex:pageBlockSectionItem>
                     
                     <apex:pageBlockSectionItem >

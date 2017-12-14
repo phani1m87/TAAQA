@@ -15,6 +15,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>ATA_RuleType__c</fullName>
+        <description>RuleType used for Account Team Assignment.</description>
+        <externalId>false</externalId>
+        <label>ATA_RuleType</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>BatchJobAdmin__c</fullName>
         <externalId>false</externalId>
         <label>BatchJobAdmin</label>
@@ -95,6 +106,17 @@
         <label>Is Trigger Off</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LeadOwnership_RuleType__c</fullName>
+        <description>Rule Type used for Lead Ownership</description>
+        <externalId>false</externalId>
+        <label>LeadOwnership_RuleType</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ServiceSourceRole__c</fullName>

@@ -197,14 +197,9 @@ Batch program will pick all DTNs that are marked as updated and recompute accoun
         <columns>NAME</columns>
         <columns>Role_Name__c</columns>
         <columns>DTN__c</columns>
-        <columns>Latitude__c</columns>
-        <columns>Longitude__c</columns>
         <columns>PostalCode__c</columns>
-        <columns>County__c</columns>
-        <columns>Region__c</columns>
-        <columns>State__c</columns>
-        <columns>Country__c</columns>
         <columns>Geographic_Assignment_Type__c</columns>
+        <columns>External_ID__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>

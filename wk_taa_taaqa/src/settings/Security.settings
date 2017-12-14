@@ -52,6 +52,11 @@
             <start>198.147.38.85</start>
         </ipRanges>
         <ipRanges>
+            <description>Alex Cardona</description>
+            <end>184.89.223.169</end>
+            <start>184.89.223.169</start>
+        </ipRanges>
+        <ipRanges>
             <description>Cardona</description>
             <end>184.89.222.204</end>
             <start>184.89.222.204</start>

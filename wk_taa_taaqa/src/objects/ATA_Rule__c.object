@@ -149,23 +149,6 @@
         <label>ATA Rule</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>LeadOwnership_Rule</fullName>
-        <columns>NAME</columns>
-        <columns>Rule_Type__c</columns>
-        <columns>FieldSet__c</columns>
-        <columns>Field_API_Name__c</columns>
-        <columns>Rule_Enabled__c</columns>
-        <columns>Sobject__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Rule_Type__c</field>
-            <operation>equals</operation>
-            <value>LeadOwnership</value>
-        </filters>
-        <label>LeadOwnership Rule</label>
-        <language>en_US</language>
-    </listViews>
     <nameField>
         <displayFormat>ATARULE-{00000}</displayFormat>
         <label>ATA Rule Name</label>

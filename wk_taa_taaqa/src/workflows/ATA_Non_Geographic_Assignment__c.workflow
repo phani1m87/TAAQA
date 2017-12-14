@@ -3,7 +3,7 @@
     <fieldUpdates>
         <fullName>Set_ATA_Non_Geographic_Assign_Externl_ID</fullName>
         <field>External_ID__c</field>
-        <formula>FieldName__c +  FieldValue__c +  RoleName__c +  DTN__c +  TEXT(Type__c)</formula>
+        <formula>FieldName__c +  FieldValue__c +  RoleName__c + TEXT(Type__c)</formula>
         <name>Set ATA Non Geographic Assign Externl ID</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -20,6 +20,6 @@
             <field>ATA_Non_Geographic_Assignment__c.Name</field>
             <operation>notEqual</operation>
         </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
