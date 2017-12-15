@@ -15,7 +15,7 @@ public with sharing class ATA_ManageBatchAccountTeamUpdates
 		Map<String, Set<String>> mapPostalCodeNRoles = new Map<String, Set<String>>();
 		Map<String, Set<String>> mapRoleNameNPostalCode = new Map<String, Set<String>>();
 		Set<String> setAffectedPostalCodes = new Set<String>();
-		Set<String> setAffectedRoles = new Set<String>();
+		//Set<String> setAffectedRoles = new Set<String>();
 		List<Account> lstAffectedAccounts = new List<Account>(); 
 		Boolean isUpdateFailed = false;
 		
@@ -59,20 +59,22 @@ public with sharing class ATA_ManageBatchAccountTeamUpdates
       		} // end if then else
       		
       		setAffectedPostalCodes.add(geoAssignment.PostalCode__c + '%');
-      		setAffectedRoles.add(geoAssignment.Role_Name__c);
+      		//setAffectedRoles.add(geoAssignment.Role_Name__c);
       		
       		// set the flag back to FALSE assuming everything will go fine
       		geoAssignment.IsUpdated__c = false;
       		
       	} // end for
+      	System.debug('##: ' + setAffectedPostalCodes);
       	
       	// query the accounts to find if they are really affected by matching roles
       	Map<Id, Account> mapAccountIdNAccount = new Map<Id, Account>([SELECT Id, BillingPostalCode FROM Account WHERE RecordTypeId !=: excludeRecordTypeId AND Exclude_Account_Automation__c = false AND BillingPostalCode LIKE: setAffectedPostalCodes]);
-      	
+      	System.debug('##: ' + mapAccountIdNAccount);
       	if(mapAccountIdNAccount.size() > 0) // found accounts
       	{
+      		/*
       		// query AccountTeamMembers
-      		for(AccountTeamMember objATM : [SELECT Id, AccountId, TeamMemberRole FROM AccountTeamMember WHERE AccountId IN: mapAccountIdNAccount.keySet() AND TeamMemberRole IN: setAffectedRoles])
+      		for(AccountTeamMember objATM : [SELECT Id, AccountId, TeamMemberRole FROM AccountTeamMember WHERE AccountId IN: mapAccountIdNAccount.keySet()])
       		{
       			if(String.isNotBlank(mapAccountIdNAccount.get(objATM.AccountId).BillingPostalCode))
       			{
@@ -93,15 +95,20 @@ public with sharing class ATA_ManageBatchAccountTeamUpdates
 					} // end if 	      				
       			} // end if
       		} // end for
+      		*/
+      		for(Id accountId : mapAccountIdNAccount.keySet())
+      		{
+      			mapAccountIdNAccount.get(accountId).IsMassUpdated__c = true;
+      		}
       	} // end if
       	
       	// DML: update operation
-      	if(lstAffectedAccounts.size() > 0)
+      	if(mapAccountIdNAccount.size() > 0)
       	{
       		isUpdateFailed = false;
       		
       		// DML: update affected accounts with IsMassUpdated__c = TRUE
-      		Database.SaveResult[] updateAccountResults = Database.update(lstAffectedAccounts, true);
+      		Database.SaveResult[] updateAccountResults = Database.update(mapAccountIdNAccount.values(), true);
       		
       		for(integer i = 0; i < updateAccountResults.size(); i++)
       		{

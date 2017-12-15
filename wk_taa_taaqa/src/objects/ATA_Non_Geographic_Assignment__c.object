@@ -118,6 +118,10 @@
                     <fullName>Strategic</fullName>
                     <default>false</default>
                 </value>
+                <value>
+                    <fullName>Corporate National</fullName>
+                    <default>false</default>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

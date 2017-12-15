@@ -168,6 +168,10 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ISC_Account__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PFX_Axcess_Customer__c</field>
             </layoutItems>

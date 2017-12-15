@@ -2381,6 +2381,10 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                     <fullName>ISC - Professional Software</fullName>
                     <default>false</default>
                 </value>
+                <value>
+                    <fullName>RC - Corporate Software</fullName>
+                    <default>false</default>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

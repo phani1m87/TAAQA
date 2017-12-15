@@ -193,13 +193,31 @@ Batch program will pick all DTNs that are marked as updated and recompute accoun
     </fields>
     <label>ATA Geographic Assignment</label>
     <listViews>
-        <fullName>All</fullName>
+        <fullName>ALL_82003</fullName>
         <columns>NAME</columns>
         <columns>Role_Name__c</columns>
         <columns>DTN__c</columns>
         <columns>PostalCode__c</columns>
         <columns>Geographic_Assignment_Type__c</columns>
         <columns>External_ID__c</columns>
+        <columns>IsUpdated__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PostalCode__c</field>
+            <operation>equals</operation>
+            <value>82003</value>
+        </filters>
+        <label>82003</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Role_Name__c</columns>
+        <columns>DTN__c</columns>
+        <columns>PostalCode__c</columns>
+        <columns>External_ID__c</columns>
+        <columns>Geographic_Assignment_Type__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>

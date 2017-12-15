@@ -225,7 +225,7 @@ public with sharing class ATA_PostAccountTeam
 			for(ATA_Role_to_DTN_Field_Mapping__c roleToDTNMapping : lstRoleToDTNFieldMapping)
 			{
 				if((!isDeleted && atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c) 
-						|| (isDeleted && atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c && mapUserIdAndUser.get(atmRecord.UserId).DTN__c == newMapAccounts.get(atmRecord.AccountId).get(roleToDTNMapping.Account_DTN_Field_API_Name__c))) // match role
+						|| (isDeleted && atmRecord.TeamMemberRole == roleToDTNMapping.ATA_Role_Name__c && String.valueOf(newMapAccounts.get(atmRecord.AccountId).get(roleToDTNMapping.Account_DTN_Field_API_Name__c)).contains(mapUserIdAndUser.get(atmRecord.UserId).DTN__c))) // match role
 				{
 					String DTN = mapUserIdAndUser.get(atmRecord.UserId).DTN__c;
 					// if team member is deleted then reset DTN to BLANK 
@@ -236,6 +236,13 @@ public with sharing class ATA_PostAccountTeam
 					// assign DTN to field
 					if(mapAccountIdNAccountToUpdate.containsKey(atmRecord.AccountId))
 					{
+						System.debug('###1: ' + String.valueOf(mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).get(roleToDTNMapping.Account_DTN_Field_API_Name__c)));
+						System.debug('###2: ' + atmRecord.TeamMemberRole);
+						if(String.isNotBlank(String.valueOf(mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).get(roleToDTNMapping.Account_DTN_Field_API_Name__c)))){
+							DTN = DTN + ',' + mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).get(roleToDTNMapping.Account_DTN_Field_API_Name__c);
+							System.debug('###3: ' + DTN);	
+						}
+						System.debug('###4: ' + DTN);
 						mapAccountIdNAccountToUpdate.get(atmRecord.AccountId).put(roleToDTNMapping.Account_DTN_Field_API_Name__c, DTN);
 					}else{
 						Account objAccount = new Account(Id = atmRecord.AccountId);

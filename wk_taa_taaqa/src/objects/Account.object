@@ -721,7 +721,7 @@
         <description>DTN of the Account Team Member derived by Corporate_Software_New_Sales__c</description>
         <externalId>false</externalId>
         <label>ATA Corporate Software New Sales DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -22850,7 +22850,7 @@ ISBLANK(TEXT(Named_Account_Type__c)))
     </validationRules>
     <validationRules>
         <fullName>Named_Account_Validation</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Added during ATA 2.0, it makes sure that Named Account Type is selected if Named_Account__c checkbox is checked or vice versa if the account is marked to be excluded from ATA then this validation rule is not applicable</description>
         <errorConditionFormula>IF(NOT(Exclude_Account_Automation__c), OR(AND(Named_Account__c, ISBLANK(TEXT(Named_Account_Type__c))), AND(NOT(ISBLANK(TEXT(Named_Account_Type__c))), Named_Account__c == false)), false)</errorConditionFormula>
         <errorMessage>Named Account Type is required when Named Account checkbox is marked as TRUE and vice versa.</errorMessage>

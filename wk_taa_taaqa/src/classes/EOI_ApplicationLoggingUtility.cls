@@ -578,7 +578,7 @@ public with sharing class EOI_ApplicationLoggingUtility
     	);
     	return newApplicationLog;
     }
-    /*
+    
     //Log for AOP EOI GetAccountInfo
     public static Application_Monitoring_Log__c ApplicationLogFromCalloutResponse(String className, String methodName, EOI_IIB_ERP_GetAccountInfo_V2.GetAccountInfoRequestWrapper requestData, EOI_IIB_ERP_GetAccountInfo_V2.GetAccountInfoResponse_element response, String quoteId)
     {
@@ -666,7 +666,7 @@ public with sharing class EOI_ApplicationLoggingUtility
     	);
     	return newApplicationLog;
     }
-    */
+    
     //Log method for exception conditions
     public static Application_Monitoring_Log__c ApplicationLogFromCalloutResponse(String className, String methodName, String request, String response, String recordId, String uuid)
     {

@@ -158,7 +158,7 @@ public with sharing class EOI_OrderAutomation
             }   
             system.debug('Monitoring Log created');
         }
-        
+
         public static EOI_Retry_Log__c EOIRetryLogFromCalloutResponse(EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result, Id ERPOrderId, Map<Id, ERP_Order__c> ERPOrderWithRetryLogMap)
         {
             String messageForLog = '', messageCode = '';
