@@ -697,7 +697,7 @@
         <description>DTN of the Account Team Member derived by ATX_TW_Retention_Owner__c</description>
         <externalId>false</externalId>
         <label>ATA ATX/TW Retention Owner DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -709,7 +709,7 @@
         <description>DTN of the Account Team Member derived by Corp_Software_Retention_Owner__c</description>
         <externalId>false</externalId>
         <label>ATA Corp Software Retention Owner DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -733,7 +733,7 @@
         <description>DTN of the Account Team Member derived by PFX_Axcess_Retention_Owner__c</description>
         <externalId>false</externalId>
         <label>ATA PFX/Axcess Retention Owner DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -745,7 +745,7 @@
         <description>DTN of the Account Team Member derived by R_L_New_Sales__c</description>
         <externalId>false</externalId>
         <label>ATA R&amp;L New Sales DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -757,7 +757,7 @@
         <description>DTN of the Account Team Member derived by R_L_Retention_Owner__c</description>
         <externalId>false</externalId>
         <label>ATA R&amp;L Retention Owner DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -769,7 +769,7 @@
         <description>DTN of the Solution Consultant Team Member</description>
         <externalId>false</externalId>
         <label>ATA Solution Consultant DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -781,7 +781,7 @@
         <description>DTN of the team member derived by TAA_Software_New_Sales__c</description>
         <externalId>false</externalId>
         <label>ATA TAA Software New Sales DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -793,7 +793,7 @@
         <description>DTN of the Account Team Member derived by Trust_Sales__c</description>
         <externalId>false</externalId>
         <label>ATA Trust Sales DTN</label>
-        <length>10</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>

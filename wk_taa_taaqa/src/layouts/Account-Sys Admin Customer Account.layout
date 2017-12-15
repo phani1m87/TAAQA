@@ -180,10 +180,6 @@
                 <field>Small_Firm_Customer__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>R_L_Small_Firms_Retention__c</field>
-            </layoutItems>
-            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
@@ -217,6 +213,10 @@
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>R_L_Small_Firms_Retention__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>

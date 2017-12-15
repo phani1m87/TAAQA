@@ -205,7 +205,7 @@ Batch program will pick all DTNs that are marked as updated and recompute accoun
         <filters>
             <field>PostalCode__c</field>
             <operation>equals</operation>
-            <value>82003</value>
+            <value>66211</value>
         </filters>
         <label>82003</label>
         <language>en_US</language>

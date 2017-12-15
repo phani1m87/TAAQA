@@ -193,6 +193,30 @@
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>AccountTeam_Rules_IDMatch</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <columns>FieldName__c</columns>
+        <columns>FieldValue__c</columns>
+        <columns>RoleName__c</columns>
+        <columns>DTN__c</columns>
+        <columns>Role_Assignment_Type__c</columns>
+        <columns>External_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>AccountTeam</value>
+        </filters>
+        <filters>
+            <field>FieldName__c</field>
+            <operation>equals</operation>
+            <value>Id</value>
+        </filters>
+        <label>AccountTeam Rules - ID Match</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>LeadOwnership_Rules</fullName>
         <columns>NAME</columns>
         <columns>Type__c</columns>
