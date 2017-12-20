@@ -111,7 +111,7 @@ global with sharing class ATA_AccountTeamHandler
 		
 		// feed account back to the generateAccountTeam method
 		if(mapAccountIdNAccount != NULL && mapAccountIdNAccount.size() > 0){
-			generateAccountTeam(mapAccountIdNAccount, null, true);	
+			generateAccountTeam(mapAccountIdNAccount, null, isDeleteExistingNRecreate);	
 		} // end if
 	}    
 }

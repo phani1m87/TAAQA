@@ -2334,55 +2334,91 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>ISC - N2N Professional Software</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ISC - N2E Professional Software</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ISC - Research &amp; Learning</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RSC - Professional Software</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RSC - Research &amp; Learning</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RSC - Corp Software Indirect</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RSC - Corp Software Direct</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>T&amp;C - Research &amp; Learning</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RC - Research &amp; Learning</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ISC - Books &amp; Journals</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>QP Specialist</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ISC - Professional Software</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>RC - Corporate Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RSC - Mid-Market Pro SW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RSC - Mid-Market Corp SW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ISC - Mid-Market Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RC - Small Firms Premier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RC - Refunds Today</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RSC - Small Market Field</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ISC - Small Market N2N</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ISC - Small Market N2E</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SSC - Microsoft</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RSC - Microsoft</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ISC - Microsoft</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ISC - Small Market R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RSC - R&amp;L Field</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RSC - R&amp;L Key Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RC - Software Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RC - Small Firms Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RC - Small Firms R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RC - R&amp;L Retention</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>

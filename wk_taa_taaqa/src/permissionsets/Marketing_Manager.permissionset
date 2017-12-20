@@ -11972,7 +11972,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead.Named_Account__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

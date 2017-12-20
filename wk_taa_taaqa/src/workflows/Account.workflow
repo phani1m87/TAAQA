@@ -137,6 +137,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Set_Named_Account_to_TRUE</fullName>
+        <field>Named_Account__c</field>
+        <literalValue>1</literalValue>
+        <name>Set Named Account to TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Set_SF_ID_in_Cust_ID_Field</fullName>
         <description>This field is updated with the SF ID when no CustID exists on Newly Created Prospect Accounts.</description>
         <field>CUSTID__c</field>

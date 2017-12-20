@@ -27,7 +27,8 @@ public with sharing class TSM_LeadConvertController {
         
         // Do NOT modify this SOQL to remove fields that are required for ATA functionality
         leadToConvert = [SELECT Id, Status, OwnerId, Email, Name, FirstName , LastName, Salutation, Company, Owner.Type, Reason__c,PostalCode,
-                                Market_Segment__c,Market_Sub_Segment__c, Related_Account__c, Related_Contact__c, Related_Opportunity__c
+                                Market_Segment__c,Market_Sub_Segment__c, Named_Account__c, Named_Account_Type__c,		// ATA Fields 
+                                Related_Account__c, Related_Contact__c, Related_Opportunity__c
                                 FROM Lead WHERE Id = :leadId
                             ];
         //set the default values
@@ -186,12 +187,14 @@ public with sharing class TSM_LeadConvertController {
             }else if(selectedAccountType == Label.TSM_LeadConversion_New && leadToConvert.Status != Label.TSM_LeadStatus_NotViable){
                 //insert the new Account and then set the account Id for lead conversion
                 try{
-                    newAccount.Came_from_lead__c=True;
+                    newAccount.Came_from_lead__c = true;
                     
                     // Do NOT remove these lines as they are required for ATA functionality
                     newAccount.BillingPostalCode = leadToConvert.PostalCode;
                     newAccount.Market_Segment__c = leadToConvert.Market_Segment__c;
                     newAccount.Market_Sub_Segment__c = leadToConvert.Market_Sub_Segment__c;
+                    newAccount.Named_Account__c = leadToConvert.Named_Account__c;
+                    newAccount.Named_Account_Type__c = leadToConvert.Named_Account_Type__c;
                     //Do NOT remove the above lines as they are required for ATA functionality
                     
                     insert newAccount;

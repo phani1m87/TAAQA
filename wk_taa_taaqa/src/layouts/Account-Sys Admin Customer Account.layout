@@ -728,6 +728,9 @@
                 <behavior>Edit</behavior>
                 <field>Professional_Software_Revenue__c</field>
             </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -741,6 +744,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Exclude_Account_Automation__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>IsMassUpdated__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

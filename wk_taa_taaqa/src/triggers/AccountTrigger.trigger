@@ -1,20 +1,17 @@
-/*
-    **************************************************************************
-    Name    :   AccountTrigger
-    Usage   :   This trigger is used to update Market Segment and Sub Segment on Account based on SIC code for Prospect accounts exported from Data.com 
-    
-    Version    |    Name            |    Date           
-    1.0             Rajesh Meti          09-June-2015  
-    
-    Trigger : AccountTrigger on Account (before insert, before update)
-    
-    ***************************************************************************
-*/
+/*--------------------------------------------------------------------------
+ * Date       Author            Version      Description
+ * -------------------------------------------------------------------------
+ * 11/28/2017 SHIVAJI           1.0          ATA 2.0
+ * ------------------------------------------------------------------------- */
 
-trigger AccountTrigger on Account (before insert, after insert, before update, after update) {
-    
+trigger AccountTrigger on Account (before insert, after insert, before update, after update) 
+{
+	// *** This trigger is used to update Market Segment and Sub Segment on Account based on SIC code for Prospect accounts exported from Data.com
+	// *** and to also determine and post Account Team Members
+	    
     System.debug('TAA ATA Trigger Switch Status :: ' + UtilCustomSettings.TAACustomSetting().IsTriggerOff__c);
-    
+    // Commenting below code snippet to stop old ATA firing
+    /*
     if(UtilCustomSettings.TAACustomSetting().IsTriggerOff__c == false){
     	UtilDTNStampingAndTeamMemberCreation dtnHandler = new UtilDTNStampingAndTeamMemberCreation(trigger.new, trigger.oldMap);
         //for before insert event
@@ -92,21 +89,37 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
             }
         }
     }
+    */
+    
     // **** Trigger ATA 2.0
-    else if(ATA_Utility.ATACustomSettings().IsTriggerOff__c)
+    if(!ATA_Utility.ATACustomSettings().IsTriggerOff__c)
     {
     	if(trigger.isBefore)
     	{
+            //**** Set Named_Account__c based on the value of Named_Account_Type__c
+            for(Account obj : trigger.new)
+            {
+            	System.debug('###: ' + obj.Named_Account_Type__c);
+            	if(String.isBlank(obj.Named_Account_Type__c)){
+            		obj.Named_Account__c = false;	
+            	}else{
+            		obj.Named_Account__c = true;
+            	} // end if then else
+            	System.debug('###: ' + obj.Named_Account__c);
+            } // end for
+            
             //**** populate segment & sub-segment based on SIC Code
             // this is required for the accounts coming from data.com
             AccountTriggerHandler handler = new AccountTriggerHandler();
             handler.onBeforeInsert(trigger.new);
-    	}
+    	} // end if
     	
     	if(trigger.isAfter && CheckRecursive.runOnce())
     	{
     		// generate account team and log
     		ATA_AccountTriggerHandler.generateAccountTeam(trigger.newMap, trigger.oldMap);
-    	}
-    }
+    		System.debug('###: ' + trigger.new[0].Named_Account_Type__c);
+    		System.debug('###: ' + trigger.new[0].Named_Account__c);
+    	} // end if
+    } // end if
 }

@@ -193,7 +193,7 @@ Batch program will pick all DTNs that are marked as updated and recompute accoun
     </fields>
     <label>ATA Geographic Assignment</label>
     <listViews>
-        <fullName>ALL_82003</fullName>
+        <fullName>ALL_19054</fullName>
         <columns>NAME</columns>
         <columns>Role_Name__c</columns>
         <columns>DTN__c</columns>
@@ -205,9 +205,9 @@ Batch program will pick all DTNs that are marked as updated and recompute accoun
         <filters>
             <field>PostalCode__c</field>
             <operation>equals</operation>
-            <value>66211</value>
+            <value>19054</value>
         </filters>
-        <label>82003</label>
+        <label>19054</label>
         <language>en_US</language>
     </listViews>
     <listViews>

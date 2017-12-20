@@ -104,6 +104,8 @@ public with sharing class ATA_ComposeAccountTeam
 	        newMapAccounts = new Map<Id, sObject>(Database.Query(query)); // query new map to be preserved in the memory
 	        oldMapAccounts = oldMap; // keep old map preserved in the memory
 	        
+	        System.debug('## : ' + newMapAccounts);
+	        
 	        // loop through accounts to build structure of ATA_AccountRuleValue map     
 	        for(Id accountId : newMapAccounts.keySet())
 	        {
