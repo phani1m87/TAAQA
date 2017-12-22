@@ -87,7 +87,8 @@ public with sharing class ATA_Constants
     //Used if indicate that account data nesceaary to determine assignment matrix or role assignemnts is missing at account level
     
     public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM         = 'ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM';
-    public static final String ATA_TEAM_MEMBER_CREATED                      = 'ATA_TEAM_MEMBER_CREATED/UPDATED';
+    public static final String ATA_TEAM_MEMBER_CREATED_SUCCESS              = 'ATA_TEAM_MEMBER_CREATED/UPDATED_SUCCESS';
+    public static final String ATA_TEAM_MEMBER_CREATED_WITH_ERROR           = 'ATA_TEAM_MEMBER_CREATED/UPDATED_WITH_ERROR';
     public static final String ATA_TEAM_MEMBER_CREATED_FOR_NAMED_ACCOUNT    = 'ATA_TEAM_MEMBER_CREATED/UPDATED_FOR_NAMED_ACCOUNT';
     public static final String ATA_CODE_ERROR                               = 'ATA_CODE_ERROR';
     public static final String ATA_TEAM_MEMBER_NOT_CREATED                  = 'ATA_TEAM_MEMBER_NOT_CREATED/UPDATED';

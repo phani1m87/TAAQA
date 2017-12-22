@@ -12,34 +12,6 @@ global with sharing class ATA_AccountTeamHandler
 	
 	public static void generateAccountTeam(Map<Id, Account> newMap, Map<Id, Account> oldMap, Boolean isDeleteExistingNRecreate)
 	{
-		String excludeRecordTypeId; 	// recordTypeId to exclude
-		
-		// read record type to be exluded and find recordTypeId
-		if(ATA_Utility.ATACustomSettings() != NULL && String.isNotBlank(ATA_Utility.ATACustomSettings().ATA_ExcludeAccountRecordType__c))
-		{
-        	if(String.isNotBlank(ATA_Utility.ATACustomSettings().ATA_ExcludeAccountRecordType__c))
-			{
-				excludeRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(ATA_Utility.ATACustomSettings().ATA_ExcludeAccountRecordType__c).getRecordTypeId();
-			} // end if
-      	} // end if
-		
-		// filter out the accounts with record type to be excluded
-		if(String.isNotBlank(excludeRecordTypeId))
-		{      	
-			for(Id accountId : newMap.keySet())
-			{
-				// exclude the accounts based on record type filters & exclude account automation flag
-				if(newMap.get(accountId).RecordTypeId == excludeRecordTypeId && newMap.get(accountId).Exclude_Account_Automation__c == true)
-				{
-					newMap.remove(accountId);
-					// check if it is also in oldMap and remove
-					if(oldMap != NULL && oldMap.containsKey(accountId)){
-						oldMap.remove(accountId);
-					} // end if
-				} // end if	
-			} // end for
-		} // end if
-		
 		// #### COMPOSE ACCOUNT TEAM
 		// **** pass the newMap and oldMap to ATA_ComposeAccountTeam		
 		ATA_ComposeAccountTeam obj = new ATA_ComposeAccountTeam(newMap, oldMap);
