@@ -21,6 +21,10 @@ global class ATA_AccountTeamUpdateBatch implements Database.Batchable<sObject>
     // start method
     global Database.queryLocator start(Database.BatchableContext bc)
     {
+		// set apex job id to the start log
+        this.startLog.Apex_Job_ID__c = bc.getJobId();
+        insert startLog;
+		
 		// query locator to find affected accounts
 		return Database.getQueryLocator(QueryServiceClass.queryToFindAffectedAccounts);	
     }
@@ -38,7 +42,7 @@ global class ATA_AccountTeamUpdateBatch implements Database.Batchable<sObject>
 	// finish method
 	global void finish(Database.BatchableContext bc)
 	{
-		List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
+		//List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
 		
 		// log batch result
         AsyncApexJob a = [SELECT Id, Status, NumberOfErrors, JobItemsProcessed, ExtendedStatus, TotalJobItems, CreatedBy.Email
@@ -60,13 +64,10 @@ global class ATA_AccountTeamUpdateBatch implements Database.Batchable<sObject>
         Monitoring_Log__c finishLog = ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_AccountTeamUpdateBatch', 'finish', logMessage, null, finishLogCode);
         finishLog.Apex_Job_ID__c = a.Id;
         
-        // set apex job id to the start log
-        startLog.Apex_Job_ID__c = a.Id;
-        
-        lstMonitoringLog.add(startLog);
-        lstMonitoringLog.add(finishLog);
+        //lstMonitoringLog.add(startLog);
+        //lstMonitoringLog.add(finishLog);
 			
 		// DML: insert start and finish monitoring logs               
-        insert lstMonitoringLog;
+        insert finishLog;
 	}
 }
