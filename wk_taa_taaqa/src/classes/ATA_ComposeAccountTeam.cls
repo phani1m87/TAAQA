@@ -18,6 +18,8 @@ public with sharing class ATA_ComposeAccountTeam
     static Set<String> setValidFieldSets = new Set<String>();
     static Set<String> setValidFieldAPINames = new Set<String>();
     static Set<String> setValidValues = new Set<String>();
+    static Map<String, ATA_Geographic_Assignment__c> mapGeoAssignments = new Map<String, ATA_Geographic_Assignment__c>();
+    static Map<String, ATA_Non_Geographic_Assignment__c> mapNonGeoAssignments = new Map<String, ATA_Non_Geographic_Assignment__c>();
     
     public static List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
     
@@ -330,6 +332,9 @@ public with sharing class ATA_ComposeAccountTeam
             Map<Id, Set<ATA_Role_Assignment__c>> accountGeographicRoles = new Map<Id, Set<ATA_Role_Assignment__c>>();
             Map<Id, Set<ATA_Role_Assignment__c>> accountNongeographicRoles = new Map<Id, Set<ATA_Role_Assignment__c>>();
             
+            Set<String> geoGraphicExternalId = new Set<String>();
+            Set<String> nonGeoAssignmentExternalId = new Set<String>();
+            
             // query ATA Role Assignment for valid assignment types 
             List<ATA_Role_Assignment__c> lstRoleAssignments = [SELECT Id, Role_Name__c, Role_Assignment_Type__c, Assignment_Type__c, Assignment_Mechanism__c, Account_FieldName_Nongeographic__c
                                                                 FROM ATA_Role_Assignment__c
@@ -337,12 +342,26 @@ public with sharing class ATA_ComposeAccountTeam
             
             for(Id accountId : accountAssignmentType.keySet()) // loop through the accounts
             { 
-                for(ATA_Role_Assignment__c objRoleAssignment : lstRoleAssignments) // loop through the ATA Role Assignments
+                // get account 5 digit BillingPostalCode 
+                String postalCode; 
+                if(newMapAccounts.get(accountId).get('BillingPostalCode') != NULL)
+                {
+                	postalCode = String.valueOf(newMapAccounts.get(accountId).get('BillingPostalCode'));
+                }
+                if(!String.isBlank(postalCode) && postalCode.length() > 5)
+                {
+                	postalCode = postalCode.subString(0,5);
+                }
+                
+                // loop through the ATA Role Assignments
+                for(ATA_Role_Assignment__c objRoleAssignment : lstRoleAssignments) 
                 {
                     if(objRoleAssignment.Account_FieldName_Nongeographic__c == NULL) // check if it's geographic / non-geo
                     {
+                        // geo assignment
                         if(accountAssignmentType.get(accountId).contains(objRoleAssignment.Assignment_Type__c)) // filter out the ATA Role Assignments for valid assignment types
                         {
+                            // add account and gepgrahic roles to the map
                             if(accountGeographicRoles.containsKey(accountId))
                             {
                                 Set<ATA_Role_Assignment__c> alreadyAddedRoles = accountGeographicRoles.get(accountId);
@@ -350,9 +369,16 @@ public with sharing class ATA_ComposeAccountTeam
                                 accountGeographicRoles.put(accountId, alreadyAddedRoles);
                             }else{
                                 accountGeographicRoles.put(accountId, new Set<ATA_Role_Assignment__c>{objRoleAssignment});
-                            } // end if then else               
+                            } // end if then else
+                            
+                            // prepare geographic external id key 
+                            if(String.isNotBlank(postalCode) && String.isNotBlank(objRoleAssignment.Role_Name__c) && !geoGraphicExternalId.contains(objRoleAssignment.Role_Name__c + postalCode))
+                            {
+                            	geoGraphicExternalId.add(objRoleAssignment.Role_Name__c + postalCode);
+                            }               
                         } // end if
                     }else{
+                    	// non - geo assignment
                         if(accountAssignmentType.get(accountId).contains(objRoleAssignment.Assignment_Type__c))
                         {
                             if(accountNongeographicRoles.containsKey(accountId))
@@ -362,7 +388,9 @@ public with sharing class ATA_ComposeAccountTeam
                                 accountNongeographicRoles.put(accountId, alreadyAddedRoles);
                             }else{
                                 accountNongeographicRoles.put(accountId, new Set<ATA_Role_Assignment__c>{objRoleAssignment});
-                            } // end if then else               
+                            } // end if then else  
+                            //nonGeoFieldName + String.valueOf(objAccount.get(nonGeoFieldName)) + roleName + 'AccountTeam';
+                            nonGeoAssignmentExternalId.add(objRoleAssignment.Account_FieldName_Nongeographic__c + String.valueOf(newMapAccounts.get(accountId).get(objRoleAssignment.Account_FieldName_Nongeographic__c) + objRoleAssignment.Role_Name__c + 'AccountTeam'));             
                         } // end if
                     } // end if then else
                 } // end for
@@ -375,17 +403,43 @@ public with sharing class ATA_ComposeAccountTeam
                 
             } // end for
             
+            if(geoGraphicExternalId.size() > 0)
+            {
+            	for(ATA_Geographic_Assignment__c objGeoAssignment : [SELECT Id, DTN__c, External_ID__c, Role_Name__c, PostalCode__c
+	                                            							FROM ATA_Geographic_Assignment__c
+	                                            							WHERE External_ID__c IN: geoGraphicExternalId])
+            	
+            	{
+            		if(!mapGeoAssignments.containsKey(objGeoAssignment.External_ID__c))
+            		{
+            			mapGeoAssignments.put(objGeoAssignment.External_ID__c, objGeoAssignment);
+            		}
+            	}
+            }
+            
             // *** get Account Team Members based on geo & non-geo role assignments
             // geo role computation
-            if(accountGeographicRoles.size() > 0)
+            if(accountGeographicRoles.size() > 0 && mapGeoAssignments.size() > 0)
             {
                 computeAccountTeamUsingRoles(accountGeographicRoles);
             } // end if
             
             System.debug('###: ' + accountNongeographicRoles);
             
+            if(nonGeoAssignmentExternalId.size() > 0)
+            {
+            	for(ATA_Non_Geographic_Assignment__c objNonGeoAssignment : [SELECT Id, RoleName__c, DTN__c, External_ID__c, FieldName__c, FieldValue__c 
+                                                                                        FROM ATA_Non_Geographic_Assignment__c
+                                                                                        WHERE External_ID__c IN: nonGeoAssignmentExternalId])				
+            	{
+            		if(!mapNonGeoAssignments.containsKey(objNonGeoAssignment.External_ID__c))
+            		{
+            			mapNonGeoAssignments.put(objNonGeoAssignment.External_ID__c, objNonGeoAssignment);
+            		}
+            	}
+            }
             // non-geo role computation
-            if(accountNongeographicRoles.size() > 0)
+            if(accountNongeographicRoles.size() > 0 && mapNonGeoAssignments.size() > 0)
             {
                 computeAccountTeamUsingRoles(accountNongeographicRoles);
             } // end if
@@ -474,15 +528,22 @@ public with sharing class ATA_ComposeAccountTeam
 	                                            AND PostalCode__c =: postalCode];
 	            	*/
 	            	String externalId = roleName + postalCode;
+	            	/*
 	            	lstGeographicAssignment = [SELECT Id, DTN__c 
 	                                            FROM ATA_Geographic_Assignment__c
 	                                            WHERE External_ID__c =: externalId
 	                                            AND Role_Name__c =: roleName
 	                                            AND PostalCode__c =: postalCode];
-	            	
+	            	*/
+	            	if(mapGeoAssignments.containsKey(externalId))
+	            	{
+	            		dtn = mapGeoAssignments.get(externalId).DTN__c;
+	            	}
 	            	logMessage = 'Postal Code = ' + postalCode;
 	            } // end if
 	            
+	            /*
+	            // ***** Other geo mechanism, need code change before using it
 	            //*** Geographic County mechanism 
 	            if(mechanism == 'Geographic County')
 	            {
@@ -509,13 +570,10 @@ public with sharing class ATA_ComposeAccountTeam
 	            if(mechanism == 'Geographic Region')
 	            {
 	                // Technical Debt: which field on Account address should be checked for region
-	                /*
 	                lstGeographicAssignment = [SELECT Id, DTN__c 
 	                                            FROM ATA_Geographic_Assignment__c
 	                                            WHERE Role_Name__c =: roleName
 	                                            AND State__c =: objAccount.BillingState];
-	                */
-	            
 	            } // end if
 	            
 	            //*** Geographic Country mechanism
@@ -531,24 +589,27 @@ public with sharing class ATA_ComposeAccountTeam
 	            
 	            if(lstGeographicAssignment != NULL && lstGeographicAssignment.size() > 0){
 	                dtn = lstGeographicAssignment[0].DTN__c;
-	            }/*else{
-                	lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_MESSAGE + roleName + ' for ' + logMessage, String.valueOf(objAccount.Id), ATA_Constants.ATA_WARNING_MISSINGDTN_GEOGRAPHIC_ROLE_CODE));
-                }*/ // end if then else 
+	            }
+                */ 
             }else{
 	            //*** Non-geographic mechanism
 	            String externalId = nonGeoFieldName + String.valueOf(objAccount.get(nonGeoFieldName)) + roleName + 'AccountTeam';
+	            /*
                 List<ATA_Non_Geographic_Assignment__c> lstNonGeographicAssignment = [SELECT Id, DTN__c 
                                                                                         FROM ATA_Non_Geographic_Assignment__c
                                                                                         WHERE External_ID__c =: externalId				
                                                                                         AND FieldName__c =: nonGeoFieldName
                                                                                         AND FieldValue__c =: String.valueOf(objAccount.get(nonGeoFieldName))
-                                                                                        AND RoleName__c =: roleName];
-                if(lstNonGeographicAssignment.size() > 0){
-                    dtn = lstNonGeographicAssignment[0].DTN__c;
-                }else{
+                                                                                        AND RoleName__c =: roleName];*/
+                if(mapNonGeoAssignments.containsKey(externalId))
+                {
+                    dtn = mapNonGeoAssignments.get(externalId).DTN__c;
+                }/*
+                else{
                 	lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE + ' ' + nonGeoFieldName + ' = ' + String.valueOf(objAccount.get(nonGeoFieldName)), String.valueOf(objAccount.Id), ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE));
                 	terminateAccountTeamAssignment = true;
                 } // end if then else
+                */
             } // end if then else
             
             if(!String.isBlank(dtn))
