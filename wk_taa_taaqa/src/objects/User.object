@@ -132,7 +132,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <controllingField>High_Level_Division__c</controllingField>
+            <controllingField>Second_Level_Division__c</controllingField>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -487,283 +487,12 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <controllingFieldValue>Sales Operations</controllingFieldValue>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <controllingFieldValue>Solution Design</controllingFieldValue>
-                <controllingFieldValue>Training &amp; Consulting</controllingFieldValue>
-                <controllingFieldValue>Executives</controllingFieldValue>
-                <valueName>Executives</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>Alliance</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>Corporate Software</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>Corp SW Energy &amp; Telco</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>Corp SW Microsoft</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>Corp SW SAP &amp; NetSuite</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>SAP Vertical</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>STG Retention</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>Strategic Sales</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Corporate Software</controllingFieldValue>
-                <valueName>SureTax</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Other</controllingFieldValue>
-                <valueName>Admin</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Other</controllingFieldValue>
-                <valueName>Billing</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Other</controllingFieldValue>
-                <valueName>Finance</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Other</controllingFieldValue>
-                <valueName>HR</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Other</controllingFieldValue>
-                <valueName>Marketing</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Other</controllingFieldValue>
-                <controllingFieldValue>Cap Gemini</controllingFieldValue>
-                <valueName>Other</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Other</controllingFieldValue>
-                <valueName>Product Development</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Other</controllingFieldValue>
-                <valueName>Product Management</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Service Source</controllingFieldValue>
-                <valueName>Service Source</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
-                <valueName>Global Accounts</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
-                <valueName>National &amp; Strategic Accounts</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
-                <valueName>National Accounts</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>National &amp; Strategic Accounts</controllingFieldValue>
-                <valueName>Strategic Accounts</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>N2E Small Firm</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>N2N (GW) Small Firm</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>N2N (JA) Small Firm</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>N2N (LF) Small Firm</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>N2N (RR) Small Firm</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>Premier</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>Refunds Today</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>Small Firm Field</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>Small Firm R&amp;L</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>Small Firm Retention (CN)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>Small Firm Retention (JA)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>Small Firm Retention (LB)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>US Small Firms New Sales</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>US Small Firms</controllingFieldValue>
-                <valueName>US Small Firms Retention</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>Books &amp; Journal Sales</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>Central Division</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>Corp National</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>Federal Government</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <controllingFieldValue>Software</controllingFieldValue>
+                <controllingFieldValue>R&amp;L RSC</controllingFieldValue>
                 <valueName>Mid-Atlantic</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>Mountain Division</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>National Research</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <controllingFieldValue>Software</controllingFieldValue>
+                <controllingFieldValue>R&amp;L RSC</controllingFieldValue>
                 <valueName>Northeast</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>R&amp;L Retention</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>R&amp;L Senior</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>Research &amp; Learning</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <valueName>Southeast</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>West Division</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Sales Operations</controllingFieldValue>
-                <valueName>Corporate Business Development</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Sales Operations</controllingFieldValue>
-                <valueName>Sales Intelligence</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Sales Operations</controllingFieldValue>
-                <valueName>Sales Operations</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Sales Operations</controllingFieldValue>
-                <valueName>Sales Training &amp; Development</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Sales Operations</controllingFieldValue>
-                <valueName>Senior Sales Admins</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <valueName>Central</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <valueName>Corporate Direct</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <valueName>Midwest</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <valueName>Pacific</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <valueName>Software</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <valueName>Software Retention</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Software</controllingFieldValue>
-                <valueName>Trust</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Solution Design</controllingFieldValue>
-                <valueName>Corporate - SA</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Solution Design</controllingFieldValue>
-                <valueName>East - SA</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Solution Design</controllingFieldValue>
-                <valueName>Natl/SAM - SA</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Solution Design</controllingFieldValue>
-                <valueName>West - SA</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Training &amp; Consulting</controllingFieldValue>
-                <valueName>Training &amp; Consulting</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -920,6 +649,10 @@ TEXT(High_Level_Division__c ))))</formula>
                 </value>
                 <value>
                     <fullName>Mid-Market</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core R&amp;L</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -1088,6 +821,29 @@ TEXT(High_Level_Division__c ))))</formula>
         <scale>0</scale>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Second_Level_Division__c</fullName>
+        <externalId>false</externalId>
+        <label>Second Level Division</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>High_Level_Division__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>R&amp;L RSC</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Core R&amp;L</controllingFieldValue>
+                <valueName>R&amp;L RSC</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Segment__c</fullName>

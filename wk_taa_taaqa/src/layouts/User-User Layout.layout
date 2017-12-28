@@ -66,6 +66,10 @@
                 <behavior>Required</behavior>
                 <field>ARMS_Request_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Second_Level_Division__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

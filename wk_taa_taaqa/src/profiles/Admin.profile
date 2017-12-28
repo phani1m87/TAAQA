@@ -194,6 +194,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ATA_AccountTriggerHandlerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ATA_ComposeAccountTeam</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -215,6 +219,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ATA_PostAccountTeam</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ATA_TestDateFactory</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -19729,6 +19737,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>User.Sales_Rep_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Second_Level_Division__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
