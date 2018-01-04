@@ -19,6 +19,7 @@ public with sharing class ATA_Utility
         return customSettings;
 	}
 	
+	/*
 	public static list<ErrorMessagesType> catchedException = new list<ErrorMessagesType>();
 	
 	public class ErrorMessagesType {
@@ -33,4 +34,5 @@ public with sharing class ATA_Utility
         tmpExceptionObject.errorMessageDescription = errorMsg;
         catchedException.add(tmpExceptionObject);
     }
+    */
 }

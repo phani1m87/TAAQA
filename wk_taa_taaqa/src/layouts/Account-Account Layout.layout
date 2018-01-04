@@ -540,10 +540,8 @@
         <fields>Type__c</fields>
         <fields>Detail__c</fields>
         <fields>CREATEDBY_USER</fields>
-        <fields>CREATED_DATE</fields>
+        <fields>CreatedDateTime__c</fields>
         <relatedList>Monitoring_Log__c.Account__c</relatedList>
-        <sortField>CREATED_DATE</sortField>
-        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

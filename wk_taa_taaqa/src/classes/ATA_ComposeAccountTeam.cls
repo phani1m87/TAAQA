@@ -228,7 +228,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                                                                FROM ATA_AssignmentType_Map__c
 	                                                                WHERE FieldSet__c IN: setValidFieldSets
 	                                                                AND Field_API_Name__c IN: setValidFieldAPINames
-	                                                                AND Field_Value__c IN:setValidValues];
+	                                                                AND Field_Value__c IN: setValidValues];
     	
     	if(lstAssignmentTypeMap.size() > 0)
     	{
@@ -276,7 +276,7 @@ public with sharing class ATA_ComposeAccountTeam
     	return validAssignmnentTypesMap;
     }
     
-    
+    /*
     // *** get assignment types based on ATA_AccountRuleValue map
     public static Map<Id, Set<String>> deprecated_getAssignmentTypes(Map<Id, List<ATA_AccountRuleValue>> accountRuleValueMap) 
     {
@@ -320,6 +320,7 @@ public with sharing class ATA_ComposeAccountTeam
         System.debug('## : ' + validAssignmentTypeSet);
         return validAssignmnentTypesMap;
     }
+    */
     
     // *** get role assignments and then prepare AccountTeamMembers for list of Accounts
     public static Map<Id, List<AccountTeamMember>> getListAccountTeamMembers(Map<Id, Set<String>> accountAssignmentType) 
