@@ -6,8 +6,8 @@
 @isTest
 public class ATA_TestDateFactory 
 {
-	// *** test data factory class for ATA
-	
+    // *** test data factory class for ATA
+    
     public static Account create_Account() 
     {
         // create Account
@@ -42,21 +42,22 @@ public class ATA_TestDateFactory
         u.Division__c = 'Northeast';
         u.License_Charge_To__c = 'Sales';
         u.CostCenter__c = '1110';
+        u.IsActive = true;
         insert u;
         
         return u;
     }
-	
-   	public static AccountAutomationSetting__c create_ATACustomSetting()
+    
+    public static AccountAutomationSetting__c create_ATACustomSetting()
     {
         // create ATA custom setting
         AccountAutomationSetting__c t = new AccountAutomationSetting__c( 
-	        ATA_RuleType__c = 'ATA',
-	        BatchJobAdmin__c = 'test@example.com',
-	        ATA_ExcludeAccountRecordType__c = 'Partner Account',
-	        GeneralDataSizeInBatchJob__c = 200,
-	        Terminate_Account_Team_Role_Names__c = '["National Solution Consultant","Strategic Solution Consultant"]',
-	        IsTriggerOff__c = false);
+            ATA_RuleType__c = 'ATA',
+            BatchJobAdmin__c = 'test@example.com',
+            ATA_ExcludeAccountRecordType__c = 'Partner Account',
+            GeneralDataSizeInBatchJob__c = 200,
+            Terminate_Account_Team_Role_Names__c = '["National Solution Consultant","Strategic Solution Consultant"]',
+            IsTriggerOff__c = false);
         
         insert t;
         
@@ -67,7 +68,7 @@ public class ATA_TestDateFactory
     {
         // create ATA Rule 
         ATA_Rule__c ruleObj = new ATA_Rule__c(
-        	Rule_Type__c = 'ATA',
+            Rule_Type__c = 'ATA',
             FieldSet__c = fieldAPIName.replace('__c', ''), 
             Field_API_Name__c = fieldAPIName,
             Sobject__c = 'Account',
@@ -82,7 +83,7 @@ public class ATA_TestDateFactory
     {
         // create ATA AssignmentType Map
         ATA_AssignmentType_Map__c objAssignmentType = new ATA_AssignmentType_Map__c(
-        	Assignment_Type__c = assignmentType,
+            Assignment_Type__c = assignmentType,
             Rule_Type__c = ruleType,
             FieldSet__c = fieldSet,
             Field_API_Name__c = fieldAPIName,
@@ -97,7 +98,7 @@ public class ATA_TestDateFactory
     {
         // create ATA Role Assignment
         ATA_Role_Assignment__c objRoleAssignment = new ATA_Role_Assignment__c(
-        	Assignment_Type__c = assignmentType,
+            Assignment_Type__c = assignmentType,
             Role_Assignment_Type__c = roleAssignmentType,
             Role_Name__c = roleName,
             Assignment_Mechanism__c = assignmentMechanism);
@@ -111,7 +112,7 @@ public class ATA_TestDateFactory
     {
         // create ATA Geo Assignment
         ATA_Geographic_Assignment__c objGeoAssignment = new ATA_Geographic_Assignment__c(
-        	PostalCode__c = postalCode,
+            PostalCode__c = postalCode,
             Role_Name__c = roleName,
             DTN__c = dtn);
             
@@ -124,12 +125,12 @@ public class ATA_TestDateFactory
     {
         // create ATA Non geo Assignment
         ATA_Non_Geographic_Assignment__c objNongeoAssignment = new ATA_Non_Geographic_Assignment__c(
-        	Type__c = assignmentType,
-        	FieldName__c = fieldAPIName,
-        	FieldValue__c = fieldValue,
-        	RoleName__c = roleName,
-        	DTN__c = dtn,
-        	Role_Assignment_Type__c = roleAssignmentType);
+            Type__c = assignmentType,
+            FieldName__c = fieldAPIName,
+            FieldValue__c = fieldValue,
+            RoleName__c = roleName,
+            DTN__c = dtn,
+            Role_Assignment_Type__c = roleAssignmentType);
             
         insert objNongeoAssignment;
         

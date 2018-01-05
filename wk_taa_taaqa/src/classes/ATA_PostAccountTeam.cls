@@ -13,6 +13,7 @@ public with sharing class ATA_PostAccountTeam
     public static Boolean isDeleteExistingNRecreate = false;  
     public static List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
     static Map<Id, User> mapUserIdAndUser = new Map<Id, User>();
+    @testvisible
     static Map<Id, Account> mapAccountIdNAccountToUpdate = new Map<Id, Account>();
     static Map<Id, sObject> newMapAccounts = new Map<Id, Account>();
     static Map<String, String> mapRoleNameToDTNField = new Map<String, String>();
