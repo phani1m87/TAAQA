@@ -1,0 +1,5 @@
+<apex:page controller="sopo.POExportController" 
+sidebar="false" 
+action="{!download}"
+showHeader="false" 
+contentType="text/txt#po_config.txt">{!batchData}</apex:page>

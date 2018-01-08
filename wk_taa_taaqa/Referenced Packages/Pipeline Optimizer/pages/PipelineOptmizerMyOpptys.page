@@ -1,0 +1,48 @@
+<apex:page controller="sopo.PipelineOptmizerMyOpptysController">
+<!-- 
+	<style>
+		th { text-align:center; }
+	</style>
+<apex:form >	
+      <table border="1" width="100%" cellspacing="0" cellpadding="2" >
+        <tr>
+            <th rowspan="2">Opportunity Name   </th>
+            <th rowspan="2">Account            </th>
+            <th rowspan="2">Amount             </th>
+            <th rowspan="2">Stage              </th> 
+            <th rowspan="2">Close Date         </th>
+            <th colspan="{!CriteriaCount/2}">
+            Is It Real?
+            </th>
+            <th colspan="{!CriteriaCount/2}">
+            Can We Win?
+            </th>
+            <th rowspan="2">Probability</th> 
+            <th rowspan="2">PO%</th>
+        </tr>
+        <tr>
+         	<apex:repeat value="{!criteria}" Var="crt">           
+             <th>{!crt.Name}</th>
+          </apex:repeat>
+        </tr>
+
+        	<apex:repeat value="{!lines}" Var="line">
+         <tr>
+             <td><apex:outputLink value="/{!line.opp.Id}">{!line.opp.Name}</apex:outputLink></td>              
+             <td><apex:outputField value="{!line.opp.AccountId}"/></td>
+             <td><apex:outputField value="{!line.opp.Amount}"/></td>
+             <td><apex:outputField value="{!line.opp.StageName}"/></td>
+             <td><apex:outputField value="{!line.opp.CloseDate}"/></td>
+	          	<apex:repeat value="{!line.checkboxes}" Var="chbx">
+	          		<td> 
+	          			<apex:inputCheckbox value="{!chbx.checked}" disabled="true"/>
+	          		</td>           
+	            </apex:repeat>
+             <td><apex:outputField value="{!line.opp.Probability}"/></td>
+             <td><apex:outputField value="{!line.poo.PO__c}"/></td>
+         </tr>
+        	</apex:repeat>           
+      </table>
+</apex:form>
+ -->           
+</apex:page>

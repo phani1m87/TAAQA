@@ -1,0 +1,538 @@
+<apex:page controller="CCHAxcess.PfxDocumentSearchController">
+    <link rel="stylesheet" type="text/css" media="screen" href="{!URLFor($Resource.jgridcss, '')}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{!URLFOR($Resource.jquery_ui_css_images, 'jquery-ui.css')}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{!URLFor($Resource.msgBoxLightcss, '')}" />
+    <script src="{!URLFOR($Resource.jquery_182_min_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.jquery_msgBox_js, '')}" type="text/javascript"></script>
+    <script src="/soap/ajax/10.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/10.0/apex.js" type="text/javascript"></script>        
+    <script src="{!URLFor($Resource.cchpfxsdkrest_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.cookie, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.cchpfxsdkrestCommon_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.jgridlocal, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.jgridmin, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.jqCustom_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.jquerycchpfxutil_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.FileSaver_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.DateFormats_js, '')}" type="text/javascript"></script>
+    <style>
+        .jqSFTDStyle
+        {
+            border-right-width: 0px !important; 
+            border-bottom-width: 0px !important;
+            padding-top: 2px !important;
+            padding-right: 2px !important;
+            padding-bottom: 2px !important;
+            padding-left: 5px !important;
+            font-size: 12px !important;
+            vertical-align: middle !important;
+            font-weight: normal !important;
+        }
+        .jqSFTableStyle
+        {
+            border-top-width: 0px !important; 
+            border-left-width: 0px !important;
+            border-right-width: 0px !important; 
+            border-bottom-width: 0px !important;
+            
+            width: auto !important;
+        }
+        .ui-state-highlight 
+        { 
+            background: #D9ECFE !important; 
+            border-right-color: #D9ECFE !important; 
+            border-bottom-color: #D9ECFE !important;
+        }
+        .ColAdvSrch
+        {
+            border-top-width: 0px !important; 
+            border-left-width: 0px !important;
+            border-right-width: 0px !important; 
+            border-bottom-width: 0px !important;
+        }
+    </style>
+    <script type="text/javascript">
+        var IsLoginFailed = false;
+        var SFImageURL = '{!URLFOR($Resource.images, 'images')}';
+        function login(){
+            sforce.connection.sessionId = "{!$Api.Session_ID}"; 
+            RestSdkLogin(success, fail);
+            function success(data)
+            {
+                // var message="Please wait Add client to ProSystem <i>fx</i> Suite’s common data ...";
+                GetClasses();
+                getDocumentClientTypes("cmbClientType");
+            };
+            function fail(jqXHR, textStatus, err)
+            {
+                var error="Login failed. Status: " + textStatus + "\nerror: " + err;
+                //IsLoginFailed = true;
+                CustomAlertError(error, function(){});
+            };
+        };
+
+        var SFDocuments;
+        var SFRecentDocuments;
+        function getSFFavoriteDocumentList() {
+            var Documents = sforce.connection.query("SELECT CCHAxcess__PfxDocumentGuid__c, CCHAxcess__IsFavorite__c FROM CCHAxcess__FavoriteDocument__c WHERE CCHAxcess__User__c ='{!currUserID}'");
+            SFDocuments = Documents.getArray("records");
+        }
+        
+        function getSFRecentDocumentList() {
+            var Documents = sforce.connection.query("SELECT Id, Name, CCHAxcess__Activity__c, " +
+                                                    "CCHAxcess__PfxDocumentGuid__c, LastModifiedDate, LastModifiedBy.Name " +
+                                                    "FROM CCHAxcess__DocumentActivityLog__c " +
+                                                    "ORDER BY LastModifiedDate");
+            SFRecentDocuments = Documents.getArray("records");
+        }
+        
+        function btnSearch_onclcik() {
+            /*if (IsLoginFailed){
+                CustomAlertError('Login failed. Please reload page.', function(){});
+                return;
+			}*/
+            var Value = $("#txtSearchText").val();
+            if  (Value == ''){
+                CustomAlertInfo("Please enter search document string", function(){});
+                return false;
+            }
+
+            var Value = $('input[name=searchtype]:checked').val();
+            if (Value == "text")
+                SearchDocumentsByText();
+            else
+                SearchDocumentsByFileName();
+        }   
+
+        function SearchDocumentsByText() {
+            var searchParam01 = {
+                OpenParanthesis: "(",
+                FieldName: 15,// FileName
+                Operator: 12,// Contains
+                Value: $("#txtSearchText").val(),
+                CloseParanthesis: ")",
+                CombineOperator: 1 // Or
+            }
+            var searchParam02 = {
+                OpenParanthesis: "(",
+                FieldName: 29,// Words
+                Operator: 10,// IsExactly
+                Value: $("#txtSearchText").val(),
+                CloseParanthesis: ")"//,
+                //CombineOperator: 1 // Or
+            }
+            var searchParamsList = [searchParam01, searchParam02];
+            //var request = $.documentService('AdvancedSearch', searchParamsList, success, fail);
+            restapi_AdvancedSearch(searchParamsList, success, fail);
+            
+            function success(data) {
+                displayJqgrid(data);
+            };
+            function fail(jqXHR, textStatus, err) {
+                displayRestFailedErrorMessage(jqXHR, textStatus, err);
+            };
+        }
+
+        function SearchDocumentsByFileName() {
+            var searchParam = {
+                OpenParanthesis: "(",
+                FieldName: 15,// FileName
+                Operator: 12,// Contains
+                Value: $("#txtSearchText").val(),
+                CloseParanthesis: ")"
+            }
+            var searchParamsList = [searchParam];
+            //var request = $.documentService('AdvancedSearch', searchParamsList, success, fail);
+            restapi_AdvancedSearch(searchParamsList, success, fail);
+            function success(data) {
+                displayJqgrid(data);
+            };
+            function fail(jqXHR, textStatus, err) {
+                displayRestFailedErrorMessage(jqXHR, textStatus, err);
+            };
+        }
+
+        function displayJqgrid(data) {
+            if(SFDocuments == null || SFRecentDocuments == null) {
+                getSFFavoriteDocumentList();
+                getSFRecentDocumentList();
+            }
+            $("#tblAdvSearch").show();
+            resetFilterSearch();
+            if(data.length == 0)
+                CustomAlertInfo("No search results found", function(){});
+            jQuery("#clientDocumentList").jqGrid({
+                datatype: "local",
+                height: 520,
+                //caption: "Documents",
+                colNames: ['DocumentGuid', 'Status', 'File Name', 'Class', 'SubClass', 'Document Type', 'Year', 'CheckOutUserName', 'CreatedDate', 'EntityType', 'EntityID'],
+                colModel: [
+                            { name: 'DocumentGuid', index: 'DocumentGuid', formatter:ShowListView, width: 450, editable: false, sortable: false, align:"left" },
+                            { name: 'Status', formatter:'getStatusText', index: 'Status', width: 65, editable: true, sortable: true, align:"center", hidden:true },
+                            { name: 'FileName', index: 'FileName', width: 200, editable: true, sortable: true, hidden:true },
+                            { name: 'Class', index: 'Class', width: 100, editable: true, sortable: true, hidden:true },
+                            { name: 'SubClass', index: 'SubClass', width: 120, editable: true, sortable: true, hidden:true },
+                            { name: 'DocumentType', index: 'DocumentType', width: 110, editable: true, sortable: true, hidden: true },
+                            { name: 'Year', index: 'Year', width: 50, editable: true, sortable: false, align:"center", hidden:true },
+                            { name: 'CheckOutUserName', index: 'CheckOutUserName', width: 130, editable: true, sortable: false, hidden:true },
+                            { name: 'CreatedDate', index: 'CreatedDate', width: 0, editable: false, sortable: true, hidden:true },
+                            { name: 'EntityType', index: 'EntityType', width: 50, editable: true, sortable: false, align:"center", hidden:true },
+                            { name: 'EntityID', index: 'EntityID', width: 50, editable: true, sortable: false, align:"center", hidden:true }
+                    ],
+                rowNum: 10,
+                rowList: [10, 20, 40],
+                pager: '#documentPager',
+                viewrecords: true,
+                sortname: "CreatedDate",
+                sortorder: "desc",
+                hoverrows: false
+            });
+            // Add data to grid
+            jQuery("#clientDocumentList").jqGrid('clearGridData', true);
+            for (var i = 0; i < data.length; i++) {
+                jQuery("#clientDocumentList").jqGrid('addRowData', data[i].DocumentGuid, data[i]);
+            }
+
+            fnClearFilter();
+            jQuery("#clientDocumentList").setGridParam({sortname:'CreatedDate', sortorder: 'desc'}).trigger("reloadGrid");
+            // add editor at the bottom of the grid
+            jQuery("#clientDocumentList").jqGrid('navGrid', '#documentPager', { edit: false, add: false, del: false, beforeRefresh: function(){ getClientDocuments(); return false;}});
+            $('.ui-jqgrid-hdiv').hide();
+        }
+
+        function fnFilterSearch() {
+            grid = jQuery("#clientDocumentList");           
+            var obj;
+            obj = document.getElementById("cmbClientType");
+            var txtClientType = obj.options[obj.selectedIndex].value;
+            obj = document.getElementById("cmbClass");
+            var txtClass = obj.options[obj.selectedIndex].text;
+            obj = document.getElementById("cmbSubClass");
+            var txtSubClass = obj.options[obj.selectedIndex].text;
+            obj = document.getElementById("cmbYear");
+            var txtYear = obj.options[obj.selectedIndex].text;
+            obj = document.getElementById("cmbDocType");
+            var txtDocType = obj.options[obj.selectedIndex].text;
+        
+
+            if (txtClientType == "Select" && txtClass == "Select" && txtSubClass == "Select" 
+                && txtYear == "Select" && txtDocType == "Select") {
+                fnClearFilter();
+                //CustomAlertInfo("Please select at-least one value for filter search", function(){});
+                grid.trigger("reloadGrid",[{page:1,current:true}]);
+            }
+            else {
+
+                var f = {groupOp:"AND",rules:[]};
+                if(txtClientType != "Select")
+                    f.rules.push({field:"EntityType",op:"cn",data:txtClientType});
+                if(txtClass != "Select")
+                    f.rules.push({field:"Class",op:"cn",data:txtClass});
+                if(txtSubClass != "Select")
+                    f.rules.push({field:"SubClass",op:"cn",data:txtSubClass});
+                if(txtYear != "Select")
+                    f.rules.push({field:"Year",op:"cn",data:txtYear});
+                if(txtDocType != "Select")
+                    f.rules.push({field:"DocumentType",op:"cn",data:txtDocType});
+                
+                grid[0].p.search = true;
+                $.extend(grid[0].p.postData,{filters:JSON.stringify(f)});
+                grid.trigger("reloadGrid",[{page:1,current:true}]);
+            }
+        }
+
+        function fnClearFilter() {
+            grid = jQuery("#clientDocumentList");
+            grid[0].p.search = false;
+            $.extend(grid[0].p.postData,{filters:""});
+        }
+        
+        function ShowListView(cellvalue, options, rowObject) {
+            var recentActivity = getDocumentRecentActivity(rowObject.DocumentGuid, rowObject.CreatedDate);
+            var content = '';
+            content = "<table class='jqSFTableStyle' border='0' cellspacing='0' cellpadding='0'>" +
+                        "<tr class='dataRow'>" +
+                            "<td rowspan='2' class='jqSFTDStyle'>" + ShowFavoriteLink(cellvalue, options, rowObject) +
+                            "</td>" +
+                            "<td rowspan='2' class='jqSFTDStyle'>" +
+                                "<image height='48' width='48' src='{!URLFOR($Resource.images, 'images')}/" + getImageIconName(rowObject.FileName, rowObject.Status) + "' />" +
+                            "</td>" +
+                            "<td class='jqSFTDStyle'>" +
+                                "<b><a href=\"javascript:DownLoadDocument('" + rowObject.DocumentGuid + "');\" Title='Click to download document'>" + rowObject.FileName + "</a></b>" +
+//getPreviewButtonHTML(rowObject.DocumentGuid, rowObject.FileName) +
+                            "</td>" +
+                        "</tr>" +
+                        "<tr class='dataRow'>" +
+                            "<td class='jqSFTDStyle'>" +
+                                "<b>" + recentActivity.Activity + "</b> by " + recentActivity.ModifiedBy + " on " + recentActivity.ModifiedDate +
+                            "</td>" +
+                        "</tr>" +
+                      "</table>";
+            return content;
+        }
+
+        function ShowFavoriteLink(cellvalue, options, rowObject) {
+            var FavLink = "";
+            var IsFavorite = false;
+            for (var i=0; i < SFDocuments.length; i++){
+                if(SFDocuments[i].CCHAxcess__PfxDocumentGuid__c == rowObject.DocumentGuid 
+                    && SFDocuments[i].CCHAxcess__IsFavorite__c == 'true')
+                {
+                    IsFavorite = true;
+                    break;
+                }
+            }
+            if (IsFavorite)
+                FavLink = "<image style='cursor: hand;' title='Click to remove from favorite document list' onclick=\"setDocumentFavoriteFlag('" + rowObject.DocumentGuid + "','" + rowObject.FileName + "','" + rowObject.EntityID + "', false)\" src=\"{!URLFOR($Resource.images, 'images/Star_enabled_16_16.png')}\" />";
+            else
+                FavLink = "<image style='cursor: hand;' title='Click to mark as favorite document' onclick=\"setDocumentFavoriteFlag('" + rowObject.DocumentGuid + "','" + rowObject.FileName + "','" + rowObject.EntityID + "', true)\" src=\"{!URLFOR($Resource.images, 'images/Star_disabled_16_16.png')}\" />";
+            return FavLink;
+        }
+
+        function getDocumentRecentActivity(documentGuid, CreatedDate) {
+            for(var i=0; i < SFRecentDocuments.length; i++) {
+                if (SFRecentDocuments[i].CCHAxcess__PfxDocumentGuid__c == documentGuid) {
+                    return { Activity : SFRecentDocuments[i].CCHAxcess__Activity__c,
+                             ModifiedBy : SFRecentDocuments[i].LastModifiedBy.Name,
+                             ModifiedDate : getDateFromSFFormat(SFRecentDocuments[i].LastModifiedDate) };
+                }
+            }
+            return { Activity : 'Uploaded', ModifiedBy : 'PfxUser', ModifiedDate : getDateFromJson(CreatedDate) };
+        }
+
+        function DownLoadDocument(documentGuid)
+        {
+            var docGuid = documentGuid;
+            /*var userIntId = '';
+        
+            var url = $.anonymousDocumentService('GetDocumentUrl', docGuid, userIntId);
+            var iframe = document.createElement("iframe");
+            iframe.src = url
+            iframe.style.display = "none";
+			document.body.appendChild(iframe);*/
+            var request = restapi_DownloadDocument(docGuid, fail);
+            function fail(jqXHR, textStatus, err) {
+                displayRestFailedErrorMessage(jqXHR, textStatus, err);
+            }
+        }
+        
+        var varClassesSubClasses;
+        function GetClasses() {
+            //var request = $.documentService('GetClassesByFirm', success, fail);
+            restapi_GetClassesByFirm(success, fail);
+            function success(data) {
+                getYears();
+                getDocumentTypes();
+                varClassesSubClasses = data;
+                var select = document.getElementById('cmbClass');
+                select.options.length = 0;      // clear out existing items
+                select.options.add(new Option("Select", "Select"));
+                for(var i=0; i < data.length; i++) {
+                    select.options.add(new Option(data[i].ClassName, data[i].ClassCode))
+                }
+//select.value = '{!login.Class__c}';
+                getSubClassesFromSelectedClass(select, document.getElementById('cmbSubClass'));
+            };
+            function fail(jqXHR, textStatus, err) {
+                displayRestFailedErrorMessage(jqXHR, textStatus, err);
+            };
+        };
+        
+        function getSubClassesFromSelectedClass(obj, targetObj){
+            if (varClassesSubClasses != null){
+                targetObj.options.length = 0;
+                targetObj.options.add(new Option("Select", "Select"));
+                var selectedClassName = obj.options[obj.selectedIndex].text;
+                for(var i=0; i < varClassesSubClasses.length; i++) {
+                    if(varClassesSubClasses[i].ClassName == selectedClassName){
+                        var varSubClasses = varClassesSubClasses[i].Subclasses;
+                        for(var j=0; j < varSubClasses.length; j++) {
+                            targetObj.options.add(new Option(varSubClasses[j].SubclassName, varSubClasses[j].SubclassCode))
+                        }
+                    }
+                }
+//targetObj.value = '{!login.SubClass__c}';
+            }
+        };
+
+        // Get Years
+        var varYear;
+        function getYears()
+        {
+            function success(data) {
+                varYear = data;
+                var select = document.getElementById('cmbYear');
+                select.options.length = 0;      // clear out existing items
+                select.options.add(new Option("Select", "Select"));
+                for(var i=0; i < data.length; i++) {
+                    select.options.add(new Option(data[i].Year))
+                }     
+//select.value = '{!login.Year__c}';
+            };
+
+            function fail(jqXHR, textStatus, err) {
+                displayRestFailedErrorMessage(jqXHR, textStatus, err);
+            };
+            //var request = $.documentService('GetYearsByFirm', success, fail);
+            restapi_GetYearsByFirm(success, fail);
+        };
+        
+        //Get Document Types
+        function getDocumentTypes() {
+            //var request = $.documentService('GetDocumentTypes', success, fail);
+            restapi_GetDocumentTypes(success, fail);
+            function success(data) {
+                var select = document.getElementById('cmbDocType');
+                select.options.length = 0;      // clear out existing items
+                select.options.add(new Option("Select", "Select"));
+                for (var i = 0; i < data.length; i++) {
+                    select.options.add(new Option(data[i].DocumentTypeName))
+                }
+            };
+            function fail(jqXHR, textStatus, err) {
+                displayRestFailedErrorMessage(jqXHR, textStatus, err);
+            };
+        };
+        
+        function getDocumentClientTypes(idName) {
+            var select = document.getElementById(idName);
+            select.options.length = 0;
+            select.options.add(new Option("Select", "Select"))
+            select.options.add(new Option("Client", "5"))
+        }
+
+        function resetFilterSearch() {
+            $("#cmbClientType").val("Select");
+            $("#cmbClass").val("Select");
+            $("#cmbSubClass").val("Select");
+            $("#cmbYear").val("Select");
+            $("#cmbDocType").val("Select");
+        }
+
+        function setDocumentFavoriteFlag(documentguid, FileName, EntityID, IsFavorite){
+            var CreateNewRecords = []; 
+            var create_new_Fav = new sforce.SObject("CCHAxcess__FavoriteDocument__c");
+            var getresult = sforce.connection.query("SELECT Id FROM CCHAxcess__FavoriteDocument__c WHERE CCHAxcess__PfxDocumentGuid__c='" + documentguid + "' AND CCHAxcess__User__c ='{!currUserID}'");
+            if(getresult.size != 0){
+                var records = getresult.getArray("records");
+                create_new_Fav.Id = records[0].Id;
+            }
+            create_new_Fav.Name = FileName;
+            create_new_Fav.CCHAxcess__ClientID__c = EntityID;
+            create_new_Fav.CCHAxcess__IsFavorite__c = IsFavorite;
+            create_new_Fav.CCHAxcess__PfxDocumentGuid__c = documentguid;
+            create_new_Fav.CCHAxcess__User__c = "{!currUserID}";
+            CreateNewRecords.push(create_new_Fav);
+        
+            var result;
+            if(getresult.size != 0)
+                result = sforce.connection.update(CreateNewRecords);
+            else
+                result = sforce.connection.create(CreateNewRecords);
+            if (result[0].success=='false')
+                CustomAlertError(result[0].errors.message, function(){});
+            else{
+                getSFFavoriteDocumentList();
+                var $myGrid = jQuery("#clientDocumentList");
+                $myGrid.trigger("reloadGrid");
+            }
+        }
+    </script>
+
+    <apex:form id="theform">
+        <apex:pageBlock mode="edit" id="thePageBlock">
+            <apex:pageBlockSection columns="1" id="thePageBlockSearchSection">
+                <table style="width: auto !important;">
+                    <tr>
+                        <td class="labelCol first">
+                            Search&nbsp;Document
+                        </td>
+                        <td class="dataCol  first">
+                            <input type="text" name="txtSearchText" id="txtSearchText" maxlength="50" value="" />
+                        </td>
+                        <td>
+                            <input type="radio" name="searchtype" value="fileName" />FileName<br />
+                            <input type="radio" name="searchtype" value="text" checked="checked" />Text
+                        </td>
+                        <td>
+                            <input type="submit" name="btnSearch" value="Search" onclick="btnSearch_onclcik(); return false;" class="btn" />
+                        </td>
+                    </tr>
+                </table>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1" id="thePageBlockResultSection">
+                <table width="100%" border="0">
+                    <tr>
+                        <td width="50%">
+                            <div style="float: left;">
+                                <table id="clientDocumentList">
+                                </table>
+                                <div id="documentPager">
+                                </div>
+                            </div>
+                        </td>
+                        <td width="50%">
+                            <table class="list" id="tblAdvSearch" cellspacing="0" cellpadding="0" border="0" style="display:none;">
+                                <thead class="rich-table-thead">
+                                    <tr class="headerRow">
+                                        <th class="headerRow" colspan="2" aligh="left">Filter Your Search:</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td class="labelCol ColAdvSrch">
+                                        <label for="cmbClientType">Client Type</label>
+                                    </td>
+                                    <td class="dataCol ColAdvSrch">
+                                        <select id="cmbClientType" name="cmbClientType" size="1" style="width: 150px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="labelCol ColAdvSrch">
+                                        <label for="cmbClass">Class</label>
+                                    </td>
+                                    <td class="dataCol ColAdvSrch">
+                                        <select id="cmbClass" name="cmbClass" size="1" onchange="getSubClassesFromSelectedClass(this, document.getElementById('cmbSubClass'));" style="width: 150px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="labelCol ColAdvSrch">
+                                        <label for="cmbSubClass">Sub Class</label>
+                                    </td>
+                                    <td class="dataCol ColAdvSrch">
+                                        <select id="cmbSubClass" name="cmbSubClass" size="1" style="width: 150px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="labelCol ColAdvSrch">
+                                        <label for="cmbYear">Year</label>
+                                    </td>
+                                    <td class="dataCol ColAdvSrch">
+                                        <select id="cmbYear" name="cmbYear" size="1" style="width: 150px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="labelCol ColAdvSrch">
+                                        <label for="cmbDocType">Document Type</label>
+                                    </td>
+                                    <td class="dataCol ColAdvSrch">
+                                        <select id="cmbDocType" name="cmbDocType" size="1" style="width: 150px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="labelCol ColAdvSrch">
+                                    </td>
+                                    <td class="dataCol ColAdvSrch">
+                                        <input type="submit" name="btnAdvSearch" value="Search" onclick="fnFilterSearch();return false;" class="btn" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <script type="text/javascript">
+        login();
+    </script>
+</apex:page>

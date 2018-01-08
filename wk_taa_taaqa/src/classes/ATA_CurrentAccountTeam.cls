@@ -16,14 +16,12 @@ public with sharing class ATA_CurrentAccountTeam
 		if(setAccountIds != NULL && setAccountIds.size() > 0) // check if input is not empty
 		{
 			mapAccountIdNAccountTeamMembers = new Map<Id, List<AccountTeamMember>>(); 
-			System.debug('==setAccountIds ='+setAccountIds);
-			//*** query AccountTeamMembers for the set of accounts
+						//*** query AccountTeamMembers for the set of accounts
 			List<AccountTeamMember> lstAccountTeamMembers = [SELECT Id, AccountId, Account.Name, TeamMemberRole, User.Id, User.DTN__c, User.Name 
-																FROM AccountTeamMember
-																WHERE accountId IN: setAccountIds];
+																FROM AccountTeamMember 
+																WHERE AccountId IN: setAccountIds];
 			
-			System.debug('==account team ='+lstAccountTeamMembers);
-            if(lstAccountTeamMembers != NULL && lstAccountTeamMembers.size() > 0)
+			if(lstAccountTeamMembers != NULL && lstAccountTeamMembers.size() > 0)
 			{
 				//*** build the map collection
 				for(AccountTeamMember objATM : lstAccountTeamMembers)

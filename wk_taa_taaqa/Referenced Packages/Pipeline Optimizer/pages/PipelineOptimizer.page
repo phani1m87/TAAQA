@@ -1,0 +1,206 @@
+<apex:page standardController="Opportunity" extensions="sopo.PipelineOptimizerController" showheader="true" sidebar="false" action="{!initPageData}" >
+ 
+	<apex:includeScript value="{!URLFOR($Resource.sopo__PipelineOptimizer, 'jquery.min.js')}" />
+	<script type="text/javascript">
+		jQuery.noConflict();
+	</script>
+	<apex:includeScript value="{!URLFOR($Resource.sopo__PipelineOptimizer, 'highcharts.js')}" />
+	<apex:includeScript value="{!URLFOR($Resource.sopo__PipelineOptimizer, 'highslide-full.min.js')}" />
+	<apex:includeScript value="{!URLFOR($Resource.sopo__PipelineOptimizer, 'highslide.config.js')}" />
+	<apex:includeScript value="{!URLFOR($Resource.sopo__PipelineOptimizer, 'scripts.js')}" />
+	<script type="text/javascript">
+		var ppoChart;
+		var lastTimeRendered = 0;
+
+		function renderChart()
+		{
+		
+			var timeInMillis = (new Date()).getTime();
+			if(timeInMillis - lastTimeRendered < 1000) return;
+			lastTimeRendered = timeInMillis; 
+
+			l1 = parseInt(document.getElementById('{!$Component.frm.pb.CanWeWinSection.lvl1}').value); 
+			l2 = parseInt(document.getElementById('{!$Component.frm.pb.CanWeWinSection.lvl2}').value);
+			ppoChart = new Highcharts.Chart({
+				chart: {
+					height: 65,
+					renderTo: 'container',
+					defaultSeriesType: 'bar',
+					marginTop: 20,
+					marginLeft: 20,
+					marginRight: 20,
+					marginBottom: 20
+				},
+				colors: [
+					'#8BEA00',
+					'#FFAA00'
+				],
+				credits: {
+					enabled: false
+				},
+				exporting: {
+					buttons: {
+						exportButton: {
+							enabled : true
+						},
+						printButton: {
+							enabled : true
+						}
+					}
+				},								
+				title: {
+					text: ' ',
+					style: {
+						display: 'none',
+						height: 0 
+					}
+				},
+				xAxis: {
+					categories: [' ']
+				},
+				yAxis: {
+					min: 0,
+					max: 100,
+					title: {
+						text: ' '
+					}
+				},
+				legend: {
+					backgroundColor: '#FFFFFF',
+					reversed: true,
+					enabled: false
+				},
+				tooltip: {
+					formatter: function() {
+						return ''+
+							 this.series.name +': '+ this.y +'';
+					}
+				},
+				plotOptions: {
+					series: {
+						stacking: 'normal'
+					}
+				},
+			   series: [{
+					name: '{!JSENCODE(level2name)}',
+					data: [l2]
+				}, {
+					name: '{!JSENCODE(level1name)}',
+					data: [l1]
+				}]
+			});		
+		}
+	
+		function checkboxChanged()
+		{
+			lastTimeRendered = 0;
+			renderChart();	
+		}
+		
+		jQuery(window).resize(function () {
+			renderChart();
+		});		
+	
+			
+	function refershParentWindow()
+	{		
+		window.top.location = "/{!o.Id}";		
+	}
+
+</script>
+ 
+ 
+    <apex:form id="frm">
+		<apex:pageMessages />
+	    <apex:pageBlock id="pb"> 
+	        <apex:pageBlockSection id="oppDetails" columns="2"  rendered="{!invokedFromDashboard}">
+		        <apex:outputField value="{!Opportunity.OwnerId}"/ >
+		        <apex:outputField value="{!Opportunity.AccountId}"/>
+		        <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.Name.inlineHelpText}">
+		            <apex:outputLabel value="{!$ObjectType.Opportunity.fields.Name.Label}"/>
+			        <apex:outputLink value="/{!Opportunity.Id}" title="{!Opportunity.Name}">{!Opportunity.Name}</apex:outputLink>         
+		         </apex:pageBlockSectionItem>        
+		        <apex:pageBlockSectionItem >
+		            <apex:outputLabel value="Amount"/>
+		            <apex:outputText value="{!Opportunity.Amount}"/>                                  
+		        </apex:pageBlockSectionItem>
+		        <apex:outputField value="{!Opportunity.CloseDate}"/>        
+		        <apex:outputField value="{!Opportunity.StageName}"/>
+		        <apex:outputField value="{!Opportunity.Probability}"/>
+	       </apex:pageBlockSection>
+            <apex:pageBlockSection id="CanWeWinSection" columns="2" >
+                <apex:pageBlockTable id="Level1Criteria" value="{!level1list}" var="L1">
+                    <apex:column width="5%"> 
+                         <apex:facet name="header">
+                            <apex:image id="L1Color" value="{!URLFOR($Resource.sopo__PipelineOptimizer, Level1Color + '.png')}" width="20px" height="20px" />
+                         </apex:facet>
+                        <apex:inputCheckbox id="L1Value" value="{!L1.value}"> 
+                            <apex:actionSupport event="onclick" 
+                            	action="{!savePipeline}" status="stts" 
+                            	rerender="CanWeWinSection,CoachingList,CoachingBtns,L1Color"
+                            	oncomplete="checkboxChanged()"/> 
+                        </apex:inputCheckbox>
+                    </apex:column> 
+                    <apex:column headerValue="{!level1name}" >
+                        <apex:outputField id="L1Criteria" value="{!L1.criteria.Name}"/>
+                    </apex:column>              
+                    <apex:column headerValue="Description">
+                        <apex:outputField id="L1Desc" value="{!L1.criteria.sopo__Description__c}"/>
+                    </apex:column>      
+                </apex:pageBlockTable>
+                <apex:pageBlockTable id="Level2Criteria" value="{!level2list}" var="L2">
+                    <apex:column width="5%"> 
+                         <apex:facet name="header">
+                            <apex:image id="L2Color" value="{!URLFOR($Resource.sopo__PipelineOptimizer, Level2Color + '.png')}" width="20px" height="20px" />
+                         </apex:facet>
+                        <apex:inputCheckbox id="L2Value" value="{!L2.value}"> 
+                            <apex:actionSupport event="onclick" 
+                            		action="{!savePipeline}"  status="stts" 
+                            		rerender="CanWeWinSection,CoachingList,CoachingBtns,L2Color"
+                            		oncomplete="checkboxChanged()"/> 
+                        </apex:inputCheckbox>
+                    </apex:column> 
+                    <apex:column headerValue="{!level2name}" > 
+                        <apex:outputText id="L2Criteria" value="{!L2.criteria.Name}"/>
+                    </apex:column>
+                    <apex:column headerValue="Description">
+                        <apex:outputField id="L2Desc" value="{!L2.criteria.sopo__Description__c}"/>
+                    </apex:column>              
+                </apex:pageBlockTable>
+                <apex:inputHidden value="{!level1percent}" id="lvl1"/> 
+                <apex:inputHidden value="{!level2percent}" id="lvl2"/>                 
+            </apex:pageBlockSection>  
+			<apex:panelGrid columns="1" style="width:100%" >
+				<div id="container" class="highcharts-container"
+					style="width: 100%; height: 200 px; margin: 0 auto; clear: both">
+				</div> 			    	
+	            <apex:panelGrid columns="4" id="CoachingBtns" >
+					<apex:commandButton action="{!createTasks}" value="Create Tasks" oncomplete="refershParentWindow()" />
+					<apex:commandButton action="{!closeTasks}" value="Close Tasks" oncomplete="refershParentWindow()" />
+			 		
+			 		<apex:actionStatus startText="Please wait ..." id="stts" startStyle="color:red"/>  	                
+			 	</apex:panelGrid>
+				 <apex:outputPanel layout="block" style="overflow:auto;height:100px" >
+				    <apex:dataTable id="CoachingList" value="{!tips}" var="ctt" 
+				        style="border-color:LightGrey;" columns="3" columnsWidth="10px, 150px" 
+				        rules="rows" title="Select check boxes next to the coaching tips to be added to your plan and click button to auto-generate tasks for each.">
+				        <apex:column > 
+				              <apex:inputCheckbox id="GenPlan" value="{!ctt.sopo__Add_to_Plan__c}" disabled="{!ctt.sopo__Disabled__c}" />
+				        </apex:column>
+				        <apex:column headerValue="Suggested Activities"> 
+				            <apex:outputText value="{!ctt.Pipeline_Optimizer_Coach_Tip__r.Name}" rendered="{!NOT(ctt.sopo__Disabled__c)}"/>
+				            <apex:outputLink value="/{!ctt.sopo__TaskId__c}" title="{!ctt.Pipeline_Optimizer_Coach_Tip__r.Name}" target="_blank" rendered="{!ctt.sopo__Disabled__c}">{!ctt.Pipeline_Optimizer_Coach_Tip__r.Name}</apex:outputLink>
+				        </apex:column>
+				        <apex:column >
+				            <apex:outputField value="{!ctt.Pipeline_Optimizer_Coach_Tip__r.sopo__Tip_Text__c}"/>
+				        </apex:column>              
+				    </apex:dataTable>
+			  		<apex:outputLink value="/apex/PipelineOptimizerAdmin"  target="_blank" rendered="{!isSysadmin}">Config</apex:outputLink>
+				 </apex:outputPanel>
+			</apex:panelGrid> 
+        </apex:pageBlock>   
+    </apex:form>
+<script>
+		jQuery(document).ready(renderChart);
+</script>        
+</apex:page>

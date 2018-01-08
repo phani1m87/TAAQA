@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Represents a transaction that records the change to an asset</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Action__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The asset action</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The asset action</inlineHelpText>
+        <label>Action</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amend</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Renew</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cancel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Upgrade</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AssetLineItemId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated asset line item</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated asset line item</inlineHelpText>
+        <label>Asset Line Item</label>
+        <referenceTo>AssetLineItem__c</referenceTo>
+        <relationshipLabel>Asset Transaction History (From)</relationshipLabel>
+        <relationshipName>AssetTransactionHistoryFrom</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ChangeInAssetARR__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The change in the asset annual recurring revenue due to the transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The change in the asset annual recurring revenue due to the transaction</inlineHelpText>
+        <label>Change In Asset ARR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ChangeInAssetMRR__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The change in the asset monthly recurring revenue due to the transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The change in the asset monthly recurring revenue due to the transaction</inlineHelpText>
+        <label>Change In Asset MRR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ChangeInAssetTCV__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The change in the asset TCV due to the transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The change in the asset TCV due to the transaction</inlineHelpText>
+        <label>Change In Asset TCV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>EffectiveStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The transaction effective start date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The transaction effective start date</inlineHelpText>
+        <label>Effective Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ImpactARR__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The change in annual recurring revenue due to the transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The change in annual recurring revenue due to the transaction</inlineHelpText>
+        <label>Impact ARR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ImpactMRR__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The change in monthly recurring revenue due to the transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The change in monthly recurring revenue due to the transaction</inlineHelpText>
+        <label>Impact MRR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ImpactTCV__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The change in TCV due to the transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The change in TCV due to the transaction</inlineHelpText>
+        <label>Impact TCV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OrderId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated order</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated order</inlineHelpText>
+        <label>Order</label>
+        <referenceTo>Order__c</referenceTo>
+        <relationshipLabel>Asset Transaction History</relationshipLabel>
+        <relationshipName>AssetTransactionHistory</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OrderLineItemId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated order line item</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated order line item</inlineHelpText>
+        <label>Order Line Item</label>
+        <referenceTo>OrderLineItem__c</referenceTo>
+        <relationshipLabel>Asset Transaction History</relationshipLabel>
+        <relationshipName>AssetTransactionHistory</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PriceListItemId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated price list item</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated price list item</inlineHelpText>
+        <label>Price List Item</label>
+        <referenceTo>PriceListItem__c</referenceTo>
+        <relationshipLabel>Asset Transaction History</relationshipLabel>
+        <relationshipName>AssetTransactionHistory</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ToAssetLineItemId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated changed to asset line item</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated changed to asset line item</inlineHelpText>
+        <label>Changed To Asset Line Item</label>
+        <referenceTo>AssetLineItem__c</referenceTo>
+        <relationshipLabel>Asset Transaction History (To)</relationshipLabel>
+        <relationshipName>AssetTransactionHistoryTo</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TransactionDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The asset transaction date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The asset transaction date</inlineHelpText>
+        <label>Transaction Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Asset Transaction History</label>
+    <nameField>
+        <displayFormat>ATH-{00000000}</displayFormat>
+        <label>Txn Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Asset Transaction History</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>AssetLineItemId__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Action__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ToAssetLineItemId__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>TransactionDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EffectiveStartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ImpactARR__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ImpactMRR__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ImpactTCV__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AssetLineItemId__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Action__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ToAssetLineItemId__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>TransactionDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EffectiveStartDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ImpactARR__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ImpactMRR__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ImpactTCV__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>AssetLineItemId__c</searchFilterFields>
+        <searchFilterFields>Action__c</searchFilterFields>
+        <searchFilterFields>ToAssetLineItemId__c</searchFilterFields>
+        <searchFilterFields>TransactionDate__c</searchFilterFields>
+        <searchFilterFields>EffectiveStartDate__c</searchFilterFields>
+        <searchFilterFields>ImpactARR__c</searchFilterFields>
+        <searchFilterFields>ImpactMRR__c</searchFilterFields>
+        <searchFilterFields>ImpactTCV__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

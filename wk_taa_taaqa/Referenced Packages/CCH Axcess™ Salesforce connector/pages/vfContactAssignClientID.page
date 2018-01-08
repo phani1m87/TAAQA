@@ -1,0 +1,3 @@
+<apex:page standardController="Contact" showHeader="false" sidebar="false">
+    <c:cmptAssignClientID componentType="Contact" componentID="{!Contact.id}" componentName="{!Contact.Name}"/>
+</apex:page>

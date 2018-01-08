@@ -21,7 +21,8 @@ public with sharing class ATA_PostAccountTeam
 	// *** create Account Team Members
 	public static List<Monitoring_Log__c> constructAccountTeam(Map<Id, List<AccountTeamMember>> currentAccountTeam, Map<Id, List<AccountTeamMember>> ruleDerivedAccountTeam, Map<Id, sObject> newTriggerMap)
 	{
-		newMapAccounts = newTriggerMap;
+		System.debug('==constructAccountTeam===');
+        newMapAccounts = newTriggerMap;
 		mapUserIdAndUser = new Map<Id, User>([SELECT Id, DTN__c, Name, IsActive, Custodial_Rep__c FROM User]);
 		//List<ATA_Role_to_DTN_Field_Mapping__c> lstRoleToDTNFieldMapping = ;
 		for(ATA_Role_to_DTN_Field_Mapping__c objCust : ATA_Role_to_DTN_Field_Mapping__c.getAll().values())
@@ -98,13 +99,12 @@ public with sharing class ATA_PostAccountTeam
 							}
 						}
 					}
-					// Set IsMassUpdated__c to FALSE so if it was TRUE by batch then this sets to FALSE
-					mapAccountIdNAccountToUpdate.get(accountId).put('IsMassUpdated__c', false);	
+                   		 // Set IsMassUpdated__c to FALSE so if it was TRUE by batch then this sets to FALSE
+                        mapAccountIdNAccountToUpdate.get(accountId).put('IsMassUpdated__c', false);
+                    //}
 				}
-				
 				Database.SaveResult[] updateResults = Database.update(mapAccountIdNAccountToUpdate.values(), false);
-				
-				//**** DML results handling ****//
+                //**** DML results handling ****//
 			}	
 		}
 		
@@ -123,19 +123,24 @@ public with sharing class ATA_PostAccountTeam
 		
 		for(Id accountId : ruleDerivedAccountTeam.keySet())
 		{ 
-			// if currentAccountTeam is not NULL then do comparison to find which one to insert / update / delete
+				System.debug('### : ruleDerivedAccountTeam 0.0 ' + ruleDerivedAccountTeam);
+                System.debug('### : currentAccountTeam' + currentAccountTeam);
+				
+            // if currentAccountTeam is not NULL then do comparison to find which one to insert / update / delete
 			if(currentAccountTeam != NULL && currentAccountTeam.size() > 0 && currentAccountTeam.containsKey(accountId))
 			{
 				String logMessage = '';
 				String logCode = ATA_Constants.ATA_TEAM_MEMBER_CREATED_SUCCESS;
-				for(AccountTeamMember objDerivedATM : ruleDerivedAccountTeam.get(accountId))
+                for(AccountTeamMember objDerivedATM : ruleDerivedAccountTeam.get(accountId))
 				{
 					i = 0;
 					Boolean isConsiderd = false;
 					System.debug('### : 0.0 ' + objDerivedATM.TeamMemberRole);
 					for(AccountTeamMember objCurrentATM : currentAccountTeam.get(accountId))
 					{	
-						System.debug('### : 0.1 ' + objDerivedATM.TeamMemberRole);
+						System.debug('### objDerivedATM : 0.1 ' + objDerivedATM.TeamMemberRole);
+                        System.debug('### objCurrentATM : 0.1 ' + objCurrentATM.TeamMemberRole);
+                        System.debug(objCurrentATM.UserId+'current ### : 0.1 objDer ' + objDerivedATM.UserId );
 						// *** UPDATE
 						// Role & User both matches so no need to change anything
 						if(objDerivedATM.TeamMemberRole == objCurrentATM.TeamMemberRole && objDerivedATM.UserId == objCurrentATM.UserId)
@@ -212,59 +217,59 @@ public with sharing class ATA_PostAccountTeam
 							break;
 						}else if(objDerivedATM.TeamMemberRole != objCurrentATM.TeamMemberRole && objDerivedATM.UserId == objCurrentATM.UserId){
 							if(mapUserIdAndUser.get(objDerivedATM.UserId).IsActive)
-							{
-								// Role doesn't match but user matches so add it for update	
-								Set<AccountTeamMember> alreadyAddedATMs = mapOperationNAccountTeamMembers.get('insert');
-								alreadyAddedATMs.add(objDerivedATM);
-								mapOperationNAccountTeamMembers.put('insert', alreadyAddedATMs);
-								
-								// since we cannot replace user on existing ATM so delete existing one and recreate new
-								Set<AccountTeamMember> leftOverATMs = mapOperationNAccountTeamMembers.get('delete');
-								leftOverATMs.add(objCurrentATM);
-								mapOperationNAccountTeamMembers.put('delete', leftOverATMs);
-								
-								currentAccountTeam.get(accountId).remove(i);
-								i++;
-								isConsiderd = true;
-								
-								logMessage = logMessage + '\n Change the role for the user: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')' 
-																													+ '	from the old role: ' + objCurrentATM.TeamMemberRole 
-																													+ ' to the new role: ' + objDerivedATM.TeamMemberRole;
-								
-								
-								// assign DTN to field
-								String DTN = mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c;
-								if(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole) != NULL)
-								{
-									if(mapAccountIdNAccountToUpdate.containsKey(accountId))
-									{
-										if(String.isNotBlank(String.valueOf(mapAccountIdNAccountToUpdate.get(accountId).get(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole))))){
-											DTN = DTN + ',' + mapAccountIdNAccountToUpdate.get(accountId).get(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole));
-										}
-										mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
-										if(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole) != NULL){
-											mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole), NULL);
-										}else{
-											logMessage = logMessage + ' DTN field mapping is missing in ATA_Role_to_DTN_Field_Mapping__c for the role: ' + objCurrentATM.TeamMemberRole + '.';
-										}
-									}else{
-										Account objAccount = new Account(Id = accountId);
-										objAccount.put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
-										if(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole) != NULL){
-											objAccount.put(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole), NULL);
-										}else{
-											logMessage = logMessage + ' DTN field mapping is missing in ATA_Role_to_DTN_Field_Mapping__c for the role: ' + objCurrentATM.TeamMemberRole + '.';
-										}
-										mapAccountIdNAccountToUpdate.put(accountId, objAccount);
-									} // end if then else	
-								}else{
-									logMessage = logMessage + ' DTN field mapping is missing in ATA_Role_to_DTN_Field_Mapping__c for the role: ' + objDerivedATM.TeamMemberRole + '.';
-								} // end if then else
-							}else{
-								logMessage = logMessage + '\n User: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ') with role: ' + objDerivedATM.TeamMemberRole
-																+ ' determined to be in Account Team but user appears to be inactive.';
-								logCode = ATA_Constants.ATA_TEAM_MEMBER_CREATED_WITH_ERROR;
-							}
+                            {
+                                // Role doesn't match but user matches so add it for update	
+                                Set<AccountTeamMember> alreadyAddedATMs = mapOperationNAccountTeamMembers.get('insert');
+                                alreadyAddedATMs.add(objDerivedATM);
+                                mapOperationNAccountTeamMembers.put('insert', alreadyAddedATMs);
+                                
+                                // since we cannot replace user on existing ATM so delete existing one and recreate new
+                                Set<AccountTeamMember> leftOverATMs = mapOperationNAccountTeamMembers.get('delete');
+                                leftOverATMs.add(objCurrentATM);
+                                mapOperationNAccountTeamMembers.put('delete', leftOverATMs);
+                                
+                                currentAccountTeam.get(accountId).remove(i);
+                                i++;
+                                isConsiderd = true;
+                                
+                                logMessage = logMessage + '\n Change the role for the user: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')' 
+                                                                                                                    + '	from the old role: ' + objCurrentATM.TeamMemberRole 
+                                                                                                                    + ' to the new role: ' + objDerivedATM.TeamMemberRole;
+                                
+                                
+                                // assign DTN to field
+                                String DTN = mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c;
+                                if(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole) != NULL)
+                                {
+                                    if(mapAccountIdNAccountToUpdate.containsKey(accountId))
+                                    {
+                                        if(String.isNotBlank(String.valueOf(mapAccountIdNAccountToUpdate.get(accountId).get(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole))))){
+                                            DTN = DTN + ',' + mapAccountIdNAccountToUpdate.get(accountId).get(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole));
+                                        }
+                                        mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
+                                        if(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole) != NULL){
+                                            mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole), NULL);
+                                        }else{
+                                            logMessage = logMessage + ' DTN field mapping is missing in ATA_Role_to_DTN_Field_Mapping__c for the role: ' + objCurrentATM.TeamMemberRole + '.';
+                                        }
+                                    }else{
+                                        Account objAccount = new Account(Id = accountId);
+                                        objAccount.put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
+                                        if(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole) != NULL){
+                                            objAccount.put(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole), NULL);
+                                        }else{
+                                            logMessage = logMessage + ' DTN field mapping is missing in ATA_Role_to_DTN_Field_Mapping__c for the role: ' + objCurrentATM.TeamMemberRole + '.';
+                                        }
+                                        mapAccountIdNAccountToUpdate.put(accountId, objAccount);
+                                    } // end if then else	
+                                }else{
+                                    logMessage = logMessage + ' DTN field mapping is missing in ATA_Role_to_DTN_Field_Mapping__c for the role: ' + objDerivedATM.TeamMemberRole + '.';
+                                } // end if then else
+                            }else{
+                                logMessage = logMessage + '\n User: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ') with role: ' + objDerivedATM.TeamMemberRole
+                                                                + ' determined to be in Account Team but user appears to be inactive.';
+                                logCode = ATA_Constants.ATA_TEAM_MEMBER_CREATED_WITH_ERROR;
+                            }
 							break;
 						} // end if then else
 						i++;
@@ -311,6 +316,8 @@ public with sharing class ATA_PostAccountTeam
 				// *** DELETE
 				if(isDeleteExistingNRecreate)
 				{
+					System.debug('isDeleteExistingNRecreate==='+isDeleteExistingNRecreate);
+					System.debug(accountId+'currentAccountTeam==='+currentAccountTeam.get(accountId));
 					// consider left over ATMs to add into delete operation element of the map				
 					for(AccountTeamMember objCurrentATM : currentAccountTeam.get(accountId))
 					{
@@ -401,6 +408,7 @@ public with sharing class ATA_PostAccountTeam
 		
 		return mapOperationNAccountTeamMembers;
 	}
+	
 	
 	// *** assign owner and DTN fields on Account
 	/*

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This feature enables a user to configure one or more wizard designs which can be used by sales representatives, purchasing agents, HR managers, etc., to create various types of agreements.</description>
+    <label>Configurable Wizard</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom5: Leaf</motif>
+    <page>WizardModeler</page>
+</CustomTab>

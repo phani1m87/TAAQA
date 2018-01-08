@@ -1,0 +1,75 @@
+<!-- 
+    Apttus Config & Pricing
+    InstalledProductsSettings
+     
+    @2013-2014 Apttus Inc. All rights reserved.
+
+ -->
+<apex:page controller="Apttus_Config2.InstalledProductsSettingsController" 
+           standardStylesheets="true"
+           setup="true"
+           tabStyle="Apttus_Config2__InstalledProductsSettings__c" >    
+    
+    <apex:stylesheet value="{!$Resource.Apttus_Config2__ConfigStyles}" />
+    
+    <style type="text/css">
+    
+        textarea {
+            width: 40%;
+        }
+        
+    </style>
+    
+    <apex:sectionHeader title="{!$Label.apttus_config2__installedproductssettings}"  
+                        subtitle="{!$Label.apttus_config2__installedproductssettings}" />
+                                            
+    <apex:form id="idInstalledProductsSettings">
+        
+        <apex:pageBlock id="idInstalledProductsSettingsBlock" 
+                        mode="edit" >
+            <apex:pageMessages />
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="{!$Label.apttus_config2__save}" 
+                                    action="{!doSave}" />               
+                <apex:commandButton value="{!$Label.apttus_config2__cancel}" 
+                                    action="{!doCancel}" 
+                                    immediate="true" />
+            </apex:pageBlockButtons>
+            <apex:outputPanel >         
+                <apex:pageBlockSection columns="2" title="{!$Label.apttus_config2__installedproductssettings}" collapsible="true">
+                    <apex:inputField value="{!systemProperties.Apttus_Config2__DirectConfigureAssetActions__c}"/>
+                    <apex:inputField value="{!systemProperties.Apttus_Config2__HideAssetActions__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__SubmenuActions__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__MaxRenewsPerTrip__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__ShowAccountsFilter__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__AmendChangeFields__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__FilterFields__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__DefaultRenewalTerm__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__HideCoTerm__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__AllowBackdatedTermination__c}"/>
+                </apex:pageBlockSection>    
+                <apex:pageBlockSection columns="2" title="{!$Label.apttus_config2__renewalsettings}" collapsible="true">
+                    <apex:inputField value="{!settings.Apttus_Config2__RenewalLeadTime__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__RenewalGroupFields__c}"/>
+                    <apex:inputField value="{!settings.Apttus_Config2__DefaultRenewalPriceList__c}"/>
+					<apex:selectList size="1" 
+										multiselect="false"
+										value="{!settings.Apttus_Config2__RenewalExecutionMode__c}" >
+						<apex:selectOptions value="{!RenewalExecutionModeItems}"></apex:selectOptions>
+					</apex:selectList>
+                    <apex:inputField value="{!settings.Apttus_Config2__MaxRenewalLineItemPerCart__c}"/>
+                   	<apex:inputField value="{!settings.Apttus_Config2__MaxRenewalGroupPerJob__c}"/>
+                   	<apex:inputField value="{!settings.Apttus_Config2__RenewalDefaultPriceBook__c}"/>
+					<apex:selectList size="1" 
+										multiselect="false"
+										value="{!settings.Apttus_Config2__RenewalBusinessObjectType__c}" >
+						<apex:selectOptions value="{!RenewalBusinessObjectTypeItems}"></apex:selectOptions>
+					</apex:selectList>
+               </apex:pageBlockSection>    
+            </apex:outputPanel>
+    
+        </apex:pageBlock>           
+    
+    </apex:form>           
+           
+</apex:page>

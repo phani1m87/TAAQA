@@ -1,0 +1,404 @@
+<apex:page Controller="CCHAxcess.PfxCredentialCon" id="page">
+    <link rel="stylesheet" type="text/css" media="screen" href="{!URLFor($Resource.msgBoxLightcss, '')}" />
+    <script src="{!URLFOR($Resource.jquery_182_min_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.jquery_msgBox_js, '')}" type="text/javascript"></script>
+    <script src="/soap/ajax/10.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/10.0/apex.js" type="text/javascript"></script> 
+    <script src="{!URLFOR($Resource.cchpfxsdkrest_js,'')}"/>
+    <script src="{!URLFOR($Resource.cookie,'')}"/>
+    <script src="{!URLFOR($Resource.cchpfxsdkrestCommon_js,'')}"/>
+    <script type="text/javascript">
+            var SFImageURL = '{!URLFOR($Resource.images, 'images')}';
+            function login()
+            {
+                sforce.connection.sessionId = "{!$Api.Session_ID}"; 
+                RestSdkLogin(success, fail);
+                function success(data)
+                {
+                    var message="Please wait Add client to ProSystem ifxi Suite’s common data ...";
+                    GetClasses();
+                };
+                function fail(jqXHR, textStatus, err){
+                    var error="Login failed. Status: " + textStatus + "error: " + err;
+                    CustomAlertError(error, function(){});
+                };
+            }; 
+			
+			function SetComboValues() {
+				setComboBoxValueFromHiddenFields('cmbClass', 'hdnClass', 'hdnClassCode');
+				setComboBoxValueFromHiddenFields('cmbSubClass', 'hdnSubClass', 'hdnSubClassCode');
+				setComboBoxValueFromHiddenFields('cmbYear', 'hdnYear', 'hdnYearId');
+			}
+    
+            var varClassesSubClasses;
+            function GetClasses() {
+                //var request = $.documentService('GetClassesByFirm', success, fail);
+                var request = restapi_GetClassesByFirm(success, fail);
+                function success(data) {
+                    getYears();
+                    varClassesSubClasses = data;
+                    var select = document.getElementById('cmbClass');
+                    select.options.length = 0;
+                    for(var i=0; i < data.length; i++) {
+                        select.options.add(new Option(data[i].ClassName, data[i].ClassCode))
+                    }
+                    setComboBoxValueFromHiddenFields('cmbClass', 'hdnClass', 'hdnClassCode');
+                    
+                    getSubClassesFromSelectedClass(select, document.getElementById('cmbSubClass'));
+                    setComboBoxValueFromHiddenFields('cmbSubClass', 'hdnSubClass', 'hdnSubClassCode');
+                };
+                function fail(jqXHR, textStatus, err) {
+                    displayRestFailedErrorMessage(jqXHR, textStatus, err);
+                };
+            };
+            
+            function getSubClassesFromSelectedClass(obj, targetObj){
+                if (varClassesSubClasses != null){
+                    targetObj.options.length = 0;
+                    var selectedClassName = obj.options[obj.selectedIndex].text;
+                    for(var i=0; i < varClassesSubClasses.length; i++) {
+                        if(varClassesSubClasses[i].ClassName == selectedClassName){
+                            var varSubClasses = varClassesSubClasses[i].Subclasses;
+                            for(var j=0; j < varSubClasses.length; j++) {
+                                targetObj.options.add(new Option(varSubClasses[j].SubclassName, varSubClasses[j].SubclassCode))
+                            }
+                        }
+                    }
+                }
+            };
+
+            var varYear;
+            function getYears()
+            {
+                function success(data) {
+                    varYear = data;
+                    var select = document.getElementById('cmbYear');
+                    select.options.length = 0;
+                    for(var i=0; i < data.length; i++) {
+                        select.options.add(new Option(data[i].Year, data[i].YearID))
+                    } 
+                    setComboBoxValueFromHiddenFields('cmbYear', 'hdnYear', 'hdnYearId');
+                };
+    
+                function fail(jqXHR, textStatus, err) {
+                    displayRestFailedErrorMessage(jqXHR, textStatus, err);
+                };
+                //var request = $.documentService('GetYearsByFirm', success, fail);
+                restapi_GetYearsByFirm(success, fail);
+            };
+
+            function onchange_cmbClass(obj) {
+                getSubClassesFromSelectedClass(obj, document.getElementById('cmbSubClass'));
+                setHiddenFieldValueFrom_ComboBox('cmbClass', 'hdnClass', 'hdnClassCode');
+                setHiddenFieldValueFrom_ComboBox('cmbSubClass', 'hdnSubClass', 'hdnSubClassCode');
+            }
+    
+    		function onClick_Combos(obj) {
+            	if(varClassesSubClasses == null) {
+                    login();
+                }
+            }
+
+            function setComboBoxValueFromHiddenFields(comboID, HiddenID, hiddenCodeID) {
+                Code = document.getElementById('{!$Component.page.theform}:' + hiddenCodeID).value;
+                if (Code == '') {
+                    setHiddenFieldValueFrom_ComboBox(comboID, HiddenID, hiddenCodeID);
+                }
+                else {
+                    //document.getElementById(comboID).value = Code;
+                    $('#' + comboID).val(Code);
+                    if($('#' + comboID).val() == null)
+                        addHiddenFieldValueTOComboBox(comboID, HiddenID, hiddenCodeID);
+                }
+            }
+            function setHiddenFieldValueFrom_ComboBox(comboID, HiddenID, hiddenCodeID) {
+                obj = document.getElementById(comboID);
+                document.getElementById('{!$Component.page.theform}:' + hiddenCodeID).value = obj.value;
+                document.getElementById('{!$Component.page.theform}:' + HiddenID).value = obj.options[obj.selectedIndex].text;
+            } 
+    		function addHiddenFieldValueTOComboBox(comboID, HiddenID, hiddenCodeID) {
+                obj = document.getElementById(comboID);
+                var CodeID = document.getElementById('{!$Component.page.theform}:' + hiddenCodeID).value;
+                var Code = document.getElementById('{!$Component.page.theform}:' + HiddenID).value;
+                obj.options.add(new Option(Code, CodeID));
+            } 
+    
+            var orgAcc = '{!login.CCHAxcess__Account__c}';
+            var orgserver = '{!login.CCHAxcess__Server__c}';
+            var orguser = '{!login.CCHAxcess__UserId__c}';
+            function btnSave_click() {
+                if(IsValidated() == false)
+                    return false;
+                return true;
+                
+                txtAccount = document.getElementById('{!$Component.page.theform.txtAccount}');
+                txtServer = document.getElementById('{!$Component.page.theform.txtServer}');
+                txtUser = document.getElementById('{!$Component.Page.theform.txtUserId}');
+                if (orgAcc != txtAccount.value || orgserver != txtServer.value || orguser != txtUser.value)
+                    document.getElementById('{!$Component.page.theform.txtNewAccountLoggedIn}').value = 'false';
+                
+                if(orgAcc != txtAccount.value || orgserver != txtServer.value) {
+                    if(confirm("Account name or server address has been changed. its required to reload the Document Default and set new values. \nPress 'Yes' to reload and set defaults.\nPress 'No' if you would like to set values later on."))
+                    {
+                        ReloadDocumentDefaults();
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+               
+                return true;
+            }
+
+            function IsValidated(){
+                var user = document.getElementById('{!$Component.page.theform.txtUserId}').value;
+                var acc = document.getElementById('{!$Component.page.theform.txtAccount}').value;
+                var server = document.getElementById('{!$Component.page.theform.txtServer}').value;
+                var Messages = '';
+
+                if(acc == 'Account Number')
+                    Messages += 'Please specify Account Number.\n';
+                if(user == 'User Name')
+                    Messages += 'Please specify User Name.\n';
+                if(server == 'Server')
+                    Messages += 'Please specify Server Url.\n';
+                
+                if(Messages.length != 0){
+                    CustomAlertInfo(Messages, function(){});
+                    return false;
+                }
+                return true;
+            }
+
+            function ReloadDocumentDefaults() {
+                //RestSdkLogin(success, fail);
+                var user = document.getElementById('{!$Component.page.theform.txtUserId}').value;
+                var acc = document.getElementById('{!$Component.page.theform.txtAccount}').value;
+                var server = document.getElementById('{!$Component.page.theform.txtServer}').value;
+                var request = CallRestSdkLoginAPI(user, 'SID', '', acc, server, success, fail);
+                
+                function success(data)
+                {
+                    document.getElementById('{!$Component.page.theform.txtNewAccountLoggedIn}').value = 'true';
+                    GetClasses();
+                    getYears();
+                    orgAcc = acc;
+                    orgserver = server;
+                    orguser = user;
+                };
+                function fail(jqXHR, textStatus, err)
+                {
+                    var error="Login failed for new credentials. Status: " + textStatus + "error: " + err;
+                    CustomAlertError(error, function(){});
+                };
+            }
+
+            $(document).ready(function() {
+                var objString = ('{!$Component.page.theform.txtAccount}').replace(/\:/g, '\\:');
+                var acc = $('#' + objString).val();
+                
+                $('#' + objString).focus(function(){
+                    if($(this).val() == 'Account Number'){
+                        $(this).val('');
+                        $(this).removeClass('inputText_Default_data');
+                        $(this).addClass('inputText_data');
+                    }
+                }).blur(function(){
+                    if($.trim($(this).val()) == ''){
+                        $(this).val('Account Number');
+                        $(this).removeClass('inputText_data');
+                        $(this).addClass('inputText_Default_data');
+                    }
+                });
+        
+                objString = ('{!$Component.page.theform.txtUserId}').replace(/\:/g, '\\:');
+                $('#' + objString).focus(function(){
+                    if($(this).val() == 'User Name'){
+                        $(this).val('');
+                        $(this).removeClass('inputText_Default_data');
+                        $(this).addClass('inputText_data');
+                    }
+                }).blur(function(){
+                    if($.trim($(this).val()) == ''){
+                        $(this).val('User Name');
+                        $(this).removeClass('inputText_data');
+                        $(this).addClass('inputText_Default_data');
+                    }
+                });
+    
+                objString = ('{!$Component.page.theform.txtPassword}').replace(/\:/g, '\\:');
+                $('#' + objString).focus(function(){
+                    if($(this).val() == 'Password'){
+                        $(this).val('');
+                        $(this).removeClass('inputText_Default_data');
+                        $(this).addClass('inputText_data');
+                    }
+                }).blur(function(){
+                    if($.trim($(this).val()) == ''){
+                        $(this).val('Password');
+                        $(this).removeClass('inputText_data');
+                        $(this).addClass('inputText_Default_data');
+                    }
+                });
+                
+                objString = ('{!$Component.page.theform.txtServer}').replace(/\:/g, '\\:');
+                $('#' + objString).focus(function(){
+                    if($(this).val() == 'Server'){
+                        $(this).val('');
+                        $(this).removeClass('inputText_Default_data');
+                        $(this).addClass('inputText_data');
+                    }
+                }).blur(function(){
+                    if($.trim($(this).val()) == ''){
+                        $(this).val('Server');
+                        $(this).removeClass('inputText_data');
+                        $(this).addClass('inputText_Default_data');
+                    }
+                });
+
+                //var server = document.getElementById('{!$Component.page.theform.txtServer}')
+                    //$(server).val("http://test3sdk.prosystemfx.com");
+                    //$(server).attr("disabled", "disabled");
+                
+                if(acc.length != 0)
+				{
+                    //login();
+					SetComboValues();
+				}
+            });
+    </script>
+    <style type="text/css">
+        .maintable
+        {
+            font-family: Arial;
+        }
+        .maintable td
+        {
+            font-family: Arial;
+        }
+        .stepHeader
+        {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .div_headerText
+        {
+            margin-top: 15px;
+            cellspacing: 3px;
+            cellpadding: 3px;
+        }
+        .inputText_data
+        {
+            height: 25px;
+            width: 250px;
+            color: #000000;
+        }
+        .inputText_Default_data
+        {
+            height: 25px;
+            width: 250px;
+            color: #c0c0c0;
+        }
+        .selectCombo_data
+        {
+            height: 25px;
+            width: 250px;
+        }
+    </style>
+    <apex:form id="theform">
+        <table width="100%" cellspacing="5" cellpadding="5" class="maintable"> 
+            <tr>
+                <td width="60px">
+                    <image style='cursor: hand;' src="{!URLFOR($Resource.images, 'images/icon_step_1.png')}" />
+                </td>
+                <td>
+                    <div class="div_headerText">
+                        <span class="stepHeader">Enter login information</span>
+                    </div>
+                    <table cellspacing="3" cellpadding="3">
+                        <tr>
+                            <td>
+                                <b><label for="cmbSubClass">Account Number:</label></b><br/>
+                                <apex:inputField value="{!login.CCHAxcess__Account__c}" id="txtAccount" styleClass="inputText_data" />
+                                <apex:inputField value="{!login.CCHAxcess__Password__c}" id="txtNewAccountLoggedIn" style="display: none;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b><label for="cmbSubClass">User Name:</label></b><br/>
+                                <apex:inputField value="{!login.CCHAxcess__UserId__c}" id="txtUserId" styleClass="inputText_data" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b><label for="cmbSubClass">Server URL:</label></b><br/>
+                                <apex:inputField value="{!login.CCHAxcess__Server__c}" id="txtServer" styleClass="inputText_data" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td rowspan="4">
+                    <br/><br/><br/>
+                    <image style='cursor: hand;' src="{!URLFOR($Resource.images, 'images/logo_cch_axcess.png')}" />
+                </td>
+            </tr>
+            <tr>
+                <td width="60px">
+                    <image style='cursor: hand;' src="{!URLFOR($Resource.images, 'images/icon_step_2.png')}" />
+                </td>
+                <td>
+                    <div class="div_headerText">
+                        <span class="stepHeader">CCH Axcess document preferences</span>
+                    </div>
+                    <table>
+                        <tr>
+                            <td class="labelCol first ">
+                                
+                            </td>
+                            <td class="dataCol  first ">
+                                <b><label for="cmbClass">Class:</label></b><br/>
+                                <select id="cmbClass" name="cmbClass" size="1" onchange="onchange_cmbClass(this);" onclick="onClick_Combos(this);" class="selectCombo_data" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelCol">
+                                
+                            </td>
+                            <td class="dataCol">
+                                <b><label for="cmbSubClass">Sub Class:</label></b><br/>
+                                <select id="cmbSubClass" name="cmbSubClass" size="1" onchange="setHiddenFieldValueFrom_ComboBox('cmbSubClass', 'hdnSubClass', 'hdnSubClassCode');" onclick="onClick_Combos(this);" class="selectCombo_data" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelCol">
+                                
+                            </td>
+                            <td class="dataCol">
+                                <b><label for="cmbClass">Year:</label></b><br/>
+                                <select id="cmbYear" name="cmbYear" size="1" onchange="setHiddenFieldValueFrom_ComboBox('cmbYear', 'hdnYear', 'hdnYearId');" onclick="onClick_Combos(this);" class="selectCombo_data" />
+                            </td>
+                        </tr>
+                    </table>
+                    <apex:inputHidden value="{!login.CCHAxcess__Class__c}" id="hdnClass" />
+                    <apex:inputHidden value="{!login.CCHAxcess__ClassCode__c}" id="hdnClassCode" />
+                    <apex:inputHidden value="{!login.CCHAxcess__SubClass__c}" id="hdnSubClass" />
+                    <apex:inputHidden value="{!login.CCHAxcess__SubClassCode__c}" id="hdnSubClassCode" />
+                    <apex:inputHidden value="{!login.CCHAxcess__Year__c}" id="hdnYear" />
+                    <apex:inputHidden value="{!login.CCHAxcess__YearId__c}" id="hdnYearId" />
+                    <apex:inputField value="{!login.CCHAxcess__Client_Type__c}" style="display: none;" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <apex:commandLink action="{!save}" onClick="$.cookie('CchNGAuthToken', null); return btnSave_click();">
+                        <image src="{!URLFOR($Resource.images, 'images/icon_CCHAxcess_Save.png')}" />
+                    </apex:commandLink>&nbsp;&nbsp;
+                    <apex:commandLink action="{!cancel}" styleClass="button_Cancel"><image src="{!URLFOR($Resource.images, 'images/icon_CCHAxcess_Cancel.png')}" />
+                    </apex:commandLink>
+                </td>
+            </tr>
+        </table>
+    </apex:form>
+</apex:page>

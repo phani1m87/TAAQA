@@ -1,0 +1,63 @@
+<apex:page standardController="Opportunity" 
+		extensions="sopo.PipelineOptimizerController" 
+		showheader="false" 
+		sidebar="false" 
+		action="{!initPageData}">
+
+<apex:stylesheet value="{!URLFOR($Resource.sopo__PipelineOptimizer, 'jquery.tooltip.css')}"/> 
+<apex:includeScript value="{!URLFOR($Resource.sopo__PipelineOptimizer, 'jquery.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.sopo__PipelineOptimizer, 'jquery.tooltip.js')}" />
+
+<script type="text/javascript">
+$Jtool = jQuery.noConflict();
+$Jtool(
+    function() {
+        	$spnEle = jQuery('.spnCustomTooltip');
+        	$spnEle.find('img').tooltip({showURL: false});
+        	$spnEle.mouseover(function() {
+            	$Jtool(this).find('img').addClass('helpButtonOn_cust');
+        	});
+        	$spnEle.mouseleave(function() {
+          		$Jtool(this).find('img').removeClass('helpButtonOn_cust');
+          	}
+       );
+   	}
+);	
+</script>
+
+		
+<apex:form id="frm">
+<apex:pageBlock id="pb"> 
+	<apex:panelGrid columns="2" style="width:100%" >
+     <apex:pageBlockTable id="Level1Criteria" value="{!level1list}" var="L1">
+         <apex:column width="5%"> 
+              <apex:facet name="header">
+                 <apex:image id="L1Color" value="{!URLFOR($Resource.sopo__PipelineOptimizer, Level1Color + '.png')}" width="20px" height="20px" title="Can we win this business?"/>
+              </apex:facet>
+             <apex:inputCheckbox id="L1Value" value="{!L1.value}" disabled="true"/> 
+         </apex:column> 
+         <apex:column headerValue="{!level1name}" >
+			<span class="spnCustomTooltip">
+        		<img src="/s.gif" class="helpButton_cust" title='{!L1.criteria.Description__c}'/>
+		    </span>            
+            <apex:outputField id="L1Criteria" value="{!L1.criteria.Name}"/>
+         </apex:column>              
+	</apex:pageBlockTable>
+	<apex:pageBlockTable id="Level2Criteria" value="{!level2list}" var="L2">
+        <apex:column width="5%"> 
+             <apex:facet name="header">
+                <apex:image id="L2Color" value="{!URLFOR($Resource.sopo__PipelineOptimizer, Level2Color + '.png')}" width="20px" height="20px" title="Is it a real deal?"/>
+             </apex:facet>
+             <apex:inputCheckbox id="L2Value" value="{!L2.value}" disabled="true"/> 
+        </apex:column> 
+        <apex:column headerValue="{!level2name}" > 
+			<span class="spnCustomTooltip">
+        		<img src="/s.gif" class="helpButton_cust" title='{!L2.criteria.Description__c}'/>
+		    </span>            
+            <apex:outputText id="L2Criteria" value="{!L2.criteria.Name}"/>
+        </apex:column>
+	</apex:pageBlockTable>
+	</apex:panelGrid>
+</apex:pageBlock>   
+</apex:form>
+</apex:page>

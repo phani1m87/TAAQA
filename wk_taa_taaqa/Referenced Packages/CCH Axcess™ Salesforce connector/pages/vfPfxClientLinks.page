@@ -1,0 +1,19 @@
+<apex:page controller="CCHAxcess.vfPfxClientLinksController">
+    <apex:pageBlock title="CCH Axcess Client Links">
+        <apex:form >
+            <apex:pageBlockTable id="pgTable" value="{!PfxClientLinks}" var="PfxClientLink">
+                <apex:column headerValue="Action" width="100">
+                    <apex:commandLink action="{!cmdUnlinkClient}" value="Unlink" id="theCommandUnlink" onclick="return confirm('Are you sure you want to remove this link?')" Title="Click to unlink CCH Axcess Client Link">
+                        <apex:param name="paramPfxLinkId" value="{!PfxClientLink.id}" assignTo="{!selectedPfxClientLinkId}"/>
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column headerValue="Name" width="200">
+                    <a href="/{!PfxClientLink.CCHAxcess__SFID__c}" target="_blank" Title="Click to view Details">{!PfxClientLink.CCHAxcess__Name__c}</a>
+                </apex:column>
+                <apex:column value="{!PfxClientLink.CCHAxcess__ObjectType__c}" headerValue="Object Type"/>
+                <apex:column value="{!PfxClientLink.CCHAxcess__PfxClientID__c}" headerValue="CCH Axcess Client ID"/>
+                <apex:column value="{!PfxClientLink.CCHAxcess__PfxClientSubID__c}" headerValue="CCH Axcess Client Subordinate ID"/>
+            </apex:pageBlockTable>
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <fields>
+        <fullName>AutoCreateCartVersionAfterFinalize__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether a new version of the cart is auto created after it is finalized</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether a new version of the cart is auto created after it is finalized</inlineHelpText>
+        <label>Auto Create Cart Version After Finalize</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AutoCreateOrder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether an order and assets would be created automatically when the proposal is accepted.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether an order and assets would be created automatically when the proposal is accepted.</inlineHelpText>
+        <label>Auto Create Order</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AutoSyncWithOpportunity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the proposal will be automatically synchronized with the opportunity when the proposal is accepted.</description>
+        <externalId>false</externalId>
+        <label>Auto Sync With Opportunity</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CloneWithApprovalStatus__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether approval status should be retained on the cart and line items associated with the cloned quote/proposal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether approval status should be retained on the cart and line items associated with the cloned quote/proposal</inlineHelpText>
+        <label>Clone With Approval Status</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EnableProposalSummary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicator to enable the proposal summary object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicator to enable the proposal summary object</inlineHelpText>
+        <label>Enable Proposal Summary</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SyncBundleUsingLineItems__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether proposal line items should be used to synchronize bundle products. The default uses proposal summary objects. Only applicable when proposal summary is enabled.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether proposal line items should be used to synchronize bundle products. The default uses proposal summary objects.</inlineHelpText>
+        <label>Sync Bundle Using Line Items</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SyncOptionProducts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the option products should be synchronized along with the bundle. The default is synchronize bundle only.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the option products should be synchronized along with the bundle. The default is synchronize bundle only.</inlineHelpText>
+        <label>Sync Option Products</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+</CustomObject>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <frameHeight>1700</frameHeight>
+    <hasSidebar>false</hasSidebar>
+    <icon>AAkonsult_Campaign_Status/aakonsult_camp_stat_32_png.png</icon>
+    <label>About AAkonsult Campaign Status</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom195: TV Widescreen</motif>
+    <url>https://www.payments2us.com/2211/aakonsult-campaign-status/</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

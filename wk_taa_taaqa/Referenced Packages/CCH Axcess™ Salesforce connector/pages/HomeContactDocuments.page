@@ -1,0 +1,131 @@
+<apex:page Controller="CCHAxcess.ContactDocumentsController" showHeader="false" sidebar="false">
+    <link rel="stylesheet" type="text/css" media="screen" href="{!URLFor($Resource.msgBoxLightcss, '')}" />
+    <script src="{!URLFOR($Resource.jquery_182_min_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.jquery_msgBox_js, '')}" type="text/javascript"></script>
+    <script src="/soap/ajax/15.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/15.0/apex.js" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.cchpfxsdkrest_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.cchpfxsdkrestCommon_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.FileSaver_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.cookie, '')}" type="text/javascript"></script>
+    <script language="javascript">
+        var IsLoginFailed = false;
+        var SFImageURL = '{!URLFOR($Resource.images, 'images')}';
+        function login(){
+            sforce.connection.sessionId = "{!$Api.Session_ID}"; 
+            RestSdkLogin(success, fail);
+            function success(data){
+                
+            };
+            function fail(jqXHR, textStatus, err){
+                var error="Login failed. Status: " + textStatus + "\nerror: " + err;
+                CustomAlertError(error, function(){});
+                //IsLoginFailed = true;
+            };
+        }
+        
+        function DownLoadDocument(documentGuid){
+            /*if (IsLoginFailed){
+                CustomAlertError('Login failed. Please reload page.', function(){});
+                return;
+			}*/
+            var docGuid = documentGuid;
+            /*var userIntId = '';
+        
+            var url = $.anonymousDocumentService('GetDocumentUrl', docGuid, userIntId);
+            var iframe = document.createElement("iframe");
+            iframe.src = url
+            iframe.style.display = "none";
+			document.body.appendChild(iframe);*/
+            var request = restapi_DownloadDocument(docGuid, fail);
+            function fail(jqXHR, textStatus, err) {
+                displayRestFailedErrorMessage(jqXHR, textStatus, err);
+            }
+        }
+        $(document).ready(function() {
+            login();
+        });
+    </script>
+    <apex:pageBlock >
+        <apex:form >
+            <table width="100%" border="0">
+                <tr>
+                    <td width="50%" valign="top" height="100%">
+                        <apex:pageBlockTable id="pgTableFavDocuments" value="{!FavoriteDocuments}" var="varFavoriteDocuments">
+                            <apex:column headerValue="Favorite Documents">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td rowspan="2">
+                                            <apex:commandLink action="{!cmdUnfavoriteDocument}" id="theCommandLinkFVDocument" Title="Click to remove document from favorite list">
+                                                <image height="35" width="35" src="{!URLFOR($Resource.images, 'images/Star_icon.png')}" />
+                                                <apex:param name="paramDocumentId" value="{!varFavoriteDocuments.FavDocument.id}" assignTo="{!selectedFavDocumentId}"/>
+                                            </apex:commandLink>
+                                        </td>
+                                        <td rowspan="2">
+                                            <image height="48" width="48" src="{!URLFOR($Resource.images, 'images/' + varFavoriteDocuments.FavDocImageIconName)}" />
+                                        </td>
+                                        <td>
+                                            <b><a href="javascript:DownLoadDocument('{!varFavoriteDocuments.FavDocument.PfxDocumentGuid__c}');" Title="Click to download document">{!varFavoriteDocuments.ActivityLog.Name}</a></b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>{!varFavoriteDocuments.ActivityLog.Activity__c}</b> by {!varFavoriteDocuments.FavByName} on 
+                                            <apex:outputText value="{0, date, MMMM dd',' yyyy}"><apex:param value="{!varFavoriteDocuments.LastModifiedDate}" /></apex:outputText>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </td>
+                    <td width="50%" valign="top" rowspan="2">
+                        <apex:pageBlockTable id="pgTableRecentDocuments" value="{!RecentDocument}" var="lstDocumentLog">
+                            <apex:column headerValue="Recent Document">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td rowspan="2">
+                                            <image height="48" width="48" src="{!URLFOR($Resource.images, 'images/' + lstDocumentLog.ActLogImageIconName)}" />
+                                        </td>
+                                        <td>
+                                            <b><a href="javascript:DownLoadDocument('{!lstDocumentLog.ActivityLog.PfxDocumentGuid__c}');" Title="Click to download document">{!lstDocumentLog.ActivityLog.Name}</a></b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>{!lstDocumentLog.ActivityLog.Activity__c}</b> by {!lstDocumentLog.ActivityLog.LastModifiedBy.Name} on 
+                                            <apex:outputText value="{0, date, MMMM dd',' yyyy}"><apex:param value="{!lstDocumentLog.ActivityLog.LastModifiedDate}" /></apex:outputText>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <apex:pageBlockTable id="pgTableFavClients" value="{!lstFavClients}" var="varlstFavClients">
+                            <apex:column headerValue="Favorite Contacts">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <apex:commandLink action="{!cmdUnfavoriteClient}" id="theCommandLinkFV" Title="Click to remove client from favorite list">
+                                                <image height="35" width="35" src="{!URLFOR($Resource.images, 'images/Star_icon.png')}" />
+                                                <apex:param name="paramContactId" value="{!varlstFavClients.id}" assignTo="{!selectedFavClientId}"/>
+                                            </apex:commandLink>
+                                        </td>
+                                        <td rowspan="2">
+                                            <image height="48" width="48" src="{!URLFOR($Resource.images, 'images/Client_icon.png')}" />
+                                        </td>
+                                        <td>
+                                            <h1><b><a href="/{!varlstFavClients.Contact__c}" target="_blank" Title="Click to view Details">{!varlstFavClients.Contact__r.Name}</a></b></h1>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </td>
+                </tr>
+            </table>
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

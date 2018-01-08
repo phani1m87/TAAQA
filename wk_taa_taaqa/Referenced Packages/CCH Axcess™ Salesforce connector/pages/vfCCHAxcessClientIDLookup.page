@@ -1,0 +1,796 @@
+<apex:page controller="CCHAxcess.vfCCHAxcessClientIDLookupController" showHeader="false" sidebar="false">
+    <link rel="stylesheet" type="text/css" media="screen" href="{!URLFor($Resource.jgridcss, '')}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{!URLFOR($Resource.jquery_ui_css_images, 'jquery-ui.css')}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{!URLFor($Resource.msgBoxLightcss, '')}" />
+    <script src="{!URLFOR($Resource.jquery_182_min_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.jquery_msgBox_js, '')}" type="text/javascript"></script>
+    <script src="/soap/ajax/15.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/15.0/apex.js" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.cchpfxsdkrest_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.cookie, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.jgridlocal, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.jgridmin, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.jqCustom_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFor($Resource.cchpfxsdkrestCommon_js, '')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.jquerycchpfxutil_js, '')}" type="text/javascript"></script>
+    <style type="text/css">
+        label.jqmRequired {color:Red !important;}
+    </style>
+    <script>
+        var SFID;
+        var ClientID;
+        var SFObjType;
+        var PfxClientLinks;
+    
+        var __SrchClientID = "";
+        var __PageIndex = 1;
+        var __PageSize = 10;
+        var __TotalRecordCount = 0;
+        var SFImageURL = '{!URLFOR($Resource.images, 'images')}';
+        var DefaultTextLine1 = 'Line 1';
+        var DefaultTextLine2 = 'Line 2';
+    
+        function CloseWindow(){
+            window.close();
+        }
+        
+        function login(){
+            sforce.connection.sessionId = "{!$Api.Session_ID}";
+            $('#btnUnlink').hide();
+            
+            SFID = getUrlVars()["SFID"];
+            ClientID = getUrlVars()['ClientID'];
+            SFObjType = getUrlVars()['SFObjType'];
+            getSFLinkedClientIDList();
+            //$("#txtClientID").val(ClientID);
+            
+            RestSdkLogin(success, fail);
+            function success(data){
+                //if (ClientID.length > 0)
+                //__SrchClientID = $("#txtClientID").val();
+                documentClientSelect();
+            };
+            function fail(jqXHR, textStatus, err){
+                var error="Login failed. Status: " + textStatus + "\nerror: " + err;
+                CustomAlertError(error, function (){CloseWindow();});
+            };
+        }
+    
+        function documentClientSelect() {
+            $("#tabSearch").show();
+            $("#tabAddNew").hide();
+            __SrchClientID = $("#txtClientID").val();
+            __PageIndex = 1;
+            //__PageSize = 10;
+            ExportClientList();
+        }
+        
+        function ExportClientList() {
+            var clientId = __SrchClientID
+            var filters = [{
+                                Field: 1514,
+                                Operator: 3,
+                                Value: clientId,
+                                AndOr: 0
+                          }];
+            //var clientName = "";
+            //var officeID = "";
+            //var srchType = "Contains";
+            var exportRequest = {
+                                    Filters: filters,
+                                    PageIndex: __PageIndex,
+                                    PageSize: __PageSize,
+                                    RecordCountRequired: true
+                                };
+            
+            //var request = $.documentService('GetDocumentClientSearch', clientId, clientName, officeID, srchType, success, fail);
+            //restapi_GetDocumentClientSearch(clientId, clientName, officeID, srchType, success, fail);
+            restapi_GetClients(exportRequest, success, fail);
+            
+            function success(data) {
+                var grid = $("#selSearchClientList");
+                jQuery("#selSearchClientList").jqGrid({
+                    datatype: "local",
+                    height: 230,
+                    //caption: "CCH Axcess document clients",
+                    loadonce: true,
+                    colNames: ['ClientID', 'ClientSubID', 'ClientName', 'ClientGuid', 'SF Type', 'SF Name'],
+                    colModel: [
+                                { name: 'ClientId', index: 'ClientId', width: 110, editable: true, sortable: false },
+                                { name: 'ClientSubordinateID', index: 'ClientSubordinateID', width: 110, editable: true, sortable: false },
+                                { name: 'ClientName', index: 'ClientName', width: 205, editable: true, sortable: false },
+                                { name: 'ClientGuid', index: 'ClientGuid', width: 245, editable: true, sortable: false, hidden: true },
+                                { name: 'SFObjectType', index: 'SFObjectType', width: 70, editable: true, sortable: false },
+                                { name: 'SFName', index: 'SFName', width: 140, editable: true, sortable: false }
+                        ],
+                    rowNum: __PageSize,
+                    rowList: [10, 20, 40],
+                    pgtext: '',
+                    pager: '#selDocClientPager',
+                    viewrecords: true,
+                    onSelectRow: function (id) {
+                        if (id != null && id != 0) {
+                            var dataRow = $(this).getLocalRow(id);
+                            if(dataRow.SFName.length > 0){
+                                CustomAlertInfo("Selected CCH Axcess Client is already linked with Sales force '" + dataRow.SFObjectType + "' object.", function(){});
+                                return;
+                            }
+                            //if(top.window.opener != null){
+                            fnsetSelectedClientID(dataRow.ClientId, dataRow.ClientSubordinateID, dataRow.ClientGuid, false);
+                            //    CloseWindow();
+                            //}
+                            //else
+                            //    CustomAlertError('Client script error: Please re-open lookup page.', function(){CloseWindow();});
+                        }
+                    },
+                    onPaging: function (pgButton) {
+                        //var requestedPage = $("#selSearchClientList").getGridParam("page");
+                        //__PageIndex = parseInt(requestedPage);
+                        pagesize = parseInt($('#selSearchClientList').getGridParam('rowNum'));
+                        if(pagesize != __PageSize){
+                            __PageSize = pagesize;
+                            __PageIndex = 1;
+                        }
+                        var int=self.setTimeout(ExportClientList);
+                        //alert(paging);
+                        return 'stop';
+                    },
+                    loadComplete: function() {
+                        //alert(this.p.page + "complete");
+                        var tdfirst = $("#first_selDocClientPager");
+                        var tdprev = $("#prev_selDocClientPager");
+                        var tdnext = $("#next_selDocClientPager");
+                        var tdlast = $("#last_selDocClientPager");
+                        
+                        tdfirst.attr('onclick','').unbind('click');
+                        tdprev.attr('onclick','').unbind('click');
+                        tdnext.attr('onclick','').unbind('click');
+                        tdlast.attr('onclick','').unbind('click');
+                        
+                        //var PageSize = this.p.rowNum;
+                        var PageSize = __PageSize;
+                        var TotalPages = Math.floor(__TotalRecordCount / PageSize);
+                        if(__TotalRecordCount % PageSize > 0)
+                            TotalPages++;
+                        
+                        if(__PageIndex > 1) {
+                            tdfirst.removeClass('ui-state-disabled');
+                            tdfirst.click(function(e){
+                                    IsPagingCalled = false;
+                                    __PageIndex = 1;
+                                    //alert(__PageIndex + 'First');
+                                    var int=self.setTimeout(ExportClientList);
+                                    return false;
+                            });
+                            
+                            tdprev.removeClass('ui-state-disabled');
+                            tdprev.click(function(e){
+                                    __PageIndex--;
+                                    //alert(__PageIndex + 'Prev');
+                                    var int=self.setTimeout(ExportClientList);
+                                    return false;
+                            });
+                        }
+                        
+                        if(__PageIndex < TotalPages) {
+                            tdnext.removeClass('ui-state-disabled');
+                            tdnext.click(function(e){
+                                    IsPagingCalled = false;
+                                    __PageIndex++;
+                                    //alert(__PageIndex + 'next');
+                                    var int=self.setTimeout(ExportClientList);
+                                    return false;
+                            });
+                            
+                            tdlast.removeClass('ui-state-disabled');
+                            tdlast.click(function(e){
+                                    IsPagingCalled = false;
+                                    __PageIndex = TotalPages;
+                                    //alert(__PageIndex + 'last');
+                                    var int=self.setTimeout(ExportClientList);
+                                    return false;
+                            });
+                        }
+                        
+                        var StartIndex = ((__PageIndex - 1) * PageSize) + 1;
+                        var EndIndex = StartIndex + PageSize - 1;
+                        if (EndIndex > __TotalRecordCount)
+                            EndIndex = __TotalRecordCount;
+                        
+                        var PagingText;
+                        if (__TotalRecordCount != 0)
+                            PagingText = 'View ' + StartIndex + ' - ' + EndIndex + ' of ' + __TotalRecordCount;
+                        else
+                            PagingText = 'no record found';
+                                                
+                        $(grid[0].p.pager + '_right div.ui-paging-info').text(PagingText);
+                    }
+                });
+        
+                // add editor at the bottom of the grid
+                jQuery("#selSearchClientList").jqGrid('navGrid', '#selDocClientPager', { edit: false, add: false, del: false, search: false });
+        
+                // Add data to grid
+                jQuery("#selSearchClientList").jqGrid('clearGridData', true);
+                // Remove already linked records
+                //removeAlreadyLinkedRecords(data);
+                AppendSFLinkedProperties(data);
+                
+                /*
+                recordcount = 0;
+                for (var i = 0; i < __TotalRecordCount; i++) {
+                    if(i < (__PageIndex - 1) * __PageSize){
+                        jQuery("#selSearchClientList").jqGrid('addRowData', i + 1, CreateNewClientObject());
+                    }
+                    else if (i >= (__PageIndex - 1) * __PageSize && i < __PageIndex * __PageSize){
+                        if(recordcount >= data.ClientList.length)
+                            jQuery("#selSearchClientList").jqGrid('addRowData', i + 1, CreateNewClientObject());
+                        else
+                            jQuery("#selSearchClientList").jqGrid('addRowData', i + 1, data.ClientList[recordcount]);
+                        recordcount = recordcount + 1;
+                    }
+                    else if (i >= __PageIndex * __PageSize){
+                        jQuery("#selSearchClientList").jqGrid('addRowData', i + 1, CreateNewClientObject());
+                    }
+                }*/
+                for (var i = 0; i < data.ClientList.length; i++) {
+                    jQuery("#selSearchClientList").jqGrid('addRowData', i + 1, data.ClientList[i]);
+                }
+                jQuery("#selSearchClientList").setGridParam({page:1}).trigger("reloadGrid");
+            };
+        
+            function fail(jqXHR, textStatus, err) {
+                jQuery("#selSearchClientList").jqGrid('clearGridData', true);
+                displayRestFailedErrorMessageWithCallback(jqXHR, textStatus, err, function(){CloseWindow();});
+            }
+        };
+    
+        function removeAlreadyLinkedRecords(data){
+            var removedRecordCount = 0;
+            for (var i = data.ClientList.length - 1; i > -1; i--) {
+                for (var j = 0; j < PfxClientLinks.length; j++) {
+                    //alert(getEmptyforNull(data.ClientList[i].ClientSubordinateID) + "==" + getEmptyforNull(PfxClientLinks[j].CCHAxcess__PfxClientSubID__c));
+                    if(data.ClientList[i].ClientGuid == PfxClientLinks[j].CCHAxcess__PfxClientGuid__c){
+                        //if(data.ClientList[i].ClientId == PfxClientLinks[j].CCHAxcess__PfxClientID__c 
+                        //&& getEmptyforNull(data.ClientList[i].ClientSubordinateID) == getEmptyforNull(PfxClientLinks[j].CCHAxcess__PfxClientSubID__c)){    
+                        data.ClientList.splice(i, 1);
+                        removedRecordCount = removedRecordCount + 1;
+                        break;
+                    }
+                }
+            }
+            __TotalRecordCount = data.TotalRecordCount - removedRecordCount;
+        }
+            
+        function AppendSFLinkedProperties(data){
+            for (var i = data.ClientList.length - 1; i > -1; i--) {
+                data.ClientList[i].SFObjectType = "";
+                data.ClientList[i].SFName = "";
+                for (var j = 0; j < PfxClientLinks.length; j++) {
+                    if(data.ClientList[i].ClientGuid == PfxClientLinks[j].CCHAxcess__PfxClientGuid__c){
+                    //if(data.ClientList[i].ClientId == PfxClientLinks[j].CCHAxcess__PfxClientID__c 
+                    //&& data.ClientList[i].ClientSubordinateID == PfxClientLinks[j].CCHAxcess__PfxClientSubID__c){ 
+                        data.ClientList[i].SFObjectType = PfxClientLinks[j].CCHAxcess__ObjectType__c;
+                        data.ClientList[i].SFName = PfxClientLinks[j].CCHAxcess__Name__c;
+                        break;
+                    }
+                }
+            }
+            __TotalRecordCount = data.TotalRecordCount
+        }
+            
+        function getSFLinkedClientIDList() {
+            if(PfxClientLinks == null) {
+                var Documents = sforce.connection.query("SELECT CCHAxcess__PfxClientID__c, CCHAxcess__PfxClientSubID__c, CCHAxcess__PfxClientGuid__c, CCHAxcess__SFID__c, CCHAxcess__ObjectType__c, CCHAxcess__Name__c FROM CCHAxcess__PfxClientLink__c");
+                PfxClientLinks = Documents.getArray("records");
+                for (var j = 0; j < PfxClientLinks.length; j++) {
+                    if(SFID == PfxClientLinks[j].CCHAxcess__SFID__c){
+                        $('#btnUnlink').show(); 
+                        $('#lblLinkedClientID').text(PfxClientLinks[j].CCHAxcess__PfxClientID__c);
+                        $('#divLinkedClientID').show();
+                        break;
+                    }
+                }
+            }
+        }
+        
+        function AddAndLinkClient() {
+            var clientType = $('#cmbClientType').val();
+            function success(data) {
+                if(data.SucceededRecordCount == 1){
+                    var clientGuid = null;
+                    if(data.ErrorReport.Details[0].Guid.length > 0)
+                        clientGuid = data.ErrorReport.Details[0].Guid;
+
+                    fnsetSelectedClientID($("#indClientId").val(), $("#indClientSubId").val(), clientGuid, true);
+                    //CloseWindow();
+                }
+                else {
+                    CustomAlertError(fetchMessageFromSdkResult(data), function(){});
+                }
+            };
+            function fail(jqXHR, textStatus, err) {
+                var errorObject = JSON.parse(jqXHR.responseText);
+                CustomAlertError(errorObject.ErrorMessage + " HTTP Status : " + errorObject.StatusCode + " : " + errorObject.StatusMessage, "Add Client failed", function(){});
+            };
+            
+            if(clientType == 'CR')
+                var request = addCorporationClient(success, fail);
+            else if(clientType == 'EP')
+                var request = addEmployeePlanClient(success, fail);
+            else if(clientType == 'FD')
+                var request = addFiduciaryClient(success, fail);
+            else if(clientType == 'IN')
+                var request = addIndividualClient(success, fail);
+            else if(clientType == 'EX')
+                var request = addNonProfitClient(success, fail);
+            else if(clientType == 'PR')
+                var request = addPartnershipClient(success, fail);
+            else if(clientType == 'SP')
+                var request = addSoleProprietorshipClient(success, fail);
+            return false;
+        }
+    
+        //adds the client
+        function addIndividualClient(successCallback, failCallback) {
+            var fname = $("#indClientFirstname").val();
+            var lname = $("#indClientLastName").val();
+            if(IsValidate() == false)
+                return;
+            var client01 = {
+                FirstName: fname,
+                LastName: lname,
+                ExceptionMessages: null,
+                SuccessFlag: true,
+                ClientId: $("#indClientId").val(),
+                ClientSubordinateID: $("#indClientSubId").val(),
+                ClientName: fname + ' ' + lname,
+                ClientTypeCode: 3,
+                ClientClassCd: 0,
+                ClientStatusCode: 0,
+                ClientSortName: lname + ", " + fname
+            };
+            var ClientList = [client01];
+            var request = restapi_CreateMultipleClientIndividual(ClientList, successCallback, failCallback);
+        }
+        function addCorporationClient(successCallback, failCallback) {
+            var fname = $("#indClientFirstname").val();
+            var lname = $("#indClientLastName").val();
+            if(IsValidate() == false)
+                return;
+            var client01 = {
+                ClientId: $("#indClientId").val(),
+                ClientSubordinateID:$("#indClientSubId").val(),
+                NameLine1: fname,
+                NameLine2: lname,
+                ClientName: fname + ' ' + lname,
+                ClientSortName:lname + "," + fname,
+                ClientTypeCode: 'CR'
+            };
+            var ClientList = [client01];
+            var request = restapi_CreateMultipleClientCorporation(ClientList, successCallback, failCallback);
+            return false;
+        }
+        function addEmployeePlanClient(successCallback, failCallback) {
+            var fname = $("#indClientFirstname").val();
+            var lname = $("#indClientLastName").val();
+            if(IsValidate() == false)
+                return;
+            var client01 = {
+                ClientId: $("#indClientId").val(),
+                ClientSubordinateID:$("#indClientSubId").val(),
+                SponsorEmployerNameLine1: fname,
+                SponsorEmployerNameLine2: lname,
+                ClientName: fname + ' ' + lname,
+                ClientSortName:lname + "," + fname,
+                PlanEffectiveDtTm: '/Date(-62135575200000-0600)/',
+                PlanNumber: '',
+                PlanAdministratorFederalTaxID: '',
+                PlanNameLine1: '',
+                PlanNameLine2: '',
+                PlanSponsorFederalTaxID: '',
+                PlanAdministratorName: '',
+                PlanSponsorNAIC: null,
+                EmployeePlanTimestamp: null,
+                EmployeePlanSubEntityDetails: null,
+                SuccessFlag: true,
+                ExceptionMessages: null
+            };
+            var ClientList = [client01];
+            var request = restapi_CreateMultipleClientEmployeePlan(ClientList, successCallback, failCallback);
+            return false;
+        }
+        function addFiduciaryClient(successCallback, failCallback) {
+            var fname = $("#indClientFirstname").val();
+            var lname = $("#indClientLastName").val();
+            if(IsValidate() == false)
+                return;
+            var client01 = {
+                ClientId: $("#indClientId").val(),
+                ClientSubordinateID:$("#indClientSubId").val(),
+                NameLine1: fname,
+                NameLine2: lname,
+                ClientName: fname + ' ' + lname,
+                ClientSortName:lname + "," + fname,
+                FiduciaryTypeCode:null,
+                FiduciaryCreationDateTime:'/Date(-62135575200000-0600)/',
+                FederalTaxID: '',
+                FiduciaryNameTitle: null,
+                FiduciaryFederalTaxID: '',
+                FiduciaryTimeStamp: null
+            };
+            var ClientList = [client01];
+            var request = restapi_CreateMultipleClientFiduciary(ClientList, successCallback, failCallback);
+            return false;
+        }
+        function addNonProfitClient(successCallback, failCallback) {
+            var fname = $("#indClientFirstname").val();
+            var lname = $("#indClientLastName").val();
+            if(IsValidate() == false)
+                return;
+            var client01 = {
+                ClientId: $("#indClientId").val(),
+                ClientSubordinateID:$("#indClientSubId").val(),
+                NameLine1: fname,
+                NameLine2: lname,
+                ClientName: fname + ' ' + lname,
+                ClientSortName:lname + "," + fname,
+                FederalTaxID: '',
+                StateTaxID: '',
+                ExemptOrganizationTypeCd: null,
+                BusinessStartDtTm: '/Date(-62135575200000-0600)/',
+                NAIC: null,
+                PrincipalBusiness: null,
+                ProductService: null,
+                ExemptOrganizationTimeStamp: null
+            };
+            var ClientList = [client01];
+            var request = restapi_CreateMultipleClientNonProfit(ClientList, successCallback, failCallback);
+            return false;
+        }
+        function addPartnershipClient(successCallback, failCallback) {
+            var fname = $("#indClientFirstname").val();
+            var lname = $("#indClientLastName").val();
+            if(IsValidate() == false)
+                return;
+            var client01 = {
+                ClientId: $("#indClientId").val(),
+                ClientSubordinateID:$("#indClientSubId").val(),
+                NameLine1: fname,
+                NameLine2: lname,
+                ClientName: fname + ' ' + lname,
+                ClientSortName:lname + "," + fname,
+                FederalTaxID: '',
+                StateTaxID: '',
+                LocalTaxID: '',
+                PartnershipTypeCd: null,
+                BusinessStartDtTm: '/Date(-62135575200000-0600)/',
+                PubliclyTradedFlg: false,
+                PartnerCnt: 0,
+                NAIC: null,
+                PrincipalBusiness: null,
+                ProductService: null,
+                PartnershipTimeStamp: null
+            };
+            var ClientList = [client01];
+            var request = restapi_CreateMultipleClientPartnership(ClientList, successCallback, failCallback);
+            return false;
+        }
+        function addSoleProprietorshipClient(successCallback, failCallback) {
+            var fname = $("#indClientFirstname").val();
+            var lname = $("#indClientLastName").val();
+            if(IsValidate() == false)
+                return;
+            var client01 = {
+                ClientId: $("#indClientId").val(),
+                ClientSubordinateID:$("#indClientSubId").val(),
+                NameLine1: fname,
+                NameLine2: lname,
+                ClientName: fname + ' ' + lname,
+                ClientSortName:lname + "," + fname,
+                BusinessStartDtTm: '/Date(-62135575200000-0600)/',
+                FederalTaxID: '',
+                StateTaxID: '',
+                LocalTaxID: '',
+                NAIC: null,
+                PrincipalBusiness: null,
+                ProductService: null,
+                OwnerName: null,
+                OwnerFederalTaxID: '',
+                SoleProprietorshipTimestamp: null
+            };
+            var ClientList = [client01];
+            var request = restapi_CreateMultipleClientSoleProprietorship(ClientList, successCallback, failCallback);
+            return false;
+        }
+    
+        function IsValidate() {
+            var fname = $("#indClientFirstname").val();
+            var lname = $("#indClientLastName").val();
+            var clientType = $('#cmbClientType').val();
+            var Messages = '';
+            if($.trim($("#indClientId").val()).length == 0) {
+                Messages += "Please specify '<b>Client ID</b>'.</br>";
+            }
+            
+            if(clientType == 'IN') {
+                if($.trim(fname) == DefaultTextLine1)
+                    Messages += "Please specify '<b>Name line 1</b>'.</br>";
+                if($.trim(lname) == DefaultTextLine2)
+                    Messages += "Please specify '<b>Name line 2</b>'.</br>";
+            }
+            else {
+                if($.trim(fname) == DefaultTextLine1 && $.trim(lname) == DefaultTextLine2)
+                    Messages += "Please specify '<b>Name line 1 or Name line 2</b>'.</br>";
+            }
+            if(Messages.length != 0) {
+                CustomAlertInfo(Messages, function(){});
+                return false;
+            }
+            return true;
+        }
+    
+        function fnsetSelectedClientID(ClientID, ClientSubID, ClientGuid, IsNewlyAdded){
+            if(SFID.length > 0){
+                var int=self.setTimeout(function(){
+                        var CreateNewRecords = []; 
+                        var create_new_Link = new sforce.SObject("CCHAxcess__PfxClientLink__c");
+                        var getresult = sforce.connection.query("SELECT Id, CCHAxcess__PfxClientID__c, CCHAxcess__PfxClientSubID__c, CCHAxcess__PfxClientGuid__c FROM CCHAxcess__PfxClientLink__c WHERE CCHAxcess__SFID__c = '" + SFID + "'");
+                        if(getresult.size != 0){
+                            var records = getresult.getArray("records");
+                            //if (records.CCHAxcess__PfxClientGuid__c == ClientGuid){
+                            if (records.CCHAxcess__PfxClientID__c == ClientGuid && records.CCHAxcess__PfxClientSubID__c == ClientSubID){
+                                alert("Selected CCH Axcess Client is already linked with this '" + SFObjType + "'. Please click lookup button to link with another Client.");
+                                return true;
+                            }
+                            create_new_Link.Id=records[0].Id;
+                        }
+                        if(ClientSubID.length == 0)
+                            ClientSubID = null;
+                        create_new_Link.CCHAxcess__ObjectType__c = SFObjType;
+                        create_new_Link.CCHAxcess__PfxClientGuid__c = ClientGuid;
+                        create_new_Link.CCHAxcess__PfxClientID__c = ClientID;
+                        create_new_Link.CCHAxcess__PfxClientSubID__c = ClientSubID;
+                        create_new_Link.CCHAxcess__SFID__c = SFID;
+                        create_new_Link.CCHAxcess__Name__c = "{!clientInfo.Name}";
+                    //create_new_Link.CCHAxcess__AutoUpdateClientflg__c = false;
+                    //create_new_Link.CCHAxcess__ClientUpdateDate__c = new Date(2000, 1, 1);
+                        CreateNewRecords.push(create_new_Link);
+                    
+                        var result;
+                        if(getresult.size != 0)
+                            result = sforce.connection.update(CreateNewRecords);
+                        else
+                            result = sforce.connection.create(CreateNewRecords);
+                        
+                        if (result[0].success=='false')
+                            CustomAlertError(result[0].errors.message, function(){});
+                        else{
+                            $('#txtClientID').val(ClientID);
+                            if(IsNewlyAdded)
+                                CustomAlertInfo("CCH Axcess Client has been added and linked successfully.", function(){ CloseAndRefreshParentWindow(); });
+                            else
+                                CustomAlertInfo("CCH Axcess Client has been linked successfully.", function(){ CloseAndRefreshParentWindow(); });
+                        }
+                    },
+                    1
+                );
+            }
+        }
+    
+        function fnRemoveCCHAxcessClientIDLink(){
+            var int=self.setTimeout(function(){
+                    var getresult = sforce.connection.query("SELECT Id, CCHAxcess__PfxClientGuid__c FROM CCHAxcess__PfxClientLink__c WHERE CCHAxcess__SFID__c = '" + SFID + "'");
+                    if(getresult.size != 0){
+                        var records = getresult.getArray("records");
+                        var Ids = new Array();
+                        Ids[0] = records[0].Id;
+                        var result = sforce.connection.deleteIds(Ids);
+                        
+                        if (result[0].success=='false')
+                            CustomAlertError(result[0].errors.message, function(){ CloseAndRefreshParentWindow(); });
+                        else{
+                            $('#txtClientID').val("");
+                            CustomAlertInfo("CCH Axcess Client link has been removed successfully.", function(){ CloseAndRefreshParentWindow(); });
+                        }
+                    }
+                    else
+                        CustomAlertInfo("CCH Axcess client link already removed.", function(){ CloseAndRefreshParentWindow(); });
+                },
+                1
+            );
+        }
+    
+        function CloseAndRefreshParentWindow() {
+            if(top.window.opener != null){
+                top.window.opener.fnLinkedClientID();
+                CloseWindow();
+            }
+            else
+                CustomAlertError('Client script error: Please re-open lookup page.', function(){CloseWindow();});
+        }
+    
+        function getUrlVars()
+        {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++)
+            {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+        function getEmptyforNull(value) {
+            if(value == null)
+                return "";
+            else
+                return value;
+        }
+        function CreateNewClientObject(){
+            var ClientInfo = new Object();
+            ClientInfo.ClientId = "";
+            ClientInfo.ClientSubordinateID = "";
+            ClientInfo.ClientName = "";
+            return ClientInfo;
+        }
+        function AddNewClient(){
+            $("#tabSearch").hide();
+            $("#tabAddNew").show();
+            setAddClientDefaultText();
+            
+            
+            return false;
+        }
+    
+        function setAddClientDefaultText() {
+            $('#indClientFirstname').focus(function(){
+                if($(this).val() == DefaultTextLine1){
+                    $(this).val('');
+                    $(this).removeClass('inputText_Default_data');
+                    $(this).addClass('inputText_data');
+                }
+            }).blur(function(){
+                var DefaultText = 'Line 1';
+                if($.trim($(this).val()) == ''){
+                    $(this).val(DefaultText);
+                    $(this).removeClass('inputText_data');
+                    $(this).addClass('inputText_Default_data');
+                }
+            });
+            
+            $('#indClientLastName').focus(function(){
+                if($(this).val() == DefaultTextLine2){
+                    $(this).val('');
+                    $(this).removeClass('inputText_Default_data');
+                    $(this).addClass('inputText_data');
+                }
+            }).blur(function(){
+                if($.trim($(this).val()) == ''){
+                    $(this).val(DefaultTextLine2);
+                    $(this).removeClass('inputText_data');
+                    $(this).addClass('inputText_Default_data');
+                }
+            });
+        }
+            
+        $(document).ready(function() {
+            $("#tabAddNew").hide();
+            $('#divLinkedClientID').hide();
+            if($('#indClientFirstname').val().length == 0) {
+                $('#indClientFirstname').attr('readonly', false);
+                $('#indClientFirstname').removeClass('inputText_data');
+                $('#indClientFirstname').addClass('inputText_Default_data');
+            }
+            if($('#indClientLastName').val().length == 0) {
+                $('#indClientLastName').attr('readonly', false);
+                $('#indClientLastName').removeClass('inputText_data');
+                $('#indClientLastName').addClass('inputText_Default_data');
+            }
+            login();
+        });
+    </script>
+    <style type="text/css">
+        .inputText_data
+        {
+            width: 150px;
+            color: #000000;
+        }
+        .inputText_Default_data
+        {
+            width: 150px;
+            color: #c0c0c0;
+        }
+    </style>
+    <body class="hasMotif lookupTab LookupSearchFrame brandNoBgrImg">
+         <apex:form id="theForm">
+            <div class="lookup">
+                <div class="bPageTitle">
+                    <div class="ptBody secondaryPalette">
+                        <div class="content">
+                            <img src="/s.gif" alt=""  class="pageTitleIcon" title=""/>
+                            <h1>Lookup</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="pBody">
+                    <label for="lksrch">Search</label>
+                    <input id="txtClientID" maxlength="80" name="txtClientID" size="20" type="text" value="" />
+                    <input value=" Go! "  class="btn" name="go" title="Go!" type="submit" onclick="documentClientSelect(); return false;" />
+                    <input value=" Unlink " id="btnUnlink" class="btn" name="btnUnlink" title="Unlink" type="submit" onclick="fnRemoveCCHAxcessClientIDLink(); return false;" />
+                    <input value=" Add New Client " id="btnAddNew" class="btn" name="btnAddNew" title="Add new client" type="submit" onclick="return AddNewClient();" />
+                    <!--<div class="bDescription">You can use &quot;*&quot; as a wildcard next to other characters to improve your search results.</div>-->
+                </div>
+                <div id="divLinkedClientID">
+                    Linked CCH Axcess Client ID# <b><span id="lblLinkedClientID"></span></b>
+                </div>
+            </div>
+            <div id="tabSearch">
+                <table id="selSearchClientList" width="100%">
+                </table>
+                <div id="selDocClientPager">
+                </div>
+            </div>
+            <div id="tabAddNew">
+                <table>
+                    <tr>
+                        <td>
+                            Client Type:<label class="jqmRequired">*</label>
+                        </td>
+                        <td>
+                            <select id="cmbClientType" style="width: 155px">
+                                <option value="CR">Corporation</option>
+                                <option value="EP">Employee Plan</option>
+                                <option value="FD">Fiduciary</option>
+                                <option value="IN">Individual</option>
+                                <option value="EX">Non-Profit</option>
+                                <option value="PR">Partnership</option>
+                                <option value="SP">Sole Proprietorship</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Client ID:<label class="jqmRequired">*</label>
+                        </td>
+                        <td>
+                            <input type="text" id="indClientId" size="10" maxlength="10" style="width: 75px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Client Sub ID:
+                        </td>
+                        <td>
+                            <input type="text" id="indClientSubId" size="5" maxlength="5" style="width: 75px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Name:<label class="jqmRequired">*</label>
+                        </td>
+                        <td>
+                            <input type="text" id="indClientFirstname" value="{!clientInfo.FirstName}" size="20" maxlength="20" class="inputText_data" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input type="text" id="indClientLastName" value="{!clientInfo.LastName}" size="20" maxlength="20" class="inputText_data" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input type="button" value="Add & Link" id="btnAddNewClient" name="btnAddNewClient" class="btn"
+                                style="width: 155px" onclick="return AddAndLinkClient();" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </apex:form>
+    </body>
+</apex:page>

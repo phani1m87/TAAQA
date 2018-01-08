@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <comment>Edit Search Filter</comment>
+        <content>SearchFilterEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <comment>Create Search Filter</comment>
+        <content>SearchFilterEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>View Search Filter</comment>
+        <content>SearchFilterDetail</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Represents a search filter</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AccountTypeScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The account type scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The account type scope operator</inlineHelpText>
+        <label>Account Type Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AccountTypeScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more account types associated with the filter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more account types associated with the filter</inlineHelpText>
+        <label>Account Type Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the filter is active</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the filter is active</inlineHelpText>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BusinessObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The business object which provides the context for the filter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The business object which provides the context for the filter</inlineHelpText>
+        <label>Business Object</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>UseType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Asset</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apttus_Config2__AssetLineItem__c</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apttus_Config2__ProductConfiguration__c</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apttus_Config2__ProductAttributeValue__c</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apttus_Config2__SearchAttributeValue__c</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Option</controllingFieldValue>
+                <valueName>Apttus_Config2__ProductConfiguration__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Option</controllingFieldValue>
+                <valueName>Apttus_Config2__ProductAttributeValue__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Option</controllingFieldValue>
+                <valueName>Apttus_Config2__SearchAttributeValue__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Asset</controllingFieldValue>
+                <valueName>Asset</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Asset</controllingFieldValue>
+                <valueName>Apttus_Config2__AssetLineItem__c</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CountryScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The country scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The country scope operator</inlineHelpText>
+        <label>Country Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CountryScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more countries associated with the filter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more countries associated with the filter</inlineHelpText>
+        <label>Country Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CriteriaFieldNames__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of field names used in the filter criteria</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of field names used in the filter criteria</inlineHelpText>
+        <label>Criteria Field Names</label>
+        <length>1024</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Criteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter criteria specification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The filter criteria specification</inlineHelpText>
+        <label>Criteria</label>
+        <length>16000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The description for the filter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The description for the filter</inlineHelpText>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GroupByMapTo__c</fullName>
+        <deprecated>false</deprecated>
+        <description>A comma separated list of API names of fields in the Rollup Data object the group by maps to. This allows group by values to be persisted along with the rollup data</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A comma separated list of API names of fields in the Rollup Data object the group by maps to. This allows group by values to be persisted along with the rollup data</inlineHelpText>
+        <label>Group By Map To</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GroupBy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>A comma separated list of API names of group by fields</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A comma separated list of API names of group by fields</inlineHelpText>
+        <label>Group By</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IncentiveId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated incentive</inlineHelpText>
+        <label>Incentive</label>
+        <referenceTo>Incentive__c</referenceTo>
+        <relationshipLabel>Search Filters (CPQ)</relationshipLabel>
+        <relationshipName>SearchFiltersCPQ</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>InclusionCriteriaCompOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter inclusion criteria comparison operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The filter inclusion criteria comparison operator</inlineHelpText>
+        <label>Inclusion Criteria Operator (Deprecated)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>equal to</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not equal to</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>starts with</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>contains</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>does not contain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>less than</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>greater than</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>less than or equal to</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>greater than or equal to</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>InclusionCriteriaFieldName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter inclusion criteria field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The filter inclusion criteria field</inlineHelpText>
+        <label>Inclusion Criteria Field (Deprecated)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InclusionCriteriaFieldNames__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of field names used in the inclusion criteria</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of field names used in the inclusion criteria</inlineHelpText>
+        <label>Inclusion Criteria Field Names</label>
+        <length>1024</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>InclusionCriteriaFieldValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter inclusion criteria value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The filter inclusion criteria value</inlineHelpText>
+        <label>Inclusion Criteria Value (Deprecated)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InclusionCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The inclusion criteria specification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The inclusion criteria specification</inlineHelpText>
+        <label>Inclusion Criteria</label>
+        <length>8000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProductFamilyScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product family scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The product family scope operator</inlineHelpText>
+        <label>Product Family Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProductFamilyScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more product families associated with the filter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more product families associated with the filter</inlineHelpText>
+        <label>Product Family Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProductScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The product scope operator</inlineHelpText>
+        <label>Product Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProductScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more products associated with the filter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more products associated with the filter</inlineHelpText>
+        <label>Product Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RegionScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The region scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The region scope operator</inlineHelpText>
+        <label>Region Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RegionScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more regions associated with the filter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more regions associated with the filter</inlineHelpText>
+        <label>Region Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RelatedRollupId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated rollup. Only valid for child filters based on rollup data.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated rollup. Only valid for child filters based on rollup data.</inlineHelpText>
+        <label>Related Rollup</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.UseType__c</field>
+                <operation>equals</operation>
+                <value>Child Filter</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.BusinessObject__c</field>
+                <operation>equals</operation>
+                <value>Apttus_Config2__RollupData__c</value>
+            </filterItems>
+            <filterItems>
+                <field>SearchFilter__c.UseType__c</field>
+                <operation>equals</operation>
+                <value>Rollup</value>
+            </filterItems>
+            <infoMessage>Please select a rollup associated with the child filter</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>SearchFilter__c</referenceTo>
+        <relationshipLabel>Rollups</relationshipLabel>
+        <relationshipName>Rollups</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RollupBusinessObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The API name of the business object for the rollup</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The API name of the business object for the rollup</inlineHelpText>
+        <label>Rollup Business Object (Deprecated)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Apttus_Config2__OrderLineItem__c</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Apttus_Config2__AssetLineItem__c</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup effective date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup effective date</inlineHelpText>
+        <label>Rollup Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RollupEndDateOffsetType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of offset to apply to the rollup end date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of offset to apply to the rollup end date</inlineHelpText>
+        <label>Rollup End Date Offset Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Offset (+) Days</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Offset (-) Days</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Offset (+) Months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Offset (-) Months</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupEndDateOffsetValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The offset value to apply to the rollup end date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The offset value to apply to the rollup end date</inlineHelpText>
+        <label>Rollup End Date Offset Value</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RollupEndDateSourceObjectType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the type of the object that contains the rollup end date source</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the type of the object that contains the rollup end date source</inlineHelpText>
+        <label>Rollup End Date Source Object Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Child Filter</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupEndDateSourceObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the rollup business object or a child filter that contains the rollup end date source</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the rollup business object or a child filter that contains the rollup end date source</inlineHelpText>
+        <label>Rollup End Date Source Object</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RollupEndDateSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the rollup business object or a child object which determines the rollup end date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the rollup business object or a child object which determines the rollup end date</inlineHelpText>
+        <label>Rollup End Date Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RollupEndDateType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup end date type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup end date type</inlineHelpText>
+        <label>Rollup End Date Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Constant</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Reference Value Source</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup end date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup end date</inlineHelpText>
+        <label>Rollup End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RollupExclusionCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup exclusion filter criteria specification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup exclusion filter criteria specification</inlineHelpText>
+        <label>Rollup Exclusion Criteria</label>
+        <length>16000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RollupExpirationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup expiration date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup expiration date</inlineHelpText>
+        <label>Rollup Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RollupField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup field</inlineHelpText>
+        <label>Rollup Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RollupMetricType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup metric type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup metric type.</inlineHelpText>
+        <label>Rollup Metric Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>RollupType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Quantity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amount</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>SUM</controllingFieldValue>
+                <valueName>Quantity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>SUM</controllingFieldValue>
+                <valueName>Amount</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupPeriodSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the rollup business object which determines the rollup period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the rollup business object which determines the rollup period</inlineHelpText>
+        <label>Rollup Period Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RollupRecurrenceFrequency__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup recurrence frequency</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup recurrence frequency</inlineHelpText>
+        <label>Rollup Recurrence Frequency</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>RollupRecurrenceType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quarterly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Half Yearly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yearly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>One Time</controllingFieldValue>
+                <valueName>None</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Recurring</controllingFieldValue>
+                <valueName>Monthly</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Recurring</controllingFieldValue>
+                <valueName>Quarterly</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Recurring</controllingFieldValue>
+                <valueName>Half Yearly</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Recurring</controllingFieldValue>
+                <valueName>Yearly</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupRecurrenceType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup recurrence type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup recurrence type</inlineHelpText>
+        <label>Rollup Recurrence Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>One Time</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Recurring</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupStartDateOffsetType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of offset to apply to the rollup start date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of offset to apply to the rollup start date</inlineHelpText>
+        <label>Rollup Start Date Offset Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Offset (+) Days</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Offset (-) Days</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Offset (+) Months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Offset (-) Months</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupStartDateOffsetValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The offset value to apply to the rollup start date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The offset value to apply to the rollup start date</inlineHelpText>
+        <label>Rollup Start Date Offset Value</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RollupStartDateSourceObjectType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the type of the object that contains the rollup start date source</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the type of the object that contains the rollup start date source</inlineHelpText>
+        <label>Rollup Start Date Source Object Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Child Filter</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupStartDateSourceObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the rollup business object or a child filter that contains the rollup start date source</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the rollup business object or a child filter that contains the rollup start date source</inlineHelpText>
+        <label>Rollup Start Date Source Object</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RollupStartDateSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the rollup business object or a child object which determines the rollup start date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the rollup business object or a child object which determines the rollup start date</inlineHelpText>
+        <label>Rollup Start Date Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RollupStartDateType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup start date type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup start date type</inlineHelpText>
+        <label>Rollup Start Date Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Constant</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Reference Value Source</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RollupStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup start date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup start date</inlineHelpText>
+        <label>Rollup Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RollupType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup type</inlineHelpText>
+        <label>Rollup Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SUM</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>COUNT</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter evaluation sequence</description>
+        <externalId>false</externalId>
+        <label>Sequence</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UseType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter use type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The filter use type</inlineHelpText>
+        <label>Filter Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Option</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Asset</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ValueObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The object to map the value to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The object to map the value to</inlineHelpText>
+        <label>Value Object</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>User</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apttus_Config2__ProductConfiguration__c</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apttus_Config2__ProductAttributeValue__c</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apttus_Config2__SearchAttributeValue__c</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Search Filter (CPQ)</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Filter Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Search Filters (CPQ)</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>BusinessObject__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UseType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.ALIAS</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>BusinessObject__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UseType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>BusinessObject__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>UseType__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Description__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>BusinessObject__c</searchFilterFields>
+        <searchFilterFields>UseType__c</searchFilterFields>
+        <searchFilterFields>Description__c</searchFilterFields>
+        <searchResultsAdditionalFields>BusinessObject__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UseType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>NewRollup</fullName>
+        <availability>online</availability>
+        <description>Create a new rollup definition</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>New Rollup</masterLabel>
+        <openType>sidebar</openType>
+        <page>IncentiveRollup</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

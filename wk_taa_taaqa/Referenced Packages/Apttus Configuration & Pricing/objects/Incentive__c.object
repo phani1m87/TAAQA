@@ -1,0 +1,1520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>IncentiveManager</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>IncentiveManager</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>IncentiveNgApp</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Represents an incentive associated with one or more products</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>AddRebatesToAgreementColumns</fullName>
+        <description>AddRebatesToAgreement page</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IncentiveCode__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>UseType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>EffectiveDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ExpirationDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Active__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AutoApply__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IncentiveGroupId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Add Rebates To Agreement Columns</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>InformationSectionFields</fullName>
+        <availableFields>
+            <field>IncentiveNumber__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>OwnerId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Sequence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>SystemModstamp</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>VersionNumber__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Incentive Manager page information section</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ApplicationMethod__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>UseType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ContextType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IncentiveCode__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AutoApply__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>EffectiveDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ExpirationDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IncentiveGroupId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StopProcessingMoreIncentives__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Active__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Information Section Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>InformationSectionLoyaltyFields</fullName>
+        <description>Incentive Manager page information section for use type of loyalty</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>EffectiveDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ExpirationDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CycleStartDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CycleEndDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StopProcessingMoreIncentives__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IncentiveCode__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Downgrade__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Upgrade__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PointAccrualLevel__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IncentiveGroupId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sequence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecurrenceFrequency__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AutoApply__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Active__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Information Section Loyalty Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>InformationSectionPointAccrualFields</fullName>
+        <description>Information screen for Incentives of type loyalty with sub-type &quot;Point Accrual&quot;</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ApplicationMethod__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AutoApply__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>EffectiveDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ExpirationDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StopProcessingMoreIncentives__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Active__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LoyaltyId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Information Section Point Accrual Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>PromotionCustomFields</fullName>
+        <description>Used in the promotion header section for storing additional information defined by users.</description>
+        <label>Promotion Custom Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ScopeSectionFields</fullName>
+        <availableFields>
+            <field>AccountTypeScope__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>PriceListScope__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Fields presented on the scope section of incentive manager</description>
+        <displayedFields>
+            <field>ProductFamilyScope__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ProductScope__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RegionScope__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CountryScope__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AccountScope__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Scope Section Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>AccountScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The account scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The account scope operator</inlineHelpText>
+        <label>Account Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AccountScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more accounts associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more accounts associated with the incentive</inlineHelpText>
+        <label>Account Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>AccountTypeScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The account type scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The account type scope operator</inlineHelpText>
+        <label>Account Type Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AccountTypeScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more account types associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more account types associated with the incentive</inlineHelpText>
+        <label>Account Type Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the incentive is active</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the incentive is active</inlineHelpText>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AmendmentEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the amendment to the incentive takes effect</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the amendment to the incentive takes effect</inlineHelpText>
+        <label>Amendment Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>AncestorId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the ancestor incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the ancestor incentive</inlineHelpText>
+        <label>Ancestor</label>
+        <referenceTo>Incentive__c</referenceTo>
+        <relationshipLabel>Incentives (Derived)</relationshipLabel>
+        <relationshipName>DerivedIncentives</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ApplicationMethod__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive application method, depends on the application type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive application method, depends on the application type.</inlineHelpText>
+        <label>Application Method</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>UseType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Buy X Get X</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Buy X Get Y</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>For Every X Get X</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>For Every X Get Y</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Promotion</controllingFieldValue>
+                <controllingFieldValue>Rebate</controllingFieldValue>
+                <valueName>Buy X Get X</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Promotion</controllingFieldValue>
+                <controllingFieldValue>Rebate</controllingFieldValue>
+                <valueName>Buy X Get Y</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Promotion</controllingFieldValue>
+                <valueName>For Every X Get X</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Promotion</controllingFieldValue>
+                <valueName>For Every X Get Y</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AutoApply__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the incentive would be automatically applied during pricing</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the incentive would be automatically applied during pricing</inlineHelpText>
+        <label>Auto Apply ?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ContextType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of context associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of context associated with the incentive</inlineHelpText>
+        <label>Context Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>UseType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Line Item</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Order Line Item</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>External Order Summary Item</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Promotion</controllingFieldValue>
+                <valueName>Line Item</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rebate</controllingFieldValue>
+                <valueName>Order Line Item</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rebate</controllingFieldValue>
+                <valueName>External Order Summary Item</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CountryScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The country scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The country scope operator</inlineHelpText>
+        <label>Country Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CountryScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more countries associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more countries associated with the incentive</inlineHelpText>
+        <label>Country Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CustomDisplaySetting__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The the name of the custom display setting associated with the incentive. This will be used when an existing incentive record is “Edited”. 
+For a new record, the name will be passed as a URL parameter.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The the name of the custom display setting associated with the incentive. This will be used when an existing incentive record is “Edited”. 
+For a new record, the name will be passed as a URL parameter.</inlineHelpText>
+        <label>Custom Display Setting</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CycleEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The cycle end date. Indicates the end of a loyalty program cycle</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The cycle end date. Indicates the end of a loyalty program cycle</inlineHelpText>
+        <label>Cycle End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CycleStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The cycle start date. Indicates the start of a loyalty program cycle.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The cycle start date. Indicates the start of a loyalty program cycle.</inlineHelpText>
+        <label>Cycle Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive description</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive description</inlineHelpText>
+        <label>Description</label>
+        <length>1000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Downgrade__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Downgrade</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>During Program</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Next Program</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Never</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>EffectiveDate__c</fullName>
+        <defaultValue>DATE(2000,01,01)</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The incentive effective date. The incentive becomes effective on this date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive effective date. The incentive becomes effective on this date.</inlineHelpText>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EnableBenefitEffectivityDates__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether effective dates are enabled for benefits associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether effective dates are enabled for benefits associated with the incentive</inlineHelpText>
+        <label>Enable Benefit Effectivity Dates</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ExpirationDate__c</fullName>
+        <defaultValue>DATE(2099,12,31)</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The incentive expiration date. The incentive becomes ineffective after this date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive expiration date. The incentive becomes ineffective after this date.</inlineHelpText>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IncentiveCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive code available to customers to identify the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive code available to customers to identify the incentive</inlineHelpText>
+        <label>Incentive Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IncentiveGroupId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated incentive group</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated incentive group</inlineHelpText>
+        <label>Incentive Group</label>
+        <referenceTo>IncentiveGroup__c</referenceTo>
+        <relationshipLabel>Incentives</relationshipLabel>
+        <relationshipName>Incentives</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IncentiveNumberAuto__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The system assigned unique incentive number. FOR INTERNAL USE ONLY. DO NOT SHOW IN SCREENS, REPORTS, ETC.</description>
+        <displayFormat>ICT-{000000}</displayFormat>
+        <externalId>false</externalId>
+        <inlineHelpText>The system assigned unique incentive number. FOR INTERNAL USE ONLY. DO NOT SHOW IN SCREENS, REPORTS, ETC.</inlineHelpText>
+        <label>Incentive Number Auto (INTERNAL)</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>IncentiveNumberText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>FOR INTERNAL USE ONLY. DO NOT USE IN SCREENS, REPORTS, ETC.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>FOR INTERNAL USE ONLY. DO NOT USE IN SCREENS, REPORTS, ETC.</inlineHelpText>
+        <label>Incentive Number Text  (INTERNAL)</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IncentiveNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Identifies the incentive number, including the version number. Use this field to display on screens, reports, dashboards, search filters and columns, etc. The other incentive number fields are for internal use only.</description>
+        <externalId>false</externalId>
+        <formula>IncentiveNumberText__c &amp; &quot;.&quot; &amp; TEXT(CEILING(VersionNumber__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Identifies the incentive number, including the version number.</inlineHelpText>
+        <label>Incentive Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsTaskPending__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether there are any tasks pending for the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether there are any tasks pending for the incentive</inlineHelpText>
+        <label>Is Task Pending</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LoyaltyId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the loyalty incentive associated with the point accrual.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the loyalty incentive associated with the point accrual.</inlineHelpText>
+        <label>Loyalty</label>
+        <referenceTo>Incentive__c</referenceTo>
+        <relationshipLabel>Point Accrual Incentives</relationshipLabel>
+        <relationshipName>PointAccrualIncentives</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OriginalEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The original effective date associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The original effective date associated with the incentive</inlineHelpText>
+        <label>Original Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PointAccrualLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The point accrual level</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The point accrual level</inlineHelpText>
+        <label>Point Accrual Level</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PriceListScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The price list scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The price list scope operator</inlineHelpText>
+        <label>Price List Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PriceListScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more price lists associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more price lists associated with the incentive</inlineHelpText>
+        <label>Price List Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProductFamilyScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product family scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The product family scope operator</inlineHelpText>
+        <label>Product Family Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProductFamilyScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more product families associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more product families associated with the incentive</inlineHelpText>
+        <label>Product Family Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProductScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The product scope operator</inlineHelpText>
+        <label>Product Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProductScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more products associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more products associated with the incentive</inlineHelpText>
+        <label>Product Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RecurrenceFrequency__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The recurrence frequency.  e.g. Loyalty program cycle.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The recurrence frequency.  e.g. Loyalty program cycle.</inlineHelpText>
+        <label>Recurrence Frequency</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quarterly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Half Yearly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yearly</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RegionScopeOper__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The region scope operator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The region scope operator</inlineHelpText>
+        <label>Region Scope Oper</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>in</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not in</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RegionScope__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more regions associated with the incentive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One or more regions associated with the incentive</inlineHelpText>
+        <label>Region Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RenewalEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the renewal for the incentive takes effect</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the renewal for the incentive takes effect</inlineHelpText>
+        <label>Renewal Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SearchField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive search field. This field is used in the side bar search</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The incentive search field</inlineHelpText>
+        <label>Search Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive priority sequence. Indicates the order of application of the incentive.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive priority sequence. Indicates the order of application of the incentive.</inlineHelpText>
+        <label>Sequence</label>
+        <precision>5</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive status</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Being Amended</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Superseded</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Being Terminated</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Terminated</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Activated</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StopProcessingMoreIncentives__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicator to prevent subsequent incentives from processing</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicator to prevent subsequent incentives from processing</inlineHelpText>
+        <label>Stop Processing More Incentives</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SubUseType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Application Sub-Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>UseType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Point Accrual</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Loyalty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Promotion</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rebate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Milestone Incentive</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Price Program</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Promotion</controllingFieldValue>
+                <valueName>Promotion</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rebate</controllingFieldValue>
+                <valueName>Rebate</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Upgrade__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Upgrade</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>During Program</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Next Program</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Never</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>UseType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive use type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive use type</inlineHelpText>
+        <label>Application Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Promotion</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Rebate</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>VersionNumber__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The incentive version number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive version number</inlineHelpText>
+        <label>Version Number</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Incentive</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Promotions</fullName>
+        <columns>Active__c</columns>
+        <columns>NAME</columns>
+        <columns>IncentiveCode__c</columns>
+        <columns>ApplicationMethod__c</columns>
+        <columns>UseType__c</columns>
+        <columns>AutoApply__c</columns>
+        <columns>RegionScope__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>All Active Promotions</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Rebates</fullName>
+        <columns>NAME</columns>
+        <columns>Active__c</columns>
+        <columns>ApplicationMethod__c</columns>
+        <columns>UseType__c</columns>
+        <columns>EffectiveDate__c</columns>
+        <columns>ExpirationDate__c</columns>
+        <columns>ContextType__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>AutoApply__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>UseType__c</field>
+            <operation>equals</operation>
+            <value>Rebate</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Active Rebates</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Incentive Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Incentives</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>IncentiveNumber__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sequence__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UseType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ApplicationMethod__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EffectiveDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ExpirationDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Active__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>IncentiveNumber__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sequence__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UseType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ApplicationMethod__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EffectiveDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ExpirationDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Active__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IncentiveNumber__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Sequence__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>UseType__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ApplicationMethod__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Description__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EffectiveDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ExpirationDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Active__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>IncentiveNumber__c</searchFilterFields>
+        <searchFilterFields>Sequence__c</searchFilterFields>
+        <searchFilterFields>UseType__c</searchFilterFields>
+        <searchFilterFields>ApplicationMethod__c</searchFilterFields>
+        <searchFilterFields>EffectiveDate__c</searchFilterFields>
+        <searchFilterFields>ExpirationDate__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Active__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>DateValidation</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( NOT(ISNULL(EffectiveDate__c)) &amp;&amp; NOT(ISNULL(ExpirationDate__c)) &amp;&amp; EffectiveDate__c &gt; ExpirationDate__c, true, false)</errorConditionFormula>
+        <errorMessage>Effective date cannot be greater then expiration date.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>MassDelete</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Mass Delete</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+var records = {!GETRECORDIDS( $ObjectType.Incentive__c )}; 
+
+if (records[0] == null) { 
+alert(&quot;Please select at least one record.&quot;) } 
+else { 
+
+var errors = []; 
+var result = sforce.connection.deleteIds(records); 
+if (result &amp;&amp; result.length){ 
+var numFailed = 0; 
+var numSucceeded = 0; 
+for (var i = 0; i &lt; result.length; i++){ 
+var res = result[i]; 
+if (res &amp;&amp; res.success == &apos;true&apos;){ 
+numSucceeded++; 
+} else { 
+var es = res.getArray(&quot;errors&quot;); 
+if (es.length &gt; 0) { 
+errors.push(es[0].message); 
+} 
+numFailed++; 
+} 
+} 
+if (numFailed &gt; 0){ 
+alert(&quot;Failed: &quot; + numFailed + &quot;\nSucceeded: &quot; + numSucceeded + &quot; \n Due to: &quot; + errors.join(&quot;\n&quot;)); 
+} else { 
+alert(&quot;Number of records deleted: &quot; + numSucceeded); 
+} 
+} 
+window.location.reload(); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>NewLoyaltyProgram</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Loyalty Program</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/Apttus_Config2__IncentiveManager?UseType=Loyalty&amp;DataSource=Apttus_Config2__OrderLineItem__c&amp;ApplicationMethod=Buy X Get X</url>
+    </webLinks>
+    <webLinks>
+        <fullName>NewPointAccrual</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Point Accrual</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/Apttus_Config2__IncentiveManager?UseType=Loyalty&amp;SubUseType=Point Accrual&amp;DataSource=Apttus_Config2__OrderLineItem__c&amp;ApplicationMethod=Buy X Get X</url>
+    </webLinks>
+    <webLinks>
+        <fullName>NewPriceProgram</fullName>
+        <availability>online</availability>
+        <description>button for starting new price program incentive</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Price Program</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/Apttus_Config2__IncentiveManager?UseType=Price Program&amp;DataSource=Apttus_Config2__LineItem__c&amp;ApplicationMethod=Buy X Get X</url>
+    </webLinks>
+    <webLinks>
+        <fullName>NewPromotion</fullName>
+        <availability>online</availability>
+        <description>button for starting a new promotion</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Promotion</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/Apttus_Config2__IncentiveManager?UseType=Promotion&amp;DataSource=Apttus_Config2__LineItem__c&amp;ApplicationMethod=Buy X Get X</url>
+    </webLinks>
+    <webLinks>
+        <fullName>NewRebate</fullName>
+        <availability>online</availability>
+        <description>button for starting new rebate</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Rebate</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/Apttus_Config2__IncentiveManager?UseType=Rebate&amp;DataSource=Apttus_Config2__OrderLineItem__c&amp;ApplicationMethod=Buy X Get X</url>
+    </webLinks>
+</CustomObject>

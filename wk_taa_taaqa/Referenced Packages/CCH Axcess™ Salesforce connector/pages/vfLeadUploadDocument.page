@@ -1,0 +1,3 @@
+<apex:page standardController="Lead" showHeader="false" sidebar="false">
+    <c:cmptUploadDocument componentType="Lead" componentID="{!Lead.Id}"/>
+</apex:page>

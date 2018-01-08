@@ -37,7 +37,6 @@ public with sharing class ATA_ComposeAccountTeam
         for(User objUser : lstUsers){ // build map DTN and User
             mapUserDTNAndUser.put(objUser.DTN__c, objUser); 
         }           
-        
         // query active ATA Rules
         List<ATA_Rule__c> lstATARules = [SELECT Id, Rule_Type__c, FieldSet__c, Field_API_Name__c 
                                             FROM ATA_Rule__c 
@@ -524,7 +523,7 @@ public with sharing class ATA_ComposeAccountTeam
 	                System.debug('roleName: ' + roleName);
 	                System.debug('postalCode: ' + postalCode);
 	            	String externalId = roleName + postalCode;
-	            	
+	            	system.debug('mapGeoAssignments : '+mapGeoAssignments);
 	            	if(mapGeoAssignments.containsKey(externalId))
 	            	{
 	            		dtn = mapGeoAssignments.get(externalId).DTN__c;

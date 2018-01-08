@@ -1,0 +1,18 @@
+<!-- 
+    Apttus DocuSign API 
+    DocuSignConfigurationHome
+       
+    @2010-2012 Apttus Inc. All rights reserved.
+ --><apex:page tabStyle="Apttus_DocuApi__DocuSignEnvelope__c">
+
+<apex:tabPanel switchType="server" selectedTab="Account Setup" id="idDocuSignAdminHome" tabClass="activeTab" inactiveTabClass="inactiveTab">
+
+        <apex:tab label="{!$Label.apttus_docuapi__Help}" name="{!$Label.apttus_docuapi__Help}" id="idHelp">
+            Help here
+        </apex:tab>
+        <apex:tab label="{!$Label.apttus_docuapi__SetupDocuSignAccountTab}" name="Account Setup" id="idAccountSetup">
+            <apex:include pageName="Apttus_DocuApi__DocuSignAccountSetup"/>
+        </apex:tab>
+        
+    </apex:tabPanel>
+</apex:page>

@@ -13,16 +13,14 @@ global with sharing class ATA_AccountTeamHandler
 	public static void generateAccountTeam(Map<Id, Account> newMap, Map<Id, Account> oldMap, Boolean isDeleteExistingNRecreate)
 	{
 		// #### COMPOSE ACCOUNT TEAM
-		// **** pass the newMap and oldMap to ATA_ComposeAccountTeam		
+		// **** pass the newMap and oldMap to ATA_ComposeAccountTeam	
 		ATA_ComposeAccountTeam obj = new ATA_ComposeAccountTeam(newMap, oldMap);
-		
 		// **** this method delegates the tasks and gathers returned information
 		Map<Id, List<AccountTeamMember>> accountNRuleDerivedAccountTeamMap = ATA_ComposeAccountTeam.composeAccountTeam();
-		
 		// **** read all monitoring logs that accumulated during compose account team		
 		lstGlobalMonitoringLog.addAll(ATA_ComposeAccountTeam.lstMonitoringLog);
 		ATA_ComposeAccountTeam.lstMonitoringLog.clear();
-		
+		System.debug('ATA_ComposeAccountTeam====='+accountNRuleDerivedAccountTeamMap);
 		if(accountNRuleDerivedAccountTeamMap != NULL && accountNRuleDerivedAccountTeamMap.size() > 0)
 		{
 			// #### CURRENT ACCOUNT TEAM

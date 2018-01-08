@@ -1,0 +1,13 @@
+<apex:page controller="sopo.POExportController" sidebar="false">
+	<apex:sectionHeader title="Pipeline Optimizer" subtitle="Configuration Export/Import"/> 
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageMessages />
+			<apex:inputFile value="{!doc.body}"/> 
+			<apex:commandButton value="Upload" action="{!upload}"/>			
+			<apex:pageBlockSection columns="1">
+				<apex:outputLink value="{!downloadUrl}" target="_blank" >Download</apex:outputLink>
+			</apex:pageBlockSection>						
+		</apex:pageBlock>
+	</apex:form>	
+</apex:page>

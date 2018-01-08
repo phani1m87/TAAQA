@@ -1,0 +1,67 @@
+<apex:page controller="AS.Setup_Page" >
+    <apex:includeScript value="{!$Resource.AS__Common_Js}"/>
+    <apex:stylesheet value="{!$Resource.AS__IntegrationHelp_css}" />   
+
+
+    <apex:includeScript value="{!$Resource.AS__IntegrationHelp_Js}" />
+<apex:toolbar styleClass="toolbarTitle">
+    <apex:image url="{!$Resource.AS__Section_Base_Icon}" 
+        styleClass="toolbarImage" />
+    <apex:outputText styleClass="titleText" value="AssureSign® Setup" />
+</apex:toolbar>
+
+<div class="templateContent" style="display:none;">
+    <div class="loadingPanel" id="asdLoadingPanel">
+        <div class="shim"></div>
+        <div class="content">
+            <apex:image url="{!$Resource.AS__LoadingImage}" />
+        </div>          
+    </div>
+    <div class="loadingPanelIE6" id="asdLoadingPanel1">
+        <iframe class="frame" src="javascript:false;"></iframe>
+        <div class="shim"></div>
+        <div class="content">
+            <apex:image url="{!$Resource.AS__LoadingImage}" />
+        </div>          
+    </div>       
+</div>
+
+<apex:tabPanel switchType="client" selectedTab="configuration"
+    id="theTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab">
+    <apex:tab label="Installation" name="installation" id="TabInstallation">
+        <br />
+        <span class="helpPageHeader">Installation Instructions</span><br /><br />
+        <apex:outputPanel styleClass="tab1" layout="block">
+            <c:Section_Installation />
+        </apex:outputPanel>
+        <br />
+        <span class="helpQuestions">If you have any questions please contact <a href="mailto:support@AssureSign.com">{!supportEmail}.</a></span>
+        <br /><br />
+        <div class="assuresignVersionFooter" >Current Version:&nbsp;<apex:outputText value="{!assuresignVersion}"   /></div>
+    </apex:tab>
+    <apex:tab label="Configuration Settings" name="configuration" id="TabConguration">
+        <div class="configSectionWrapper">
+        <br />
+        <span class="helpPageHeader">Configuration Settings</span><br /><br />
+        <apex:outputPanel styleClass="tab2" layout="block">
+            <c:Section_ConfigurationSettings /> 
+        </apex:outputPanel>
+        <br />
+        <span class="helpQuestions">If you have any questions please contact <a href="mailto:support@AssureSign.com">{!supportEmail}.</a></span>
+        <br /><br />
+        <div class="assuresignVersionFooter" >Current Version:&nbsp;<apex:outputText value="{!assuresignVersion}"   /></div>
+        </div>
+    </apex:tab>
+    <apex:tab label="Integration" name="integration" id="TabIntegration">
+        <br />
+        <span class="helpPageHeader">Integration</span> <br /><br />
+        <apex:outputPanel styleClass="tab3" layout="block">  
+            <c:Section_Integration />  
+        </apex:outputPanel> 
+        <br />
+        <span class="helpQuestions">If you have any questions please contact <a href="mailto:support@AssureSign.com">{!supportEmail}.</a></span>
+        <br /><br />
+        <div class="assuresignVersionFooter" >Current Version:&nbsp;<apex:outputText value="{!assuresignVersion}"   /></div>
+    </apex:tab> 
+</apex:tabPanel>
+</apex:page>

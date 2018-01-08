@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>BillingContactFilterCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Filter criteria to select billing contacts for the account or the comma separated list of email Ids to send billing statements.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Filter criteria to select billing contacts for the account or the comma separated list of email Ids to send billing statements.</inlineHelpText>
+        <label>Billing Contact Filter Criteria</label>
+        <length>5000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BillingContactFormat__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specifies Billing Contact setup format for a given account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies Billing Contact setup format for a given account.</inlineHelpText>
+        <label>Billing Contact Format</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Comma Separated Values</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Filter Criteria</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BillingDayOfMonth__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The billing day of month for the account. Specific Day of Month, End of Month, etc</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The billing day of month for the account. Specific Day of Month, End of Month, etc</inlineHelpText>
+        <label>Billing Day Of Month</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1st of the Month</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>2nd of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3rd of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>6th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>7th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>9th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>10th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>11th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>12th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>13th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>14th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>15th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>16th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>17th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>18th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>19th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>20th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>21st of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>22nd of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>23rd of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>24th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>25th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>26th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>27th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>28th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>29th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>30th of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>31st of the Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>End of Month</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BillingPreferenceId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated billing preference</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated billing preference</inlineHelpText>
+        <label>Billing Preference</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>BillingPreference__c.Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <infoMessage>Please select a billing preference</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>BillingPreference__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CalendarCycleStart__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates which calendar month the billing cycle will align to for a given account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates which calendar month the billing cycle will align to for a given account.</inlineHelpText>
+        <label>Calendar Cycle Start</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>January</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>February</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>March</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>April</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>May</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>June</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>July</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>August</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>September</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>October</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>November</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>December</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CertificateId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated tax certificate. Applicable only when tax exempt.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated tax certificate. Applicable only when tax exempt.</inlineHelpText>
+        <label>Tax Certificate</label>
+        <referenceTo>TaxCertificate__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CreditMemoEmailTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specifies the current selected Credit Memo Email Template of an account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies the current selected Credit Memo Email Template of an account.</inlineHelpText>
+        <label>Credit Memo Email Template</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefaultCreditMemoTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the default Credit Memo template for generating Credit Memo documents</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the default Credit Memo template for generating Credit Memo documents</inlineHelpText>
+        <label>Default Credit Memo Template</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefaultInvoiceStatementTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the default template for generating invoice statements</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the default template for generating invoice statements</inlineHelpText>
+        <label>Default Invoice Statement Template</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefaultInvoiceTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the default invoice template for generating invoices</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the default invoice template for generating invoices</inlineHelpText>
+        <label>Default Invoice Template</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InvoiceEmailTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specifies the current selected Invoice Email Template for a given account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies the current selected Invoice Email Template for a given account.</inlineHelpText>
+        <label>Invoice Email Template</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PaymentTermId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the default payment term associated with the account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the default payment term associated with the account</inlineHelpText>
+        <label>Payment Term</label>
+        <referenceTo>PaymentTerm__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TaxExemptStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The tax exempt status. Applicable only when tax exempt.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The tax exempt status. Applicable only when tax exempt.</inlineHelpText>
+        <label>Tax Exempt Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>TaxExempt__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Processing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Processing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Approved</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Rejected</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TaxExempt__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The tax exempt indicator for the account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The tax exempt indicator for the account</inlineHelpText>
+        <label>Tax Exempt ?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>

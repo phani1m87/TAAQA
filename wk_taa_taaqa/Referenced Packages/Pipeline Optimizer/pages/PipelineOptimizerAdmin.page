@@ -1,0 +1,5 @@
+<apex:page >
+	<apex:enhancedList type="Pipeline_Optimizer_Criteria__c" height="300" rowsPerPage="50"/>
+	<apex:enhancedList type="Pipeline_Optimizer_Coach_Tip__c" height="300" rowsPerPage="50"/>
+	<apex:outputLink value="{!$Page.sopo__POExport}">Import/Export</apex:outputLink>
+</apex:page>

@@ -136,4 +136,12 @@ public class ATA_TestDateFactory
         
         return objNongeoAssignment;
     }
+    
+    public static ATA_Role_to_DTN_Field_Mapping__c createATARoleToDTNFM(String roleName,String fieldAPIName,String i){
+        ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping = new ATA_Role_to_DTN_Field_Mapping__c(
+                    ATA_Role_Name__c = roleName, 
+                    Account_DTN_Field_API_Name__c = fieldAPIName,
+                    Name = i);
+        return  ataRoleToDTNMapping;
+    }
 }

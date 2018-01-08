@@ -8,8 +8,7 @@ private class ATA_AccountTriggerHandlerTest
 {
     // *** test class for ATA_AccountTriggerHandler
     
-    /**** data preparation ****/
-    
+    /**** data preparation ****/    
     @testSetup static void testDataFactory() 
     {
         // create test account
@@ -37,7 +36,17 @@ private class ATA_AccountTriggerHandlerTest
         ATA_TestDateFactory.create_ATARoleAssignment('ATA1', 'Named / National', 'National Solution Consultant', 'Name Match');
         ATA_TestDateFactory.create_ATARoleAssignment('ATA2', 'Segment SalesOwnership', 'RSC - R&L Field', 'Geographic PostalCode');
         ATA_TestDateFactory.create_ATARoleAssignment('ATA3', 'Segment SalesOwnership', 'RC - R&L Retention', 'Geographic PostalCode');
+        ATA_TestDateFactory.create_ATARoleAssignment('ATA3', 'Segment SalesOwnership', 'RSC - Small Market Field', 'Geographic PostalCode');
+        
         // **** add rest of the roles
+        
+        //Create ATA_Role_to_DTN_Field_Mapping__c Records
+        List<ATA_Role_to_DTN_Field_Mapping__c> atListToinsert = new List<ATA_Role_to_DTN_Field_Mapping__c>();
+            ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping1 = ATA_TestDateFactory.createATARoleToDTNFM('RSC - R&L Field','ATA_R_L_New_Sales_DTN__c','1');
+            atListToinsert.add(ataRoleToDTNMapping1);
+            ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping2 = ATA_TestDateFactory.createATARoleToDTNFM('RC - R&L Retention',' ATA_R_L_Retention_Owner_DTN__c','2');
+            atListToinsert.add(ataRoleToDTNMapping2);
+        insert atListToinsert;
     }
     
     /**** Non Geo Assignment Tests ****/
@@ -46,14 +55,15 @@ private class ATA_AccountTriggerHandlerTest
     static testmethod void testNongeographicAssignment_Positive()
     {
         Account objAccount = [SELECT Id, Name FROM Account LIMIT 1];
-        
+        User u = ATA_TestDateFactory.create_NewUser('ATA46',22);
         Test.startTest();
-        ATA_TestDateFactory.create_ATANongeographicAssignment('AccountTeam', 'Name', objAccount.Name, 'National Solution Consultant', '9901', 'Named / National');
+        ATA_TestDateFactory.create_ATANongeographicAssignment('AccountTeam', 'Name', objAccount.Name, 'National Solution Consultant', 'ATA46', 'Named / National');
         
         objAccount.Named_Account_Type__c = 'National';
         objAccount.Named_Account__c = true;
         
         update objAccount;
+        System.debug('==ACT M=='+[Select Id,AccountId, TeamMemberRole, User.Id from AccountTeamMember where AccountId = : objAccount.id]);
         Test.stopTest();    
     }
     
@@ -108,19 +118,82 @@ private class ATA_AccountTriggerHandlerTest
     static testmethod void testGeographicAssignment_Positive()
     {
         Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
+        User u = ATA_TestDateFactory.create_NewUser('ATA46',22);
+        User u1 = ATA_TestDateFactory.create_NewUser('ATA99',25);
         
         Test.startTest();
-        ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', '9909');
-        ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', '6102');
+        ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA46');
+        ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA99');
         
         objAccount.Name = 'ATA_TEST_ACCOUNT_1';
         objAccount.Named_Account_Type__c = '';
         objAccount.Named_Account__c = false;
         
         update objAccount;
-        
-        
+         
         Test.stopTest();
+    }
+    
+    
+    static testmethod void testGeographicAssignment_PositiveScenario1(){        
+        Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
+        
+        Test.startTest();
+            User u = ATA_TestDateFactory.create_NewUser('ATA46',22);
+            User u1 = ATA_TestDateFactory.create_NewUser('ATA99',23);
+            User u2 = ATA_TestDateFactory.create_NewUser('ATA67',25);
+            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA46');
+            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA99');        
+            ATA_Geographic_Assignment__c objGeoAssignment  = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - Small Market Field', 'ATA67');
+            AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
+            insert objATM;
+            objAccount.Name = 'ATA_TEST_ACCOUNT_2';
+            objAccount.Named_Account_Type__c = '';
+            objAccount.Named_Account__c = false;            
+            update objAccount;  
+        Test.stopTest();        
+    }
+    
+    static testmethod void testGeographicAssignment_PositiveScenario2(){        
+        Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
+        
+        Test.startTest();
+            User u = ATA_TestDateFactory.create_NewUser('ATA61',22);
+            User u1 = ATA_TestDateFactory.create_NewUser('ATA99',23);
+            User u2 = ATA_TestDateFactory.create_NewUser('ATA67',25);
+            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA99');
+            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA61');        
+            ATA_Geographic_Assignment__c objGeoAssignment  = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - Small Market Field', 'ATA67');
+            AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
+            insert objATM;
+            objAccount.Name = 'ATA_TEST_ACCOUNT_2';
+            objAccount.Named_Account_Type__c = '';
+            objAccount.Named_Account__c = false;
+            update objAccount;
+        Test.stopTest();        
+    }
+    
+    static testmethod void testGeographicAssignment_PositiveScenario3(){        
+        Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
+        
+        Test.startTest();
+            User u = ATA_TestDateFactory.create_NewUser('ATA99',23);
+            User u2 = ATA_TestDateFactory.create_NewUser('ATA67',25);
+            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA67');
+            
+            AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
+            insert objATM;
+            
+            User u1 = ATA_TestDateFactory.create_NewUser('ATA36',22);
+            AccountTeamMember objATM1 = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RSC - R&L Field', UserId = u1.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
+            insert objATM1;
+            
+            objAccount.Name = 'ATA_TEST_ACCOUNT_2';
+            objAccount.Named_Account_Type__c = '';
+            objAccount.Named_Account__c = false;
+            
+            update objAccount;
+        Test.stopTest();        
     }
     
     /**** ATA Other ****/
@@ -139,14 +212,8 @@ private class ATA_AccountTriggerHandlerTest
     // ATA Other: test # 2 
     static testmethod void testATA_WebserviceMethod()
     {
-        User u = ATA_TestDateFactory.create_NewUser('7646',23);
         Test.startTest();
               Account objAccount = [SELECT Id, Name,BillingPostalCode FROM Account LIMIT 1];
-              AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
-              insert objATM;
-              Set<Id> setAccountIds = new Set<Id>();
-              setAccountIds.add(objAccount.Id);
-              ATA_CurrentAccountTeam.getCurrentAccountTeam(setAccountIds);
               ATA_AccountTeamHandler.reCreateAccountTeamInteractive(String.valueOf(objAccount.Id));
         Test.stopTest();
     }
@@ -165,10 +232,12 @@ private class ATA_AccountTriggerHandlerTest
     static testmethod void testgeographicPreprocess_MassUpdate(){
           //Query Account object BillingPostalCode
           Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
+          User u = ATA_TestDateFactory.create_NewUser('ATA99',23);
+          User u2 = ATA_TestDateFactory.create_NewUser('ATA67',25);
           
           //Create multiple Geographic assigment instances
-          ATA_Geographic_Assignment__c objGeoAssignment1 = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', '9909');
-          ATA_Geographic_Assignment__c objGeoAssignment2 = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', '6102');
+          ATA_Geographic_Assignment__c objGeoAssignment1 = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA99');
+          ATA_Geographic_Assignment__c objGeoAssignment2 = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA67');
           
           //Make some changes in Geographic assignments and set the IsUpdated__c flag to true so that we can fetch the record //for batch processing
           List<ATA_Geographic_Assignment__c> objGeoAssignmentListToUpdate = new List<ATA_Geographic_Assignment__c>();
@@ -200,39 +269,5 @@ private class ATA_AccountTriggerHandlerTest
           Test.stopTest();
     }
     
-    //This method is used to test PostAccountTeamClass
-    static testmethod void testPostAccountTeam(){
-        //Create User Records
-        User u = ATA_TestDateFactory.create_NewUser('7646',23);
-        User u1 = ATA_TestDateFactory.create_NewUser('7346',22);
-        //Create ATA_Role_to_DTN_Field_Mapping__c Records
-        List<ATA_Role_to_DTN_Field_Mapping__c> atListToinsert = new List<ATA_Role_to_DTN_Field_Mapping__c>();
-        ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping1 = new ATA_Role_to_DTN_Field_Mapping__c(ATA_Role_Name__c= '    ISC - Microsoft', Account_DTN_Field_API_Name__c = 'ATA_Corporate_Software_New_Sales_DTN__c',Name='1');
-        atListToinsert.add(ataRoleToDTNMapping1);
-        ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping2 = new ATA_Role_to_DTN_Field_Mapping__c(ATA_Role_Name__c= '    Global Solution Consultant', Account_DTN_Field_API_Name__c = 'ATA_Solution_Consultant_DTN__c',Name='2');
-        atListToinsert.add(ataRoleToDTNMapping2);
-        insert atListToinsert;
-        Test.startTest();
-              Account objAccount = [SELECT Id, Name,BillingPostalCode,ATA_Corporate_Software_New_Sales_DTN__c,ATA_Solution_Consultant_DTN__c FROM Account LIMIT 1];
-              List<AccountTeamMember> accountTeamMemberToInsert = new List<AccountTeamMember>();
-              AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
-              accountTeamMemberToInsert.add(objATM);
-              AccountTeamMember objATM1 = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u1.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
-              AccountTeamMember objATM2 = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'ISC - Microsoft', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
-              AccountTeamMember objATM3 = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'ISC - Microsoft', UserId = u1.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
-              accountTeamMemberToInsert.add(objATM1);
-              accountTeamMemberToInsert.add(objATM2);
-              accountTeamMemberToInsert.add(objATM3);
-              insert accountTeamMemberToInsert;
-              Set<Id> setAccountIds = new Set<Id>();
-              setAccountIds.add(objAccount.Id);
-              ATA_PostAccountTeam.mapAccountIdNAccountToUpdate.put(objAccount.Id,objAccount);
 
-              Map<Id, List<AccountTeamMember>> currentAccountTeam = new Map<Id, List<AccountTeamMember>>();
-              currentAccountTeam.put(objAccount.Id,accountTeamMemberToInsert);
-              Map<Id, sObject>  newTriggerMap = new Map<Id, sObject>();
-              newTriggerMap.put(objAccount.Id,objAccount);
-              ATA_PostAccountTeam.constructAccountTeam(currentAccountTeam, currentAccountTeam, newTriggerMap);
-        Test.stopTest();
-    }
 }

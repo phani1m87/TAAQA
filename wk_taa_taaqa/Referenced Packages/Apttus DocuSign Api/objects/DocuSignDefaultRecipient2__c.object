@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Holds the default recipients for e-signature.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ContactId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the contact recipient</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the contact recipient</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>DocuSign Default Recipients</relationshipLabel>
+        <relationshipName>DocuSignDefaultRecipients2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Recipient Email Address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Recipient Email Address</inlineHelpText>
+        <label>Recipient Email Address</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FirstName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Recipient First Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Recipient First Name</inlineHelpText>
+        <label>Recipient First Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsTransient__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates a transient recipient record that may get deleted by the user. A new recipient is in transient state until the recipient is explicitly saved by the user. A new recipient is created by new and clone methods. Workflow rules should check this field to test for false before firing so that rules are not incorrectly fired when transient recipients are created .</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates a transient recipient that may get deleted by the user. A new recipient is in transient state until the recipient is explicitly saved by the user.</inlineHelpText>
+        <label>IsTransient</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LastName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Recipient Last Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Recipient Last Name</inlineHelpText>
+        <label>Recipient Last Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReadOnlyEmail__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Email</description>
+        <externalId>false</externalId>
+        <formula>IF( (ISBLANK(ContactId__c )) ,
+IF( (ISBLANK( UserId__c )) , Email__c
+, UserId__r.Email
+
+),
+ContactId__r.Email
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Email</inlineHelpText>
+        <label>Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReadOnlyFirstName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( (ISBLANK(ContactId__c )) ,
+IF( (ISBLANK( UserId__c )) , FirstName__c
+, UserId__r.FirstName
+
+),
+ContactId__r.FirstName
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReadOnlyLastName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( (ISBLANK(ContactId__c )) ,
+IF( (ISBLANK( UserId__c )) , LastName__c
+, UserId__r.LastName
+
+),
+ContactId__r.LastName
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RecipientType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Recipient Type list will come from UI</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Recipient Type list will come from UI</inlineHelpText>
+        <label>Recipient Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Signer</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Carbon Copy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Person Signer</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SigningOrder__c</fullName>
+        <defaultValue>1</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Signing Order default</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Signing Order default</inlineHelpText>
+        <label>Routing Order</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UserId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the user recipient</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the user recipient</inlineHelpText>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>DocuSignDefaultRecipients2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>DocuSign Default Recipient</label>
+    <nameField>
+        <displayFormat>DSDR-{0000000}</displayFormat>
+        <label>Recipient Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>DocuSign Default Recipients</pluralLabel>
+    <recordTypes>
+        <fullName>Contact</fullName>
+        <active>true</active>
+        <description>Contact lookup</description>
+        <label>Contact</label>
+        <picklistValues>
+            <picklist>RecipientType__c</picklist>
+            <values>
+                <fullName>Carbon Copy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Person Signer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signer</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Email</fullName>
+        <active>true</active>
+        <description>Manually entered recipient information</description>
+        <label>Email</label>
+        <picklistValues>
+            <picklist>RecipientType__c</picklist>
+            <values>
+                <fullName>Carbon Copy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Person Signer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signer</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>User</fullName>
+        <active>true</active>
+        <description>User lookup</description>
+        <label>User</label>
+        <picklistValues>
+            <picklist>RecipientType__c</picklist>
+            <values>
+                <fullName>Carbon Copy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Person Signer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signer</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
