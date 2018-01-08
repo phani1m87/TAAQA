@@ -222,7 +222,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ATA_TestDateFactory</apexClass>
+        <apexClass>ATA_TestDataFactory</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

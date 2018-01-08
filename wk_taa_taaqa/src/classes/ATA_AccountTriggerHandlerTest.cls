@@ -12,39 +12,39 @@ private class ATA_AccountTriggerHandlerTest
     @testSetup static void testDataFactory() 
     {
         // create test account
-        Account objAccount = ATA_TestDateFactory.create_Account();
+        Account objAccount = ATA_TestDataFactory.create_Account();
         insert objAccount;
         
         // create ATA custom setting        
-        ATA_TestDateFactory.create_ATACustomSetting();
+        ATA_TestDataFactory.create_ATACustomSetting();
         
         // ATA Rules
-        ATA_TestDateFactory.create_ATARule('TAA_Software_New_Sales__c');
-        ATA_TestDateFactory.create_ATARule('R_L_New_Sales__c');
-        ATA_TestDateFactory.create_ATARule('R_L_Retention_Owner_ATA__c');
+        ATA_TestDataFactory.create_ATARule('TAA_Software_New_Sales__c');
+        ATA_TestDataFactory.create_ATARule('R_L_New_Sales__c');
+        ATA_TestDataFactory.create_ATARule('R_L_Retention_Owner_ATA__c');
         
         // **** add rest of the driver fields into ATA Rule
         
         // ATA Assignment Types
-        ATA_TestDateFactory.create_ATAAssignmentType('ATA1', 'ATA', 'TAA_Software_New_Sales', 'TAA_Software_New_Sales__c', 'National Accounts');
-        ATA_TestDateFactory.create_ATAAssignmentType('ATA2', 'ATA', 'R_L_New_Sales', 'R_L_New_Sales__c', 'R&L Field Sales');
-        ATA_TestDateFactory.create_ATAAssignmentType('ATA3', 'ATA', 'R_L_Retention_Owner_ATA', 'R_L_Retention_Owner_ATA__c', 'R&L Retention');
+        ATA_TestDataFactory.create_ATAAssignmentType('ATA1', 'ATA', 'TAA_Software_New_Sales', 'TAA_Software_New_Sales__c', 'National Accounts');
+        ATA_TestDataFactory.create_ATAAssignmentType('ATA2', 'ATA', 'R_L_New_Sales', 'R_L_New_Sales__c', 'R&L Field Sales');
+        ATA_TestDataFactory.create_ATAAssignmentType('ATA3', 'ATA', 'R_L_Retention_Owner_ATA', 'R_L_Retention_Owner_ATA__c', 'R&L Retention');
         
         // **** add rest of the driver fields into ATA Assignment Type
         
         // ATA Role Assignments
-        ATA_TestDateFactory.create_ATARoleAssignment('ATA1', 'Named / National', 'National Solution Consultant', 'Name Match');
-        ATA_TestDateFactory.create_ATARoleAssignment('ATA2', 'Segment SalesOwnership', 'RSC - R&L Field', 'Geographic PostalCode');
-        ATA_TestDateFactory.create_ATARoleAssignment('ATA3', 'Segment SalesOwnership', 'RC - R&L Retention', 'Geographic PostalCode');
-        ATA_TestDateFactory.create_ATARoleAssignment('ATA3', 'Segment SalesOwnership', 'RSC - Small Market Field', 'Geographic PostalCode');
+        ATA_TestDataFactory.create_ATARoleAssignment('ATA1', 'Named / National', 'National Solution Consultant', 'Name Match');
+        ATA_TestDataFactory.create_ATARoleAssignment('ATA2', 'Segment SalesOwnership', 'RSC - R&L Field', 'Geographic PostalCode');
+        ATA_TestDataFactory.create_ATARoleAssignment('ATA3', 'Segment SalesOwnership', 'RC - R&L Retention', 'Geographic PostalCode');
+        ATA_TestDataFactory.create_ATARoleAssignment('ATA3', 'Segment SalesOwnership', 'RSC - Small Market Field', 'Geographic PostalCode');
         
         // **** add rest of the roles
         
         //Create ATA_Role_to_DTN_Field_Mapping__c Records
         List<ATA_Role_to_DTN_Field_Mapping__c> atListToinsert = new List<ATA_Role_to_DTN_Field_Mapping__c>();
-            ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping1 = ATA_TestDateFactory.createATARoleToDTNFM('RSC - R&L Field','ATA_R_L_New_Sales_DTN__c','1');
+            ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping1 = ATA_TestDataFactory.createATARoleToDTNFM('RSC - R&L Field','ATA_R_L_New_Sales_DTN__c','1');
             atListToinsert.add(ataRoleToDTNMapping1);
-            ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping2 = ATA_TestDateFactory.createATARoleToDTNFM('RC - R&L Retention',' ATA_R_L_Retention_Owner_DTN__c','2');
+            ATA_Role_to_DTN_Field_Mapping__c ataRoleToDTNMapping2 = ATA_TestDataFactory.createATARoleToDTNFM('RC - R&L Retention',' ATA_R_L_Retention_Owner_DTN__c','2');
             atListToinsert.add(ataRoleToDTNMapping2);
         insert atListToinsert;
     }
@@ -55,9 +55,9 @@ private class ATA_AccountTriggerHandlerTest
     static testmethod void testNongeographicAssignment_Positive()
     {
         Account objAccount = [SELECT Id, Name FROM Account LIMIT 1];
-        User u = ATA_TestDateFactory.create_NewUser('ATA46',22);
+        User u = ATA_TestDataFactory.create_NewUser('ATA46',22);
         Test.startTest();
-        ATA_TestDateFactory.create_ATANongeographicAssignment('AccountTeam', 'Name', objAccount.Name, 'National Solution Consultant', 'ATA46', 'Named / National');
+        ATA_TestDataFactory.create_ATANongeographicAssignment('AccountTeam', 'Name', objAccount.Name, 'National Solution Consultant', 'ATA46', 'Named / National');
         
         objAccount.Named_Account_Type__c = 'National';
         objAccount.Named_Account__c = true;
@@ -73,7 +73,7 @@ private class ATA_AccountTriggerHandlerTest
         Account objAccount = [SELECT Id, Name FROM Account LIMIT 1];
         
         Test.startTest();
-        ATA_TestDateFactory.create_ATANongeographicAssignment('AccountTeam', 'Name', objAccount.Name, 'National Solution Consultant', '990A', 'Named / National');
+        ATA_TestDataFactory.create_ATANongeographicAssignment('AccountTeam', 'Name', objAccount.Name, 'National Solution Consultant', '990A', 'Named / National');
         
         objAccount.Named_Account_Type__c = 'National';
         objAccount.Named_Account__c = true;
@@ -118,12 +118,12 @@ private class ATA_AccountTriggerHandlerTest
     static testmethod void testGeographicAssignment_Positive()
     {
         Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
-        User u = ATA_TestDateFactory.create_NewUser('ATA46',22);
-        User u1 = ATA_TestDateFactory.create_NewUser('ATA99',25);
+        User u = ATA_TestDataFactory.create_NewUser('ATA46',22);
+        User u1 = ATA_TestDataFactory.create_NewUser('ATA99',25);
         
         Test.startTest();
-        ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA46');
-        ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA99');
+        ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA46');
+        ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA99');
         
         objAccount.Name = 'ATA_TEST_ACCOUNT_1';
         objAccount.Named_Account_Type__c = '';
@@ -139,12 +139,12 @@ private class ATA_AccountTriggerHandlerTest
         Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
         
         Test.startTest();
-            User u = ATA_TestDateFactory.create_NewUser('ATA46',22);
-            User u1 = ATA_TestDateFactory.create_NewUser('ATA99',23);
-            User u2 = ATA_TestDateFactory.create_NewUser('ATA67',25);
-            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA46');
-            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA99');        
-            ATA_Geographic_Assignment__c objGeoAssignment  = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - Small Market Field', 'ATA67');
+            User u = ATA_TestDataFactory.create_NewUser('ATA46',22);
+            User u1 = ATA_TestDataFactory.create_NewUser('ATA99',23);
+            User u2 = ATA_TestDataFactory.create_NewUser('ATA67',25);
+            ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA46');
+            ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA99');        
+            ATA_Geographic_Assignment__c objGeoAssignment  = ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - Small Market Field', 'ATA67');
             AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
             insert objATM;
             objAccount.Name = 'ATA_TEST_ACCOUNT_2';
@@ -158,12 +158,12 @@ private class ATA_AccountTriggerHandlerTest
         Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
         
         Test.startTest();
-            User u = ATA_TestDateFactory.create_NewUser('ATA61',22);
-            User u1 = ATA_TestDateFactory.create_NewUser('ATA99',23);
-            User u2 = ATA_TestDateFactory.create_NewUser('ATA67',25);
-            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA99');
-            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA61');        
-            ATA_Geographic_Assignment__c objGeoAssignment  = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - Small Market Field', 'ATA67');
+            User u = ATA_TestDataFactory.create_NewUser('ATA61',22);
+            User u1 = ATA_TestDataFactory.create_NewUser('ATA99',23);
+            User u2 = ATA_TestDataFactory.create_NewUser('ATA67',25);
+            ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA99');
+            ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA61');        
+            ATA_Geographic_Assignment__c objGeoAssignment  = ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - Small Market Field', 'ATA67');
             AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
             insert objATM;
             objAccount.Name = 'ATA_TEST_ACCOUNT_2';
@@ -177,14 +177,14 @@ private class ATA_AccountTriggerHandlerTest
         Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
         
         Test.startTest();
-            User u = ATA_TestDateFactory.create_NewUser('ATA99',23);
-            User u2 = ATA_TestDateFactory.create_NewUser('ATA67',25);
-            ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA67');
+            User u = ATA_TestDataFactory.create_NewUser('ATA99',23);
+            User u2 = ATA_TestDataFactory.create_NewUser('ATA67',25);
+            ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA67');
             
             AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
             insert objATM;
             
-            User u1 = ATA_TestDateFactory.create_NewUser('ATA36',22);
+            User u1 = ATA_TestDataFactory.create_NewUser('ATA36',22);
             AccountTeamMember objATM1 = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RSC - R&L Field', UserId = u1.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
             insert objATM1;
             
@@ -202,9 +202,9 @@ private class ATA_AccountTriggerHandlerTest
     static testmethod void testATA_InvalidFieldRule()
     {
         Test.startTest();
-        ATA_TestDateFactory.create_ATARule('TestField__c');
+        ATA_TestDataFactory.create_ATARule('TestField__c');
         
-        Account objAccount = ATA_TestDateFactory.create_Account();
+        Account objAccount = ATA_TestDataFactory.create_Account();
         insert objAccount;
         Test.stopTest();
     }
@@ -232,12 +232,12 @@ private class ATA_AccountTriggerHandlerTest
     static testmethod void testgeographicPreprocess_MassUpdate(){
           //Query Account object BillingPostalCode
           Account objAccount = [SELECT Id, Name, BillingPostalCode FROM Account LIMIT 1];
-          User u = ATA_TestDateFactory.create_NewUser('ATA99',23);
-          User u2 = ATA_TestDateFactory.create_NewUser('ATA67',25);
+          User u = ATA_TestDataFactory.create_NewUser('ATA99',23);
+          User u2 = ATA_TestDataFactory.create_NewUser('ATA67',25);
           
           //Create multiple Geographic assigment instances
-          ATA_Geographic_Assignment__c objGeoAssignment1 = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA99');
-          ATA_Geographic_Assignment__c objGeoAssignment2 = ATA_TestDateFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA67');
+          ATA_Geographic_Assignment__c objGeoAssignment1 = ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RC - R&L Retention', 'ATA99');
+          ATA_Geographic_Assignment__c objGeoAssignment2 = ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - R&L Field', 'ATA67');
           
           //Make some changes in Geographic assignments and set the IsUpdated__c flag to true so that we can fetch the record //for batch processing
           List<ATA_Geographic_Assignment__c> objGeoAssignmentListToUpdate = new List<ATA_Geographic_Assignment__c>();
