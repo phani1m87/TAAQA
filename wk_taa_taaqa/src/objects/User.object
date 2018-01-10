@@ -595,7 +595,7 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>National &amp; Strategic Accounts</fullName>
+                    <fullName>Global &amp; National Accounts</fullName>
                     <color>#E27001</color>
                     <default>false</default>
                 </value>
@@ -605,7 +605,7 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Software</fullName>
+                    <fullName>Strategic &amp; Mid-Market</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
                 </value>
@@ -645,14 +645,6 @@ TEXT(High_Level_Division__c ))))</formula>
                 </value>
                 <value>
                     <fullName>Cap Gemini</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Mid-Market</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Core R&amp;L</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -742,6 +734,174 @@ TEXT(High_Level_Division__c ))))</formula>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Segment__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mid-Market</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Large Market</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New to New</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New to Existing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Profit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trust</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Microsoft</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Telco</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research &amp; Learning RSC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Books &amp; Journals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L Retention</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Corporate</controllingFieldValue>
+                <valueName>Microsoft</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate</controllingFieldValue>
+                <valueName>SAP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate</controllingFieldValue>
+                <valueName>Telco</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate</controllingFieldValue>
+                <valueName>Corporate Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medium/Large Market</controllingFieldValue>
+                <valueName>Mid-Market</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medium/Large Market</controllingFieldValue>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Strategic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medium/Large Market</controllingFieldValue>
+                <valueName>Large Market</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Research &amp; Learning RSC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>National</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Corporate National</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Books &amp; Journals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>R&amp;L Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>New to New</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>New to Existing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>Small Firm R&amp;L</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>Non-Profit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>Small Firm Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>Trust</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>Small Firm National</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Profile_Name__c</fullName>
@@ -839,10 +999,6 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
-            <valueSettings>
-                <controllingFieldValue>Core R&amp;L</controllingFieldValue>
-                <valueName>R&amp;L RSC</valueName>
-            </valueSettings>
         </valueSet>
     </fields>
     <fields>

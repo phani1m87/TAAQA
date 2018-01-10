@@ -217,7 +217,8 @@ public class TestDataFactory {
         Lead l = new Lead();
         l.LastName=name;
         l.Company='HCL';
-       
+        l.email = 'test@example.com';
+        l.Named_Account_Type__c = 'National';
         insert l;
         return l;
     }

@@ -33,7 +33,8 @@
 
                 User objUser1 = TestDataFactory.newUser('111a',1);
                 User objUser2 = TestDataFactory.newUser('111b',2); 
-                
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
                
 
                 
@@ -64,7 +65,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.close();
                 objCust.CancelRequest();
@@ -88,10 +89,8 @@
 
                 User objUser1 = TestDataFactory.newUser('111a',1);
                 User objUser2 = TestDataFactory.newUser('111b',2); 
-                
-               
-
-                
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);               
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
                 AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser1.Id ,TeamMemberRole='Test Role');
                 insert objAccTeamMember;
 
@@ -115,7 +114,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.close();
                 objCust.CancelRequest();
@@ -137,7 +136,7 @@
                 objCust.optSelected='LeadProcess';
                 objCust.optSelectedRep='Custodial';
                 objCust.showDTN();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 
             }
              static testMethod void equalCustodialDTNValue() 
@@ -153,7 +152,7 @@
                 objCust.optSelected='LeadProcess';
                 objCust.optSelectedRep='Custodial';
                 objCust.showDTN();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 
              
             }
@@ -168,7 +167,7 @@
                 objCust.optSelected='LeadProcess';
                 objCust.optSelectedRep='New Rep';
                 objCust.showDTN();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 
             }
              static testMethod void equalNewRepDTNValue() 
@@ -184,7 +183,7 @@
                 objCust.optSelected='LeadProcess';
                 objCust.optSelectedRep='New Rep';
                 objCust.showDTN();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 
              
             }
@@ -192,7 +191,7 @@
             {
                 PageReference pageRef = page.CustodialProcess;
                 Test.setCurrentPage(pageRef);
- 				List<User> userList = new List<User>(); //SMS-777
+                List<User> userList = new List<User>(); //SMS-777
                 Account objAccount = new Account();
                 objAccount.Name= 'Test Account';
                 objAccount.RecordTypeId='012i0000000Ou0E';
@@ -201,12 +200,15 @@
                 User objUser1 = TestDataFactory.newUser('111a',1);
                 User objUser2 = TestDataFactory.newUser('111b',2); 
                 //SMS-777 Start 
-               	objUser1.FirstName = 'Testing1';
-               	objUser2.FirstName = 'Testing2';
-               	userList.add(objUser1);
-               	userList.add(objUser2);
-               	update userList;
-				//SMS-777 End
+                objUser1.FirstName = 'Testing1';
+                objUser2.FirstName = 'Testing2';
+                userList.add(objUser1);
+                userList.add(objUser2);
+                update userList;
+                //SMS-777 End
+                
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
                 
                 AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser1.Id ,TeamMemberRole='Test Role');
                 insert objAccTeamMember;
@@ -234,7 +236,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.close();
                 objCust.CancelRequest();
@@ -250,7 +252,7 @@
             {
                 PageReference pageRef = page.CustodialProcess;
                 Test.setCurrentPage(pageRef);
- 				List<User> userList = new List<User>(); //SMS-777
+                List<User> userList = new List<User>(); //SMS-777
                 Account objAccount = new Account();
                 objAccount.Name= 'Test Account';
                 objAccount.RecordTypeId='012i0000000Ou0E';
@@ -258,14 +260,15 @@
 
                 User objUser1 = TestDataFactory.newUser('111a',1);
                 User objUser2 = TestDataFactory.newUser('111b',2); 
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
                 
                 //SMS-777 Start
-               	objUser1.FirstName = 'Testing1';
-               	objUser2.FirstName = 'Testing2';
-               	userList.add(objUser1);
-               	userList.add(objUser2);
-               	update userList;
-				//SMS-777 End
+                objUser1.FirstName = 'Testing1';
+                objUser2.FirstName = 'Testing2';
+                userList.add(objUser1);
+                userList.add(objUser2);
+                update userList;
+                //SMS-777 End
 
                 
                 AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser1.Id ,TeamMemberRole='Test Role');
@@ -275,6 +278,11 @@
                 insert objAccountShare;
 
                 String username = [Select id,Name,DTN__c from user where DTN__c='111a'].Name;
+                
+                
+                //AccountAutomationSetting__c aas = ATA_TestDataFactory.create_ATACustomSettingForCustodian(3);
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
+                
                // TAACustomSetting__c taa = TestDataFactory.newTaaCustomSetting(username);
                 AccountAutomationSetting__c taa = TestDataFactory.newTaaCustomSetting(username);
                 Lead objLead = TestDataFactory.newLead('Test1');   
@@ -295,7 +303,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.close();
                 objCust.CancelRequest();
@@ -317,10 +325,9 @@
                 insert objAccount;
 
                 User objUser1 = TestDataFactory.newUser('111a',1);
-                User objUser2 = TestDataFactory.newUser('111b',2); 
-                
-               
-
+                User objUser2 = TestDataFactory.newUser('111b',2);
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
                 
                 AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser1.Id ,TeamMemberRole='Test Role');
                 insert objAccTeamMember;
@@ -348,7 +355,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.close();
                 objCust.CancelRequest();
@@ -371,7 +378,8 @@
 
                 User objUser1 = TestDataFactory.newUser('111a',1);
                 User objUser2 = TestDataFactory.newUser('111b',2); 
-                
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
                
 
                 
@@ -403,7 +411,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.close();
                 objCust.CancelRequest();
@@ -426,10 +434,10 @@
 
                 User objUser1 = TestDataFactory.newUser('111a',1);
                 User objUser2 = TestDataFactory.newUser('111b',2); 
-                
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
                
-
-                
+              
                 AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser2.Id ,TeamMemberRole='Test Role');
                 insert objAccTeamMember;
 
@@ -458,7 +466,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.custodialid='';
                 objCust.close();
@@ -484,8 +492,8 @@
                 User objUser2 = TestDataFactory.newUser('111b',2); 
                 
                
-
-                
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
                 AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser2.Id ,TeamMemberRole='Test Role');
                 insert objAccTeamMember;
 
@@ -515,7 +523,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.custodialid='';
                 objCust.close();
@@ -532,7 +540,7 @@
             {
                 PageReference pageRef = page.CustodialProcess;
                 Test.setCurrentPage(pageRef);
- 				List<User> userList = new List<User>(); //SMS-777
+                List<User> userList = new List<User>(); //SMS-777
                 Account objAccount = new Account();
                 objAccount.Name= 'Test Account';
                 objAccount.RecordTypeId='012i0000000Ou0E';
@@ -540,15 +548,16 @@
 
                 User objUser1 = TestDataFactory.newUser('111a',1);
                 User objUser2 = TestDataFactory.newUser('111b',2); 
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
                 
                 //SMS-777 Start
-               	objUser1.FirstName = 'Testing1';
-               	objUser2.FirstName = 'Testing2';
-               	userList.add(objUser1);
-               	userList.add(objUser2);
-               	update userList;
-				//SMS-777 End
-
+                objUser1.FirstName = 'Testing1';
+                objUser2.FirstName = 'Testing2';
+                userList.add(objUser1);
+                userList.add(objUser2);
+                update userList;
+                //SMS-777 End
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
                 
                 AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser1.Id ,TeamMemberRole='Test Role');
                 insert objAccTeamMember;
@@ -577,7 +586,7 @@
                 objCust.showDTN();
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 objCust.SubmitRequest();
                 objCust.close();
                 objCust.CancelRequest();
@@ -602,7 +611,7 @@
                 objCust.optSelected='AccountProcess';
                 objCust.optSelectedRep='New Rep';
                 objCust.showDTN();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
             }
             
              static testMethod void equalAccounOpenTerritoryDTNValue() 
@@ -618,7 +627,7 @@
                 objCust.optSelected='AccountProcess';
                 objCust.optSelectedRep='Open Territory';
                 objCust.showDTN();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
             }
             
             static testMethod void emptyOpenTerritoryDTNValue() 
@@ -632,7 +641,7 @@
                 objCust.optSelected='AccountProcess';
                 objCust.optSelectedRep='Open Territory';
                 objCust.showDTN();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
                 
             }
             
@@ -650,6 +659,6 @@
                 objCust.optSelected='AccountProcess';
                 objCust.optSelectedRep='Open Territory';
                 objCust.showDTN();
-                objCust.SearchUserDetial();
+                objCust.searchUserDetail();
             }
 }

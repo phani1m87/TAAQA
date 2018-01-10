@@ -2,6 +2,9 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Edit_Email_Preferences</customButtons>
     <customButtons>Close_Convert_Lead</customButtons>
+    <customButtons>pi__Send_Pardot_Email</customButtons>
+    <customButtons>pi__Send_to_Prospect_Insight</customButtons>
+    <customButtons>pi__Send_Single_Pardot_Email</customButtons>
     <excludeButtons>Convert</excludeButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Share</excludeButtons>

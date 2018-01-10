@@ -64,6 +64,18 @@ public class ATA_TestDataFactory
         return t;
     }
     
+    public static AccountAutomationSetting__c create_ATACustomSettingForCustodian(Integer i)
+    {
+        // create ATA custom setting
+        AccountAutomationSetting__c t = new AccountAutomationSetting__c( 
+            Default_Lead_Custodian__c = 'Testing'+i,
+            Default_Account_Custodian__c = 'Testing'+i);
+        
+        insert t;
+        
+        return t;
+    }
+    
     public static ATA_Rule__c create_ATARule(String fieldAPIName) 
     {
         // create ATA Rule 
@@ -130,7 +142,8 @@ public class ATA_TestDataFactory
             FieldValue__c = fieldValue,
             RoleName__c = roleName,
             DTN__c = dtn,
-            Role_Assignment_Type__c = roleAssignmentType);
+            Role_Assignment_Type__c = roleAssignmentType,
+            Ownership_NamedType__c = 'National');
             
         insert objNongeoAssignment;
         
