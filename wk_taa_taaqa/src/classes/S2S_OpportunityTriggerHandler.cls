@@ -31,7 +31,7 @@ public class S2S_OpportunityTriggerHandler {
               opp.TAA_Opportunity_Owner_ID__c= opp.TAA_Opportunity_Owner__c;
             }
             
-            if(!String.isblank(oldRecordsMap.get(opp.Id).SFS_Opportunity_ID__c)&& String.isblank(opp.SFS_Opportunity_ID__c)) opp.SFS_Opportunity_ID__c=oldRecordsMap.get(opp.Id).SFS_Opportunity_ID__c;
+            if(!String.isblank(oldRecordsMap.get(opp.Id).SFS_Opportunity_ID__c)&& String.isblank(opp.SFS_Opportunity_ID__c) && !S2S_Util.isAdminemail(UserInfo.getUserEmail()) ) opp.SFS_Opportunity_ID__c=oldRecordsMap.get(opp.Id).SFS_Opportunity_ID__c;
            }
        
            // map the owner ids to respective owners in SFS 

@@ -21,6 +21,92 @@
  */
  @istest(seeAllData=false)
  private class TestCustodialProcess{
+            static testMethod void testCustodialLeadBatch() 
+            {
+                PageReference pageRef = page.CustodialProcess;
+                Test.setCurrentPage(pageRef);
+ 
+                Account objAccount = new Account();
+                objAccount.Name= 'Test Account';
+                objAccount.RecordTypeId='012i0000000Ou0E';
+                insert objAccount;
+
+                User objUser1 = TestDataFactory.newUser('111a',1);
+                User objUser2 = TestDataFactory.newUser('111b',2); 
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
+                ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
+               
+
+                
+                AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser1.Id ,TeamMemberRole='Test Role');
+                insert objAccTeamMember;
+
+                AccountShare objAccountShare= new AccountShare(AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None', UserOrGroupId =objUser1.Id , AccountId =objAccount.Id);
+                insert objAccountShare;
+
+                String username = [Select id,Name,DTN__c from user where DTN__c='1111'].Name;
+               // TAACustomSetting__c taa = TestDataFactory.newTaaCustomSetting(username);
+                AccountAutomationSetting__c taa = TestDataFactory.newTaaCustomSetting(username);
+                Lead objLead = TestDataFactory.newLead('Test1');   
+                objLead.ownerId=objUser3.id;
+                System.debug('CurrentRepUserId===1'+objUser1.id);
+                update objLead;
+                System.debug('CurrentRepUserId===1'+[SELECT Id,IsConverted,Status,OwnerId FROM Lead where Id=: objLead.Id]);
+                    
+                Custodial__c objCustodial = new Custodial__c();
+                objCustodial.DTN_Current_Rep__c='ATA87';
+                objCustodial.DTN_Custodial_Rep__c='111b';
+                insert objCustodial;               
+
+                String Leadquery = 'SELECT Id, IsConverted, Custodian__c, Name, Ownerid FROM Lead WHERE OwnerId = '+'\''+objUser3.Id+'\' AND IsConverted = false';
+                CustodialLeadBatch custLeadBatchObj = new  CustodialLeadBatch(objCustodial.Id, 'ATA87','111b', Leadquery, '111b');               
+                database.executebatch(custLeadBatchObj);
+                
+            }   
+            
+            
+            static testMethod void testCustodialLeadBatch2() 
+            {
+                PageReference pageRef = page.CustodialProcess;
+                Test.setCurrentPage(pageRef);
+ 
+                Account objAccount = new Account();
+                objAccount.Name= 'Test Account';
+                objAccount.RecordTypeId='012i0000000Ou0E';
+                insert objAccount;
+
+                User objUser1 = TestDataFactory.newUser('111a',1);
+                User objUser2 = TestDataFactory.newUser('111b',2); 
+                User objUser3 = ATA_TestDataFactory.create_NewUser('ATA87',3);
+                ATA_Non_Geographic_Assignment__c  testNA  = ATA_TestDataFactory.create_ATANongeographicAssignment('LeadOwnership', 'Domain__c', 'example.com', '', 'ATA87', '');
+               
+
+                
+                AccountTeamMember objAccTeamMember= new AccountTeamMember(AccountId=objAccount.Id, UserId=objUser1.Id ,TeamMemberRole='Test Role');
+                insert objAccTeamMember;
+
+                AccountShare objAccountShare= new AccountShare(AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None', UserOrGroupId =objUser1.Id , AccountId =objAccount.Id);
+                insert objAccountShare;
+
+                String username = [Select id,Name,DTN__c from user where DTN__c='1111'].Name;
+               // TAACustomSetting__c taa = TestDataFactory.newTaaCustomSetting(username);
+                AccountAutomationSetting__c taa = TestDataFactory.newTaaCustomSetting(username);
+                Lead objLead = TestDataFactory.newLead('Test1');   
+               
+                Custodial__c objCustodial = new Custodial__c();
+                objCustodial.DTN_Current_Rep__c='ATA87';
+                objCustodial.DTN_Custodial_Rep__c='111b';
+                insert objCustodial;               
+
+                String Leadquery = 'SELECT Id, IsConverted, Custodian__c, Name, Ownerid FROM Lead WHERE OwnerId = '+'\''+objUser3.Id+'\' AND IsConverted = false';
+                CustodialLeadBatch custLeadBatchObj1 = new  CustodialLeadBatch(objCustodial.Id, 'ATA87','111b', Leadquery, 'ATA45');               
+                database.executebatch(custLeadBatchObj1);
+                
+                custLeadBatchObj1 = new  CustodialLeadBatch(objCustodial.Id, 'ATA87','ATA45', Leadquery, '111b');               
+                database.executebatch(custLeadBatchObj1);
+                
+            }
+                
             static testMethod void leadCustodialAssignment() 
             {
                 PageReference pageRef = page.CustodialProcess;
@@ -50,14 +136,13 @@
                 Lead objLead = TestDataFactory.newLead('Test1');   
                 objLead.ownerId=objUser1.id;
                 update objLead;
+                System.debug('CurrentRepUserId===1'+[SELECT Id,IsConverted,Status,OwnerId FROM Lead where Id=: objLead.Id]);
                     
                 Custodial__c objCustodial = new Custodial__c();
                 objCustodial.DTN_Current_Rep__c='111a';
                 objCustodial.DTN_Custodial_Rep__c='111b';
-                insert objCustodial;
-                
-                
-                
+                insert objCustodial;               
+                                
                 ApexPages.StandardController sc = new ApexPages.StandardController(objCustodial);
                 Custodialprocess objCust = new Custodialprocess(sc);
                 objCust.optSelected='LeadProcess';
@@ -66,6 +151,7 @@
                 objCust.getRadioValues();
                 objCust.getRadioValuesRep();
                 objCust.searchUserDetail();
+                System.debug('CurrentRepUserId=in test=='+objCust.CurrentRepUserId);
                 objCust.SubmitRequest();
                 objCust.close();
                 objCust.CancelRequest();
@@ -618,6 +704,8 @@
             {
                 PageReference pageRef = page.CustodialProcess;
                 Test.setCurrentPage(pageRef);
+                User objUser1 = ATA_TestDataFactory.create_NewUser('111a',3);
+                User objUser3 = ATA_TestDataFactory.create_NewUser('111b',4);
                 Custodial__c objCustodial = new Custodial__c();
                 objCustodial.DTN_Current_Rep__c='111a';
                 objCustodial.DTN_Open_Territory_User__c='111a';

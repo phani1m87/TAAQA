@@ -30,4 +30,18 @@ public class S2S_Util {
         }
         return isTriggerOff;
     }
+
+    // utility method for fetching the trigger off flag for each object
+    public static Boolean isAdminemail(String objName) {
+        Boolean isTriggerOff = false;
+        List<S2S_Admin_Emails__c> controlMap = S2S_Admin_Emails__c.getAll().Values();
+
+            if(!controlMap.isEmpty()){
+              for(S2S_Admin_Emails__c v :controlMap){
+                if(v.EmailAdress__c == objName ) isTriggerOff= true;
+              }
+              
+            }
+        return isTriggerOff;
+    }
 }

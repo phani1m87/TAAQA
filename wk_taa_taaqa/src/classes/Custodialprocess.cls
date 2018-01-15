@@ -122,6 +122,7 @@ public with sharing class Custodialprocess
                	msg = 'DTN Current Rep should not be equal to Custodial Rep';
            	}else{   
               	list_CurrentUserDetail = new List<User>();
+				System.debug('CurrentRepUserId= 137==='+CustodialRec.DTN_Current_Rep__c);
               	list_CurrentUserDetail = [SELECT Id, DTN__c, Name, City FROM User WHERE DTN__c =: CustodialRec.DTN_Current_Rep__c];
               	if(list_CurrentUserDetail.size() > 0)
               	{
@@ -137,6 +138,7 @@ public with sharing class Custodialprocess
                       	Current_Rep = CustodialRec.DTN_Current_Rep__c;
                       	New_Rep = CustodialRec.DTN_Custodial_Rep__c;
                       	Assignment_Type = 'Custodial';
+						System.debug('CurrentRepUserId= 137==='+CurrentRepUserId);
                   	}else{
                       	msg = 'There is no user associated with Custodial DTN';
                   	}
@@ -180,6 +182,7 @@ public with sharing class Custodialprocess
                       	Current_Rep = CustodialRec.DTN_Current_Rep__c;
                       	New_Rep = CustodialRec.DTN_new_Rep__c;
                       	Assignment_Type = 'New Rep';
+						System.debug('CurrentRepUserId===='+CurrentRepUserId);
                   	}else{
                       	msg = 'There is no user associated with New Rep DTN';
                   	}
@@ -208,7 +211,8 @@ public with sharing class Custodialprocess
            		system.debug('DTN Current Rep' +CustodialRec.DTN_Current_Rep__c);
        			system.debug('DTN Open Territory' +CustodialRec.DTN_Open_Territory_User__c);
            		list_CurrentUserDetail = [SELECT Id, DTN__c, Name, City FROM User WHERE DTN__c =: CustodialRec.DTN_Current_Rep__c];
-              	if(list_CurrentUserDetail.size() > 0)
+              	System.debug('list_CurrentUserDetail===='+list_CurrentUserDetail);
+                if(list_CurrentUserDetail.size() > 0)
               	{
 					list_openTerritory = new List<user>();
               		list_openTerritory = [SELECT Id, DTN__c, Name, City FROM User WHERE DTN__c =: CustodialRec.DTN_Open_Territory_User__c];
@@ -276,7 +280,8 @@ public with sharing class Custodialprocess
             }
             */   
 			CountAccTeamMember = [SELECT count() FROM AccountTeamMember WHERE User.DTN__c =: DTN_Current_Rep];
-			if(optSelectedRep == 'Custodial'){
+			System.debug('CurrentRepUserId==='+CurrentRepUserId);
+            if(optSelectedRep == 'Custodial'){
 				CountLead = [SELECT count() FROM Lead WHERE OwnerId =: CurrentRepUserId AND IsConverted = false AND Status IN ('Gain Access','Not Started','Recognize Need')];
 			}else{
 				CountLead = [SELECT count() FROM Lead WHERE OwnerId =: CurrentRepUserId AND IsConverted = false];
