@@ -39,7 +39,6 @@ AsyncApexJob a = [Select Id, Status, NumberOfErrors, JobItemsProcessed,
         if(userlist.size()>0)
         custodial_Repersentative=userlist.get(0);
      }
-    
      if(dtn_new_Rep!=null){
           userlist=[Select id,DTN__c,Name from user where DTN__c= :dtn_new_Rep];
           if(userlist.size()>0)
@@ -57,17 +56,13 @@ AsyncApexJob a = [Select Id, Status, NumberOfErrors, JobItemsProcessed,
      // update LeadOwnerAssignmentTriggerOff value to true 
      for (lead l: leadlist){
        if(!l.isconverted){
-           if(!Test.isRunningTest()){
-           l.LeadOwnerAssignmentTriggerOff__c=true;
-           }
+          l.LeadOwnerAssignmentTriggerOff__c=true;   
           updateOwnerAssignmentFlagList.add(l);       
          }
       }
       if(updateOwnerAssignmentFlagList.size()>0)
-        if(!Test.isRunningTest()){
-          update updateOwnerAssignmentFlagList;
-        }
-       System.debug('custodial_Repersentative=='+custodial_Repersentative+'current_Representative '+current_Representative+' custodial_Repersentative'+custodial_Repersentative);
+      update updateOwnerAssignmentFlagList;
+     
         for(lead l: leadlist){
          if(!l.isconverted){
         if(current_Representative!=null && custodial_Repersentative!=null && new_Representative==null){
@@ -135,9 +130,6 @@ AsyncApexJob a = [Select Id, Status, NumberOfErrors, JobItemsProcessed,
             Database.SaveResult[] er = Database.insert(errorRecordslist,false);
         }     
   }// end of execute method
-    
-
-    
 global void finish(Database.BatchableContext bc) 
 {/*
   Custodial__c custodial = new Custodial__c();

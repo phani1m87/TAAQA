@@ -7,61 +7,61 @@ public with sharing class ATA_Constants
 {
     //**** all constants related to ATA 2.0 functionality
     
-    public static final String ATA_PROCESS_NAME			                           	= 'ACCOUNT TEAM AUTOMATION';
+    public static final String ATA_PROCESS_NAME                                     = 'ACCOUNT TEAM AUTOMATION';
     
-    public static final String ATA_MISSING_POSTAL_CODE                           	= 'ATA_MISSING_POSTALCODE';
+    public static final String ATA_MISSING_POSTAL_CODE                              = 'ATA_MISSING_POSTALCODE';
     public static final String ATA_MISSING_POSTAL_MESSAGE                           = 'Postal code is missing.';
     public static final String ATA_MISSING_MARKETSEGMENT_SUBSEGMENT_CODE            = 'ATA_MISSING_MARKETSEGMENT_SUBSEGMENT';
     public static final String ATA_MISSING_MARKETSEGMENT_SUBSEGMENT_MESSAGE         = 'Market segment & sub-segment is missing.';
 
-    public static final String ATA_MISSING_SIC_CODE                  				= 'ATA_MISSING_SIC';
-    public static final String ATA_MISSING_SIC_MESSAGE                  			= 'SIC code is missing.';
-    public static final String ATA_MISSING_NUNMBEROFEMPLOYEES_CODE   				= 'ATA_MISSING_NUNMBEROFEMPLOYEES';  
-    public static final String ATA_MISSING_NUNMBEROFEMPLOYEES_MESSAGE   			= 'NumberOfEmployees is missing.';
-    public static final String ATA_MISSING_ANNUALREVENUE_CODE        				= 'ATA_MISSING_ANNUALREVENUE';
-    public static final String ATA_MISSING_ANNUALREVENUE_MESSAGE        			= 'AnnualRevenue is missing.';
+    public static final String ATA_MISSING_SIC_CODE                                 = 'ATA_MISSING_SIC';
+    public static final String ATA_MISSING_SIC_MESSAGE                              = 'SIC code is missing.';
+    public static final String ATA_MISSING_NUNMBEROFEMPLOYEES_CODE                  = 'ATA_MISSING_NUNMBEROFEMPLOYEES';  
+    public static final String ATA_MISSING_NUNMBEROFEMPLOYEES_MESSAGE               = 'NumberOfEmployees is missing.';
+    public static final String ATA_MISSING_ANNUALREVENUE_CODE                       = 'ATA_MISSING_ANNUALREVENUE';
+    public static final String ATA_MISSING_ANNUALREVENUE_MESSAGE                    = 'AnnualRevenue is missing.';
     
-    public static final String ATA_RULE_INCONSISTANCY_CODE                  		= 'ATA_RULE_INCONSISTANCY_DETECTED';
-    public static final String ATA_RULE_INCONSISTANCY_MESSAGE                  		= 'Inconsistant rule detected in ATA_Rule__c.';
+    public static final String ATA_RULE_INCONSISTANCY_CODE                          = 'ATA_RULE_INCONSISTANCY_DETECTED';
+    public static final String ATA_RULE_INCONSISTANCY_MESSAGE                       = 'Inconsistant rule detected in ATA_Rule__c.';
     
     public static final String ATA_DATA_MISSING_ASSIGNMENTTYPE_CODE                 = 'ATA_DATA_MISSING_ASSIGNMENTTYPE';
     public static final String ATA_DATA_MISSING_ASSIGNMENTTYPE_MESSAGE              = 'No AssignmentTypes in ATA_AssignmentType_Map__c.';
     
-    public static final String ATA_DATA_MISSING_ROLES_CODE                 			= 'ATA_DATA_MISSING_ROLES';
-	public static final String ATA_DATA_MISSING_ROLES_MESSAGE              			= 'No roles found from ATA_Role_Assignment__c.';
-	
-	public static final String ATA_ABORT_MISSINGUSER_MANDATORYROLE_CODE             = 'ATA_ABORT_MISSINGUSER_MANDATORYROLE';
-	public static final String ATA_ABORT_MISSINGUSER_MANDATORYROLE_MESSAGE          = 'Not creating Account Team: No matching user found for mandatory role.';
-	
-	public static final String ATA_WARNING_MISSINGUSER_ROLE_CODE             		= 'ATA_WARNING_MISSINGUSER_ROLE';
-	public static final String ATA_WARNING_MISSINGUSER_ROLE_MESSAGE            		= 'Could not find user for the role.';
-	
-	public static final String ATA_WARNING_MISSING_DRIVERDATA_CODE     				= 'ATA_WARNING_MISSING_DRIVERDATA';
-	public static final String ATA_WARNING_MISSING_DRIVERDATA_MESSAGE  				= 'No entry in Assignment table for the role: ';
-	
-	public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE 		= 'ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT';
-    public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE 	= 'Not creating Account Team: No matching data in ATA_Non_Geographic_Assignment__c table, attempted match was ';
+    public static final String ATA_DATA_MISSING_ROLES_CODE                          = 'ATA_DATA_MISSING_ROLES';
+    public static final String ATA_DATA_MISSING_ROLES_MESSAGE                       = 'No roles found from ATA_Role_Assignment__c.';
     
-    public static final String ATA_DATA_MISSING_POSTALCODE_CODE                 	= 'ATA_DATA_MISSING_POSTALCODE';
-    public static final String ATA_DATA_MISSING_POSTALCODE_MESSAGE                 	= 'Postal Code is missing in ATA_Geographic_Assignment__c for geographic assignment.';
+    public static final String ATA_ABORT_MISSINGUSER_MANDATORYROLE_CODE             = 'ATA_ABORT_MISSINGUSER_MANDATORYROLE';
+    public static final String ATA_ABORT_MISSINGUSER_MANDATORYROLE_MESSAGE          = 'Not creating Account Team: No matching user found for mandatory role.';
     
-    public static final String ATA_DATA_MISSING_NAMEMATCH_CODE                 		= 'ATA_DATA_MISSING_NAMEMATCH';
-    public static final String ATA_DATA_MISSING_NAMEMATCH_MESSAGE                 	= 'Account name is missing in ATA_Non_Geographic_Assignment__c for Named Account assignment.';
+    public static final String ATA_WARNING_MISSINGUSER_ROLE_CODE                    = 'ATA_WARNING_MISSINGUSER_ROLE';
+    public static final String ATA_WARNING_MISSINGUSER_ROLE_MESSAGE                 = 'Could not find user for the role.';
     
-    public static final String ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE	               	= 'ATA_ACCOUNT_DATA_CONSIDERED_FOR_ASSIGNMENT';
+    public static final String ATA_WARNING_MISSING_DRIVERDATA_CODE                  = 'ATA_WARNING_MISSING_DRIVERDATA';
+    public static final String ATA_WARNING_MISSING_DRIVERDATA_MESSAGE               = 'No entry in Assignment table for the role: ';
     
-   	public static final String ATA_ACCOUNTTEAM_UPDATEBATCH_START_CODE	            = 'ATA_ACCOUNTTEAM_UPDATEBATCH_START';
-   	
-   	public static final String ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_SUCCESS_CODE	    = 'ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_SUCCESSFULLY';
-   	
-   	public static final String ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_FAILURE_CODE	    = 'ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_WITH_FAILURE';
+    public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE      = 'ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT';
+    public static final String ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE   = 'Not creating Account Team: No matching data in ATA_Non_Geographic_Assignment__c table, attempted match was ';
     
-    public static final String ATA_ZIPCODE_CHANGED                          		= 'Zipcode is changed';
-    public static final String ATA_MARKET_SEGMENT_CHANGED                   		= 'Market segment is changed';
-    public static final String ATA_MARKET_SUB_SEGMENT_CHANGED               		= 'Market sub-segment is changed';
-    public static final String ATA_CUSTID_CHANGED                           		= 'Enterprise number is changed';
-    public static final String ATA_NAMED_ACCOUNT_TYPE_CHANGED               		= 'Named account type is changed';
-    public static final String ATA_NAMED_ACCOUNT_CHANGED                    		= 'Named account is changed';
+    public static final String ATA_DATA_MISSING_POSTALCODE_CODE                     = 'ATA_DATA_MISSING_POSTALCODE';
+    public static final String ATA_DATA_MISSING_POSTALCODE_MESSAGE                  = 'Postal Code is missing in ATA_Geographic_Assignment__c for geographic assignment.';
+    
+    public static final String ATA_DATA_MISSING_NAMEMATCH_CODE                      = 'ATA_DATA_MISSING_NAMEMATCH';
+    public static final String ATA_DATA_MISSING_NAMEMATCH_MESSAGE                   = 'Account name is missing in ATA_Non_Geographic_Assignment__c for Named Account assignment.';
+    
+    public static final String ATA_ACCOUNT_DATA_CHANGEDETECTED_CODE                 = 'ATA_ACCOUNT_DATA_CONSIDERED_FOR_ASSIGNMENT';
+    
+    public static final String ATA_ACCOUNTTEAM_UPDATEBATCH_START_CODE               = 'ATA_ACCOUNTTEAM_UPDATEBATCH_START';
+    
+    public static final String ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_SUCCESS_CODE      = 'ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_SUCCESSFULLY';
+    
+    public static final String ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_FAILURE_CODE      = 'ATA_ACCOUNTTEAM_UPDATEBATCH_FINISH_WITH_FAILURE';
+    
+    public static final String ATA_ZIPCODE_CHANGED                                  = 'Zipcode is changed';
+    public static final String ATA_MARKET_SEGMENT_CHANGED                           = 'Market segment is changed';
+    public static final String ATA_MARKET_SUB_SEGMENT_CHANGED                       = 'Market sub-segment is changed';
+    public static final String ATA_CUSTID_CHANGED                                   = 'Enterprise number is changed';
+    public static final String ATA_NAMED_ACCOUNT_TYPE_CHANGED                       = 'Named account type is changed';
+    public static final String ATA_NAMED_ACCOUNT_CHANGED                            = 'Named account is changed';
     
     public static final String ATA_MISSING_ASSIGNMENTMATRIX                 = 'Appropriate data missing from assignment matrix table';
     public static final String ATA_MISSING_NAMED_ACCOUNT_TYPE               = 'There is no value for named account type.';
@@ -119,7 +119,7 @@ public with sharing class ATA_Constants
     public static final String ATA_MISSING_SALES_ALIGNMENT='ATA_MISSING_SALES_ALIGNMENT';
     public static final String ATA_CUSTODIAL_ACCESS_REVERT_FAILED='ATA_CUSTODIAL_ACCESS_REVERT_FAILED';
     public static final String ATA_LEAD_ASSIGNMENT_ACROSS_DTN ='ATA_LEAD_ASSIGNMENT_ACROSS_DTN';
-    public static final String ATA_MISSING_SALES_REP_ROLE='ATA_MISSING_SALES_REP_ROLE';	//SMS 753
+    public static final String ATA_MISSING_SALES_REP_ROLE='ATA_MISSING_SALES_REP_ROLE'; //SMS 753
     public static final String ATA_MISSING_SALES_ALLIGNMENT='Missing ATA Sales Alignment';
 
     public static final String ATA_OPEN_TERRITORY_ASSIGNMENT='Open Territory Assignment Across ALL Accounts for DTN';
@@ -140,5 +140,5 @@ public with sharing class ATA_Constants
     public static final String ATA_PROFESSIONAL_SOFTWARE_NAMED_ACCOUNT_TYPE_CHANGED = 'Professional Software Named Account Changed';
     public static final String ATA_RL_ACCOUNT_NAMED_ACCOUNT_TYPE_CHANGED  = 'R&L Named Account Changed';
     public static final String ATA_SMALL_FIRM_NAMED_ACCOUNT_TYPE_CHANGED  = 'Small Firm Named Account changed';
-    public static final String ATA_CORPORATE_SOFTWARE_ACCOUNT_TYPE_CHANGED  = 'Corporate Software Named Account changed';
+    public static final String ATA_CORPORATE_SOFTWARE_ACCOUNT_TYPE_CHANGED  = 'Corporate Software Named Account changed';    
 }

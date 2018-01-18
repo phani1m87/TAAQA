@@ -11071,9 +11071,11 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <columns>ACCOUNT.PHONE1</columns>
         <columns>ACCOUNT.TYPE</columns>
         <columns>CORE.USERS.ALIAS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>ACCOUNT.LAST_UPDATE</field>
+            <field>ACCOUNT.CREATED_DATE</field>
             <operation>greaterOrEqual</operation>
             <value>TODAY</value>
         </filters>
