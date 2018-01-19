@@ -527,7 +527,7 @@ public with sharing class ATA_ComposeAccountTeam
         if(mapUserIdandCustodialRep!=null && mapUserIdandCustodialRep.containsKey(atmRec.UserId) && mapUserIdandCustodialRep.get(atmRec.UserId).Custodial_Rep__c != null){
             //Create Custodial Rep
             String custodialRoleName = 'Cust-'+mapUserIdandCustodialRep.get(atmRec.UserId).DTN__c+'-'+atmRec.TeamMemberRole;
-            custodialAccountRep = new AccountTeamMember(AccountId = atmRec.AccountId, TeamMemberRole = custodialRoleName, UserId = mapUserIdandCustodialRep.get(atmRec.UserId).Custodial_Rep__c, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
+            custodialAccountRep = new AccountTeamMember(AccountId = atmRec.AccountId, TeamMemberRole = custodialRoleName, UserId = mapUserIdandCustodialRep.get(atmRec.UserId).Custodial_Rep__c, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Edit', CaseAccessLevel = 'None' );
             return custodialAccountRep;    
         }
         return null;
@@ -622,8 +622,15 @@ public with sharing class ATA_ComposeAccountTeam
                 {
                     dtn = mapNonGeoAssignments.get(externalId).DTN__c;
                 }else{
-                    lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE + ' ' + nonGeoFieldName + ' = ' + String.valueOf(objAccount.get(nonGeoFieldName)), String.valueOf(objAccount.Id), ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE));
-                    terminateAccountTeamAssignment = true;
+                    Boolean isRoleMandatory = registerIndeterminantAssignment(roleName);
+                    if(isRoleMandatory){
+                        lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_ABORT_MISSINGUSER_MANDATORYROLE_MESSAGE + ' Role Name: ' + roleName + ' DTN: ' + dtn, String.valueOf(objAccount.Id), ATA_Constants.ATA_ABORT_MISSINGUSER_MANDATORYROLE_CODE));
+                        terminateAccountTeamAssignment = true;
+                    }else{
+                        lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE + ' ' + nonGeoFieldName + ' = ' + String.valueOf(objAccount.get(nonGeoFieldName)), String.valueOf(objAccount.Id), ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE));
+                    }
+                    //Commenting this out as SMS-1020
+                    //terminateAccountTeamAssignment = true;
                 } // end if then else
             } // end if then else
             System.debug('###: ' + dtn);
