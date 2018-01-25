@@ -62,6 +62,10 @@
                 <behavior>Edit</behavior>
                 <field>Submitted_By__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AMS_Account_Number__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

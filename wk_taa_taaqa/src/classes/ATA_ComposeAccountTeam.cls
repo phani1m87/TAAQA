@@ -22,7 +22,7 @@ public with sharing class ATA_ComposeAccountTeam
     static Set<String> setValidValues = new Set<String>();
     static Map<String, ATA_Geographic_Assignment__c> mapGeoAssignments = new Map<String, ATA_Geographic_Assignment__c>();
     static Map<String, ATA_Non_Geographic_Assignment__c> mapNonGeoAssignments = new Map<String, ATA_Non_Geographic_Assignment__c>();
-    
+    static Boolean isNotMissingUser;
     public static List<Monitoring_Log__c> lstMonitoringLog = new List<Monitoring_Log__c>();
     
     //*** Constructor
@@ -490,7 +490,9 @@ public with sharing class ATA_ComposeAccountTeam
                         }
                         accountNAccountTeamMembersMap.put(accountId, lstAlreadyAddedMembers);                     
                      }else{
-                        logMessage = logMessage + ATA_Constants.ATA_WARNING_MISSING_DRIVERDATA_MESSAGE + objATARoleAssignment.Role_Name__c + ' for ' + objATARoleAssignment.Assignment_Mechanism__c + '\n';                    
+                        if(isNotMissingUser == true){
+                            logMessage = logMessage + ATA_Constants.ATA_WARNING_MISSING_DRIVERDATA_MESSAGE + objATARoleAssignment.Role_Name__c + ' for ' + objATARoleAssignment.Assignment_Mechanism__c + '\n';  
+                        }                       
                         if(terminateAccountTeamAssignment)
                         {
                             // STOP since engine could not locate the user for mandatory role
@@ -627,15 +629,18 @@ public with sharing class ATA_ComposeAccountTeam
                         lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_ABORT_MISSINGUSER_MANDATORYROLE_MESSAGE + ' Role Name: ' + roleName + ' DTN: ' + dtn, String.valueOf(objAccount.Id), ATA_Constants.ATA_ABORT_MISSINGUSER_MANDATORYROLE_CODE));
                         terminateAccountTeamAssignment = true;
                     }else{
-                        lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE + ' ' + nonGeoFieldName + ' = ' + String.valueOf(objAccount.get(nonGeoFieldName)), String.valueOf(objAccount.Id), ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE));
+                        //Commenting out as comment on SMS-1020; as we are capturing duplicate information.
+                        //lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_MESSAGE + ' ' + nonGeoFieldName + ' = ' + String.valueOf(objAccount.get(nonGeoFieldName)), String.valueOf(objAccount.Id), ATA_Constants.ATA_UNABLE_TO_DETERMINE_ACCOUNT_TEAM_FOR_NAMED_ACCOUNT_CODE));
                     }
                     //Commenting this out as SMS-1020
                     //terminateAccountTeamAssignment = true;
                 } // end if then else
             } // end if then else
             System.debug('###: ' + dtn);
+            isNotMissingUser = true;
             if(!String.isBlank(dtn))
             {
+               
                 if(!(mapUserDTNAndUser.containsKey(dtn)))
                 {
                     Boolean isRoleMandatory = registerIndeterminantAssignment(roleName);
@@ -643,6 +648,7 @@ public with sharing class ATA_ComposeAccountTeam
                         lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_ABORT_MISSINGUSER_MANDATORYROLE_MESSAGE + ' Role Name: ' + roleName + ' DTN: ' + dtn, String.valueOf(objAccount.Id), ATA_Constants.ATA_ABORT_MISSINGUSER_MANDATORYROLE_CODE));
                         terminateAccountTeamAssignment = true;
                     }else{
+                        isNotMissingUser = false;
                         lstMonitoringLog.add(ATA_LogUtil.createMonitoringLog(ATA_Constants.ATA_PROCESS_NAME, 'ATA_ComposeAccountTeam', 'prepareAccountTeamMemberRecord', ATA_Constants.ATA_WARNING_MISSINGUSER_ROLE_MESSAGE + ' Role Name: ' + roleName + ' DTN: ' + dtn, String.valueOf(objAccount.Id), ATA_Constants.ATA_WARNING_MISSINGUSER_ROLE_CODE));
                     } // end if then else
                 }else{

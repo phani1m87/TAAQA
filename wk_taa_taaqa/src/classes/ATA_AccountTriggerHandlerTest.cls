@@ -147,6 +147,10 @@ private class ATA_AccountTriggerHandlerTest
             ATA_Geographic_Assignment__c objGeoAssignment  = ATA_TestDataFactory.create_ATAGeographicAssignment(objAccount.BillingPostalCode.subString(0,5), 'RSC - Small Market Field', 'ATA67');
             AccountTeamMember objATM = new AccountTeamMember(AccountId = objAccount.Id, TeamMemberRole = 'RC - R&L Retention', UserId = u.Id, AccountAccessLevel = 'Edit', OpportunityAccessLevel = 'Read', CaseAccessLevel = 'None' );
             insert objATM;
+            
+            u2.Custodial_Rep__c = u1.Id;
+            update u2;
+            
             objAccount.Name = 'ATA_TEST_ACCOUNT_2';
             objAccount.Named_Account_Type__c = '';
             objAccount.Named_Account__c = false;            

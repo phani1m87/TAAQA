@@ -9086,6 +9086,11 @@ Accounts / View All</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>CampaignMember.AMS_Account_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CampaignMember.Age__c</field>
         <readable>false</readable>
     </fieldPermissions>

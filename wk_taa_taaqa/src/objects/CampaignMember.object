@@ -39,6 +39,15 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>AMS_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>AMS Account Number</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Age__c</fullName>
         <externalId>false</externalId>
         <formula>IF( Lead.IsConverted = TRUE ,  Lead.ConvertedDate -  Load_Date__c ,
