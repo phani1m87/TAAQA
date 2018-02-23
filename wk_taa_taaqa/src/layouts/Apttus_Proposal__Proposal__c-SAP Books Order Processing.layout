@@ -25,7 +25,7 @@
                 <field>Apttus_Proposal__Account__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>QP_Order__c</field>
             </layoutItems>
             <layoutItems>
@@ -37,7 +37,7 @@
                 <field>SAP_Order_Processing_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retain_CC_for_Renewals__c</field>
             </layoutItems>
         </layoutColumns>
@@ -75,7 +75,7 @@
                 <field>SAP_Rush_Order__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>SAP_Drop_Shipment__c</field>
             </layoutItems>
             <layoutItems>

@@ -3810,7 +3810,7 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <lookupDialogsAdditionalFields>CONTACT.EMAIL</lookupDialogsAdditionalFields>
         <lookupFilterFields>FULL_NAME</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
-        <lookupFilterFields>00Ni000000AHRjX</lookupFilterFields>
+        <lookupFilterFields>Inactive__c</lookupFilterFields>
         <lookupFilterFields>CONTACT.EMAIL</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>

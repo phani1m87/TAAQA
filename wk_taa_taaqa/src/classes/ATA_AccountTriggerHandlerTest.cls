@@ -273,5 +273,28 @@ private class ATA_AccountTriggerHandlerTest
           Test.stopTest();
     }
     
+    static testmethod void testCoverOwnerDefaultSneario1(){
+        List<AccountAutomationSetting__c> accountAutomation = [Select Id,Default_Account_UserId__c from AccountAutomationSetting__c limit 1];
+        
+        User u = ATA_TestDataFactory.create_NewUser('ATA61',22);
+        accountAutomation[0].Default_Account_UserId__c = u.Id;
+        update accountAutomation;
+        
+        // create test account
+        Account objAccount = ATA_TestDataFactory.create_Account();
+        insert objAccount;          
+    }
+    
+    static testmethod void testCoverOwnerDefaultSneario2(){
+        List<AccountAutomationSetting__c> accountAutomation = [Select Id,Default_Account_UserId__c from AccountAutomationSetting__c limit 1];
+        
+        accountAutomation[0].Default_Account_UserId__c = '005883jkfs27asj32n';
+        update accountAutomation;
+        
+        // create test account
+        Account objAccount = ATA_TestDataFactory.create_Account();
+        insert objAccount;          
+    }
+    
 
 }

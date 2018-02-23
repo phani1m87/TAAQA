@@ -2547,6 +2547,9 @@ RIGHT( First_Page_Seen__c ,(LEN(First_Page_Seen__c )-FIND(&quot;?gclid=&quot;, F
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>IqScore</fullName>
+    </fields>
+    <fields>
         <fullName>IsPrivate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -23176,7 +23179,7 @@ IF(AND(Amount &gt; 0, NOT(ISPICKVAL( Type, &quot;Renewal&quot;)), NOT(ISPICKVAL(
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>00Ni000000FJTit</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Primary_Contact_Phone__c</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.TYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>

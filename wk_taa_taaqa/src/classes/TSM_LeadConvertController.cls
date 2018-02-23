@@ -1,8 +1,11 @@
 /*
  * Controller class for 'TSM_LeadConvert' visualforce page. Has the backend logic for custom lead closure and conversion.
  */
-public with sharing class TSM_LeadConvertController {
-
+public without sharing class TSM_LeadConvertController {
+    //SMS-1040
+    //updated the TSM_LeadConvertController from with sharing to without sharing; because the creator of contact does not have 
+    //access to account(as we are assigning default account owner);
+    // we don't have this problem with opportunity creation in TSM_LeadConvertController as it sets default owner of opportunity.
     public Lead leadToConvert {get; set;}  
     public list<SelectOption> accountTypes {get; set;}
     public list<SelectOption> contactTypes {get; set;}
@@ -27,7 +30,7 @@ public with sharing class TSM_LeadConvertController {
         
         // Do NOT modify this SOQL to remove fields that are required for ATA functionality
         leadToConvert = [SELECT Id, Status, OwnerId, Email, Name, FirstName , LastName, Salutation, Company, Owner.Type, Reason__c,PostalCode,
-                                Market_Segment__c,Market_Sub_Segment__c, Named_Account__c, Named_Account_Type__c,		// ATA Fields 
+                                Market_Segment__c,Market_Sub_Segment__c, Named_Account__c, Named_Account_Type__c,       // ATA Fields 
                                 Related_Account__c, Related_Contact__c, Related_Opportunity__c
                                 FROM Lead WHERE Id = :leadId
                             ];
@@ -202,8 +205,13 @@ public with sharing class TSM_LeadConvertController {
                     leadConvert.setAccountId(convertToAccountId);
                 }
                 catch(System.DMLException e){
-                	// Fix for SMS-634
-                	Database.rollback(sp);
+                    //SMS - 1040
+                    System.debug('@@Exception1 '+e);
+                    if(newAccount!=null && newAccount.Id != null){
+                        newAccount.Id = null;
+                    }
+                    // Fix for SMS-634
+                    Database.rollback(sp);
                     PrintError(e.getMessage());
                 }
             }
@@ -217,13 +225,23 @@ public with sharing class TSM_LeadConvertController {
                 try{
                     if(leadToConvert.Related_Account__c != null) newcontact.AccountId = leadToConvert.Related_Account__c;
                     else newcontact.AccountId = newAccount.Id;
+                    System.debug('==newcontact=='+newcontact.Id);
                     insert newcontact;
                     convertToContactId = newContact.Id;
                     leadConvert.setContactId(convertToContactId);
                 }
                 catch(System.DMLException e){
-                	// Fix for SMS-634
-                	Database.rollback(sp);
+                    //SMS - 1040
+                    System.debug('@@Exception2 '+e);
+                    if(newAccount!=null && newAccount.Id != null){
+                        newAccount.Id = null;
+                    }
+                    if(newcontact!=null && newcontact.Id != null){
+                        newcontact.Id = null;
+                    }
+                    
+                    // Fix for SMS-634
+                    Database.rollback(sp);
                     PrintError(e.getMessage());
                 }   
             }
@@ -285,7 +303,7 @@ public with sharing class TSM_LeadConvertController {
                     //SMS-866
                     if(campaignMemberList != NULL && campaignMemberList.size() > 0)
                     {
-                    	update campaignMemberList[0];
+                        update campaignMemberList[0];
                     }
                     //SMS-866
                     System.debug('leadToConvert:'+leadToConvert);
@@ -316,7 +334,18 @@ public with sharing class TSM_LeadConvertController {
             PrintError(e.getMessage());
         */
         }catch(Exception e){
-        	// Fix for SMS-634
+            //SMS - 1040
+            System.debug('@@Exception3 '+e);
+            if(newAccount!=null && newAccount.Id != null){
+                newAccount.Id = null;
+            }
+            if(newcontact!=null && newcontact.Id != null){
+                newcontact.Id = null;
+            }
+            if(newOpportunity!=null && newOpportunity.Id != null){
+                newOpportunity.Id = null;
+            }
+            // Fix for SMS-634
             Database.rollback(sp);
             PrintError(e.getMessage());
         }

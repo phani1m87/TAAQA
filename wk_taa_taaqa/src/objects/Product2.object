@@ -3913,6 +3913,7 @@
         <searchResultsAdditionalFields>Aptps_Sales_term__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATEDBY_USER.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
     <webLinks>
         <fullName>Apttus_Config2__Options</fullName>
         <availability>online</availability>

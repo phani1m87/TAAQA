@@ -1525,6 +1525,32 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>SAP_Order_Processing</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>DTN__c</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>SU_ACCESS_EXPIRATION</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CORE.PROFILE.NAME</field>
+            <operation>contains</operation>
+            <value>SAP Order</value>
+        </filters>
+        <label>SAP Order Processing</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>SFS_Users</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>

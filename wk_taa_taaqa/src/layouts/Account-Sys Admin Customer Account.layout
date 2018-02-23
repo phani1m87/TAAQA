@@ -47,6 +47,14 @@
                 <behavior>Readonly</behavior>
                 <field>S2S_Account_Data__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Count_Other_Ancilliary__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Count_SFS_Books__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

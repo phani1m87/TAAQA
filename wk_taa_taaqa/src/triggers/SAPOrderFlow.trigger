@@ -74,6 +74,7 @@ Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
                
   
     }
+
      if((oldProp.sap_order_corrected__c == null || oldProp.sap_order_corrected__c == false) && proposal.sap_order_corrected__c == true)
      {
           if (oldProp.sap_order_corrected_date__c == null)
@@ -101,7 +102,7 @@ Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
         
         String getAccount = [select name from account where id = :trigger.new[0].apttus_proposal__account__c].name;
         String getSAPOrderNo = [select sap_order_number__c from apttus_proposal__proposal__c where id = :trigger.new[0].Id].sap_order_number__c;
-        String getAMSOrderNo = [select sap_order_number__c from apttus_proposal__proposal__c where id = :trigger.new[0].Id].sap_order_number__c;
+        String getAMSOrderNo = [select sap_order_number__c from apttus_proposal__proposal__c where id = :trigger.new[0].Id].sap_order_number__c ;
   
                 String[] Account = new String[] {getAccount};        
         String[] SAPOrderNumber = new String[] {getSAPOrderNo};

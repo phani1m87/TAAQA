@@ -98,6 +98,14 @@
                 <behavior>Readonly</behavior>
                 <field>Trust_Sales__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Count_Other_Ancilliary__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Count_SFS_Books__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

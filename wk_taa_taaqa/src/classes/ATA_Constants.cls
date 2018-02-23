@@ -141,4 +141,9 @@ public with sharing class ATA_Constants
     public static final String ATA_RL_ACCOUNT_NAMED_ACCOUNT_TYPE_CHANGED  = 'R&L Named Account Changed';
     public static final String ATA_SMALL_FIRM_NAMED_ACCOUNT_TYPE_CHANGED  = 'Small Firm Named Account changed';
     public static final String ATA_CORPORATE_SOFTWARE_ACCOUNT_TYPE_CHANGED  = 'Corporate Software Named Account changed';    
+    
+    //SMS -1040
+    public static final String ATA_DEFAULT_ACCOUNT_OWNER_NOT_SET = 'Default Account Owner not set.';
+    public static final String ATA_DEFAULT_ACCOUNT_OWNER_NOT_SET_CODE = 'ATA_DEFAULT_ACCOUNT_OWNER_NOT_SET ';
+    
 }

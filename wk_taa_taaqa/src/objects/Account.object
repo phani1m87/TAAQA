@@ -2148,6 +2148,153 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Count_ATX__c</fullName>
+        <externalId>false</externalId>
+        <label>Count ATX</label>
+        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Code__c</field>
+            <operation>contains</operation>
+            <value>ATX</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Family__c</field>
+            <operation>contains</operation>
+            <value>Tax</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Year__c</field>
+            <operation>equals</operation>
+            <value>2017</value>
+        </summaryFilterItems>
+        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_ATX_new_field__c</fullName>
+        <externalId>false</externalId>
+        <label>Count ATX (new field)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Count_IFirm__c</fullName>
+        <externalId>false</externalId>
+        <label>Count IFirm</label>
+        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Code__c</field>
+            <operation>contains</operation>
+            <value>Ifirm</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Year__c</field>
+            <operation>equals</operation>
+            <value>2017</value>
+        </summaryFilterItems>
+        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_Other_Ancilliary__c</fullName>
+        <externalId>false</externalId>
+        <label>Count Other Ancilliary</label>
+        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Family__c</field>
+            <operation>contains</operation>
+            <value>other</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Year__c</field>
+            <operation>equals</operation>
+            <value>2017</value>
+        </summaryFilterItems>
+        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_Research__c</fullName>
+        <externalId>false</externalId>
+        <label>Count Research</label>
+        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Family__c</field>
+            <operation>contains</operation>
+            <value>research,train</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Year__c</field>
+            <operation>equals</operation>
+            <value>2017</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Code__c</field>
+            <operation>notContain</operation>
+            <value>book</value>
+        </summaryFilterItems>
+        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_SFS_Books__c</fullName>
+        <externalId>false</externalId>
+        <label>Count SFS Books</label>
+        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Code__c</field>
+            <operation>contains</operation>
+            <value>book</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Year__c</field>
+            <operation>equals</operation>
+            <value>2017</value>
+        </summaryFilterItems>
+        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_TW__c</fullName>
+        <externalId>false</externalId>
+        <label>Count TW</label>
+        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Code__c</field>
+            <operation>contains</operation>
+            <value>TW</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Family__c</field>
+            <operation>contains</operation>
+            <value>tax</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>SFS_Asset__c.Product_Year__c</field>
+            <operation>equals</operation>
+            <value>2017</value>
+        </summaryFilterItems>
+        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Current_Business_Model__c</fullName>
         <externalId>false</externalId>
         <label>Current Business Model</label>
@@ -11077,15 +11224,21 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
     <listViews>
         <fullName>Modified_today</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
         <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
+        <columns>ACCOUNT.ADDRESS1_STREET</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.ADDRESS1_ZIP</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>Market_Segment__c</columns>
+        <columns>Market_Sub_Segment__c</columns>
         <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <columns>CREATEDBY_USER.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>ACCOUNT.CREATED_DATE</field>
+            <field>ACCOUNT.LAST_UPDATE</field>
             <operation>greaterOrEqual</operation>
             <value>TODAY</value>
         </filters>
@@ -22795,8 +22948,8 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <lookupFilterFields>ACCOUNT.ADDRESS1_CITY</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.ADDRESS1_STATE</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.PHONE1</lookupFilterFields>
-        <lookupFilterFields>00Ni000000AHRj1</lookupFilterFields>
-        <lookupFilterFields>00Ni000000AHRj2</lookupFilterFields>
+        <lookupFilterFields>Market_Segment__c</lookupFilterFields>
+        <lookupFilterFields>Market_Sub_Segment__c</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.RECORDTYPE</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>

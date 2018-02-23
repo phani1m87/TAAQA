@@ -119,6 +119,60 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Has_ATX_TRUE</fullName>
+        <field>Has_ATX__c</field>
+        <literalValue>1</literalValue>
+        <name>Has ATX TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Has_Books_TRUE</fullName>
+        <field>Has_SFS_Books_2017__c</field>
+        <literalValue>1</literalValue>
+        <name>Has Books TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Has_Other_Anc_TRUE</fullName>
+        <field>Has_SFS_Other_Ancillary__c</field>
+        <literalValue>1</literalValue>
+        <name>Has Other Anc TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Has_Research_TRUE</fullName>
+        <field>Has_SFS_Research__c</field>
+        <literalValue>1</literalValue>
+        <name>Has Research TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Has_TW_TRUE</fullName>
+        <field>Has_TaxWise__c</field>
+        <literalValue>1</literalValue>
+        <name>Has TW TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Has_iFirm_TRUE</fullName>
+        <field>Has_IFirm__c</field>
+        <literalValue>1</literalValue>
+        <name>Has iFirm TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Informatica_Field_Update_Time</fullName>
         <field>SFS_Informatica_Field_Update_Time__c</field>
         <formula>NOW()</formula>
@@ -956,6 +1010,90 @@
             <value>Tax-Focused Traditionalist</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Has ATX</fullName>
+        <actions>
+            <name>Has_ATX_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Count_ATX__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Has Books</fullName>
+        <actions>
+            <name>Has_Books_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Count_SFS_Books__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Has Ifirm</fullName>
+        <actions>
+            <name>Has_iFirm_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Count_IFirm__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Has Other Ancilliary</fullName>
+        <actions>
+            <name>Has_Other_Anc_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Count_Other_Ancilliary__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Has Research</fullName>
+        <actions>
+            <name>Has_Research_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Count_Research__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Has TW</fullName>
+        <actions>
+            <name>Has_TW_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Count_TW__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Point Clear Marked Date</fullName>

@@ -41,20 +41,16 @@
                 <field>SAP_Rush_Order__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retain_CC_for_Renewals__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>SAP_Sales_Channel__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>SAP_Contact_Channel__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SAP_Order_Processing_Time__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retain_CC_for_Renewals__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -93,10 +89,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>SAP_Order_Processing_Stage__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SAP_Order_Corrected__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -166,6 +158,10 @@
         <editHeading>true</editHeading>
         <label>Order Special Instructions</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Number__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SAP_Drop_Shipment__c</field>

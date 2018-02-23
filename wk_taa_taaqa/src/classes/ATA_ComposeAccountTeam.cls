@@ -3,8 +3,9 @@
  * -------------------------------------------------------------------------
  * 11/27/2017 SHIVAJI           1.0          ATA 2.0
  * ------------------------------------------------------------------------- */
-public with sharing class ATA_ComposeAccountTeam
+public without sharing class ATA_ComposeAccountTeam
 {
+    //SMS - 1040 updated security model of class from with sharing to without sharing because of insufficient priviledges
     // ***** contains the logic to compute the Account Team for given Accounts
     
     static Map<Id, List<ATA_AccountRuleValue>> mapAccountIdNListATA_AccountRuleValue;
