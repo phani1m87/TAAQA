@@ -29,7 +29,7 @@
         <criteriaItems>
             <field>CampaignMember.CreatedById</field>
             <operation>equals</operation>
-            <value>hubspot integrationuser</value>
+            <value>hubspot integrationuser,Pardot Pardot Connector</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>

@@ -152,10 +152,6 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Segment/Subsegment</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>Named/National</fullName>
                     <default>false</default>
                 </value>
@@ -164,7 +160,43 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>ATA/Category</fullName>
+                    <fullName>Named/Global</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/Small-Firm-Premier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/Refunds-Today</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/R&amp;L Key Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/PFX Axcess Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/Small Firm Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/Small Firm Key Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/Small Firms Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Named/Small Firms Key Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Segment SalesOwnership</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>

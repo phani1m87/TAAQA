@@ -101,10 +101,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Bundle_Acro__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Selected_Option_Form__c</field>
             </layoutItems>
             <layoutItems>
@@ -165,6 +161,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Prior_Year__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Small_Corp_Limited_State__c</field>
             </layoutItems>
             <layoutItems>
@@ -194,6 +194,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Formatted_Promo_Code__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Extended_Maintenance_Months__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SAP_Material_Number__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -284,6 +292,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Product_Description__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Bundle_Acro__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

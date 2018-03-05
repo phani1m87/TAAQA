@@ -1,0 +1,27 @@
+<apex:page standardController="Account">
+<script src="/soap/ajax/10.0/connection.js"> </script >
+<script src="/soap/ajax/10.0/apex.js"> </script >
+
+
+<script type="text/javascript">
+
+window.onload=init()
+
+function init()
+
+{
+var p = new sforce.SObject('account'); 
+var counter = "{!Account.Pfx_Tax_Update_Counter__c}";
+p.Id = "{!Account.Id}";
+
+
+p.Pfx_Tax_Update_Counter__C = counter+1; 
+result = sforce.connection.update([p]); 
+
+location.href="https://wktaa.my.salesforce.com/"+p.Id;
+
+
+};
+</script>
+
+</apex:page>

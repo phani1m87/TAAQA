@@ -2,11 +2,6 @@
 <AnalyticSnapshot xmlns="http://soap.sforce.com/2006/04/metadata">
     <groupColumn>User.Division__c</groupColumn>
     <mappings>
-        <sourceField>JobName</sourceField>
-        <sourceType>snapshot</sourceType>
-        <targetField>Snapshots__c.Name</targetField>
-    </mappings>
-    <mappings>
         <sourceField>User.High_Level_Division__c</sourceField>
         <sourceType>tabular</sourceType>
         <targetField>Snapshots__c.High_Level_Division__c</targetField>
@@ -26,6 +21,11 @@
         <sourceField>AMOUNT</sourceField>
         <sourceType>summary</sourceType>
         <targetField>Snapshots__c.Amount_Lost__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>JobName</sourceField>
+        <sourceType>snapshot</sourceType>
+        <targetField>Snapshots__c.Name</targetField>
     </mappings>
     <name>All Opps Close Lost this week by HLD</name>
     <runningUser>alex.cardona@wolterskluwer.com</runningUser>

@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;+Solution_Blueprint__r.Opportunity__r.Account.Id, Solution_Blueprint__r.Opportunity__r.Account.Name)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Admin_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Admin_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Admin:Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Admin_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Admin: Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Implementation_Factsheets_Admin</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Admin_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Admin_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Admin:Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Aware_Constant_Internet_Connection_Need__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Customer is aware a constant internet connection is required?</inlineHelpText>
+        <label>Aware Constant Internet Connection Need</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Aware_of_64bit_Windows_O_S_Requirement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Is the customer aware there is a 64bit Windows O/S requirement?</inlineHelpText>
+        <label>Aware of 64bit Windows O/S Requirement?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Aware_of_8GB_RAM_requirement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Is the customer aware there is an 8GB RAM requirement?</inlineHelpText>
+        <label>Aware of 8GB RAM requirement?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Aware_of_Local_Installation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Is the customer aware there is a local installation?</inlineHelpText>
+        <label>Aware of Local Installation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Beneficial_Services_Not_Sold_To_Discuss__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>List of any beneficial services not sold but that should be discussed again with customer in hopes they decide to purchase</inlineHelpText>
+        <label>Beneficial Services Not Sold To Discuss</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Blackout_Dates_Finish__c</fullName>
+        <externalId>false</externalId>
+        <label>Blackout Dates Finish</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Blackout_Dates_Start__c</fullName>
+        <externalId>false</externalId>
+        <label>Blackout Dates Start</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CCH_Tested_Bandwidth_Download__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Tested download bandwidth from http://download.cch.com/speedtest</inlineHelpText>
+        <label>CCH Tested Bandwidth: Download</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CCH_Tested_Bandwidth_Latency__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Tested bandwidth from http://download.cch.com/speedtest</inlineHelpText>
+        <label>CCH Tested Bandwidth: Latency</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CCH_Tested_Bandwidth_Upload__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Tested upload bandwidth from http://download.cch.com/speedtest</inlineHelpText>
+        <label>CCH Tested Bandwidth: Upload</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consulting_Date_Document__c</fullName>
+        <externalId>false</externalId>
+        <label>Consulting Date: Document</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Consulting_Date_Practice__c</fullName>
+        <externalId>false</externalId>
+        <label>Consulting Date: Practice</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Consulting_Date_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Consulting Date: Tax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Conversion_Date_Document__c</fullName>
+        <externalId>false</externalId>
+        <label>Conversion Date: Document</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Conversion_Date_Practice__c</fullName>
+        <externalId>false</externalId>
+        <label>Conversion Date: Practice</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Conversion_Date_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Conversion Date: Tax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Data_Environment_Could_Impact_Migration__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Firm&apos;s migrating from Pfx/Gfx Tax or Pfx Practice (Management) understands there is a data analysis and data migration process that must be completed before using CCH Axcess. List known issues with foundation data environment that could impact migration.</inlineHelpText>
+        <label>Data Environment Could Impact Migration</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>IT_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>IT_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IT: Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IT_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>IT: Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Implementation_Factsheets_IT</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IT_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>IT_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IT:Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Implementation_Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Implementation Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Implementation_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Implementation Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Important_Customer_Expectation_Baggage__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>List of any important customer expectations or baggage that need to be kept in mind during implementation.</inlineHelpText>
+        <label>Important Customer Expectation / Baggage</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Important_Implementation_Product_Goals__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>List of important implementation product usage goals that need addressed</inlineHelpText>
+        <label>Important Implementation Product Goals</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>List_of_Customer_Reporting_Requirements__c</fullName>
+        <externalId>false</externalId>
+        <label>List of Customer Reporting Requirements</label>
+        <length>2000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Migration_Date_Pfx_Gfx_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Migration Date: Pfx/Gfx Tax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Migration_Date_Pfx_Practice_Management__c</fullName>
+        <externalId>false</externalId>
+        <label>Migration Date: Pfx Practice-Management</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;+ Solution_Blueprint__r.Opportunity__r.Id ,  Solution_Blueprint__r.Opportunity__r.Name  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Primary_Stakeholder_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Partner_Primary_Stakeholder_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Partner/Primary Stakeholder: Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Primary_Stakeholder_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Partner/Primary Stakeholder: Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Implementation_Factsheets_Partner_primar</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Primary_Stakeholder_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Partner_Primary_Stakeholder_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Partner/Primary Stakeholder:Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Presentation_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Solution_Blueprint__r.Presentation_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Presentation Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact_Role__c</fullName>
+        <externalId>false</externalId>
+        <formula>Solution_Blueprint__r.Primary_Contact_Role__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact Role</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact_del__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;+Solution_Blueprint__r.Opportunity__r.Primary_Contact_for_Proposal__r.Id, Solution_Blueprint__r.Opportunity__r.Primary_Contact_for_Proposal__r.Contact_Full_Name__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Manager_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Manager: Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Manager_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Manager: Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Implementation_Factsheets_Project_Manage</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_Manager_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Manager_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Manager:Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Published_Bandwidth_From_ISP_Download__c</fullName>
+        <externalId>false</externalId>
+        <label>Published Bandwidth From ISP: Download</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Published_Bandwidth_From_ISP_Upload__c</fullName>
+        <externalId>false</externalId>
+        <label>Published Bandwidth From ISP: Upload</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Scheduling_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Scheduling_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Scheduling: Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Scheduling_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Scheduling: Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Implementation_Factsheets_Scheduling</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Scheduling_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Scheduling_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Scheduling: Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sensitive_Topics_to_Avoid__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>List of any sensitive topics to avoid during implementation</inlineHelpText>
+        <label>Sensitive Topics to Avoid</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Solution_Blueprint__c</fullName>
+        <externalId>false</externalId>
+        <label>Solution Blueprint</label>
+        <referenceTo>CBI_Form__c</referenceTo>
+        <relationshipName>Implementation_Blueprints</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>System_Requirements__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;https://support.cch.com/productsupport/productSupport.aspx?id=37&quot;,&quot;https://support.cch.com/productsupport/productSupport.aspx?id=37&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>System Requirements</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Tax_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax: Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Tax: Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Implementation_Factsheets_Tax</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Tax_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax:Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Test_From_Bandwidth_Spreadsheet__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;http://training.prosystemfx.net/downloads/ProdDownloadTest.zip&quot;,&quot;http://training.prosystemfx.net/downloads/ProdDownloadTest.zip&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Tested Bandwidth From Bandwidth Spreadsheet</inlineHelpText>
+        <label>Test From Bandwidth Spreadsheet</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tested_Bandwidth_From__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;http://download.cch.com/speedtest&quot;,&quot;http://download.cch.com/speedtest&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tested Bandwidth From</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tested_Spreadsheet_Bandwidth_Download__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Tested bandwidth from bandwidth spreadsheet http://training.prosystemfx.net/downloads/ProdDownloadTest.zip</inlineHelpText>
+        <label>Tested Spreadsheet Bandwidth: Download</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tested_Spreadsheet_Bandwidth_Latency__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Tested bandwidth from bandwidth spreadsheet http://training.prosystemfx.net/downloads/ProdDownloadTest.zip</inlineHelpText>
+        <label>Tested Spreadsheet Bandwidth: Latency</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Training_Date_Document__c</fullName>
+        <externalId>false</externalId>
+        <label>User Training Date: Document</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>User_Training_Date_Practice__c</fullName>
+        <externalId>false</externalId>
+        <label>User Training Date: Practice</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>User_Training_Date_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>User Training Date: Tax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Verification_Process_Essential_Reports__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Explain verification process to ensure that CCH Axcess Reports can supply customer with essential reports</inlineHelpText>
+        <label>Verification Process: Essential Reports</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Workflow_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Workflow_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Workflow: Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Workflow_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Workflow: Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Implementation_Factsheets_Workflow</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Workflow_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Workflow_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Workflow:Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Implementation Blueprint</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>IB - {00000}</displayFormat>
+        <label>Implementation Blueprint</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Implementation Blueprint</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Check_Boxes</fullName>
+        <active>false</active>
+        <description>Checks to see that the reps verified information.</description>
+        <errorConditionFormula>Aware_Constant_Internet_Connection_Need__c = FALSE  || 
+Aware_of_64bit_Windows_O_S_Requirement__c = FALSE  || 
+Aware_of_8GB_RAM_requirement__c = FALSE  || 
+Aware_of_Local_Installation__c = FALSE</errorConditionFormula>
+        <errorMessage>The following fields must be checked stating that they have been verified and reviewed with the customer:
+Aware Constant Internet Connection, 
+Aware of 64bit Windows O/S Requirement, 
+Aware of 8GB RAM Requirement, 
+Aware of Local Installation</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Contact</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New Contact</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/003/e?retURL=%2F006%2Fo 
+&amp;&amp;accid={!Account.Id}</url>
+    </webLinks>
+</CustomObject>

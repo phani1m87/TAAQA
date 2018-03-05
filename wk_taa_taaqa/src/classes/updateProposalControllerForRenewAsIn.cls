@@ -25,7 +25,8 @@ public with sharing class updateProposalControllerForRenewAsIn {
         Apttus_Proposal__Proposal__c prop=[select id,name,RecordTypeId from Apttus_Proposal__Proposal__c where id=:proposal.id];
         if(prop.RecordTypeId == propRecType || prop.RecordTypeId == propRecType2)
         {
-        proposal.Apttus_Proposal__Approval_Stage__c='Sent for Auto-Confirm';
+        proposal.Apttus_Proposal__Approval_Stage__c='Submitted to COP';
+        proposal.SAP_Order_Processing_Stage__c = 'Sent for Auto-Confirm';
         }
         else
         {

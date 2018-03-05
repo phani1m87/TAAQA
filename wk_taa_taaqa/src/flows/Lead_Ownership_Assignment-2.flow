@@ -1,19 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <constants>
+        <description>Lead Ownership Assignment Flow Name for Monitoring Log</description>
+        <name>LeadOwnershipAssignmentFlowName</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Lead Ownership Assignement Flow</stringValue>
+        </value>
+    </constants>
     <decisions>
-        <name>Does_Domain_Matched</name>
-        <label>Does Domain Matched?</label>
-        <locationX>332</locationX>
-        <locationY>187</locationY>
+        <name>Check_Domain</name>
+        <label>Check Domain</label>
+        <locationX>486</locationX>
+        <locationY>46</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
-            <name>Update_Owner</name>
+            <name>Domain_is_not_NULL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LeadDomainValue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lookup_Domain</targetReference>
+            </connector>
+            <label>Domain is not NULL</label>
+        </rules>
+        <rules>
+            <name>Domain_is_NULL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LeadDomainValue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lookup_Company_Name</targetReference>
+            </connector>
+            <label>Domain is NULL</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_Company_Matched</name>
+        <label>Does Company Matched?</label>
+        <locationX>619</locationX>
+        <locationY>384</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>YES_Update_Owner_0</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>MatchedDTN</leftValueReference>
-                <operator>NotEqualTo</operator>
+                <operator>IsNull</operator>
                 <rightValue>
-                    <stringValue></stringValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Find_User_0</targetReference>
+            </connector>
+            <label>YES: Update Owner</label>
+        </rules>
+        <rules>
+            <name>NO_Check_Sales_Alignment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MatchedDTN</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_Sales_Alignment_Postal_Code_NULL</targetReference>
+            </connector>
+            <label>NO: Check Sales Alignment</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_Domain_Matched</name>
+        <label>Does Domain Matched?</label>
+        <locationX>334</locationX>
+        <locationY>279</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>YES_Update_Owner</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MatchedDTN</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -22,29 +104,610 @@
             <label>YES: Update Owner</label>
         </rules>
         <rules>
-            <name>NO_Check_Sales_Alignment_Staging</name>
+            <name>NO_Check_Company</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>MatchedDTN</leftValueReference>
-                <operator>EqualTo</operator>
+                <operator>IsNull</operator>
                 <rightValue>
-                    <stringValue></stringValue>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
-            <label>NO: Check Sales Alignment (Staging)</label>
+            <connector>
+                <targetReference>Lookup_Company_Name</targetReference>
+            </connector>
+            <label>NO: Check Company</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Match_in_Geographic_Assignment</name>
+        <label>Found Match in Geographic Assignment?</label>
+        <locationX>1220</locationX>
+        <locationY>661</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>YES_Find_the_User</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MatchedDTN</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Find_User_1</targetReference>
+            </connector>
+            <label>YES: Find the User</label>
+        </rules>
+        <rules>
+            <name>NO_Assign_to_Default_Owner</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MatchedDTN</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Find_Default_Owner_1</targetReference>
+            </connector>
+            <label>NO: Assign to Default Owner</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_User</name>
+        <label>Found User?</label>
+        <locationX>61</locationX>
+        <locationY>535</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>YES_Found_User</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OwnerUserId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Owner_to_the_Lead</targetReference>
+            </connector>
+            <label>YES: Found User</label>
+        </rules>
+        <rules>
+            <name>NO_Couldn_t_find_user</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OwnerUserId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Find_Default_Owner</targetReference>
+            </connector>
+            <label>NO: Couldn&apos;t find user</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_User_0</name>
+        <label>Found User?</label>
+        <locationX>617</locationX>
+        <locationY>710</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>YES_Found_User_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OwnerUserId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Owner_to_the_Lead_0</targetReference>
+            </connector>
+            <label>YES: Found User</label>
+        </rules>
+        <rules>
+            <name>NO_Couldn_t_find_user_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OwnerUserId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Find_Default_Owner_0</targetReference>
+            </connector>
+            <label>NO: Couldn&apos;t find user</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_User_1</name>
+        <label>Found User?</label>
+        <locationX>1095</locationX>
+        <locationY>880</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>YES_Found_User_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OwnerUserId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Owner_to_the_Lead_1</targetReference>
+            </connector>
+            <label>YES: Found User</label>
+        </rules>
+        <rules>
+            <name>NO_Couldn_t_find_user_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OwnerUserId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Find_Default_Owner_1</targetReference>
+            </connector>
+            <label>NO: Couldn&apos;t find user</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Sales_Alignment_Postal_Code_NULL</name>
+        <label>Is Sales Alignment OR Postal Code NULL?</label>
+        <locationX>1213</locationX>
+        <locationY>199</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>YES_Sales_Alignment_OR_Postal_Code_is_NULL</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>LeadSalesAlignmentValue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>LeadPostalCodeValue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Find_Default_Owner_1_1</targetReference>
+            </connector>
+            <label>YES: Sales Alignment OR Postal Code is NULL</label>
+        </rules>
+        <rules>
+            <name>NO_Sales_Alignment_Postal_Code_Not_NULL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LeadSalesAlignmentValue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>LeadPostalCodeValue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lookup_Geographic_Ownership_Assignment</targetReference>
+            </connector>
+            <label>NO: Sales Alignment &amp; Postal Code Not NULL</label>
         </rules>
     </decisions>
     <interviewLabel>{!LeadId}</interviewLabel>
     <label>Lead Ownership Assignment</label>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>LOG_Missing_Postal_Code_OR_Sales_Alignment</name>
+        <label>LOG: Missing Postal Code OR Sales Alignment</label>
+        <locationX>1551</locationX>
+        <locationY>423</locationY>
+        <inputAssignments>
+            <field>Class__c</field>
+            <value>
+                <elementReference>LeadOwnershipAssignmentFlowName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Detail__c</field>
+            <value>
+                <stringValue>No domain match found in ATA_Non_Geographic_Assignment__c table for the lead domain: &quot;{!LeadDomainValue}&quot; and the Lead Sales Alignment (Staging) Value: &quot;{!LeadSalesAlignmentStagingValue}&quot;. So tried to do assignment based on Postal Code: &quot;{!LeadPostalCodeValue}&quot; &amp; Sales Alignment: &quot;{!LeadSalesAlignmentValue}&quot; match in ATA_Geographic_Assignment__c but looks like one of them is blank so assigned to the default user: &quot;{!UserName}&quot; with DTN: &quot;{!DefaultUserDTN}&quot;</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead__c</field>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>Lead Assignment</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>ATA_MISSING_POSTALCODE_OR_SALES_ALIGNMENT</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Monitoring_Log__c</object>
+    </recordCreates>
+    <recordCreates>
+        <name>LOG_No_User_with_Selected_DTN</name>
+        <label>LOG: No User with Selected DTN</label>
+        <locationX>327</locationX>
+        <locationY>778</locationY>
+        <inputAssignments>
+            <field>Class__c</field>
+            <value>
+                <elementReference>LeadOwnershipAssignmentFlowName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Detail__c</field>
+            <value>
+                <stringValue>Domain match found in ATA_Non_Geographic_Assignment__c table for the lead domain: &quot;{!LeadDomainValue}&quot; but cound not locate the active user with DTN: &quot;{!MatchedDTN}&quot; so assigned the lead to the default user: &quot;{!UserName}&quot; and DTN: &quot;{!DefaultUserDTN}&quot;</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead__c</field>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>Lead Assignment</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>ATA_NO_USER_FOUND_FOR_DTN_NONGEOGRAPHIC</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Monitoring_Log__c</object>
+    </recordCreates>
+    <recordCreates>
+        <name>LOG_No_User_with_Selected_DTN_0</name>
+        <label>LOG: No User with Selected DTN</label>
+        <locationX>877</locationX>
+        <locationY>954</locationY>
+        <inputAssignments>
+            <field>Class__c</field>
+            <value>
+                <elementReference>LeadOwnershipAssignmentFlowName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Detail__c</field>
+            <value>
+                <stringValue>Domain match not found in ATA_Non_Geographic_Assignment__c table for the lead domain: &quot;{!LeadDomainValue}&quot; but company match found for lead company: &quot;{!LeadCompanyNameValue}&quot; however cound not locate the active user with DTN: &quot;{!MatchedDTN}&quot; so assigned the lead to the default user: &quot;{!UserName}&quot; and DTN: &quot;{!DefaultUserDTN}&quot;</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead__c</field>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>Lead Assignment</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>ATA_NO_USER_FOUND_FOR_DTN_NONGEOGRAPHIC</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Monitoring_Log__c</object>
+    </recordCreates>
+    <recordCreates>
+        <name>LOG_No_User_with_Selected_DTN_1</name>
+        <label>LOG: No User with Selected DTN</label>
+        <locationX>1367</locationX>
+        <locationY>1090</locationY>
+        <inputAssignments>
+            <field>Class__c</field>
+            <value>
+                <elementReference>LeadOwnershipAssignmentFlowName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Detail__c</field>
+            <value>
+                <stringValue>No domain match found in ATA_Non_Geographic_Assignment__c table for the lead domain: &quot;{!LeadDomainValue}&quot; and the Lead Sales Alignment (Staging) Value: &quot;{!LeadSalesAlignmentStagingValue}&quot;. So tried to do assignment based on Postal Code: &quot;{!LeadPostalCodeValue}&quot; &amp; Sales Alignment: &quot;{!LeadSalesAlignmentValue}&quot; match in ATA_Geographic_Assignment__c but could not locate the right data with active user DTN so assigned to the default user: &quot;{!UserName}&quot; with DTN: &quot;{!DefaultUserDTN}&quot;</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead__c</field>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>Lead Assignment</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>ATA_NO_USER_FOUND_FOR_DTN_GEOGRAPHIC</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Monitoring_Log__c</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Log_the_Success</name>
+        <label>Log the Success</label>
+        <locationX>62</locationX>
+        <locationY>773</locationY>
+        <inputAssignments>
+            <field>Class__c</field>
+            <value>
+                <elementReference>LeadOwnershipAssignmentFlowName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Detail__c</field>
+            <value>
+                <stringValue>Domain match found in ATA_Non_Geographic_Assignment__c table for the lead domain: &quot;{!LeadDomainValue}&quot; so the lead is assigned to User: &quot;{!UserName}&quot; with DTN: &quot;{!MatchedDTN}&quot;</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead__c</field>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>Lead Assignment</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>ATA_LEAD_OWNER_IS_ASSIGNED_NONGEOGRAPHIC_MATCH</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Monitoring_Log__c</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Log_the_Success_0</name>
+        <label>Log the Success</label>
+        <locationX>619</locationX>
+        <locationY>949</locationY>
+        <inputAssignments>
+            <field>Class__c</field>
+            <value>
+                <elementReference>LeadOwnershipAssignmentFlowName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Detail__c</field>
+            <value>
+                <stringValue>Domain match not found in ATA_Non_Geographic_Assignment__c table for the lead domain: &quot;{!LeadDomainValue}&quot; but company match found for lead company: &quot;{!LeadCompanyNameValue}&quot; so assigned the lead to User: &quot;{!UserName}&quot; with DTN: &quot;{!MatchedDTN}&quot;</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead__c</field>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>Lead Assignment</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>ATA_LEAD_OWNER_IS_ASSIGNED_NONGEOGRAPHIC_MATCH</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Monitoring_Log__c</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Log_the_Success_1</name>
+        <label>Log the Success</label>
+        <locationX>1097</locationX>
+        <locationY>1099</locationY>
+        <inputAssignments>
+            <field>Class__c</field>
+            <value>
+                <elementReference>LeadOwnershipAssignmentFlowName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Detail__c</field>
+            <value>
+                <stringValue>No domain match found in ATA_Non_Geographic_Assignment__c table for the lead domain: &quot;{!LeadDomainValue}&quot; and the Lead Sales Alignment (Staging) Value: &quot;{!LeadSalesAlignmentStagingValue}&quot;. So assignment is done based on Postal Code: &quot;{!LeadPostalCodeValue}&quot; &amp; Sales Alignment: &quot;{!LeadSalesAlignmentValue}&quot; match in ATA_Geographic_Assignment__c. Assigned the lead to the User: &quot;{!UserName}&quot; with DTN: &quot;{!MatchedDTN}&quot;</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead__c</field>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>Lead Assignment</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>ATA_LEAD_OWNER_IS_ASSIGNED_GEOGRAPHIC_MATCH</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Monitoring_Log__c</object>
+    </recordCreates>
+    <recordLookups>
+        <name>Find_Default_Owner</name>
+        <label>Find Default Owner</label>
+        <locationX>327</locationX>
+        <locationY>534</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Default_Owner_to_the_Lead</targetReference>
+        </connector>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>DefaultLeadOwnerUserName</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>DefaultUserDTN</assignToReference>
+            <field>DTN__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>OwnerUserId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>UserName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Find_Default_Owner_0</name>
+        <label>Find Default Owner</label>
+        <locationX>877</locationX>
+        <locationY>710</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Default_Owner_to_the_Lead_0</targetReference>
+        </connector>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>DefaultLeadOwnerUserName</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>DefaultUserDTN</assignToReference>
+            <field>DTN__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>OwnerUserId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>UserName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Find_Default_Owner_1</name>
+        <label>Find Default Owner</label>
+        <locationX>1363</locationX>
+        <locationY>875</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Default_Owner_to_the_Lead_1</targetReference>
+        </connector>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>DefaultLeadOwnerUserName</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>DefaultUserDTN</assignToReference>
+            <field>DTN__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>OwnerUserId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>UserName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Find_Default_Owner_1_1</name>
+        <label>Find Default Owner</label>
+        <locationX>1549</locationX>
+        <locationY>200</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Default_Owner_to_the_Lead_1_1</targetReference>
+        </connector>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>DefaultLeadOwnerUserName</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>DefaultUserDTN</assignToReference>
+            <field>DTN__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>OwnerUserId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>UserName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
     <recordLookups>
         <name>Find_User</name>
         <label>Find User</label>
         <locationX>63</locationX>
-        <locationY>316</locationY>
+        <locationY>384</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Assign_Owner_to_the_Lead</targetReference>
+            <targetReference>Found_User</targetReference>
         </connector>
         <filters>
             <field>DTN__c</field>
@@ -53,33 +716,110 @@
                 <elementReference>MatchedDTN</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
         <object>User</object>
         <outputAssignments>
             <assignToReference>OwnerUserId</assignToReference>
             <field>Id</field>
         </outputAssignments>
+        <outputAssignments>
+            <assignToReference>UserName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
     </recordLookups>
     <recordLookups>
-        <name>Lookup_Domain</name>
-        <label>Lookup Domain</label>
-        <locationX>333</locationX>
-        <locationY>47</locationY>
+        <name>Find_User_0</name>
+        <label>Find User</label>
+        <locationX>618</locationX>
+        <locationY>560</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Does_Domain_Matched</targetReference>
+            <targetReference>Found_User_0</targetReference>
+        </connector>
+        <filters>
+            <field>DTN__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>MatchedDTN</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>OwnerUserId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>UserName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Find_User_1</name>
+        <label>Find User</label>
+        <locationX>1097</locationX>
+        <locationY>783</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_User_1</targetReference>
+        </connector>
+        <filters>
+            <field>DTN__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>MatchedDTN</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>OwnerUserId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>UserName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Company_Name</name>
+        <label>Lookup Company Name</label>
+        <locationX>619</locationX>
+        <locationY>277</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_Company_Matched</targetReference>
         </connector>
         <filters>
             <field>FieldName__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>FieldAPIName</elementReference>
+                <stringValue>Name</stringValue>
             </value>
         </filters>
         <filters>
             <field>FieldValue__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>FieldValue</elementReference>
+                <elementReference>LeadCompanyNameValue</elementReference>
             </value>
         </filters>
         <object>ATA_Non_Geographic_Assignment__c</object>
@@ -92,11 +832,136 @@
             <field>Ownership_NamedType__c</field>
         </outputAssignments>
     </recordLookups>
+    <recordLookups>
+        <name>Lookup_Domain</name>
+        <label>Lookup Domain</label>
+        <locationX>332</locationX>
+        <locationY>171</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_Domain_Matched</targetReference>
+        </connector>
+        <filters>
+            <field>FieldName__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Domain__c</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FieldValue__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadDomainValue</elementReference>
+            </value>
+        </filters>
+        <object>ATA_Non_Geographic_Assignment__c</object>
+        <outputAssignments>
+            <assignToReference>MatchedDTN</assignToReference>
+            <field>DTN__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>NamedType</assignToReference>
+            <field>Ownership_NamedType__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Geographic_Ownership_Assignment</name>
+        <label>Lookup Geographic Ownership Assignment</label>
+        <locationX>1217</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Match_in_Geographic_Assignment</targetReference>
+        </connector>
+        <filters>
+            <field>External_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>{!LeadSalesAlignmentValue}{!LeadPostalCodeValue}</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>PostalCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadPostalCodeValue</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Role_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadSalesAlignmentValue</elementReference>
+            </value>
+        </filters>
+        <object>ATA_Geographic_Assignment__c</object>
+        <outputAssignments>
+            <assignToReference>MatchedDTN</assignToReference>
+            <field>DTN__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Lead</name>
+        <label>Lookup Lead</label>
+        <locationX>62</locationX>
+        <locationY>47</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Read_ATA_Custom_Setting</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <outputAssignments>
+            <assignToReference>LeadCompanyNameValue</assignToReference>
+            <field>Company</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>LeadDomainValue</assignToReference>
+            <field>Domain__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>LeadPostalCodeValue</assignToReference>
+            <field>PostalCode5Digits__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>LeadSalesAlignmentStagingValue</assignToReference>
+            <field>Sales_Alignment_Staging__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>LeadSalesAlignmentValue</assignToReference>
+            <field>Sales_Alignment__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Read_ATA_Custom_Setting</name>
+        <label>Read ATA Custom Setting</label>
+        <locationX>272</locationX>
+        <locationY>48</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Domain</targetReference>
+        </connector>
+        <object>AccountAutomationSetting__c</object>
+        <outputAssignments>
+            <assignToReference>DefaultLeadOwnerUserName</assignToReference>
+            <field>Default_Lead_Custodian__c</field>
+        </outputAssignments>
+    </recordLookups>
     <recordUpdates>
-        <name>Assign_Owner_to_the_Lead</name>
-        <label>Assign Owner to the Lead</label>
-        <locationX>61</locationX>
-        <locationY>450</locationY>
+        <name>Assign_Default_Owner_to_the_Lead</name>
+        <label>Assign Default Owner to the Lead</label>
+        <locationX>328</locationX>
+        <locationY>662</locationY>
+        <connector>
+            <targetReference>LOG_No_User_with_Selected_DTN</targetReference>
+        </connector>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -105,6 +970,12 @@
             </value>
         </filters>
         <inputAssignments>
+            <field>Named_Account_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>OwnerId</field>
             <value>
                 <elementReference>OwnerUserId</elementReference>
@@ -112,21 +983,216 @@
         </inputAssignments>
         <object>Lead</object>
     </recordUpdates>
-    <startElementReference>Lookup_Domain</startElementReference>
+    <recordUpdates>
+        <name>Assign_Default_Owner_to_the_Lead_0</name>
+        <label>Assign Default Owner to the Lead</label>
+        <locationX>878</locationX>
+        <locationY>838</locationY>
+        <connector>
+            <targetReference>LOG_No_User_with_Selected_DTN_0</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Named_Account_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>OwnerUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Assign_Default_Owner_to_the_Lead_1</name>
+        <label>Assign Default Owner to the Lead</label>
+        <locationX>1365</locationX>
+        <locationY>992</locationY>
+        <connector>
+            <targetReference>LOG_No_User_with_Selected_DTN_1</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Named_Account_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>OwnerUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Assign_Default_Owner_to_the_Lead_1_1</name>
+        <label>Assign Default Owner to the Lead</label>
+        <locationX>1550</locationX>
+        <locationY>321</locationY>
+        <connector>
+            <targetReference>LOG_Missing_Postal_Code_OR_Sales_Alignment</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Named_Account_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>OwnerUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Assign_Owner_to_the_Lead</name>
+        <label>Assign Owner to the Lead</label>
+        <locationX>61</locationX>
+        <locationY>654</locationY>
+        <connector>
+            <targetReference>Log_the_Success</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Named_Account_Type__c</field>
+            <value>
+                <elementReference>NamedType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>OwnerUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Assign_Owner_to_the_Lead_0</name>
+        <label>Assign Owner to the Lead</label>
+        <locationX>618</locationX>
+        <locationY>830</locationY>
+        <connector>
+            <targetReference>Log_the_Success_0</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Named_Account_Type__c</field>
+            <value>
+                <elementReference>NamedType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>OwnerUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Assign_Owner_to_the_Lead_1</name>
+        <label>Assign Owner to the Lead</label>
+        <locationX>1095</locationX>
+        <locationY>1000</locationY>
+        <connector>
+            <targetReference>Log_the_Success_1</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Named_Account_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>OwnerUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <startElementReference>Lookup_Lead</startElementReference>
     <variables>
-        <description>FieldAPIName passed by Process Builder.</description>
-        <name>FieldAPIName</name>
+        <description>Reads the default lead owner from custom setting</description>
+        <name>DefaultLeadOwnerUserName</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
-        <isInput>true</isInput>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <description>FieldValue passed by the Process Builder</description>
-        <name>FieldValue</name>
+        <name>DefaultUserDTN</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
-        <isInput>true</isInput>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>GeoAssignmentExternalId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>LeadCompanyNameValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Holds the domain value from the lead</description>
+        <name>LeadDomainValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
     <variables>
@@ -135,6 +1201,30 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Holds the lead postal code value</description>
+        <name>LeadPostalCodeValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Sales Alignment (Staging) passed by process builder</description>
+        <name>LeadSalesAlignmentStagingValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Hold the lead sales alignment value</description>
+        <name>LeadSalesAlignmentValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
     <variables>
@@ -156,6 +1246,13 @@
     <variables>
         <description>Id of the user to be assigned in the Owner field</description>
         <name>OwnerUserId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>UserName</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

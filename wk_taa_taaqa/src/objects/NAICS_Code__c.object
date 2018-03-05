@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to store all special codes for Marketing</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Industry__c</fullName>
+        <externalId>false</externalId>
+        <label>Industry</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Agriculture, Forestry &amp; Fishing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Construction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manufacturing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transportation, Comms, Electric, Gas &amp; Sanitary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesale Trade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retail Trade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance, Insurance &amp; Real Estate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Public Administration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MSA_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>MSA Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MSA_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>MSA Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NAICS_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>NAICS Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SIC_Code_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>SIC Code Description</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SIC_Code_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>SIC Code Number</label>
+        <length>6</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>General Corporate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Banks and Financial Institutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Companies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hospital and Payers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consultants</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounting Firms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State and Local Government</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial and Estate Planners</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Exempt and Membership Organizations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal Professionals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Schools and Libraries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sub_Industry__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Industry</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Admin of Economic Programs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Admin of Environment and Housing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Admin of HR Programs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agricultural Production - Crops</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agricultural Production - Livestock</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agricultural Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Air Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amusement and Recreation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apparel and Accessory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apparel Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Automotive Dealers and Gas Station</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Auto Repair and Parking</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Building Construction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Building Materials, Hardware</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chemical Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coal Mining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Communications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Construction - Special Trade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Control Instruments</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Depository Institutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Eating and Drinking Places</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Educational Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electric, Gas, &amp; Sanitary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Equipment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engineering, Accounting, Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive, Legislative, &amp; General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fabricated Metal Products</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fishing &amp; Hunting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Food Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Food Stores</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Forestry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Furniture, Furnishings and Eq</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Furniture and Fixture Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General Merchandise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Heavy Construction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Holding and Other Investments</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hotels and Other Lodging</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Industrial/Commercial Machinery and Computer Eq</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Agents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Carriers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Justice and Safety</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Leather Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Local, Suburban Transit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lumber and Wood Product Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Membership Organizations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Metal Mining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mining and Quarrying of Nonmetallic Minerals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Miscellaneous</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Miscellaneous Repair</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Miscellaneous Retail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Motion Pictures</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Motor Freight Transport</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Museums and Art Galleries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Security</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nondepository Credit Institutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Oil &amp; Gas Extraction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Paper Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Personal Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Petroleum Refining Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pipelines, except Natural Gas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Primary Metal Industries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Printing and Publishing Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Public Finance, Taxation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Railroad Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Real Estate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rubber and Plastic Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security and Commodity Brokers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Social Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Stone, Clay, Glass, Concrete Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Textile Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tobacco Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transportation Eq</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transportation Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>USPS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Water Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesale - Durable Goods</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesale - Nondurable Goods</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Zip_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Zip Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Marketing Code</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Segment__c</columns>
+        <columns>NAME</columns>
+        <columns>SIC_Code_Description__c</columns>
+        <columns>SIC_Code_Number__c</columns>
+        <columns>Industry__c</columns>
+        <columns>Sub_Industry__c</columns>
+        <columns>MSA_Code__c</columns>
+        <columns>MSA_Name__c</columns>
+        <columns>NAICS_Code__c</columns>
+        <columns>Zip_Code__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>MSA_Codes</fullName>
+        <columns>NAME</columns>
+        <columns>MSA_Code__c</columns>
+        <columns>MSA_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MSA_Code__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>MSA Codes</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>NAICS_Code</fullName>
+        <columns>NAME</columns>
+        <columns>Segment__c</columns>
+        <columns>NAICS_Code__c</columns>
+        <columns>SIC_Code_Description__c</columns>
+        <columns>SIC_Code_Number__c</columns>
+        <columns>Industry__c</columns>
+        <columns>Sub_Industry__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Industry__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>NAICS Code</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>NAICS Code Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Marketing Codes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

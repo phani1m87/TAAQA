@@ -48,7 +48,7 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
@@ -58,6 +58,20 @@
         <precision>12</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFDC_Product_Length__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEN( SFDC_Product__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SFDC Product # Length</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -108,6 +122,21 @@
         <type>Currency</type>
     </fields>
     <label>TSM Shared Product</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>SFDC_Product__c</columns>
+        <columns>SFS_Opportunity_Record_ID__c</columns>
+        <columns>SFS_Oppty_Product_Record_ID__c</columns>
+        <columns>Unit_Price__c</columns>
+        <columns>Quantity__c</columns>
+        <columns>CONNECTION_RECEIVED.NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>TP-{0000000000}</displayFormat>
         <label>TSM_SharedProducts Name</label>
@@ -115,6 +144,12 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>TSM Shared Product</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Quantity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Unit_Price__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SFDC_Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SFS_Opportunity_Record_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SFS_Oppty_Product_Record_ID__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

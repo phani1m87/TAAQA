@@ -33,6 +33,14 @@
                 <behavior>Edit</behavior>
                 <field>Promotion_Terms_For_Order_Form__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Terms_for_Order_Form__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>promoname__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

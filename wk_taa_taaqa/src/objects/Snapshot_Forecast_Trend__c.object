@@ -268,17 +268,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Revised_Forecast__c</fullName>
-        <description>Revised Forecast</description>
-        <externalId>false</externalId>
-        <label>Revised Forecast</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Stage__c</fullName>
         <externalId>false</externalId>
         <label>Stage</label>

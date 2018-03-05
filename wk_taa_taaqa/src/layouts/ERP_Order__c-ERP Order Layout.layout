@@ -203,18 +203,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Is_Create_New_Bill_To__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Is_Update_Selected_Bill_To__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bill_To_Contact_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Bill_To_Partner_Number__c</field>
             </layoutItems>
             <layoutItems>
@@ -247,18 +235,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Is_Create_New_Ship_To__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Is_Update_Selected_Ship_To__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Ship_To_Contact_Name__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Ship_To_Partner_Number__c</field>
@@ -431,13 +407,11 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Quantity__c</fields>
-        <fields>Product__c</fields>
         <fields>Product_Code__c</fields>
-        <fields>Promo_Code__c</fields>
         <fields>List_Price__c</fields>
-        <fields>Line_Type__c</fields>
         <fields>Net_Adjustment__c</fields>
         <fields>Net_Price__c</fields>
+        <fields>CREATED_DATE</fields>
         <fields>Item_Sequence__c</fields>
         <relatedList>ERP_Order_Line_Item__c.ERP_Order__c</relatedList>
     </relatedLists>
@@ -447,7 +421,7 @@
         <fields>Message__c</fields>
         <fields>Created_Date_Time_With_Seconds__c</fields>
         <relatedList>Application_Monitoring_Log__c.ERPOrder__c</relatedList>
-        <sortField>NAME</sortField>
+        <sortField>Created_Date_Time_With_Seconds__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>

@@ -23,6 +23,14 @@
                 <field>Division__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Segment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>BusinessUnit__c</field>
             </layoutItems>
@@ -33,6 +41,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>First_Month_of_Quota__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Month_of_Quota_Override__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -52,10 +64,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Segment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>SSLT_Manager__c</field>
             </layoutItems>
             <layoutItems>
@@ -67,12 +75,20 @@
                 <field>ARMS_Request_ID__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Second_Level_Division__c</field>
+                <behavior>Readonly</behavior>
+                <field>Tenure__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Market__c</field>
+                <field>Title_for_Proposal__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Sales_group__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Pod__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

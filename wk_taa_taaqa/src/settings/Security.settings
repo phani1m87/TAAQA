@@ -62,9 +62,24 @@
             <start>184.89.222.204</start>
         </ipRanges>
         <ipRanges>
+            <description>Alex Cardona</description>
+            <end>184.89.213.201</end>
+            <start>184.89.213.201</start>
+        </ipRanges>
+        <ipRanges>
+            <description>Cardona</description>
+            <end>184.89.193.25</end>
+            <start>184.89.193.25</start>
+        </ipRanges>
+        <ipRanges>
             <description>Exact Target Whitelist</description>
             <end>184.72.230.214</end>
             <start>184.72.230.214</start>
+        </ipRanges>
+        <ipRanges>
+            <description>Jim Montgomery</description>
+            <end>172.75.27.189</end>
+            <start>172.75.27.189</start>
         </ipRanges>
         <ipRanges>
             <end>168.62.160.179</end>
@@ -93,10 +108,6 @@
             <description>Exact Target Whitelist</description>
             <end>136.147.128.14</end>
             <start>136.147.128.1</start>
-        </ipRanges>
-        <ipRanges>
-            <end>122.15.249.67</end>
-            <start>122.15.249.67</start>
         </ipRanges>
         <ipRanges>
             <description>Exact Target Whitelist</description>
@@ -184,6 +195,18 @@
         <ipRanges>
             <end>27.109.18.195</end>
             <start>27.109.18.195</start>
+        </ipRanges>
+        <ipRanges>
+            <end>13.111.251.28</end>
+            <start>13.111.251.0</start>
+        </ipRanges>
+        <ipRanges>
+            <end>13.111.250.28</end>
+            <start>13.111.250.0</start>
+        </ipRanges>
+        <ipRanges>
+            <end>13.111.17.17</end>
+            <start>13.111.17.0</start>
         </ipRanges>
     </networkAccess>
     <passwordPolicies>

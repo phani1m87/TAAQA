@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AnalyticSnapshot xmlns="http://soap.sforce.com/2006/04/metadata">
     <mappings>
+        <sourceField>Opportunity.Opportunity_Owner_DTN__c</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Snapshot_Forecast_Trend__c.Opportunity_Owner_DTN__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>ExecutionTime</sourceField>
+        <sourceType>snapshot</sourceType>
+        <targetField>Snapshot_Forecast_Trend__c.As_of_Date__c</targetField>
+    </mappings>
+    <mappings>
         <sourceField>JobName</sourceField>
         <sourceType>snapshot</sourceType>
         <targetField>Snapshot_Forecast_Trend__c.Name</targetField>
@@ -89,16 +99,6 @@
         <sourceField>User.Division__c</sourceField>
         <sourceType>tabular</sourceType>
         <targetField>Snapshot_Forecast_Trend__c.Division__c</targetField>
-    </mappings>
-    <mappings>
-        <sourceField>Opportunity.Opportunity_Owner_DTN__c</sourceField>
-        <sourceType>tabular</sourceType>
-        <targetField>Snapshot_Forecast_Trend__c.Opportunity_Owner_DTN__c</targetField>
-    </mappings>
-    <mappings>
-        <sourceField>ExecutionTime</sourceField>
-        <sourceType>snapshot</sourceType>
-        <targetField>Snapshot_Forecast_Trend__c.As_of_Date__c</targetField>
     </mappings>
     <name>Forecast Trends - High</name>
     <runningUser>julia.galletto@wolterskluwer.com.taa</runningUser>

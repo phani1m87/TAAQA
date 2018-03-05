@@ -129,6 +129,25 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Contact_Activity__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( BEGINS(WhoId, &quot;003&quot;) ,TRUE,FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Activity</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Opportunity_Activity__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( BEGINS(WhatId, &quot;006&quot;) ,&quot;Opportunity&quot;,
+IF( BEGINS(WhoId, &quot;003&quot;) ,&quot;Contact&quot;,&quot;&quot;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact/Opportunity Activity</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Created_By_Profile__c</fullName>
         <externalId>false</externalId>
         <formula>CreatedBy.Profile.Name</formula>
@@ -389,6 +408,15 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Market__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Owner:User.Market__c)</formula>
+        <label>Market</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Count__c</fullName>
         <externalId>false</externalId>
         <formula>IF(  Activity_Type__c = &quot;Meeting&quot;,1,0)</formula>
@@ -444,7 +472,7 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
         <valueSet>
             <controllingField>Event_Type__c</controllingField>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
                     <fullName>Accounting Research Manager</fullName>
                     <default>false</default>
@@ -459,6 +487,10 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
                 </value>
                 <value>
                     <fullName>ATX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Audit Accelerator</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -706,6 +738,10 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>TeamMate Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Trial Balance</fullName>
                     <default>false</default>
                 </value>
@@ -733,6 +769,11 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
                 <controllingFieldValue>Demo - Webinar</controllingFieldValue>
                 <controllingFieldValue>Demo - Professional Software</controllingFieldValue>
                 <valueName>ATX</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Demo - Professional</controllingFieldValue>
+                <controllingFieldValue>Demo - Professional Software</controllingFieldValue>
+                <valueName>Audit Accelerator</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Demo - Professional</controllingFieldValue>
@@ -985,6 +1026,10 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Demo - Professional</controllingFieldValue>
+                <valueName>TeamMate Analytics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Demo - Professional</controllingFieldValue>
                 <controllingFieldValue>Demo - Corp. Direct</controllingFieldValue>
                 <controllingFieldValue>Demo - Webinar</controllingFieldValue>
                 <controllingFieldValue>Demo - Professional Software</controllingFieldValue>
@@ -1145,11 +1190,30 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Sales_Pod__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Owner:User.Sales_Pod__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Pod</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sales_Rep_Manager__c</fullName>
         <externalId>false</externalId>
         <formula>Owner:User.Manager_Full_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Rep Manager</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Source_ActivityID__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Source ActivityID</label>
+        <length>255</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -2108,6 +2172,16 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
         </valueSet>
     </fields>
     <fields>
+        <fullName>Week_of_Month__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;Week &quot; + TEXT(MOD(FLOOR(( DATEVALUE(CreatedDate)  - Date(Year(DATEVALUE(CreatedDate)),1,1))/7) + 26,52)+1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Week of Month</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Welcome_Call__c</fullName>
         <externalId>false</externalId>
         <formula>IF( OR( Subject = &quot;Step 1 - Welcome Call&quot;,
@@ -2124,6 +2198,16 @@ IF(ISBLANK(TEXT(Demo_Type__c)) &amp;&amp;  IsTask = FALSE, &quot;Meeting&quot;,
 &quot;Yes&quot;,&quot;No&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Welcome Call</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X18_digit_id__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>18 digit id</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>

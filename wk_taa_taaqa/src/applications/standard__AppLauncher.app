@@ -8,6 +8,5 @@
     <tab>Quote_Promotion__c</tab>
     <tab>Product_Type_SubTotals__c</tab>
     <tab>Useful_Links</tab>
-    <tab>Assist_List</tab>
-    <tab>ATA_AssignmentType_Map__c</tab>
+    <tab>Activity_Goals__c</tab>
 </CustomApplication>

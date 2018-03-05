@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>CSC - Telco &amp; Energy - Corporate Software</description>
+    <description>CSC - Verticals - Corporate Software</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>CSC - Telco &amp; Energy - Corporate Software</name>
+    <name>CSC - Verticals - Corporate Software</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
     <parentRole>DSM_STG_West_Corporate_Software</parentRole>
 </Role>

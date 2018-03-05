@@ -455,7 +455,7 @@
     <processMetadataValues>
         <name>ObjectType</name>
         <value>
-            <stringValue>Requests__c</stringValue>
+            <stringValue>Project__c</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -635,7 +635,7 @@
                 <stringValue>Not Started</stringValue>
             </value>
         </inputAssignments>
-        <object>Action_Item__c</object>
+        <object>Project_Action_Items__c</object>
     </recordCreates>
     <recordCreates>
         <name>myRule_1_A2</name>
@@ -795,7 +795,7 @@
                 <stringValue>Not Started</stringValue>
             </value>
         </inputAssignments>
-        <object>Action_Item__c</object>
+        <object>Project_Action_Items__c</object>
     </recordCreates>
     <recordCreates>
         <name>myRule_1_A3</name>
@@ -955,7 +955,7 @@
                 <stringValue>Not Started</stringValue>
             </value>
         </inputAssignments>
-        <object>Action_Item__c</object>
+        <object>Project_Action_Items__c</object>
     </recordCreates>
     <recordCreates>
         <name>myRule_1_A4</name>
@@ -1115,7 +1115,7 @@
                 <stringValue>Not Started</stringValue>
             </value>
         </inputAssignments>
-        <object>Action_Item__c</object>
+        <object>Project_Action_Items__c</object>
     </recordCreates>
     <recordCreates>
         <name>myRule_1_A5</name>
@@ -1275,7 +1275,7 @@
                 <stringValue>Not Started</stringValue>
             </value>
         </inputAssignments>
-        <object>Action_Item__c</object>
+        <object>Project_Action_Items__c</object>
     </recordCreates>
     <recordCreates>
         <name>myRule_1_A6</name>
@@ -1435,7 +1435,7 @@
                 <stringValue>Not Started</stringValue>
             </value>
         </inputAssignments>
-        <object>Action_Item__c</object>
+        <object>Project_Action_Items__c</object>
     </recordCreates>
     <recordCreates>
         <name>myRule_1_A7</name>
@@ -1595,7 +1595,7 @@
                 <stringValue>Not Started</stringValue>
             </value>
         </inputAssignments>
-        <object>Action_Item__c</object>
+        <object>Project_Action_Items__c</object>
     </recordCreates>
     <recordCreates>
         <name>myRule_1_A8</name>
@@ -1752,7 +1752,7 @@
                 <stringValue>Not Started</stringValue>
             </value>
         </inputAssignments>
-        <object>Action_Item__c</object>
+        <object>Project_Action_Items__c</object>
     </recordCreates>
     <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
     <variables>
@@ -1761,7 +1761,7 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>true</isOutput>
-        <objectType>Requests__c</objectType>
+        <objectType>Project__c</objectType>
     </variables>
     <variables>
         <name>myVariable_old</name>
@@ -1769,7 +1769,7 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
-        <objectType>Requests__c</objectType>
+        <objectType>Project__c</objectType>
     </variables>
     <variables>
         <name>myVariable_waitStartTimeVariable</name>

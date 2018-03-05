@@ -168,6 +168,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Initial_Deposit_Default</fullName>
+        <field>APTS_Initial_Deposit__c</field>
+        <formula>APTS_Payment_Term_Total__c *(0.15)</formula>
+        <name>Initial Deposit Default</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Final_Installment</fullName>
         <field>Final_Installment_Amount_2__c</field>
         <formula>IF(  ISPICKVAL(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;) ,  IF( OR( ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;) , ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;) ),  IF((APTS_Instalment_Amount__c*3) &gt; APTS_Pending_Amount__c, APTS_Pending_Amount__c*2 - APTS_Instalment_Amount__c*5, null) , null) , null)</formula>
@@ -295,6 +304,16 @@
         <active>false</active>
         <formula>AND(ISBLANK(PRIORVALUE( APTS_Initial_Deposit_Date__c )), APTS_Quote_Proposal__r.RecordType.Name =&quot;AMS Proposal&quot;,OR( ISPICKVAL(APTS_Payment_Term__c ,&quot;Flex Pay&quot;),ISPICKVAL(APTS_Payment_Term__c,&quot;IPP 6&quot;),ISPICKVAL(APTS_Payment_Term__c,&quot;IPP 4&quot;),ISPICKVAL(APTS_Payment_Term__c,&quot;IPP 12&quot;)))</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Payment Term Initial Deposit</fullName>
+        <actions>
+            <name>Initial_Deposit_Default</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>APTS_Payment_Term_Total__c &gt;0 &amp;&amp;  APTS_Quote_Proposal__r.RecordType.Name  = &quot;AMS Proposal&quot; &amp;&amp; (ISPICKVAL( APTS_Payment_Term__c ,&quot;Flex Pay&quot;) || ISPICKVAL( APTS_Payment_Term__c ,&quot;IPP 6&quot;) || ISPICKVAL( APTS_Payment_Term__c ,&quot;IPP 12&quot;) || ISPICKVAL( APTS_Payment_Term__c ,&quot;IPP 4&quot;))</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Set default deposit amount</fullName>

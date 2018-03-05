@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>None</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>Solution Architect - Professional (SA)</description>
+    <description>Solution Architect - Professional (West)</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Solution Architect - Professional (SA)</name>
+    <name>Solution Architect - Professional (West)</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
     <parentRole>Manager_Solution_Design_Professional_SA</parentRole>
 </Role>

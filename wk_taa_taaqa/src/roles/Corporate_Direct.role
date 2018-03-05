@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Corporate Direct</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>DSM_Corporate_Direct</parentRole>
+    <parentRole>Mid_Market_Software</parentRole>
 </Role>

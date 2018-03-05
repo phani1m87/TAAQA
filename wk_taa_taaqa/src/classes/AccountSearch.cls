@@ -686,4 +686,8 @@ public without sharing class AccountSearch
              
         }
     }
+    public PageReference redirectUser(){
+    PageReference ref = new PageReference('/500/e?retURL=%2F500%2Fo&RecordType=0120Z000001Ifmd&ent=Case');
+    return ref;
+}
 }

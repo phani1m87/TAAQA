@@ -299,10 +299,11 @@
         <fullName>Promotion_Terms_For_Order_Form__c</fullName>
         <externalId>false</externalId>
         <label>Promotion Terms For Order Form</label>
-        <length>131072</length>
+        <length>255</length>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Promotion__c</fullName>
@@ -537,6 +538,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Terms_for_Order_Form__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Promotion_Terms_for_Order_Form__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Terms for Order Form</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Today__c</fullName>
         <defaultValue>TODAY ()</defaultValue>
         <externalId>false</externalId>
@@ -561,6 +573,17 @@
         <formula>Left(Promotion_Code__c,5)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>5 Digit Promo Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>promoname__c</fullName>
+        <externalId>false</externalId>
+        <formula>Promotion__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>promoname</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -600,6 +623,12 @@
         <active>false</active>
         <errorConditionFormula>AND ( NOT (ISNEW()),Quote_Has_COMPL1_Master_Tax_Guide__c &lt;&gt;  Promotion_Has_COMPL1_Master_Tax_Guide__c)</errorConditionFormula>
         <errorMessage>Master Tax Guide Attribute on Account and Promotion do not match. Promotion is NOT valid for this Quote.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile_Time_Entry</fullName>
+        <active>true</active>
+        <errorConditionFormula>(isblank(Quote_Proposal__r.PM_Months_to_Expiration__c) ||Quote_Proposal__r.PM_Months_to_Expiration__c &lt;1) &amp;&amp; CONTAINS(Promotion_Code__c,&apos;24408&apos;)</errorConditionFormula>
+        <errorMessage>There is no qualifying Practice Management product in inventory for this account.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PROS4_Validation</fullName>

@@ -10,7 +10,7 @@ private class EOI_Test_ApplicationLoggingUtility
     {
         Test.startTest();
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, '');
         Test.stopTest();
     }
@@ -19,7 +19,7 @@ private class EOI_Test_ApplicationLoggingUtility
     {
         Test.startTest();
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
         result.orderSubmissionAcknowledgement.StatusCode = WK_Constants.EOI_SERVER_IS_DOWN_FOR_MAINTENANCE_STATUSCODE;
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, '');
         Test.stopTest();
@@ -29,7 +29,7 @@ private class EOI_Test_ApplicationLoggingUtility
     {
         Test.startTest();
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
         result.orderSubmissionAcknowledgement.StatusCode = WK_Constants.EOI_SUCCESS_STATUSCODE;
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, '');
         Test.stopTest();
@@ -39,7 +39,7 @@ private class EOI_Test_ApplicationLoggingUtility
     {
         Test.startTest();
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
         result.orderSubmissionAcknowledgement.StatusCode = WK_Constants.EOI_PENDING_STATUSCODE;
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, '');
         Test.stopTest();
@@ -49,7 +49,7 @@ private class EOI_Test_ApplicationLoggingUtility
     {
         Test.startTest();
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
         result.orderSubmissionAcknowledgement.StatusCode = WK_Constants.EOI_BAD_MISSING_XML_DATA_STATUSCODE;
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, '');
         Test.stopTest();
@@ -59,7 +59,7 @@ private class EOI_Test_ApplicationLoggingUtility
     {
         Test.startTest();
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
         result.orderSubmissionAcknowledgement.StatusCode = WK_Constants.EOI_GATEWAY_TIMEOUT_REQUEST_EXPIRED;
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, '');
         Test.stopTest();
@@ -69,7 +69,7 @@ private class EOI_Test_ApplicationLoggingUtility
     {
         Test.startTest();
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
         result.orderSubmissionAcknowledgement.StatusCode = WK_Constants.EOI_PROCESSING_RETRYING_REQUEST_STATUSCODE;
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, 'DOWN');
         Test.stopTest();
@@ -79,7 +79,7 @@ private class EOI_Test_ApplicationLoggingUtility
     {
         Test.startTest();
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = EOI_Test_OrderAutomation.createOrderSubmissionResponseType();
         result.orderSubmissionAcknowledgement.StatusCode = WK_Constants.EOI_Retry_LIMIT_EXCEED;
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, '');
         Test.stopTest();
@@ -88,7 +88,7 @@ private class EOI_Test_ApplicationLoggingUtility
     static testMethod void testApplicationLogFromCalloutResponse_resultNULL() 
     {
         Test.startTest();
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = NULL;
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = NULL;
         ERP_Order__c objERPOrder = [SELECT Id, Name FROM ERP_ORDER__c LIMIT 1];
         EOI_ApplicationLoggingUtility.ApplicationLogFromCalloutResponse('TestClass', 'TestMethod', 'TestRequest', result, objERPOrder.Name, objERPOrder.Id, 'DOWN');
         Test.stopTest();

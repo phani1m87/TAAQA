@@ -42,7 +42,7 @@
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>Deployed</deploymentStatus>
+    <deploymentStatus>InDevelopment</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -139,6 +139,18 @@
         <formula>CreatedBy.Email</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Creator Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Division__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Owner:User.Division__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Division</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -999,6 +1011,10 @@
                     <fullName>Rejected</fullName>
                     <default>false</default>
                 </value>
+                <value>
+                    <fullName>Ready to Process</fullName>
+                    <default>false</default>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1471,6 +1487,10 @@
                 <default>true</default>
             </values>
             <values>
+                <fullName>Ready to Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Recalled</fullName>
                 <default>false</default>
             </values>
@@ -1826,6 +1846,10 @@
             <values>
                 <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready to Process</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Recalled</fullName>

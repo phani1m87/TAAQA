@@ -152,7 +152,7 @@ public without sharing class ATA_PostAccountTeam
                             i++;
                             isConsiderd = true;
                             
-                            logMessage = logMessage + '\n No change for the role: ' + objDerivedATM.TeamMemberRole + ' User: '+ mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')';
+                            logMessage = logMessage + '\n No change for the role: ' + objDerivedATM.TeamMemberRole + ' User: ' + mapUserIdAndUser.get(objDerivedATM.UserId).Name + '(DTN: ' + mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c + ')';
                             
                             // assign DTN to field
                             String DTN = mapUserIdAndUser.get(objDerivedATM.UserId).DTN__c;
@@ -249,12 +249,12 @@ public without sharing class ATA_PostAccountTeam
                                         if(String.isNotBlank(String.valueOf(mapAccountIdNAccountToUpdate.get(accountId).get(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole))))){
                                             DTN = DTN + ',' + mapAccountIdNAccountToUpdate.get(accountId).get(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole));
                                         }
+                                        mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
                                         if(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole) != NULL){
                                             mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole), NULL);
                                         }else{
                                             logMessage = logMessage + ' DTN field mapping is missing in ATA_Role_to_DTN_Field_Mapping__c for the role: ' + objCurrentATM.TeamMemberRole + '.';
                                         }
-                                        mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
                                     }else{
                                         Account objAccount = new Account(Id = accountId);
                                         objAccount.put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);

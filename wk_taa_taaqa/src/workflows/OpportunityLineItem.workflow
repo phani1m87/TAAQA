@@ -76,7 +76,7 @@
             <value>True</value>
         </criteriaItems>
         <description>Updates the Line Item amount for iFirm monthly products.</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Zero Opportunity Amount</fullName>
@@ -97,7 +97,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR 7</booleanFilter>
+        <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8</booleanFilter>
         <criteriaItems>
             <field>Product2.Zero_Opportunity_Amount__c</field>
             <operation>equals</operation>
@@ -132,6 +132,11 @@
             <field>OpportunityLineItem.Description</field>
             <operation>contains</operation>
             <value>Delivery/Download</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>OpportunityLineItem.Description</field>
+            <operation>contains</operation>
+            <value>Fujitsu</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>

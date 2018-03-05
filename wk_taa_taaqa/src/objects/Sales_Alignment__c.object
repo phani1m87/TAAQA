@@ -73,12 +73,24 @@
         <unique>false</unique>
     </fields>
     <label>Sales Alignment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Sales_Alignment__c</columns>
+        <columns>Sales_Rep_Role__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>SA-{0000}</displayFormat>
         <label>Custom Object Label Name</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Sales Alignments</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchFilterFields>Sales_Alignment__c</searchFilterFields>
+        <searchFilterFields>Sales_Rep_Role__c</searchFilterFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

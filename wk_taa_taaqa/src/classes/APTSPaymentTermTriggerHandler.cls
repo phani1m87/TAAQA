@@ -79,7 +79,7 @@ public class APTSPaymentTermTriggerHandler {
                                                                                                  || APTSConstants.IPP12 == termDetail.APTS_Payment_Term__c
                                                                                                  || APTSConstants.NET30 == termDetail.APTS_Payment_Term__c)
                && termDetail.APTS_Initial_Deposit__c != null && termDetail.APTS_Payment_Term_Total__c != null
-               && ((customSettingPaymentTerm.APTS_Min_Percent_for_Initial_Deposit_AMS__c * termDetail.APTS_Payment_Term_Total__c)/100   > termDetail.APTS_Initial_Deposit__c)){
+               && (((customSettingPaymentTerm.APTS_Min_Percent_for_Initial_Deposit_AMS__c * termDetail.APTS_Payment_Term_Total__c)/100).setScale(2)  > termDetail.APTS_Initial_Deposit__c)){
                   // Decimal rounded = Math.round(0.15 * termDetail.APTS_Payment_Term_Total__c, 2);
                    if(!Test.isRunningTest())
                    termDetail.addError(Label.APTS_Initial_deposit_should_be_at_least 

@@ -23,7 +23,7 @@ private class TeamMemberRoleOppDeleteTest {
         insert O;
        
          
-OpportunityTeamMember M = new OpportunityTeamMember(opportunityid =o.Id, UserID= '005i0000004TuQ0AAK', TeamMemberRole = 'ASR - Research and Learning');
+OpportunityTeamMember M = new OpportunityTeamMember(opportunityid =o.Id, UserID= '005i0000004TuQ0AAK', TeamMemberRole = 'RC - R&L Retention');
  
 
        

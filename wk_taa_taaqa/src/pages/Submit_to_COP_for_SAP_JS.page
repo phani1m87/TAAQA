@@ -14,11 +14,12 @@ var p = new sforce.SObject('Apttus_Proposal__Proposal__c');
 p.Id = "{!Apttus_Proposal__Proposal__c.Id}";
 p.apttus_proposal__approval_stage__c = "Submitted to COP";
 p.SAP_Order_Processing_Stage__c = "Submitted to COP";
+p.Proposal_Submitted_By__c = sforce.connection.getUserInfo().userId;
 
 
 result = sforce.connection.update([p]); 
 
-location.href="https://wktaa--taaqa.cs18.my.salesforce.com/"+p.Id;
+location.href="https://wktaa.my.salesforce.com/"+p.Id;
 
 };
 

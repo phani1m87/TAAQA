@@ -44,27 +44,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Segment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Market_Sub_Segment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Rating__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>S2S_Contact_Data__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AMS_Account_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SFDC_Contact_Text__c</field>
+                <field>Sales_Alignment_Staging__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -196,10 +176,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Product_Intere__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -375,6 +351,7 @@
         <fields>Email</fields>
         <fields>MobilePhone</fields>
         <fields>Phone</fields>
+        <fields>AssistantName</fields>
         <relatedLists>
             <fields>TASK.SUBJECT</fields>
             <fields>TASK.DUE_DATE</fields>
@@ -383,21 +360,15 @@
             <relatedList>RelatedActivityList</relatedList>
         </relatedLists>
         <relatedLists>
+            <fields>TASK.SUBJECT</fields>
             <relatedList>RelatedHistoryList</relatedList>
+        </relatedLists>
+        <relatedLists>
+            <relatedList>RelatedNoteList</relatedList>
         </relatedLists>
     </miniLayout>
     <platformActionList>
         <actionListContext>Record</actionListContext>
-        <platformActionListItems>
-            <actionName>CallHighlightAction</actionName>
-            <actionType>ProductivityAction</actionType>
-            <sortOrder>4</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>LogACall</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>0</sortOrder>
-        </platformActionListItems>
         <platformActionListItems>
             <actionName>Edit</actionName>
             <actionType>StandardButton</actionType>
@@ -414,9 +385,19 @@
             <sortOrder>3</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
+            <actionName>CallHighlightAction</actionName>
+            <actionType>ProductivityAction</actionType>
+            <sortOrder>4</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>EmailHighlightAction</actionName>
             <actionType>ProductivityAction</actionType>
             <sortOrder>5</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>LogACall</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>0</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>

@@ -138,6 +138,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>BillingCity</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Phone</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -693,10 +698,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>AS_Trigger__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>AS Trigger</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ATA_ATX_TW_Retention_Owner_DTN__c</fullName>
         <description>DTN of the Account Team Member derived by ATX_TW_Retention_Owner__c</description>
         <externalId>false</externalId>
-        <label>ATA ATX/TW Retention Owner DTN</label>
+        <label>ATX/TW Retention DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -708,7 +722,7 @@
         <fullName>ATA_Corp_Software_Retention_Owner_DTN__c</fullName>
         <description>DTN of the Account Team Member derived by Corp_Software_Retention_Owner__c</description>
         <externalId>false</externalId>
-        <label>ATA Corp Software Retention Owner DTN</label>
+        <label>Corp Software Retention DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -720,7 +734,7 @@
         <fullName>ATA_Corporate_Software_New_Sales_DTN__c</fullName>
         <description>DTN of the Account Team Member derived by Corporate_Software_New_Sales__c</description>
         <externalId>false</externalId>
-        <label>ATA Corporate Software New Sales DTN</label>
+        <label>Corporate Software New Sales DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -732,7 +746,7 @@
         <fullName>ATA_PFX_Axcess_Retention_Owner_DTN__c</fullName>
         <description>DTN of the Account Team Member derived by PFX_Axcess_Retention_Owner__c</description>
         <externalId>false</externalId>
-        <label>ATA PFX/Axcess Retention Owner DTN</label>
+        <label>PFX/Axcess Retention DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -744,7 +758,7 @@
         <fullName>ATA_R_L_New_Sales_DTN__c</fullName>
         <description>DTN of the Account Team Member derived by R_L_New_Sales__c</description>
         <externalId>false</externalId>
-        <label>ATA R&amp;L New Sales DTN</label>
+        <label>R&amp;L New Sales DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -756,7 +770,7 @@
         <fullName>ATA_R_L_Retention_Owner_DTN__c</fullName>
         <description>DTN of the Account Team Member derived by R_L_Retention_Owner__c</description>
         <externalId>false</externalId>
-        <label>ATA R&amp;L Retention Owner DTN</label>
+        <label>R&amp;L Retention DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -768,7 +782,7 @@
         <fullName>ATA_Solution_Consultant_DTN__c</fullName>
         <description>DTN of the Solution Consultant Team Member</description>
         <externalId>false</externalId>
-        <label>ATA Solution Consultant DTN</label>
+        <label>Global National Strategic DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -780,7 +794,7 @@
         <fullName>ATA_TAA_Software_New_Sales_DTN__c</fullName>
         <description>DTN of the team member derived by TAA_Software_New_Sales__c</description>
         <externalId>false</externalId>
-        <label>ATA TAA Software New Sales DTN</label>
+        <label>TAA Software New Sales DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -792,7 +806,7 @@
         <fullName>ATA_Trust_Sales_DTN__c</fullName>
         <description>DTN of the Account Team Member derived by Trust_Sales__c</description>
         <externalId>false</externalId>
-        <label>ATA Trust Sales DTN</label>
+        <label>Trust Sales DTN</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -803,11 +817,12 @@
     <fields>
         <fullName>ATX_TW_Retention_Owner__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Named_Account__c ,
-	IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Premier&quot;), &quot;Premier Retention&quot;, &quot;&quot;),
-	IF( Small_Firm_Customer__c  , &quot;Small Firms Retention&quot;, &quot;&quot; )
+        <formula>IF( Small_Firm_Customer__c  , &quot;Small Firms Retention&quot;, 
+	IF(AND (Named_Account__c,ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Premier&quot;) ), &quot;Premier Retention&quot;,
+		&quot;&quot;
+	)
 )</formula>
-        <label>ATX/TW Retention Owner</label>
+        <label>ATX/TW Retention</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -857,6 +872,160 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Revenue_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Software_Revenue__c + R_L_Revenue_Total__c + Active_SFS_Inventory__c + STG_Revenue_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Revenue Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_Cust_Segmentation_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Scoring Cust Segmentation Points</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_Grade__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Account_Scoring_Total_Points__c &lt;80,&quot;C&quot;,if(Account_Scoring_Total_Points__c &gt;=80 &amp;&amp; Account_Scoring_Total_Points__c  &lt;90,&quot;B&quot;,if(Account_Scoring_Total_Points__c&gt;=90,&quot;A&quot;,null)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Scoring Grade</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_Product_Count__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Total_Product_Count__c =1,&quot;1 Product&quot;,if(Total_Product_Count__c=2||Total_Product_Count__c = 3,&quot;2-3 Products&quot;,if(Total_Product_Count__c&gt;=4,&quot;4+ Products&quot;,null)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Scoring Product Count</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_Product_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Scoring Product Points</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_Subsegment_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Scoring Subsegment Points</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_Tenure_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Scoring Tenure Points</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_Tenure__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Account_Tenure__c&lt;=1,&quot;0-1 Years&quot;,if(Account_Tenure__c &gt;1 &amp;&amp; Account_Tenure__c&lt;5,&quot;2-4 Years&quot; ,if(Account_Tenure__c&gt;5,&quot;5+ Years&quot;,null)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Scoring Tenure</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_Total_Points__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Scoring_Cust_Segmentation_Points__c + Account_Scoring_Product_Points__c + Account_Scoring_Tenure_Points__c + Account_Scoring_YTD_return_Points__c + Account_Scoring_Subsegment_Points__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Scoring Total Points</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_YTD_Returns__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( YTD_TRNMT_RET_c__c &gt;0 &amp;&amp; YTD_TRNMT_RET_c__c &lt;=500,&quot;0-500 Returns&quot;,if(YTD_TRNMT_RET_c__c&gt;500 &amp;&amp; YTD_TRNMT_RET_c__c&lt;=2000,&quot;501-2000 Returns&quot;,if(YTD_TRNMT_RET_c__c&gt;2001,&quot;2001+ Returns&quot;,null)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Scoring YTD Returns</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Scoring_YTD_return_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Scoring YTD return Points</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Summary_Light__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Account_Scoring_Grade__c =&quot;C&quot;,IMAGE(&quot;/servlet/servlet.FileDownload?file=0150Z000009aB0Q&quot;,&quot;Red&quot;), 
+if(Account_Scoring_Grade__c = &quot;B&quot;,IMAGE(&quot;/servlet/servlet.FileDownload?file=0150Z000009aB0S&quot;,&quot;Yellow&quot;), 
+if(Account_Scoring_Grade__c = &quot;A&quot;,IMAGE(&quot;/servlet/servlet.FileDownload?file=0150Z000009aB0R&quot;,&quot;Green&quot;),null)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Summary</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Tenure__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Tenure</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -931,7 +1100,7 @@ Has_SFS_Other_Ancillary__c = true</formula>
     <fields>
         <fullName>Active_Software__c</fullName>
         <externalId>false</externalId>
-        <formula>IF((Has_Tax__c = TRUE || Has_Axcess_Tax__c = TRUE || Has_GFX__c = TRUE || Has_Outsource__c = TRUE || Has_Scan__c = TRUE || Has_Scan_SaaS__c = TRUE ||  Has_PDFlyer__c = TRUE ||  Has_Fixed_Assets__c = TRUE ||  Has_Practice_Management__c = TRUE || Has_Axcess_Practice__c = TRUE || Has_Practice__c = TRUE ||  Has_Practice_Manager__c = TRUE || Has_Axcess_Workstream__c = TRUE ||  Has_Knowledge_Connect__c = TRUE || Has_Axcess_Document__c = TRUE ||  Has_Document_On_Premise__c = TRUE || Has_Document_ASP__c = TRUE || Has_Document__c = TRUE || Has_Portal_SaaS__c = TRUE || Has_Engagement__c = TRUE || Has_Knowledge_Tools__c = TRUE || Has_Trial_Balance__c = TRUE || Has_Knowledge_Coach__c = TRUE || Has_Active_Data__c = TRUE ||Has_Fixed_Assets_Manager_OP__c = true || Has_Fixed_Assets_Manager_SaaS__c = true),TRUE,FALSE)</formula>
+        <formula>IF((Has_Tax__c = TRUE || Has_Axcess_Tax__c = TRUE || Has_GFX__c = TRUE || Has_Outsource__c = TRUE || Has_Scan__c = TRUE || Has_Scan_SaaS__c = TRUE ||  Has_PDFlyer__c = TRUE ||  Has_Fixed_Assets__c = TRUE ||  Has_Practice_Management__c = TRUE || Has_Axcess_Practice__c = TRUE || Has_Practice__c = TRUE ||  Has_Practice_Manager__c = TRUE || Has_Axcess_Workstream__c = TRUE ||  Has_Knowledge_Connect__c = TRUE || Has_Axcess_Document__c = TRUE ||  Has_Document_On_Premise__c = TRUE || Has_Document_ASP__c = TRUE || Has_Document__c = TRUE || Has_Portal_SaaS__c = TRUE || Has_Engagement__c = TRUE || Has_Knowledge_Tools__c = TRUE || Has_Trial_Balance__c = TRUE || Has_Knowledge_Coach__c = TRUE || Has_Active_Data__c = TRUE ||Has_Fixed_Assets_Manager__c = true ),TRUE,FALSE)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Active Software</label>
         <trackHistory>false</trackHistory>
@@ -1679,6 +1848,29 @@ Has_SFS_Other_Ancillary__c = true</formula>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Axcess_Tax_Update_Counter__c</fullName>
+        <externalId>false</externalId>
+        <label>Axcess Tax Update Counter</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Axcess_Tax_Update_Order__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (NOT(ISBLANK(Tax_Update_Account_Number__c)) &amp;&amp; NOT(ISBLANK(Tax_Update_Contact__c)) , HYPERLINK(&quot;/apex/Axcess_Tax_Update_Order_Form?id=&quot;&amp;Id, IMAGE(&quot;/resource/AxcessTaxUpdateButton&quot;, &quot;Axcess Tax Tax Update Order&quot;),&quot;_self&quot;), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Axcess Tax Update Order</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Axcess_Workstream_Competitor__c</fullName>
         <externalId>false</externalId>
         <label>Axcess Workstream Competitor</label>
@@ -2090,10 +2282,19 @@ Full Service: significant accounting and audit work, and tax compliance and advi
     <fields>
         <fullName>Corp_Software_Retention_Owner__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Named_Account__c , &quot;&quot;,
+        <formula>IF( Named_Account__c , 
+	IF(Corporate_Segment__c ,
+		IF( OR(
+				ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Customer&quot;),
+				ISPICKVAL( Named_Account_Type__c , &quot;R&amp;L Major Account&quot;),
+				ISPICKVAL( Named_Account_Type__c , &quot;Corporate National&quot;)		
+			),&quot;Corporate Software&quot;,&quot;&quot;
+		)	
+		,&quot;&quot;
+	),
 	IF( Corporate_Segment__c , &quot;Corporate Software&quot;, &quot;&quot;)
 )</formula>
-        <label>Corp Software Retention Owner</label>
+        <label>Corp Software Retention</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -2138,7 +2339,16 @@ Full Service: significant accounting and audit work, and tax compliance and advi
     <fields>
         <fullName>Corporate_Software_New_Sales__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Named_Account__c , &quot;&quot;,
+        <formula>IF( Named_Account__c , 
+	IF(Corporate_Segment__c ,
+		IF( OR(
+				ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Customer&quot;),
+				ISPICKVAL( Named_Account_Type__c , &quot;R&amp;L Major Account&quot;),
+				ISPICKVAL( Named_Account_Type__c , &quot;Corporate National&quot;)		
+			),&quot;Corporate Software&quot;,&quot;&quot;
+		)	
+		,&quot;&quot;
+	),
 	IF( Corporate_Segment__c , &quot;Corporate Software&quot;, &quot;&quot;)
 )</formula>
         <label>Corporate Software New Sales</label>
@@ -2146,153 +2356,6 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Count_ATX__c</fullName>
-        <externalId>false</externalId>
-        <label>Count ATX</label>
-        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Code__c</field>
-            <operation>contains</operation>
-            <value>ATX</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Family__c</field>
-            <operation>contains</operation>
-            <value>Tax</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Year__c</field>
-            <operation>equals</operation>
-            <value>2017</value>
-        </summaryFilterItems>
-        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Count_ATX_new_field__c</fullName>
-        <externalId>false</externalId>
-        <label>Count ATX (new field)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Count_IFirm__c</fullName>
-        <externalId>false</externalId>
-        <label>Count IFirm</label>
-        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Code__c</field>
-            <operation>contains</operation>
-            <value>Ifirm</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Year__c</field>
-            <operation>equals</operation>
-            <value>2017</value>
-        </summaryFilterItems>
-        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Count_Other_Ancilliary__c</fullName>
-        <externalId>false</externalId>
-        <label>Count Other Ancilliary</label>
-        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Family__c</field>
-            <operation>contains</operation>
-            <value>other</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Year__c</field>
-            <operation>equals</operation>
-            <value>2017</value>
-        </summaryFilterItems>
-        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Count_Research__c</fullName>
-        <externalId>false</externalId>
-        <label>Count Research</label>
-        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Family__c</field>
-            <operation>contains</operation>
-            <value>research,train</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Year__c</field>
-            <operation>equals</operation>
-            <value>2017</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Code__c</field>
-            <operation>notContain</operation>
-            <value>book</value>
-        </summaryFilterItems>
-        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Count_SFS_Books__c</fullName>
-        <externalId>false</externalId>
-        <label>Count SFS Books</label>
-        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Code__c</field>
-            <operation>contains</operation>
-            <value>book</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Year__c</field>
-            <operation>equals</operation>
-            <value>2017</value>
-        </summaryFilterItems>
-        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Count_TW__c</fullName>
-        <externalId>false</externalId>
-        <label>Count TW</label>
-        <summarizedField>SFS_Asset__c.Quantity__c</summarizedField>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Code__c</field>
-            <operation>contains</operation>
-            <value>TW</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Family__c</field>
-            <operation>contains</operation>
-            <value>tax</value>
-        </summaryFilterItems>
-        <summaryFilterItems>
-            <field>SFS_Asset__c.Product_Year__c</field>
-            <operation>equals</operation>
-            <value>2017</value>
-        </summaryFilterItems>
-        <summaryForeignKey>SFS_Asset__c.Account_c__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Current_Business_Model__c</fullName>
@@ -3316,6 +3379,17 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>ERP_Vendor_Account_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>ERP_Vendor_Account1__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ERP Vendor Account (Text)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>E_Commerce_Technology__c</fullName>
         <externalId>false</externalId>
         <label>E-Commerce Technology</label>
@@ -3470,6 +3544,10 @@ Full Service: significant accounting and audit work, and tax compliance and advi
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Advance Flow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Caseware</fullName>
                     <default>false</default>
                 </value>
@@ -3543,6 +3621,17 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Enterprise_Industry__c</fullName>
+        <externalId>false</externalId>
+        <label>Enterprise Industry</label>
+        <length>75</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Enterprise_Name__c</fullName>
@@ -3770,6 +3859,10 @@ Full Service: significant accounting and audit work, and tax compliance and advi
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>CPAFMA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>ITA (Information Technology Alliance)</fullName>
                     <default>false</default>
                 </value>
@@ -3795,6 +3888,10 @@ Full Service: significant accounting and audit work, and tax compliance and advi
                 </value>
                 <value>
                     <fullName>Rainmaker - (NPAC) Nonprofit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rainmaker – (PCA) Public Company CPAs</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -4017,6 +4114,15 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Generate_2018_Tax_Update_Order__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Generate 2018 Tax Update Order</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>GlobalFx_Total__c</fullName>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>
@@ -4027,6 +4133,30 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Global_2000_Rank__c</fullName>
+        <externalId>false</externalId>
+        <label>Global 2000 Rank</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Global_500_Rank__c</fullName>
+        <externalId>false</externalId>
+        <label>Global 500 Rank</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Global_Integrator_Total__c</fullName>
@@ -4121,6 +4251,24 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Has Active Data</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Has_AnswerConnect__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Has AnswerConnect</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Has_Audit_Accelerator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Has Audit Accelerator</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -4268,6 +4416,20 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Has_Corp_Software_Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Has Corp Software Opportunity</label>
+        <summaryFilterItems>
+            <field>Opportunity.Product_Category__c</field>
+            <operation>contains</operation>
+            <value>Corporate Software</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Has_Database_Lookup_RADAR__c</fullName>
@@ -4823,6 +4985,15 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Has_TeamMate_Analytics__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Has TeamMate Analytics</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Has_Telecom_DB_Lookup_RADAR_Flag__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -4868,6 +5039,31 @@ Full Service: significant accounting and audit work, and tax compliance and advi
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Holdover_Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Displays the number of Holdover Opportunities for Med/Large segment for Q1 2018.</inlineHelpText>
+        <label># of Holdover Opportunities</label>
+        <summaryFilterItems>
+            <field>Opportunity.X90_Day_Opportunity_Holdover__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.CloseDate</field>
+            <operation>greaterOrEqual</operation>
+            <value>1/15/2018</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Product_Category__c</field>
+            <operation>equals</operation>
+            <value>Med/Large Software</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>INTERNAL_DNC_DATE__c</fullName>
@@ -6303,12 +6499,12 @@ OR(
    ISPICKVAL( Market_Segment__c , &quot;Financial and Estate Planners&quot;) ,
    NOT(ISPICKVAL(  Market_Sub_Segment__c  , &quot;Size TBD&quot;)) ,
    NOT(ISPICKVAL(  Market_Sub_Segment__c  , &quot;Sole Proprietor&quot;)) ,
-   NOT(ISPICKVAL(  Market_Sub_Segment__c  , &quot;2-4 Employees&quot;))
+   NOT(ISPICKVAL(  Market_Sub_Segment__c  , &quot;2-4 Total Employees&quot;))
  ),
  AND(
    ISPICKVAL( Market_Segment__c , &quot;Legal Professionals&quot;) ,
    NOT(ISPICKVAL(  Market_Sub_Segment__c  , &quot;Law Firms (Size TBD)&quot;)) ,
-   NOT(ISPICKVAL(  Market_Sub_Segment__c  , &quot;Law Firm 1-3 Employees&quot;))
+   NOT(ISPICKVAL(  Market_Sub_Segment__c  , &quot;Law Firm 1-3 Attorneys&quot;))
  )
 ), TRUE, FALSE
 )</formula>
@@ -6337,6 +6533,737 @@ OR(
                     <default>false</default>
                 </value>
             </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NAICS_Industry__c</fullName>
+        <externalId>false</externalId>
+        <label>NAICS Industry</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Agriculture, Forestry &amp; Fishing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Construction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance, Insurance &amp; Real Estate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manufacturing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Public Administration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retail Trade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transportation, Comms, Electric, Gas &amp; Sanitary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesale Trade</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NAICS_Sub_Industry__c</fullName>
+        <externalId>false</externalId>
+        <label>NAICS Sub-Industry</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>NAICS_Industry__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin of Economic Programs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Admin of Environment and Housing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Admin of HR Programs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agricultural Production - Crops</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agricultural Production - Livestock</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agricultural Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Air Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amusement and Recreation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apparel and Accessory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apparel Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Auto Repair and Parking</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Automotive Dealers and Gas Station</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Building Construction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Building Materials, Hardware</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chemical Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coal Mining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Communications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Construction - Special Trade</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Control Instruments</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Depository Institutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Eating and Drinking Places</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Educational Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electric, Gas, &amp; Sanitary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic Equipment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engineering, Accounting, Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive, Legislative, &amp; General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fabricated Metal Products</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fishing &amp; Hunting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Food Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Food Stores</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Forestry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Furniture and Fixture Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Furniture, Furnishings and Eq</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General Merchandise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Heavy Construction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Holding and Other Investments</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hotels and Other Lodging</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Industrial/Commercial Machinery and Computer Eq</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Agents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Carriers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Justice and Safety</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Leather Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Local, Suburban Transit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lumber and Wood Product Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Membership Organizations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Metal Mining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mining and Quarrying of Nonmetallic Minerals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Miscellaneous</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Miscellaneous Repair</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Miscellaneous Retail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Motion Pictures</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Motor Freight Transport</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Museums and Art Galleries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Security</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nondepository Credit Institutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Oil &amp; Gas Extraction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Paper Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Personal Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Petroleum Refining Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pipelines, except Natural Gas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Primary Metal Industries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Printing and Publishing Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Public Finance, Taxation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Railroad Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Real Estate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rubber and Plastic Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security and Commodity Brokers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Social Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Stone, Clay, Glass, Concrete Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Textile Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tobacco Mfg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transportation Eq</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transportation Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>USPS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Water Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesale - Durable Goods</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesale - Nondurable Goods</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Agriculture, Forestry &amp; Fishing</controllingFieldValue>
+                <valueName>Agricultural Production - Crops</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Agriculture, Forestry &amp; Fishing</controllingFieldValue>
+                <valueName>Agricultural Production - Livestock</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Agriculture, Forestry &amp; Fishing</controllingFieldValue>
+                <valueName>Agricultural Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Agriculture, Forestry &amp; Fishing</controllingFieldValue>
+                <valueName>Fishing &amp; Hunting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Agriculture, Forestry &amp; Fishing</controllingFieldValue>
+                <valueName>Forestry</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mining</controllingFieldValue>
+                <valueName>Coal Mining</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mining</controllingFieldValue>
+                <valueName>Metal Mining</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mining</controllingFieldValue>
+                <valueName>Mining and Quarrying of Nonmetallic Minerals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mining</controllingFieldValue>
+                <valueName>Oil &amp; Gas Extraction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Construction</controllingFieldValue>
+                <valueName>Building Construction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Construction</controllingFieldValue>
+                <valueName>Construction - Special Trade</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Construction</controllingFieldValue>
+                <valueName>Heavy Construction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Apparel Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Chemical Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Control Instruments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Electronic Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Fabricated Metal Products</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Food Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Furniture and Fixture Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Industrial/Commercial Machinery and Computer Eq</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Leather Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Lumber and Wood Product Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Miscellaneous</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Paper Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Petroleum Refining Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Primary Metal Industries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Printing and Publishing Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Rubber and Plastic Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Stone, Clay, Glass, Concrete Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Textile Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Tobacco Mfg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Manufacturing</controllingFieldValue>
+                <valueName>Transportation Eq</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Air Transportation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Communications</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Electric, Gas, &amp; Sanitary</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Local, Suburban Transit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Motor Freight Transport</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Pipelines, except Natural Gas</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Railroad Transportation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Transportation Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>USPS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Transportation, Comms, Electric, Gas &amp; Sanitary</controllingFieldValue>
+                <valueName>Water Transportation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wholesale Trade</controllingFieldValue>
+                <valueName>Wholesale - Durable Goods</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wholesale Trade</controllingFieldValue>
+                <valueName>Wholesale - Nondurable Goods</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Trade</controllingFieldValue>
+                <valueName>Apparel and Accessory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Trade</controllingFieldValue>
+                <valueName>Automotive Dealers and Gas Station</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Trade</controllingFieldValue>
+                <valueName>Building Materials, Hardware</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Trade</controllingFieldValue>
+                <valueName>Eating and Drinking Places</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Trade</controllingFieldValue>
+                <valueName>Food Stores</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Trade</controllingFieldValue>
+                <valueName>Furniture, Furnishings and Eq</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Trade</controllingFieldValue>
+                <valueName>General Merchandise</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retail Trade</controllingFieldValue>
+                <valueName>Miscellaneous Retail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance, Insurance &amp; Real Estate</controllingFieldValue>
+                <valueName>Depository Institutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance, Insurance &amp; Real Estate</controllingFieldValue>
+                <valueName>Holding and Other Investments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance, Insurance &amp; Real Estate</controllingFieldValue>
+                <valueName>Insurance Agents</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance, Insurance &amp; Real Estate</controllingFieldValue>
+                <valueName>Insurance Carriers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance, Insurance &amp; Real Estate</controllingFieldValue>
+                <valueName>Nondepository Credit Institutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance, Insurance &amp; Real Estate</controllingFieldValue>
+                <valueName>Real Estate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance, Insurance &amp; Real Estate</controllingFieldValue>
+                <valueName>Security and Commodity Brokers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Amusement and Recreation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Auto Repair and Parking</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Business Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Educational Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Engineering, Accounting, Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Health Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Hotels and Other Lodging</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Legal Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Membership Organizations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Miscellaneous Repair</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Motion Pictures</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Museums and Art Galleries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Other Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Personal Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Services</controllingFieldValue>
+                <valueName>Social Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Administration</controllingFieldValue>
+                <valueName>Admin of Economic Programs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Administration</controllingFieldValue>
+                <valueName>Admin of Environment and Housing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Administration</controllingFieldValue>
+                <valueName>Admin of HR Programs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Administration</controllingFieldValue>
+                <valueName>Executive, Legislative, &amp; General</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Administration</controllingFieldValue>
+                <valueName>Justice and Safety</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Administration</controllingFieldValue>
+                <valueName>National Security</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Administration</controllingFieldValue>
+                <valueName>Public Finance, Taxation</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -6434,7 +7361,31 @@ OR(
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Corporate National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service Source</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Tax Customer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Small Firm Customer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Field</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Premier</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -6446,43 +7397,11 @@ OR(
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Small Firm Premier</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>MainStreet</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Trust</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Non-Profit</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Small Firm Non-Profit</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Global</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Small Firm Field</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Small Firm Tax Customer</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>R&amp;L Key Account</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Corporate National</fullName>
+                    <fullName>R&amp;L Major Account</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -6623,15 +7542,20 @@ OR(
     </fields>
     <fields>
         <fullName>Open_Opportunity_Amount__c</fullName>
-        <description>Total amount of opportunities where forecast category is not equal to Omitted or Closed</description>
+        <description>Total amount of opportunities where forecast category is not equal to Omitted or Closed, and Type is not equal to Renewal.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Total amount of opportunities where forecast category is not equal to Omitted or Closed</inlineHelpText>
+        <inlineHelpText>Total amount of opportunities where forecast category is not equal to Omitted or Closed, and Type is not equal to Renewal.</inlineHelpText>
         <label>Open Opportunity Amount</label>
         <summarizedField>Opportunity.Amount</summarizedField>
         <summaryFilterItems>
             <field>Opportunity.ForecastCategoryName</field>
             <operation>notEqual</operation>
             <value>Omitted, Closed</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Type</field>
+            <operation>notEqual</operation>
+            <value>Renewal</value>
         </summaryFilterItems>
         <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -6728,7 +7652,7 @@ OR(
         <fullName>PFX_Axcess_Retention_Owner__c</fullName>
         <externalId>false</externalId>
         <formula>IF( PFX_Axcess_Customer__c ,&quot;Software Retention&quot;,&quot;&quot;)</formula>
-        <label>PFX/Axcess Retention Owner</label>
+        <label>PFX/Axcess Retention</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -6797,6 +7721,10 @@ OR(
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>NetSuite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>NSB Connected Retailer</fullName>
                     <default>false</default>
                 </value>
@@ -6818,6 +7746,10 @@ OR(
                 </value>
                 <value>
                     <fullName>SAP TGM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Toast POS</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -6919,6 +7851,29 @@ OR(
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pfx_Tax_Update_Counter__c</fullName>
+        <externalId>false</externalId>
+        <label>Pfx Tax Update Counter</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pfx_Tax_Update_Order__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( NOT(ISBLANK(Tax_Update_Account_Number__c)) &amp;&amp; NOT(ISBLANK(Tax_Update_Contact__c)) , HYPERLINK(&quot;/apex/Pfx_Tax_Update_Order_Form?id=&quot;&amp;Id, IMAGE(&quot;/resource/PfxTaxUpdateButton&quot;, &quot;Pfx Tax Update Order&quot;),&quot;_self&quot;), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Pfx Tax Update Order</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Phone</fullName>
@@ -7252,6 +8207,10 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
                     <fullName>Unknown</fullName>
                     <default>true</default>
                 </value>
+                <value>
+                    <fullName>Clientwhys</fullName>
+                    <default>false</default>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -7266,6 +8225,15 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Potential_Strategic__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Potential Strategic</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Practice_Competitor__c</fullName>
@@ -7507,6 +8475,21 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Practice_Management_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Practice Management End Date</label>
+        <summarizedField>AMS_Inventory_Rollup__c.End_date__c</summarizedField>
+        <summaryFilterItems>
+            <field>AMS_Inventory_Rollup__c.Name</field>
+            <operation>equals</operation>
+            <value>870005,860005</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AMS_Inventory_Rollup__c.AccountID__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Practice_Management_Total__c</fullName>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>
@@ -7541,6 +8524,18 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Predictive_Analytics_Plays__c</fullName>
+        <description>Indicates which plays this account is included in for Predictive Analytics Project</description>
+        <externalId>false</externalId>
+        <label>Predictive Analytics Plays</label>
+        <length>155</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Pro_SW_FSR__c</fullName>
@@ -7684,6 +8679,17 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         </valueSet>
     </fields>
     <fields>
+        <fullName>Q4_2017_Retention_Owner__c</fullName>
+        <externalId>false</externalId>
+        <label>Q4 2017 Retention Owner</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>QP__c</fullName>
         <externalId>false</externalId>
         <label>QP DTN</label>
@@ -7729,6 +8735,41 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>R_L_Closed_Opp_Amount_This_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>R&amp;L Closed Opp Amount This Year</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryFilterItems>
+            <field>Opportunity.Type</field>
+            <operation>equals</operation>
+            <value>New to New, New to Existing</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Product_Category__c</field>
+            <operation>equals</operation>
+            <value>Research &amp; Learning</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>6. Closed Won</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.CloseDate</field>
+            <operation>greaterOrEqual</operation>
+            <value>1/1/2017</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.CloseDate</field>
+            <operation>lessOrEqual</operation>
+            <value>12/31/2017</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>R_L_FSR__c</fullName>
         <externalId>false</externalId>
         <label>R&amp;L RSC DTN</label>
@@ -7772,30 +8813,62 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
     <fields>
         <fullName>R_L_New_Sales__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Named_Account__c , 
-IF( ISPICKVAL( Named_Account_Type__c , &quot;Global&quot;), &quot;Global Accounts&quot;, 
-IF( ISPICKVAL( Named_Account_Type__c , &quot;National&quot;), &quot;National Accounts&quot;, 
-IF( ISPICKVAL( Named_Account_Type__c , &quot;Corporate National&quot;), &quot;Corporate National Accounts&quot;, 
-IF( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), &quot;Strategic Accounts&quot;, 
-IF( ISPICKVAL( Named_Account_Type__c , &quot;R&amp;L Key Account&quot;), &quot;R&amp;L Key Accounts&quot;, 
-IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Tax Customer&quot;), &quot;Small Firms&quot;, 
-IF(ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Customer&quot;), 
-IF( ISC_Account__c , &quot;Small Firms&quot;, &quot;R&amp;L Field Sales&quot; ), 
-&quot;&quot; 
-) 
-) 
-)	
-) 
-) 
-) 
-), 
-IF( ISC_Account__c , &quot;Small Firms&quot;, &quot;R&amp;L Field Sales&quot; ) 
+        <formula>IF( Named_Account__c ,
+	IF( ISPICKVAL( Named_Account_Type__c , &quot;Global&quot;), &quot;Global Accounts&quot;,
+		IF( ISPICKVAL( Named_Account_Type__c , &quot;National&quot;), &quot;National Accounts&quot;,
+		IF( ISPICKVAL( Named_Account_Type__c , &quot;Corporate National&quot;), &quot;Corporate National Accounts&quot;,
+			IF( AND( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), ISPICKVAL( Strategic_Type__c, &quot;&quot;)), &quot;Strategic Accounts&quot;,
+				IF( AND( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), ISPICKVAL( Strategic_Type__c, &quot;Standard&quot;)), &quot;Strategic Accounts&quot;,
+					IF( AND( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), ISPICKVAL( Strategic_Type__c, &quot;Emerging&quot;)), &quot;R&amp;L Field Sales&quot;,
+						IF( AND( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), ISPICKVAL( Strategic_Type__c, &quot;R&amp;L Major&quot;)), &quot;R&amp;L Major Accounts&quot;,
+							IF( ISPICKVAL( Named_Account_Type__c , &quot;R&amp;L Major Account&quot;), &quot;R&amp;L Major Accounts&quot;,
+								IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Tax Customer&quot;), &quot;Small Firms&quot;,
+									IF(ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Customer&quot;), 
+										IF( ISC_Account__c , &quot;Small Firms&quot;, &quot;R&amp;L Field Sales&quot; ),
+										&quot;&quot;
+										)
+									)
+								)		
+							)
+						)
+					)
+				)
+			)
+		)
+	),
+	IF( ISC_Account__c , &quot;Small Firms&quot;, &quot;R&amp;L Field Sales&quot; )
 )</formula>
         <label>R&amp;L New Sales</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>R_L_Open_Opportunity_Amount__c</fullName>
+        <description>Roll up of R&amp;L open opportunity amounts (new sales only)</description>
+        <externalId>false</externalId>
+        <label>R&amp;L Open Opportunity Amount</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryFilterItems>
+            <field>Opportunity.Type</field>
+            <operation>notEqual</operation>
+            <value>Renewal</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.ForecastCategoryName</field>
+            <operation>notEqual</operation>
+            <value>Omitted, Closed</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Product_Category__c</field>
+            <operation>equals</operation>
+            <value>Research &amp; Learning</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>R_L_Owner__c</fullName>
@@ -7817,7 +8890,8 @@ IF( ISC_Account__c , &quot;Small Firms&quot;, &quot;R&amp;L Field Sales&quot; )
 	IF( ISPICKVAL( Named_Account_Type__c , &quot;Global&quot;), &quot;Global Accounts&quot;,
 		IF( ISPICKVAL( Named_Account_Type__c , &quot;National&quot;), &quot;National Accounts&quot;,
 			IF( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), &quot;Strategic Accounts&quot;,
-				IF( ISPICKVAL( Named_Account_Type__c , &quot;R&amp;L Key Account&quot;), &quot;R&amp;L Key Accounts&quot;,&quot;&quot;
+				IF( ISPICKVAL( Named_Account_Type__c , &quot;R&amp;L Major Account&quot;), &quot;R&amp;L Major Accounts&quot;,
+					IF(  R_L_Small_Firms_Retention__c  , &quot;Small Firms R&amp;L&quot;, &quot;&quot;	)
 				)
 			)
 		)
@@ -7825,7 +8899,7 @@ IF( ISC_Account__c , &quot;Small Firms&quot;, &quot;R&amp;L Field Sales&quot; )
 	IF(  R_L_Small_Firms_Retention__c  , &quot;Small Firms R&amp;L&quot;, &quot;R&amp;L Retention&quot;	)
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>R&amp;L Retention Owner</label>
+        <label>R&amp;L Retention</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -7988,6 +9062,19 @@ IF( ISC_Account__c , &quot;Small Firms&quot;, &quot;R&amp;L Field Sales&quot; )
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Related_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Resale_Wholesale__c</fullName>
@@ -8879,11 +9966,6 @@ IF( ISC_Account__c , &quot;Small Firms&quot;, &quot;R&amp;L Field Sales&quot; )
         </valueSet>
     </fields>
     <fields>
-        <fullName>SalesforceCustomer</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Scale__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Number of employees in firm.</inlineHelpText>
@@ -9067,6 +10149,15 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Service_Source_Account__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Service Source Account</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Service_Source__c</fullName>
         <externalId>false</externalId>
         <label>Service Source DTN</label>
@@ -9197,6 +10288,66 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         </valueSet>
     </fields>
     <fields>
+        <fullName>Software_Closed_Opp_Amount_This_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Software Closed Opp Amount This Year</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryFilterItems>
+            <field>Opportunity.Type</field>
+            <operation>equals</operation>
+            <value>New to New, New to Existing</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Product_Category__c</field>
+            <operation>equals</operation>
+            <value>Med/Large Software, Small Firm Software</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>6. Closed Won</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.CloseDate</field>
+            <operation>greaterOrEqual</operation>
+            <value>1/1/2017</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.CloseDate</field>
+            <operation>lessOrEqual</operation>
+            <value>12/31/2017</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Software_Open_Opportunity_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Software Open Opportunity Amount</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryFilterItems>
+            <field>Opportunity.Type</field>
+            <operation>notEqual</operation>
+            <value>Renewal</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.ForecastCategoryName</field>
+            <operation>notEqual</operation>
+            <value>Omitted, Closed</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Product_Category__c</field>
+            <operation>equals</operation>
+            <value>Med/Large Software, Small Firm Software</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Software_Owner__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -9209,6 +10360,21 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Software_Users__c</fullName>
+        <externalId>false</externalId>
+        <label>Software Users</label>
+        <summarizedField>AMS_Inventory_Rollup__c.Quantity__c</summarizedField>
+        <summaryFilterItems>
+            <field>AMS_Inventory_Rollup__c.Include_in_Quantity_Rollup__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AMS_Inventory_Rollup__c.AccountID__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>State_Add_On_Total__c</fullName>
         <externalId>false</externalId>
         <label>State Add-On Total</label>
@@ -9218,6 +10384,33 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Strategic_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Strategic Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Standard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Emerging</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L Major</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Submitted_By__c</fullName>
@@ -9280,14 +10473,30 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
 	IF( ISPICKVAL( Named_Account_Type__c , &quot;Global&quot;), &quot;Global Accounts&quot;,
 		IF( ISPICKVAL( Named_Account_Type__c , &quot;National&quot;), &quot;National Accounts&quot;,
 			IF( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), &quot;Strategic Accounts&quot;,
+			IF( ISPICKVAL( Named_Account_Type__c , &quot;Corporate National&quot;), &quot;Corporate Direct&quot;,
 				IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Premier&quot;), &quot;Small Firm Premier&quot;,
 					IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Field&quot;), &quot;Small Firm Field&quot;,
 						IF( ISPICKVAL( Named_Account_Type__c , &quot;Refunds Today&quot;), &quot;Refunds Today&quot;,
-							IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Tax Customer&quot;), &quot;Small Firm New-to-Existing&quot;, &quot;&quot;
+							IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Key Account&quot;), &quot;Small Firm Key Account&quot;,
+								IF( ISPICKVAL( Named_Account_Type__c , &quot;Mainstreet&quot;), &quot;Mainstreet&quot;,
+									IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Tax Customer&quot;), &quot;Small Firm New-to-Existing&quot;,
+										IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Customer&quot;),
+											IF( Mid_Market_Corporate__c , &quot;Corporate Direct&quot;,
+												IF( Mid_Market_Other_Verticals__c  , &quot;Mid-Market Other Verticals&quot;,
+													IF( ISC_Account__c , &quot;Small Firm New-to-New&quot;,  
+														IF(ISPICKVAL( Market_Segment__c , &quot;Accounting Firms&quot;),&quot;Mid-Market Professional&quot;,&quot;&quot;)
+													)
+												)
+											),
+											&quot;&quot;
+										)
+									)
+								)
 							)
 						)
 					)
 				)
+			)
 			)
 		)
 	),
@@ -10033,6 +11242,18 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Tax_Software__c</fullName>
+        <externalId>false</externalId>
+        <formula>Professional_Software_Revenue__r.X2017_Tax_Software__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax Software</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Tax_Total__c</fullName>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>
@@ -10043,6 +11264,72 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Update_Account_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Tax Update Account Number</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Id</field>
+                <operation>equals</operation>
+                <valueField>Account_X_Reference__c.Account__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account_X_Reference__c</referenceTo>
+        <relationshipLabel>Accounts (Tax Update Account Number)</relationshipLabel>
+        <relationshipName>Accounts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Update_Contact_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Tax_Update_Contact__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax Update Attendee Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Update_Contact_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Tax_Update_Contact__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax Update Attendee Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Update_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Tax Update Attendee</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Id</field>
+                <operation>equals</operation>
+                <valueField>Contact.AccountId</valueField>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Accounts (Tax Update Contact)</relationshipLabel>
+        <relationshipName>Accounts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Tech_Appetite__c</fullName>
@@ -10090,6 +11377,30 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <fullName>TickerSymbol</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Total_Product_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Product Count</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Software_Revenue__c</fullName>
+        <externalId>false</externalId>
+        <formula>Professional_Software_Revenue__r.X2017_Active_Data_Total__c + Professional_Software_Revenue__r.X2017_Axcess_Document_Total__c + Professional_Software_Revenue__r.X2017_Axcess_Practice_Total__c + Professional_Software_Revenue__r.X2017_Axcess_Tax_Total__c + Professional_Software_Revenue__r.X2017_Axcess_Workstream_Total__c + Professional_Software_Revenue__r.X2017_Document_OP_Total__c + Professional_Software_Revenue__r.X2017_Document_Total__c+ Professional_Software_Revenue__r.X2017_ELF_Total__c+  Professional_Software_Revenue__r.X2017_Engagement_Total__c+ Professional_Software_Revenue__r.X2017_Fixed_Assets_Total__c + Professional_Software_Revenue__r.X2017_Globalfx_Total__c + Professional_Software_Revenue__r.X2017_KCN_OP_Total__c + Professional_Software_Revenue__r.X2017_KCN_SaaS_Total__c+ Professional_Software_Revenue__r.X2017_KCN_SaaS_Total__c + Professional_Software_Revenue__r.X2017_Knowledge_Coach_Total__c + Professional_Software_Revenue__r.X2017_Knowledge_Tools_Total__c + Professional_Software_Revenue__r.X2017_Org_PF_Total__c + Professional_Software_Revenue__r.X2017_Outsource_Total__c + Professional_Software_Revenue__r.X2017_Portal_Total__c + Professional_Software_Revenue__r.X2017_Practice_Management_Total__c+ Professional_Software_Revenue__r.X2017_Practice_Total__c + Professional_Software_Revenue__r.X2017_Scan_SaaS_Total__c + Professional_Software_Revenue__r.X2017_Scan_Total__c + Professional_Software_Revenue__r.X2017_Tax_Total__c + Professional_Software_Revenue__r.X2017_Trial_Balance_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Professional Software Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Tradestyle</fullName>
@@ -10275,6 +11586,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>HWA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Infovisa</fullName>
                     <default>false</default>
                 </value>
@@ -10322,7 +11637,18 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
     <fields>
         <fullName>Trust_Sales__c</fullName>
         <externalId>false</externalId>
-        <formula>&quot;TBD&quot;</formula>
+        <formula>IF( Named_Account__c , 
+	IF(Corporate_Segment__c ,
+		IF( OR(
+				ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Customer&quot;),
+				ISPICKVAL( Named_Account_Type__c , &quot;R&amp;L Major Account&quot;),
+				ISPICKVAL( Named_Account_Type__c , &quot;Corporate National&quot;)		
+			),&quot;Trust Sales&quot;,&quot;&quot;
+		)	
+		,&quot;&quot;
+	),
+	IF( Corporate_Segment__c , &quot;Trust Sales&quot;, &quot;&quot;)
+)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Trust Sales</label>
         <required>false</required>
@@ -10482,6 +11808,36 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>X2016_Software_Closed_Won_Opps__c</fullName>
+        <externalId>false</externalId>
+        <label>2016 Software Closed Won Opps</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryFilterItems>
+            <field>Opportunity.Product_Category__c</field>
+            <operation>equals</operation>
+            <value>Med/Large Software, Small Firm Software</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>6. Closed Won</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.CloseDate</field>
+            <operation>greaterOrEqual</operation>
+            <value>1/1/2016</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.CloseDate</field>
+            <operation>lessOrEqual</operation>
+            <value>12/31/2016</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>X2016_Tax_Winback__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -10635,6 +11991,29 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>qualtrics__NPS_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>NPS Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>qualtrics__Net_Promoter_Score__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Net Promoter Score</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>research_competitor__c</fullName>
@@ -10806,8 +12185,9 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <columns>ACCOUNT.LAST_ACTIVITY</columns>
         <columns>Customer_Segmentation__c</columns>
         <columns>Market_Segment__c</columns>
-        <filterScope>Everything</filterScope>
+        <filterScope>Team</filterScope>
         <label>All Accounts</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>AllCustomerAccounts</fullName>
@@ -10820,13 +12200,14 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
         <columns>ACCOUNT.PHONE1</columns>
         <columns>ACCOUNT.URL</columns>
-        <filterScope>Everything</filterScope>
+        <filterScope>Team</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
             <operation>equals</operation>
             <value>Account.Customer_Account</value>
         </filters>
         <label>All Customer Accounts</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>AllERPAccounts</fullName>
@@ -10854,13 +12235,14 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <columns>ACCOUNT.PHONE1</columns>
         <columns>ACCOUNT.URL</columns>
         <columns>ACCOUNT.SITE</columns>
-        <filterScope>Everything</filterScope>
+        <filterScope>Team</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
             <operation>equals</operation>
             <value>Account.Prospect_Account</value>
         </filters>
         <label>All Prospect Accounts</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>AllVARAccounts</fullName>
@@ -10881,6 +12263,24 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <sharedTo>
             <group>Partner_Account_Access</group>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Answerconnect_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Has_AnswerConnect__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Has_AnswerConnect__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Answerconnect Accounts</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>Data_com_Accounts</fullName>
@@ -11224,23 +12624,19 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
     <listViews>
         <fullName>Modified_today</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>ACCOUNT.ADDRESS1_STREET</columns>
-        <columns>ACCOUNT.ADDRESS1_CITY</columns>
         <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.ADDRESS1_ZIP</columns>
-        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
         <columns>ACCOUNT.PHONE1</columns>
-        <columns>Market_Segment__c</columns>
-        <columns>Market_Sub_Segment__c</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>ACCOUNT.TYPE</columns>
         <columns>CORE.USERS.ALIAS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>CLEAN_STATUS</columns>
         <columns>CREATEDBY_USER.ALIAS</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>ACCOUNT.LAST_UPDATE</field>
+            <field>ACCOUNT.CREATED_DATE</field>
             <operation>greaterOrEqual</operation>
-            <value>TODAY</value>
+            <value>1/22/2018 12:00 AM</value>
         </filters>
         <label>Modified today</label>
         <language>en_US</language>
@@ -12874,6 +14270,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>Advance Flow</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Caseware</fullName>
                 <default>false</default>
             </values>
@@ -13015,6 +14415,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>CPAFMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>ITA %28Information Technology Alliance%29</fullName>
                 <default>false</default>
             </values>
@@ -13040,6 +14444,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>Rainmaker - %28NPAC%29 Nonprofit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rainmaker - %28PCA%29 Public Company CPAs</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13899,6 +15307,384 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>NAICS_Industry__c</picklist>
+            <values>
+                <fullName>Agriculture%2C Forestry %26 Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%2C Insurance %26 Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation%2C Comms%2C Electric%2C Gas %26 Sanitary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale Trade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NAICS_Sub_Industry__c</picklist>
+            <values>
+                <fullName>Admin of Economic Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Admin of Environment and Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Admin of HR Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Production - Crops</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Production - Livestock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Amusement and Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel and Accessory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Repair and Parking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Dealers and Gas Station</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Materials%2C Hardware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction - Special Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Control Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Depository Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eating and Drinking Places</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Educational Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electric%2C Gas%2C %26 Sanitary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering%2C Accounting%2C Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive%2C Legislative%2C %26 General</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fabricated Metal Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fishing %26 Hunting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture and Fixture Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture%2C Furnishings and Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Merchandise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Holding and Other Investments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotels and Other Lodging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2FCommercial Machinery and Computer Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Agents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Carriers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justice and Safety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local%2C Suburban Transit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lumber and Wood Product Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Membership Organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metal Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining and Quarrying of Nonmetallic Minerals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motion Pictures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Freight Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Museums and Art Galleries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nondepository Credit Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil %26 Gas Extraction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum Refining Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipelines%2C except Natural Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Metal Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing and Publishing Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Finance%2C Taxation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Railroad Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rubber and Plastic Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security and Commodity Brokers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stone%2C Clay%2C Glass%2C Concrete Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tobacco Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale - Durable Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale - Nondurable Goods</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>NON_INDIV_RETURNS_PERCENT_RANGE_c__c</picklist>
             <values>
                 <fullName>%3E 25%25</fullName>
@@ -13928,15 +15714,15 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
-                <fullName>Non-Profit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R%26L Key Account</fullName>
+                <fullName>R%26L Major Account</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Refunds Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Source</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13952,10 +15738,6 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
-                <fullName>Small Firm Non-Profit</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Small Firm Premier</fullName>
                 <default>false</default>
             </values>
@@ -13965,10 +15747,6 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>Strategic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trust</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14069,6 +15847,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>NetSuite</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -14090,6 +15872,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>SAP TGM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toast POS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14226,6 +16012,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>CPA Site Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clientwhys</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14607,6 +16397,18 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>2</fullName>
                 <default>false</default>
             </values>
@@ -14616,6 +16418,26 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15109,6 +16931,21 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>Trust</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Type__c</picklist>
+            <values>
+                <fullName>Emerging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R%26L Major</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15892,6 +17729,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>Fi-Tek</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HWA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17799,6 +19640,384 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>NAICS_Industry__c</picklist>
+            <values>
+                <fullName>Agriculture%2C Forestry %26 Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%2C Insurance %26 Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation%2C Comms%2C Electric%2C Gas %26 Sanitary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale Trade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NAICS_Sub_Industry__c</picklist>
+            <values>
+                <fullName>Admin of Economic Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Admin of Environment and Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Admin of HR Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Production - Crops</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Production - Livestock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Amusement and Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel and Accessory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Repair and Parking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Dealers and Gas Station</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Materials%2C Hardware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction - Special Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Control Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Depository Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eating and Drinking Places</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Educational Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electric%2C Gas%2C %26 Sanitary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering%2C Accounting%2C Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive%2C Legislative%2C %26 General</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fabricated Metal Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fishing %26 Hunting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture and Fixture Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture%2C Furnishings and Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Merchandise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Holding and Other Investments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotels and Other Lodging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2FCommercial Machinery and Computer Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Agents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Carriers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justice and Safety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local%2C Suburban Transit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lumber and Wood Product Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Membership Organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metal Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining and Quarrying of Nonmetallic Minerals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motion Pictures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Freight Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Museums and Art Galleries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nondepository Credit Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil %26 Gas Extraction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum Refining Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipelines%2C except Natural Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Metal Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing and Publishing Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Finance%2C Taxation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Railroad Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rubber and Plastic Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security and Commodity Brokers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stone%2C Clay%2C Glass%2C Concrete Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tobacco Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale - Durable Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale - Nondurable Goods</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>NON_INDIV_RETURNS_PERCENT_RANGE_c__c</picklist>
             <values>
                 <fullName>%3E 25%25</fullName>
@@ -17812,7 +20031,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <picklistValues>
             <picklist>Named_Account_Type__c</picklist>
             <values>
-                <fullName>Global</fullName>
+                <fullName>Corporate National</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17820,15 +20039,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
-                <fullName>R%26L Key Account</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Small Firm Field</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Small Firm Tax Customer</fullName>
+                <fullName>Service Source</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17929,6 +20140,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>NetSuite</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -17950,6 +20165,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>SAP TGM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toast POS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18071,6 +20290,13 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Portal_Competitor__c</picklist>
+            <values>
+                <fullName>Clientwhys</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Professional_Software_Named_Account_Ty__c</picklist>
             <values>
                 <fullName>Professional Software Key Account</fullName>
@@ -18160,6 +20386,21 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>Small Firm Premier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Type__c</picklist>
+            <values>
+                <fullName>Emerging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R%26L Major</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19707,6 +21948,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>Advance Flow</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Caseware</fullName>
                 <default>false</default>
             </values>
@@ -19848,6 +22093,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>CPAFMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>ITA %28Information Technology Alliance%29</fullName>
                 <default>false</default>
             </values>
@@ -19873,6 +22122,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>Rainmaker - %28NPAC%29 Nonprofit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rainmaker - %28PCA%29 Public Company CPAs</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20732,6 +22985,384 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>NAICS_Industry__c</picklist>
+            <values>
+                <fullName>Agriculture%2C Forestry %26 Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%2C Insurance %26 Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation%2C Comms%2C Electric%2C Gas %26 Sanitary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale Trade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NAICS_Sub_Industry__c</picklist>
+            <values>
+                <fullName>Admin of Economic Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Admin of Environment and Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Admin of HR Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Production - Crops</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Production - Livestock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Amusement and Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel and Accessory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Repair and Parking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Dealers and Gas Station</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Materials%2C Hardware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction - Special Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Control Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Depository Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eating and Drinking Places</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Educational Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electric%2C Gas%2C %26 Sanitary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering%2C Accounting%2C Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive%2C Legislative%2C %26 General</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fabricated Metal Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fishing %26 Hunting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture and Fixture Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture%2C Furnishings and Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Merchandise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Holding and Other Investments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotels and Other Lodging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2FCommercial Machinery and Computer Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Agents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Carriers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justice and Safety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local%2C Suburban Transit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lumber and Wood Product Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Membership Organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metal Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining and Quarrying of Nonmetallic Minerals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miscellaneous Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motion Pictures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Freight Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Museums and Art Galleries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nondepository Credit Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil %26 Gas Extraction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum Refining Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipelines%2C except Natural Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Metal Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing and Publishing Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Finance%2C Taxation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Railroad Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rubber and Plastic Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security and Commodity Brokers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stone%2C Clay%2C Glass%2C Concrete Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tobacco Mfg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Eq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale - Durable Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale - Nondurable Goods</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>NON_INDIV_RETURNS_PERCENT_RANGE_c__c</picklist>
             <values>
                 <fullName>%3E 25%25</fullName>
@@ -20745,6 +23376,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <picklistValues>
             <picklist>Named_Account_Type__c</picklist>
             <values>
+                <fullName>Corporate National</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Global</fullName>
                 <default>false</default>
             </values>
@@ -20757,15 +23392,15 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
-                <fullName>Non-Profit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R%26L Key Account</fullName>
+                <fullName>R%26L Major Account</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Refunds Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Source</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20781,10 +23416,6 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
-                <fullName>Small Firm Non-Profit</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Small Firm Premier</fullName>
                 <default>false</default>
             </values>
@@ -20794,10 +23425,6 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>Strategic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trust</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20898,6 +23525,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>NetSuite</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -20919,6 +23550,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>SAP TGM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toast POS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21055,6 +23690,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
             <values>
                 <fullName>CPA Site Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clientwhys</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21923,6 +24562,21 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Strategic_Type__c</picklist>
+            <values>
+                <fullName>Emerging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R%26L Major</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Tax_Competitor__c</picklist>
             <values>
                 <fullName>1040Now</fullName>
@@ -22705,6 +25359,10 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
                 <default>false</default>
             </values>
             <values>
+                <fullName>HWA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Infovisa</fullName>
                 <default>false</default>
             </values>
@@ -23018,13 +25676,6 @@ ISBLANK(TEXT(Named_Account_Type__c)))
         <errorMessage>Federal Account does not come under Named Account type.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Named_Account_Validation</fullName>
-        <active>false</active>
-        <description>Added during ATA 2.0, it makes sure that Named Account Type is selected if Named_Account__c checkbox is checked or vice versa if the account is marked to be excluded from ATA then this validation rule is not applicable</description>
-        <errorConditionFormula>IF(NOT(Exclude_Account_Automation__c), OR(AND(Named_Account__c, ISBLANK(TEXT(Named_Account_Type__c))), AND(NOT(ISBLANK(TEXT(Named_Account_Type__c))), Named_Account__c == false)), false)</errorConditionFormula>
-        <errorMessage>Named Account Type is required when Named Account checkbox is marked as TRUE and vice versa.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Point_Clear_date_field_required</fullName>
         <active>false</active>
         <description>When Point Clear checkbox is checked, date is required</description>
@@ -23037,10 +25688,12 @@ ISBLANK(TEXT(Named_Account_Type__c)))
         <active>true</active>
         <errorConditionFormula>AND(
 ISNEW(),	
-NOT(IF($Profile.Name=&quot;System Administrator&quot;, TRUE, 
-       IF($Profile.Name=&quot;Business Administrator&quot;, TRUE,
-IF($Profile.Name=&quot;Business Admin Enhanced&quot;, TRUE,
-          IF($Profile.Name=&quot;System Admin Integration User&quot;, TRUE, FALSE)       )))),  
+NOT(IF(NOT(ISBLANK(Related_Case__c )) , TRUE,
+    IF($Profile.Name=&quot;System Administrator&quot;, TRUE, 
+    IF($Profile.Name=&quot;System Administrator Hard delete&quot;, TRUE, 
+    IF($Profile.Name=&quot;Business Administrator&quot;, TRUE,
+    IF($Profile.Name=&quot;Business Admin Enhanced&quot;, TRUE,
+    IF($Profile.Name=&quot;System Admin Integration User&quot;, TRUE, FALSE))))))),  
 NOT(IF(Came_from_Lead__c=TRUE, TRUE,
        IF(TEXT(AccountSource)=&quot;Data.com&quot;, TRUE, FALSE)
 ))
@@ -23075,6 +25728,46 @@ NOT(IF(Came_from_Lead__c=TRUE, TRUE,
         <url>/00Oi00000050Lzh?pv0={!Account.CUSTID__c}</url>
     </webLinks>
     <webLinks>
+        <fullName>ARM_Lock_Outs</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>ARM Lock Outs</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O0Z000006pJnz
+?pv1={!Account.SFDC_Account__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>ARM_Usage_Data</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>ARM Usage Data</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O0Z000006cziJ
+?pv1={!Account.SFDC_Account__c}</url>
+    </webLinks>
+    <webLinks>
         <fullName>Activity_History</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -23104,6 +25797,26 @@ NOT(IF(Came_from_Lead__c=TRUE, TRUE,
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
         <url>http://news.altavista.com/search?nc=0&amp;q={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Answer_Connect_User_Usage</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>AnswerConnect User Usage</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O0Z000006cziE
+?pv1={!Account.SFDC_Account__c}</url>
     </webLinks>
     <webLinks>
         <fullName>Apttus__ViewAgreementHierarchyforAccount</fullName>
@@ -23324,7 +26037,7 @@ NOT(IF(Came_from_Lead__c=TRUE, TRUE,
         <masterLabel>Professional Software Revenue</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>https://na25.salesforce.com/apex/ProfessionalSoftwareRevenue?scontrolCaching=1&amp;id={!Account.Id}</url>
+        <url>https://wktaa.my.salesforce.com/apex/ProfessionalSoftwareRevenue?scontrolCaching=1&amp;id={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Re_create_Account_Team</fullName>
@@ -23402,7 +26115,7 @@ location.reload();</url>
         <availability>online</availability>
         <displayType>link</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>ExactTarget Resubscribe</masterLabel>
+        <masterLabel>Marketing Cloud Resubscribe</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
@@ -23420,11 +26133,11 @@ didResub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performResub&quot
 }
 if (didResub==&quot;connection error&quot;)
 {
-alert(&quot;The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.&quot;);
+alert(&quot;The connection to Marketing Cloud is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.&quot;);
 }
 else if (didResub==&quot;not found&quot;)
 {
-alert(&quot;This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.&quot;);
+alert(&quot;This subscriber could not be found in the All Subscriber List in Marketing Cloud. The Email Opt Out flag will not be updated.&quot;);
 }
 else if (didResub==&quot;other error&quot;)
 {
@@ -23432,7 +26145,7 @@ alert(&quot;An unexpected error has been encountered. The Email Opt Out flag wil
 }
 else if (didResub==&quot;not integrated&quot;)
 {
-alert(&quot;You must be integrated with ExactTarget to update an ExactTarget subscriber.&quot;);
+alert(&quot;You must be integrated with Marketing Cloud to update an Marketing Cloud subscriber.&quot;);
 }
 else if (didResub==&quot;success&quot;)
 {
@@ -23446,7 +26159,7 @@ parent.location.href=theUrl;</url>
         <availability>online</availability>
         <displayType>link</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>ExactTarget Unsubscribe</masterLabel>
+        <masterLabel>Marketing Cloud Unsubscribe</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
@@ -23464,11 +26177,11 @@ didUnsub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performUnsub&quot
 }
 if (didUnsub==&quot;connection error&quot;)
 {
-alert(&quot;The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.&quot;);
+alert(&quot;The connection to Marketing Cloud is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.&quot;);
 }
 else if (didUnsub==&quot;not found&quot;)
 {
-alert(&quot;This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.&quot;);
+alert(&quot;This subscriber could not be found in the All Subscriber List in Marketing Cloud. The Email Opt Out flag will not be updated.&quot;);
 }
 else if (didUnsub==&quot;other error&quot;)
 {
@@ -23476,7 +26189,7 @@ alert(&quot;An unexpected error has been encountered. The Email Opt Out flag wil
 }
 else if (didUnsub==&quot;not integrated&quot;)
 {
-alert(&quot;You must be integrated with ExactTarget to update an ExactTarget subscriber.&quot;);
+alert(&quot;You must be integrated with Marketing Cloud to update an Marketing Cloud subscriber.&quot;);
 }
 else if (didUnsub==&quot;success&quot;)
 {
@@ -23490,7 +26203,7 @@ parent.location.href=theUrl;</url>
         <availability>online</availability>
         <displayType>link</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>Send ExactTarget Email</masterLabel>
+        <masterLabel>Send Marketing Cloud Email</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
@@ -23530,7 +26243,7 @@ parent.location.href = theUrl;
         <availability>online</availability>
         <displayType>link</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>View ExactTarget Analytics</masterLabel>
+        <masterLabel>View Marketing Cloud Analytics</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}

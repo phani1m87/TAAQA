@@ -44,7 +44,7 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>This holds the map of distinct assignment types to Account Field API Names and the values that drive the 
-assignment: This is used in conjunction with the ATA_AccountTeamAssignment object and the ATA_Role_Assignment object to obtain the list of Account Team Roles for a given combination of fields values that uniquely determine the Role Assignment.</description>
+assignment: This is used in conjunction with the ATA_Rule object and the ATA_Role_Assignment object to obtain the list of Account Team Roles for a given combination of fields values that uniquely determine the Role Assignment.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>

@@ -40,14 +40,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AMS_Ready_for_Order_Billing__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AMS_Billing_Complete__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Renewal_Logged_in_AMS__c</field>
             </layoutItems>
             <layoutItems>
@@ -55,24 +47,20 @@
                 <field>AMS_OP_Autoconfirm__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AMS_Order_Processor__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AMS_Billing_Assignee__c</field>
+                <behavior>Readonly</behavior>
+                <field>T_C_Approval_required__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Alternate_Submitter__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>T_C_Approval_required__c</field>
+                <behavior>Edit</behavior>
+                <field>AMS_Renewal_Special_Approval__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retain_CC_for_Renewals__c</field>
+                <behavior>Readonly</behavior>
+                <field>SAP_Sales_group__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -97,6 +85,10 @@
                 <field>Apttus_Proposal__Approval_Stage__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Processing_Stage__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AMS_Renewal_Line_Item_Discount_Total__c</field>
             </layoutItems>
@@ -119,6 +111,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Tax_Solution_Package_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Corrected__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Correction_Notes__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -190,19 +190,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Order_Rejection_Notes__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AMS_Order_rejected__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AMS_Order_Corrected__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AMS_Renewal_Special_Approval__c</field>
+                <field>Order_Processing_Instructions__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -455,6 +443,69 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
+        <label>Order processing</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Processor__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_Analyst__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_Validator__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_Biller__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Rejected_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Rejection_Notes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Rejection_Reason__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Assigned_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_On_Hold_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Corrected_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_entered_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Stopped_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Processing_Comments__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>false</editHeading>
         <label>Proposal Process</label>
         <layoutColumns/>
         <layoutColumns/>
@@ -463,18 +514,16 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Apttus_QPConfig__LineNumber__c</fields>
-        <fields>AMS_Renewal_Product_Tier__c</fields>
-        <fields>Apttus_Proposal__Quantity__c</fields>
-        <fields>Product_Code__c</fields>
-        <fields>Apttus_Proposal__Product__c</fields>
-        <fields>AMS_Renewals_Price__c</fields>
+        <fields>Quantity__c</fields>
+        <fields>PCode__c</fields>
+        <fields>PName__c</fields>
+        <fields>APTS_Promo_Code__c</fields>
+        <fields>List_Price__c</fields>
+        <fields>APTPS_PromoDiscountApplied__c</fields>
         <fields>Net_Adjustment__c</fields>
-        <fields>Discount_Dollar_Amount__c</fields>
-        <fields>Apttus_QPConfig__LineStatus__c</fields>
+        <fields>Net_Price_WK__c</fields>
+        <fields>Extended_Maintenance_Months__c</fields>
         <relatedList>Apttus_Proposal__Proposal_Line_Item__c.Apttus_Proposal__Proposal__c</relatedList>
-        <sortField>Apttus_QPConfig__LineNumber__c</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -537,10 +586,6 @@
         <relatedList>Template_Line_item__c.Quote_Proposal__c</relatedList>
         <sortField>Line_Number__c</sortField>
         <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>test_QP_lookup__c.Quote_Proposal__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

@@ -272,12 +272,20 @@
             <label>2016 Tax Software Renewal Total</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz9Jt</field>
+            <label>2016 Tax Software renewal Total no BOGO</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOdVM</field>
             <label>2017 AMS Additional Discount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000Gz18t</field>
             <label>2017 Tax Software Renewal Total</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CI</field>
+            <label>2017 Tax Software Renewal Total no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FJY4Y</field>
@@ -300,12 +308,20 @@
             <label>Account X-Reference</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP200</field>
+            <label>AcctName</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000AHQWk</field>
             <label>Added from Data.com</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJvM</field>
             <label>Amount Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CN</field>
+            <label>Amount Won no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrC</field>
@@ -528,6 +544,26 @@
             <label>AMS Web Renewal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fO</field>
+            <label>Auth Campaign Fall Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuai</field>
+            <label>Auth Campaign Last Update</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fQ</field>
+            <label>Auth Campaign Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP1DD</field>
+            <label>Authorization Campaign Probability</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fP</field>
+            <label>Authorization Campaign Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FujLF</field>
             <label>BI Retention Quota</label>
         </opportunityListFieldsLabelMappings>
@@ -628,6 +664,14 @@
             <label>E-Commerce Technology</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuZp</field>
+            <label>Edit Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuad</field>
+            <label>Eligible for Pre-sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOR1P</field>
             <label>ERP Account Number</label>
         </opportunityListFieldsLabelMappings>
@@ -642,6 +686,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GkC88</field>
             <label>Executive Help</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP2hs</field>
+            <label>Expansion Call Counter</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSN</field>
@@ -668,11 +716,11 @@
             <label>Has ASR Opportunity Team</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg3</field>
+            <field>00N0Z00000GOzMe</field>
             <label>Has Missing Account Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMf</field>
             <label>Has Missing Contact Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -698,6 +746,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOHMm</field>
             <label>ISC Holdover?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5go</field>
+            <label>Last Month YTD</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FGVqV</field>
@@ -784,6 +836,14 @@
             <label>National Payment Terms</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUH</field>
+            <label>National Related New Sale Opp</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUM</field>
+            <label>National Related Opp Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzC</field>
             <label>National Submit to COP</label>
         </opportunityListFieldsLabelMappings>
@@ -794,6 +854,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOX1u</field>
             <label>National T&amp;C Instructions</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUR</field>
+            <label>National Total Invoice Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzE</field>
@@ -852,8 +916,16 @@
             <label>Opportunity Owner Role</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzNB</field>
+            <label>Opportunity Owner SAP DTN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJXp</field>
             <label>Opportunity Partial Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAfAF</field>
+            <label>Opportunity Product Count</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dmi</field>
@@ -862,6 +934,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0H</field>
             <label>Oppty Record ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhe</field>
+            <label>Order Case</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhf</field>
+            <label>Order Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSX</field>
@@ -876,12 +956,16 @@
             <label>Original Source Drill-Down 2</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <label>Other Closed Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GoPnH</field>
             <label>Other Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAexf</field>
+            <label>Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNpzl</field>
@@ -984,6 +1068,10 @@
             <label>Reason Details/Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6K5</field>
+            <label>RecordType Name For Snapshot</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuEJD</field>
             <label>Referral Account</label>
         </opportunityListFieldsLabelMappings>
@@ -1002,6 +1090,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dpm</field>
             <label>Renewal Close Time</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOwJ5</field>
+            <label>Renewal Lost Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJY3</field>
@@ -1088,6 +1180,10 @@
             <label>SA Target Accounts</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8zF</field>
+            <label>Service Source Recapture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000EI8KS</field>
             <label>SFDC Account #</label>
         </opportunityListFieldsLabelMappings>
@@ -1116,7 +1212,7 @@
             <label>SFS Account</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <label>SFS Account Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1124,7 +1220,7 @@
             <label>SFS Books Complete</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <label>SFS CID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1132,11 +1228,11 @@
             <label>SFS Opportunity Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAN</field>
+            <field>00N0Z00000GOzMg</field>
             <label>SFS Opp Stage</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMh</field>
             <label>SFS Opp Type</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1144,7 +1240,7 @@
             <label>SFS Owner Federation ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <label>SFS PID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1160,7 +1256,7 @@
             <label>Solution Blueprint Created</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <label>Steelbrick Opportunity Link</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1196,11 +1292,15 @@
             <label>TAA Account Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAevA</field>
+            <label>TAA Opportunity ID (18)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0R</field>
             <label>TAA Opportunity Owner</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <label>TAA Opportunity Owner Id</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1230,6 +1330,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrW</field>
             <label>Tax Solution Package Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6Uj</field>
+            <label>Territory Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5gZ</field>
+            <label>This Month</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJUO</field>
@@ -1296,15 +1404,19 @@
             <field>00N0Z00000Gz4k1</field>
             <field>00N3100000GoA9X</field>
             <field>00N3100000Go9Bm</field>
+            <field>00N0Z00000Gz9Jt</field>
             <field>00N3100000GOdVM</field>
             <field>00N3100000Gz18t</field>
+            <field>00N0Z00000Gz8CI</field>
             <field>00Ni000000FJY4Y</field>
             <field>00Ni000000CNu3c</field>
             <field>00Ni000000FHgyH</field>
             <field>00Ni000000AHRk2</field>
             <field>00N3100000FufnV</field>
+            <field>00N0Z00000GP200</field>
             <field>00Ni000000AHQWk</field>
             <field>00N3100000FuJvM</field>
+            <field>00N0Z00000Gz8CN</field>
             <field>00N3100000FufrC</field>
             <field>00N3100000Fufn9</field>
             <field>00N3100000Fufn8</field>
@@ -1360,6 +1472,11 @@
             <field>00N3100000FufnR</field>
             <field>00N3100000GOdR5</field>
             <field>00N3100000Go5JX</field>
+            <field>00N0Z00000Gz7fO</field>
+            <field>00N0Z00000GOuai</field>
+            <field>00N0Z00000Gz7fQ</field>
+            <field>00N0Z00000GP1DD</field>
+            <field>00N0Z00000Gz7fP</field>
             <field>00N3100000FujLF</field>
             <field>00Ni000000FIYvg</field>
             <field>00N3100000GOOJL</field>
@@ -1385,24 +1502,28 @@
             <field>00N3100000FuYrP</field>
             <field>00N3100000GOCH8</field>
             <field>00N3100000Gwoad</field>
+            <field>00N0Z00000GOuZp</field>
+            <field>00N0Z00000GOuad</field>
             <field>00N3100000GOR1P</field>
             <field>00Ni000000AHRk4</field>
             <field>00Ni000000CN6hU</field>
             <field>00N3100000GkC88</field>
+            <field>00N0Z00000GP2hs</field>
             <field>00N3100000GNuSN</field>
             <field>00N3100000H1QJs</field>
             <field>00N3100000H1QJx</field>
             <field>00Ni000000AHRk5</field>
             <field>00N3100000GNuSS</field>
             <field>00Ni000000FJTin</field>
-            <field>00N11000001qxg3</field>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMe</field>
+            <field>00N0Z00000GOzMf</field>
             <field>00Ni000000FJTii</field>
             <field>00N3100000Gz3XW</field>
             <field>00Ni000000CN6hV</field>
             <field>00N3100000FuJUW</field>
             <field>00N3100000FufnW</field>
             <field>00N3100000GOHMm</field>
+            <field>00N0Z00000Gz5go</field>
             <field>00Ni000000FGVqV</field>
             <field>00N3100000GOW9E</field>
             <field>00N3100000Gz3XR</field>
@@ -1424,9 +1545,12 @@
             <field>00N3100000GOCz2</field>
             <field>00N3100000GOCz9</field>
             <field>00N3100000GOCzB</field>
+            <field>00N0Z00000GOzUH</field>
+            <field>00N0Z00000GOzUM</field>
             <field>00N3100000GOCzC</field>
             <field>00N3100000GOCzD</field>
             <field>00N3100000GOX1u</field>
+            <field>00N0Z00000GOzUR</field>
             <field>00N3100000GOCzE</field>
             <field>00N3100000GOF19</field>
             <field>00N3100000FujqI</field>
@@ -1441,14 +1565,19 @@
             <field>00Ni000000AHRkD</field>
             <field>00N3100000FuJUR</field>
             <field>00N3100000FuLyS</field>
+            <field>00N0Z00000GOzNB</field>
             <field>00N3100000FuJXp</field>
+            <field>00N0Z00000HAfAF</field>
             <field>00N3100000H1dmi</field>
             <field>00N3100000GOH0H</field>
+            <field>00N0Z00000GOvhe</field>
+            <field>00N0Z00000GOvhf</field>
             <field>00N3100000GNuSX</field>
             <field>00N3100000GNuSc</field>
             <field>00N3100000GNuSh</field>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <field>00N3100000GoPnH</field>
+            <field>00N0Z00000HAexf</field>
             <field>00N3100000GNpzl</field>
             <field>00N3100000GNpuH</field>
             <field>00Ni000000COYkV</field>
@@ -1474,11 +1603,13 @@
             <field>00N3100000FuKKl</field>
             <field>00N3100000Go9h9</field>
             <field>00Ni000000CPeUR</field>
+            <field>00N0Z00000Gz6K5</field>
             <field>00N3100000FuEJD</field>
             <field>00N3100000H1dhY</field>
             <field>00N3100000FuNOb</field>
             <field>00N3100000FuJUT</field>
             <field>00N3100000H1dpm</field>
+            <field>00N0Z00000GOwJ5</field>
             <field>00N3100000FuJY3</field>
             <field>00N3100000FuJUU</field>
             <field>00N3100000FuJUS</field>
@@ -1500,6 +1631,7 @@
             <field>00N3100000GNpdV</field>
             <field>00N3100000GOamt</field>
             <field>00N3100000Go6zP</field>
+            <field>00N0Z00000Gz8zF</field>
             <field>00Ni000000EI8KS</field>
             <field>00N3100000GOPB3</field>
             <field>00N3100000FuJYI</field>
@@ -1507,18 +1639,18 @@
             <field>00N3100000GOH0g</field>
             <field>00N3100000GOH0h</field>
             <field>00N0Z00000Gz4yc</field>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <field>00N3100000Gz1iS</field>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <field>00N3100000GOF1D</field>
-            <field>00N11000001qtAN</field>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMg</field>
+            <field>00N0Z00000GOzMh</field>
             <field>00N3100000GOH5l</field>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <field>00N3100000GOF1E</field>
             <field>00N3100000GOF1F</field>
             <field>00Ni000000EI8N2</field>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <field>00N3100000GOF1G</field>
             <field>00N3100000GOF1H</field>
             <field>00N3100000H1ZGs</field>
@@ -1527,8 +1659,9 @@
             <field>00N3100000GOR3a</field>
             <field>00N3100000GOYKJ</field>
             <field>00N3100000GOF1I</field>
+            <field>00N0Z00000HAevA</field>
             <field>00N3100000GOH0R</field>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <field>00N3100000GOH0W</field>
             <field>00N3100000FuJUV</field>
             <field>00N3100000GOa1J</field>
@@ -1536,6 +1669,8 @@
             <field>00N3100000Gz1he</field>
             <field>00N3100000FujqD</field>
             <field>00N3100000FufrW</field>
+            <field>00N0Z00000Gz6Uj</field>
+            <field>00N0Z00000Gz5gZ</field>
             <field>00N3100000FuJUO</field>
             <field>00Ni000000AHRkF</field>
             <field>00Ni000000FJd8H</field>
@@ -1741,12 +1876,20 @@
             <label>2016 Tax Software Renewal Total</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz9Jt</field>
+            <label>2016 Tax Software renewal Total no BOGO</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOdVM</field>
             <label>2017 AMS Additional Discount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000Gz18t</field>
             <label>2017 Tax Software Renewal Total</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CI</field>
+            <label>2017 Tax Software Renewal Total no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FJY4Y</field>
@@ -1769,12 +1912,20 @@
             <label>Account X-Reference</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP200</field>
+            <label>AcctName</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000AHQWk</field>
             <label>Added from Data.com</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJvM</field>
             <label>Amount Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CN</field>
+            <label>Amount Won no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrC</field>
@@ -1997,6 +2148,26 @@
             <label>AMS Web Renewal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fO</field>
+            <label>Auth Campaign Fall Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuai</field>
+            <label>Auth Campaign Last Update</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fQ</field>
+            <label>Auth Campaign Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP1DD</field>
+            <label>Authorization Campaign Probability</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fP</field>
+            <label>Authorization Campaign Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FujLF</field>
             <label>BI Retention Quota</label>
         </opportunityListFieldsLabelMappings>
@@ -2097,6 +2268,14 @@
             <label>E-Commerce Technology</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuZp</field>
+            <label>Edit Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuad</field>
+            <label>Eligible for Pre-sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOR1P</field>
             <label>ERP Account Number</label>
         </opportunityListFieldsLabelMappings>
@@ -2107,6 +2286,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GkC88</field>
             <label>Executive Help</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP2hs</field>
+            <label>Expansion Call Counter</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSN</field>
@@ -2133,11 +2316,11 @@
             <label>Has ASR Opportunity Team</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg3</field>
+            <field>00N0Z00000GOzMe</field>
             <label>Has Missing Account Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMf</field>
             <label>Has Missing Contact Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2163,6 +2346,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOHMm</field>
             <label>ISC Holdover?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5go</field>
+            <label>Last Month YTD</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FGVqV</field>
@@ -2249,6 +2436,14 @@
             <label>National Payment Terms</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUH</field>
+            <label>National Related New Sale Opp</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUM</field>
+            <label>National Related Opp Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzC</field>
             <label>National Submit to COP</label>
         </opportunityListFieldsLabelMappings>
@@ -2259,6 +2454,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOX1u</field>
             <label>National T&amp;C Instructions</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUR</field>
+            <label>National Total Invoice Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzE</field>
@@ -2313,8 +2512,16 @@
             <label>Opportunity Owner Role</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzNB</field>
+            <label>Opportunity Owner SAP DTN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJXp</field>
             <label>Opportunity Partial Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAfAF</field>
+            <label>Opportunity Product Count</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dmi</field>
@@ -2323,6 +2530,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0H</field>
             <label>Oppty Record ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhe</field>
+            <label>Order Case</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhf</field>
+            <label>Order Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSX</field>
@@ -2337,12 +2552,16 @@
             <label>Original Source Drill-Down 2</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <label>Other Closed Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GoPnH</field>
             <label>Other Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAexf</field>
+            <label>Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNpzl</field>
@@ -2445,6 +2664,10 @@
             <label>Reason Details/Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6K5</field>
+            <label>RecordType Name For Snapshot</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuEJD</field>
             <label>Referral Account</label>
         </opportunityListFieldsLabelMappings>
@@ -2463,6 +2686,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dpm</field>
             <label>Renewal Close Time</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOwJ5</field>
+            <label>Renewal Lost Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJY3</field>
@@ -2549,6 +2776,10 @@
             <label>SA Target Accounts</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8zF</field>
+            <label>Service Source Recapture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000EI8KS</field>
             <label>SFDC Account #</label>
         </opportunityListFieldsLabelMappings>
@@ -2577,7 +2808,7 @@
             <label>SFS Account</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <label>SFS Account Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2585,7 +2816,7 @@
             <label>SFS Books Complete</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <label>SFS CID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2593,11 +2824,11 @@
             <label>SFS Opportunity Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAN</field>
+            <field>00N0Z00000GOzMg</field>
             <label>SFS Opp Stage</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMh</field>
             <label>SFS Opp Type</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2605,7 +2836,7 @@
             <label>SFS Owner Federation ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <label>SFS PID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2621,7 +2852,7 @@
             <label>Solution Blueprint Created</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <label>Steelbrick Opportunity Link</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2657,11 +2888,15 @@
             <label>TAA Account Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAevA</field>
+            <label>TAA Opportunity ID (18)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0R</field>
             <label>TAA Opportunity Owner</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <label>TAA Opportunity Owner Id</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2691,6 +2926,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrW</field>
             <label>Tax Solution Package Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6Uj</field>
+            <label>Territory Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5gZ</field>
+            <label>This Month</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJUO</field>
@@ -2757,15 +3000,19 @@
             <field>00N0Z00000Gz4k1</field>
             <field>00N3100000GoA9X</field>
             <field>00N3100000Go9Bm</field>
+            <field>00N0Z00000Gz9Jt</field>
             <field>00N3100000GOdVM</field>
             <field>00N3100000Gz18t</field>
+            <field>00N0Z00000Gz8CI</field>
             <field>00Ni000000FJY4Y</field>
             <field>00Ni000000CNu3c</field>
             <field>00Ni000000FHgyH</field>
             <field>00Ni000000AHRk2</field>
             <field>00N3100000FufnV</field>
+            <field>00N0Z00000GP200</field>
             <field>00Ni000000AHQWk</field>
             <field>00N3100000FuJvM</field>
+            <field>00N0Z00000Gz8CN</field>
             <field>00N3100000FufrC</field>
             <field>00N3100000Fufn9</field>
             <field>00N3100000Fufn8</field>
@@ -2821,6 +3068,11 @@
             <field>00N3100000FufnR</field>
             <field>00N3100000GOdR5</field>
             <field>00N3100000Go5JX</field>
+            <field>00N0Z00000Gz7fO</field>
+            <field>00N0Z00000GOuai</field>
+            <field>00N0Z00000Gz7fQ</field>
+            <field>00N0Z00000GP1DD</field>
+            <field>00N0Z00000Gz7fP</field>
             <field>00N3100000FujLF</field>
             <field>00Ni000000FIYvg</field>
             <field>00N3100000GOOJL</field>
@@ -2846,23 +3098,27 @@
             <field>00N3100000FuYrP</field>
             <field>00N3100000GOCH8</field>
             <field>00N3100000Gwoad</field>
+            <field>00N0Z00000GOuZp</field>
+            <field>00N0Z00000GOuad</field>
             <field>00N3100000GOR1P</field>
             <field>00Ni000000AHRk4</field>
             <field>00N3100000GkC88</field>
+            <field>00N0Z00000GP2hs</field>
             <field>00N3100000GNuSN</field>
             <field>00N3100000H1QJs</field>
             <field>00N3100000H1QJx</field>
             <field>00Ni000000AHRk5</field>
             <field>00N3100000GNuSS</field>
             <field>00Ni000000FJTin</field>
-            <field>00N11000001qxg3</field>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMe</field>
+            <field>00N0Z00000GOzMf</field>
             <field>00Ni000000FJTii</field>
             <field>00N3100000Gz3XW</field>
             <field>00Ni000000CN6hV</field>
             <field>00N3100000FuJUW</field>
             <field>00N3100000FufnW</field>
             <field>00N3100000GOHMm</field>
+            <field>00N0Z00000Gz5go</field>
             <field>00Ni000000FGVqV</field>
             <field>00N3100000GOW9E</field>
             <field>00N3100000Gz3XR</field>
@@ -2884,9 +3140,12 @@
             <field>00N3100000GOCz2</field>
             <field>00N3100000GOCz9</field>
             <field>00N3100000GOCzB</field>
+            <field>00N0Z00000GOzUH</field>
+            <field>00N0Z00000GOzUM</field>
             <field>00N3100000GOCzC</field>
             <field>00N3100000GOCzD</field>
             <field>00N3100000GOX1u</field>
+            <field>00N0Z00000GOzUR</field>
             <field>00N3100000GOCzE</field>
             <field>00N3100000GOF19</field>
             <field>00N3100000FujqI</field>
@@ -2900,14 +3159,19 @@
             <field>00Ni000000AHRkD</field>
             <field>00N3100000FuJUR</field>
             <field>00N3100000FuLyS</field>
+            <field>00N0Z00000GOzNB</field>
             <field>00N3100000FuJXp</field>
+            <field>00N0Z00000HAfAF</field>
             <field>00N3100000H1dmi</field>
             <field>00N3100000GOH0H</field>
+            <field>00N0Z00000GOvhe</field>
+            <field>00N0Z00000GOvhf</field>
             <field>00N3100000GNuSX</field>
             <field>00N3100000GNuSc</field>
             <field>00N3100000GNuSh</field>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <field>00N3100000GoPnH</field>
+            <field>00N0Z00000HAexf</field>
             <field>00N3100000GNpzl</field>
             <field>00N3100000GNpuH</field>
             <field>00Ni000000COYkV</field>
@@ -2933,11 +3197,13 @@
             <field>00N3100000FuKKl</field>
             <field>00N3100000Go9h9</field>
             <field>00Ni000000CPeUR</field>
+            <field>00N0Z00000Gz6K5</field>
             <field>00N3100000FuEJD</field>
             <field>00N3100000H1dhY</field>
             <field>00N3100000FuNOb</field>
             <field>00N3100000FuJUT</field>
             <field>00N3100000H1dpm</field>
+            <field>00N0Z00000GOwJ5</field>
             <field>00N3100000FuJY3</field>
             <field>00N3100000FuJUU</field>
             <field>00N3100000FuJUS</field>
@@ -2959,6 +3225,7 @@
             <field>00N3100000GNpdV</field>
             <field>00N3100000GOamt</field>
             <field>00N3100000Go6zP</field>
+            <field>00N0Z00000Gz8zF</field>
             <field>00Ni000000EI8KS</field>
             <field>00N3100000GOPB3</field>
             <field>00N3100000FuJYI</field>
@@ -2966,18 +3233,18 @@
             <field>00N3100000GOH0g</field>
             <field>00N3100000GOH0h</field>
             <field>00N0Z00000Gz4yc</field>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <field>00N3100000Gz1iS</field>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <field>00N3100000GOF1D</field>
-            <field>00N11000001qtAN</field>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMg</field>
+            <field>00N0Z00000GOzMh</field>
             <field>00N3100000GOH5l</field>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <field>00N3100000GOF1E</field>
             <field>00N3100000GOF1F</field>
             <field>00Ni000000EI8N2</field>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <field>00N3100000GOF1G</field>
             <field>00N3100000GOF1H</field>
             <field>00N3100000H1ZGs</field>
@@ -2986,8 +3253,9 @@
             <field>00N3100000GOR3a</field>
             <field>00N3100000GOYKJ</field>
             <field>00N3100000GOF1I</field>
+            <field>00N0Z00000HAevA</field>
             <field>00N3100000GOH0R</field>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <field>00N3100000GOH0W</field>
             <field>00N3100000FuJUV</field>
             <field>00N3100000GOa1J</field>
@@ -2995,6 +3263,8 @@
             <field>00N3100000Gz1he</field>
             <field>00N3100000FujqD</field>
             <field>00N3100000FufrW</field>
+            <field>00N0Z00000Gz6Uj</field>
+            <field>00N0Z00000Gz5gZ</field>
             <field>00N3100000FuJUO</field>
             <field>00Ni000000AHRkF</field>
             <field>00Ni000000FJd8H</field>
@@ -3188,12 +3458,20 @@
             <label>2016 Tax Software Renewal Total</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz9Jt</field>
+            <label>2016 Tax Software renewal Total no BOGO</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOdVM</field>
             <label>2017 AMS Additional Discount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000Gz18t</field>
             <label>2017 Tax Software Renewal Total</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CI</field>
+            <label>2017 Tax Software Renewal Total no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FJY4Y</field>
@@ -3216,12 +3494,20 @@
             <label>Account X-Reference</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP200</field>
+            <label>AcctName</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000AHQWk</field>
             <label>Added from Data.com</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJvM</field>
             <label>Amount Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CN</field>
+            <label>Amount Won no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrC</field>
@@ -3444,6 +3730,26 @@
             <label>AMS Web Renewal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fO</field>
+            <label>Auth Campaign Fall Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuai</field>
+            <label>Auth Campaign Last Update</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fQ</field>
+            <label>Auth Campaign Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP1DD</field>
+            <label>Authorization Campaign Probability</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fP</field>
+            <label>Authorization Campaign Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FujLF</field>
             <label>BI Retention Quota</label>
         </opportunityListFieldsLabelMappings>
@@ -3544,6 +3850,14 @@
             <label>E-Commerce Technology</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuZp</field>
+            <label>Edit Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuad</field>
+            <label>Eligible for Pre-sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOR1P</field>
             <label>ERP Account Number</label>
         </opportunityListFieldsLabelMappings>
@@ -3558,6 +3872,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GkC88</field>
             <label>Executive Help</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP2hs</field>
+            <label>Expansion Call Counter</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSN</field>
@@ -3584,11 +3902,11 @@
             <label>Has ASR Opportunity Team</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg3</field>
+            <field>00N0Z00000GOzMe</field>
             <label>Has Missing Account Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMf</field>
             <label>Has Missing Contact Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3614,6 +3932,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOHMm</field>
             <label>ISC Holdover?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5go</field>
+            <label>Last Month YTD</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FGVqV</field>
@@ -3700,6 +4022,14 @@
             <label>National Payment Terms</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUH</field>
+            <label>National Related New Sale Opp</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUM</field>
+            <label>National Related Opp Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzC</field>
             <label>National Submit to COP</label>
         </opportunityListFieldsLabelMappings>
@@ -3710,6 +4040,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOX1u</field>
             <label>National T&amp;C Instructions</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUR</field>
+            <label>National Total Invoice Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzE</field>
@@ -3768,8 +4102,16 @@
             <label>Opportunity Owner Role</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzNB</field>
+            <label>Opportunity Owner SAP DTN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJXp</field>
             <label>Opportunity Partial Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAfAF</field>
+            <label>Opportunity Product Count</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dmi</field>
@@ -3778,6 +4120,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0H</field>
             <label>Oppty Record ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhe</field>
+            <label>Order Case</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhf</field>
+            <label>Order Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSX</field>
@@ -3792,12 +4142,16 @@
             <label>Original Source Drill-Down 2</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <label>Other Closed Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GoPnH</field>
             <label>Other Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAexf</field>
+            <label>Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNpzl</field>
@@ -3904,6 +4258,10 @@
             <label>Reason Details/Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6K5</field>
+            <label>RecordType Name For Snapshot</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuEJD</field>
             <label>Referral Account</label>
         </opportunityListFieldsLabelMappings>
@@ -3922,6 +4280,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dpm</field>
             <label>Renewal Close Time</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOwJ5</field>
+            <label>Renewal Lost Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJY3</field>
@@ -4008,6 +4370,10 @@
             <label>SA Target Accounts</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8zF</field>
+            <label>Service Source Recapture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000EI8KS</field>
             <label>SFDC Account #</label>
         </opportunityListFieldsLabelMappings>
@@ -4036,7 +4402,7 @@
             <label>SFS Account</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <label>SFS Account Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4044,7 +4410,7 @@
             <label>SFS Books Complete</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <label>SFS CID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4052,11 +4418,11 @@
             <label>SFS Opportunity Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAN</field>
+            <field>00N0Z00000GOzMg</field>
             <label>SFS Opp Stage</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMh</field>
             <label>SFS Opp Type</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4064,7 +4430,7 @@
             <label>SFS Owner Federation ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <label>SFS PID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4080,7 +4446,7 @@
             <label>Solution Blueprint Created</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <label>Steelbrick Opportunity Link</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4116,11 +4482,15 @@
             <label>TAA Account Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAevA</field>
+            <label>TAA Opportunity ID (18)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0R</field>
             <label>TAA Opportunity Owner</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <label>TAA Opportunity Owner Id</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4150,6 +4520,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrW</field>
             <label>Tax Solution Package Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6Uj</field>
+            <label>Territory Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5gZ</field>
+            <label>This Month</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJUO</field>
@@ -4213,15 +4591,19 @@
             <field>00N0Z00000Gz4k1</field>
             <field>00N3100000GoA9X</field>
             <field>00N3100000Go9Bm</field>
+            <field>00N0Z00000Gz9Jt</field>
             <field>00N3100000GOdVM</field>
             <field>00N3100000Gz18t</field>
+            <field>00N0Z00000Gz8CI</field>
             <field>00Ni000000FJY4Y</field>
             <field>00Ni000000CNu3c</field>
             <field>00Ni000000FHgyH</field>
             <field>00Ni000000AHRk2</field>
             <field>00N3100000FufnV</field>
+            <field>00N0Z00000GP200</field>
             <field>00Ni000000AHQWk</field>
             <field>00N3100000FuJvM</field>
+            <field>00N0Z00000Gz8CN</field>
             <field>00N3100000FufrC</field>
             <field>00N3100000Fufn9</field>
             <field>00N3100000Fufn8</field>
@@ -4277,6 +4659,11 @@
             <field>00N3100000FufnR</field>
             <field>00N3100000GOdR5</field>
             <field>00N3100000Go5JX</field>
+            <field>00N0Z00000Gz7fO</field>
+            <field>00N0Z00000GOuai</field>
+            <field>00N0Z00000Gz7fQ</field>
+            <field>00N0Z00000GP1DD</field>
+            <field>00N0Z00000Gz7fP</field>
             <field>00N3100000FujLF</field>
             <field>00Ni000000FIYvg</field>
             <field>00N3100000GOOJL</field>
@@ -4302,24 +4689,28 @@
             <field>00N3100000FuYrP</field>
             <field>00N3100000GOCH8</field>
             <field>00N3100000Gwoad</field>
+            <field>00N0Z00000GOuZp</field>
+            <field>00N0Z00000GOuad</field>
             <field>00N3100000GOR1P</field>
             <field>00Ni000000AHRk4</field>
             <field>00Ni000000CN6hU</field>
             <field>00N3100000GkC88</field>
+            <field>00N0Z00000GP2hs</field>
             <field>00N3100000GNuSN</field>
             <field>00N3100000H1QJs</field>
             <field>00N3100000H1QJx</field>
             <field>00Ni000000AHRk5</field>
             <field>00N3100000GNuSS</field>
             <field>00Ni000000FJTin</field>
-            <field>00N11000001qxg3</field>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMe</field>
+            <field>00N0Z00000GOzMf</field>
             <field>00Ni000000FJTii</field>
             <field>00N3100000Gz3XW</field>
             <field>00Ni000000CN6hV</field>
             <field>00N3100000FuJUW</field>
             <field>00N3100000FufnW</field>
             <field>00N3100000GOHMm</field>
+            <field>00N0Z00000Gz5go</field>
             <field>00Ni000000FGVqV</field>
             <field>00N3100000GOW9E</field>
             <field>00N3100000Gz3XR</field>
@@ -4341,9 +4732,12 @@
             <field>00N3100000GOCz2</field>
             <field>00N3100000GOCz9</field>
             <field>00N3100000GOCzB</field>
+            <field>00N0Z00000GOzUH</field>
+            <field>00N0Z00000GOzUM</field>
             <field>00N3100000GOCzC</field>
             <field>00N3100000GOCzD</field>
             <field>00N3100000GOX1u</field>
+            <field>00N0Z00000GOzUR</field>
             <field>00N3100000GOCzE</field>
             <field>00N3100000GOF19</field>
             <field>00N3100000FujqI</field>
@@ -4358,14 +4752,19 @@
             <field>00Ni000000AHRkD</field>
             <field>00N3100000FuJUR</field>
             <field>00N3100000FuLyS</field>
+            <field>00N0Z00000GOzNB</field>
             <field>00N3100000FuJXp</field>
+            <field>00N0Z00000HAfAF</field>
             <field>00N3100000H1dmi</field>
             <field>00N3100000GOH0H</field>
+            <field>00N0Z00000GOvhe</field>
+            <field>00N0Z00000GOvhf</field>
             <field>00N3100000GNuSX</field>
             <field>00N3100000GNuSc</field>
             <field>00N3100000GNuSh</field>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <field>00N3100000GoPnH</field>
+            <field>00N0Z00000HAexf</field>
             <field>00N3100000GNpzl</field>
             <field>00N3100000GNpuH</field>
             <field>00Ni000000COYkV</field>
@@ -4392,11 +4791,13 @@
             <field>00N3100000FuKKl</field>
             <field>00N3100000Go9h9</field>
             <field>00Ni000000CPeUR</field>
+            <field>00N0Z00000Gz6K5</field>
             <field>00N3100000FuEJD</field>
             <field>00N3100000H1dhY</field>
             <field>00N3100000FuNOb</field>
             <field>00N3100000FuJUT</field>
             <field>00N3100000H1dpm</field>
+            <field>00N0Z00000GOwJ5</field>
             <field>00N3100000FuJY3</field>
             <field>00N3100000FuJUU</field>
             <field>00N3100000FuJUS</field>
@@ -4418,6 +4819,7 @@
             <field>00N3100000GNpdV</field>
             <field>00N3100000GOamt</field>
             <field>00N3100000Go6zP</field>
+            <field>00N0Z00000Gz8zF</field>
             <field>00Ni000000EI8KS</field>
             <field>00N3100000GOPB3</field>
             <field>00N3100000FuJYI</field>
@@ -4425,18 +4827,18 @@
             <field>00N3100000GOH0g</field>
             <field>00N3100000GOH0h</field>
             <field>00N0Z00000Gz4yc</field>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <field>00N3100000Gz1iS</field>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <field>00N3100000GOF1D</field>
-            <field>00N11000001qtAN</field>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMg</field>
+            <field>00N0Z00000GOzMh</field>
             <field>00N3100000GOH5l</field>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <field>00N3100000GOF1E</field>
             <field>00N3100000GOF1F</field>
             <field>00Ni000000EI8N2</field>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <field>00N3100000GOF1G</field>
             <field>00N3100000GOF1H</field>
             <field>00N3100000H1ZGs</field>
@@ -4445,8 +4847,9 @@
             <field>00N3100000GOR3a</field>
             <field>00N3100000GOYKJ</field>
             <field>00N3100000GOF1I</field>
+            <field>00N0Z00000HAevA</field>
             <field>00N3100000GOH0R</field>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <field>00N3100000GOH0W</field>
             <field>00N3100000FuJUV</field>
             <field>00N3100000GOa1J</field>
@@ -4454,6 +4857,8 @@
             <field>00N3100000Gz1he</field>
             <field>00N3100000FujqD</field>
             <field>00N3100000FufrW</field>
+            <field>00N0Z00000Gz6Uj</field>
+            <field>00N0Z00000Gz5gZ</field>
             <field>00N3100000FuJUO</field>
             <field>00Ni000000AHRkF</field>
             <field>00Ni000000FJd8H</field>
@@ -4647,12 +5052,20 @@
             <label>2016 Tax Software Renewal Total</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz9Jt</field>
+            <label>2016 Tax Software renewal Total no BOGO</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOdVM</field>
             <label>2017 AMS Additional Discount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000Gz18t</field>
             <label>2017 Tax Software Renewal Total</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CI</field>
+            <label>2017 Tax Software Renewal Total no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FJY4Y</field>
@@ -4675,12 +5088,20 @@
             <label>Account X-Reference</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP200</field>
+            <label>AcctName</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000AHQWk</field>
             <label>Added from Data.com</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJvM</field>
             <label>Amount Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CN</field>
+            <label>Amount Won no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrC</field>
@@ -4903,6 +5324,26 @@
             <label>AMS Web Renewal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fO</field>
+            <label>Auth Campaign Fall Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuai</field>
+            <label>Auth Campaign Last Update</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fQ</field>
+            <label>Auth Campaign Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP1DD</field>
+            <label>Authorization Campaign Probability</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fP</field>
+            <label>Authorization Campaign Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FujLF</field>
             <label>BI Retention Quota</label>
         </opportunityListFieldsLabelMappings>
@@ -5003,6 +5444,14 @@
             <label>E-Commerce Technology</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuZp</field>
+            <label>Edit Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuad</field>
+            <label>Eligible for Pre-sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOR1P</field>
             <label>ERP Account Number</label>
         </opportunityListFieldsLabelMappings>
@@ -5017,6 +5466,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GkC88</field>
             <label>Executive Help</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP2hs</field>
+            <label>Expansion Call Counter</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSN</field>
@@ -5043,11 +5496,11 @@
             <label>Has ASR Opportunity Team</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg3</field>
+            <field>00N0Z00000GOzMe</field>
             <label>Has Missing Account Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMf</field>
             <label>Has Missing Contact Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5073,6 +5526,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOHMm</field>
             <label>ISC Holdover?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5go</field>
+            <label>Last Month YTD</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FGVqV</field>
@@ -5159,6 +5616,14 @@
             <label>National Payment Terms</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUH</field>
+            <label>National Related New Sale Opp</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUM</field>
+            <label>National Related Opp Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzC</field>
             <label>National Submit to COP</label>
         </opportunityListFieldsLabelMappings>
@@ -5169,6 +5634,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOX1u</field>
             <label>National T&amp;C Instructions</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUR</field>
+            <label>National Total Invoice Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzE</field>
@@ -5227,8 +5696,16 @@
             <label>Opportunity Owner Role</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzNB</field>
+            <label>Opportunity Owner SAP DTN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJXp</field>
             <label>Opportunity Partial Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAfAF</field>
+            <label>Opportunity Product Count</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dmi</field>
@@ -5237,6 +5714,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0H</field>
             <label>Oppty Record ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhe</field>
+            <label>Order Case</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhf</field>
+            <label>Order Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSX</field>
@@ -5251,12 +5736,16 @@
             <label>Original Source Drill-Down 2</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <label>Other Closed Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GoPnH</field>
             <label>Other Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAexf</field>
+            <label>Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNpzl</field>
@@ -5363,6 +5852,10 @@
             <label>Reason Details/Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6K5</field>
+            <label>RecordType Name For Snapshot</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuEJD</field>
             <label>Referral Account</label>
         </opportunityListFieldsLabelMappings>
@@ -5381,6 +5874,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dpm</field>
             <label>Renewal Close Time</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOwJ5</field>
+            <label>Renewal Lost Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJY3</field>
@@ -5467,6 +5964,10 @@
             <label>SA Target Accounts</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8zF</field>
+            <label>Service Source Recapture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000EI8KS</field>
             <label>SFDC Account #</label>
         </opportunityListFieldsLabelMappings>
@@ -5495,7 +5996,7 @@
             <label>SFS Account</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <label>SFS Account Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5503,7 +6004,7 @@
             <label>SFS Books Complete</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <label>SFS CID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5511,11 +6012,11 @@
             <label>SFS Opportunity Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAN</field>
+            <field>00N0Z00000GOzMg</field>
             <label>SFS Opp Stage</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMh</field>
             <label>SFS Opp Type</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5523,7 +6024,7 @@
             <label>SFS Owner Federation ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <label>SFS PID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5539,7 +6040,7 @@
             <label>Solution Blueprint Created</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <label>Steelbrick Opportunity Link</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5575,11 +6076,15 @@
             <label>TAA Account Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAevA</field>
+            <label>TAA Opportunity ID (18)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0R</field>
             <label>TAA Opportunity Owner</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <label>TAA Opportunity Owner Id</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5609,6 +6114,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrW</field>
             <label>Tax Solution Package Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6Uj</field>
+            <label>Territory Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5gZ</field>
+            <label>This Month</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJUO</field>
@@ -5672,15 +6185,19 @@
             <field>00N0Z00000Gz4k1</field>
             <field>00N3100000GoA9X</field>
             <field>00N3100000Go9Bm</field>
+            <field>00N0Z00000Gz9Jt</field>
             <field>00N3100000GOdVM</field>
             <field>00N3100000Gz18t</field>
+            <field>00N0Z00000Gz8CI</field>
             <field>00Ni000000FJY4Y</field>
             <field>00Ni000000CNu3c</field>
             <field>00Ni000000FHgyH</field>
             <field>00Ni000000AHRk2</field>
             <field>00N3100000FufnV</field>
+            <field>00N0Z00000GP200</field>
             <field>00Ni000000AHQWk</field>
             <field>00N3100000FuJvM</field>
+            <field>00N0Z00000Gz8CN</field>
             <field>00N3100000FufrC</field>
             <field>00N3100000Fufn9</field>
             <field>00N3100000Fufn8</field>
@@ -5736,6 +6253,11 @@
             <field>00N3100000FufnR</field>
             <field>00N3100000GOdR5</field>
             <field>00N3100000Go5JX</field>
+            <field>00N0Z00000Gz7fO</field>
+            <field>00N0Z00000GOuai</field>
+            <field>00N0Z00000Gz7fQ</field>
+            <field>00N0Z00000GP1DD</field>
+            <field>00N0Z00000Gz7fP</field>
             <field>00N3100000FujLF</field>
             <field>00Ni000000FIYvg</field>
             <field>00N3100000GOOJL</field>
@@ -5761,24 +6283,28 @@
             <field>00N3100000FuYrP</field>
             <field>00N3100000GOCH8</field>
             <field>00N3100000Gwoad</field>
+            <field>00N0Z00000GOuZp</field>
+            <field>00N0Z00000GOuad</field>
             <field>00N3100000GOR1P</field>
             <field>00Ni000000AHRk4</field>
             <field>00Ni000000CN6hU</field>
             <field>00N3100000GkC88</field>
+            <field>00N0Z00000GP2hs</field>
             <field>00N3100000GNuSN</field>
             <field>00N3100000H1QJs</field>
             <field>00N3100000H1QJx</field>
             <field>00Ni000000AHRk5</field>
             <field>00N3100000GNuSS</field>
             <field>00Ni000000FJTin</field>
-            <field>00N11000001qxg3</field>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMe</field>
+            <field>00N0Z00000GOzMf</field>
             <field>00Ni000000FJTii</field>
             <field>00N3100000Gz3XW</field>
             <field>00Ni000000CN6hV</field>
             <field>00N3100000FuJUW</field>
             <field>00N3100000FufnW</field>
             <field>00N3100000GOHMm</field>
+            <field>00N0Z00000Gz5go</field>
             <field>00Ni000000FGVqV</field>
             <field>00N3100000GOW9E</field>
             <field>00N3100000Gz3XR</field>
@@ -5800,9 +6326,12 @@
             <field>00N3100000GOCz2</field>
             <field>00N3100000GOCz9</field>
             <field>00N3100000GOCzB</field>
+            <field>00N0Z00000GOzUH</field>
+            <field>00N0Z00000GOzUM</field>
             <field>00N3100000GOCzC</field>
             <field>00N3100000GOCzD</field>
             <field>00N3100000GOX1u</field>
+            <field>00N0Z00000GOzUR</field>
             <field>00N3100000GOCzE</field>
             <field>00N3100000GOF19</field>
             <field>00N3100000FujqI</field>
@@ -5817,14 +6346,19 @@
             <field>00Ni000000AHRkD</field>
             <field>00N3100000FuJUR</field>
             <field>00N3100000FuLyS</field>
+            <field>00N0Z00000GOzNB</field>
             <field>00N3100000FuJXp</field>
+            <field>00N0Z00000HAfAF</field>
             <field>00N3100000H1dmi</field>
             <field>00N3100000GOH0H</field>
+            <field>00N0Z00000GOvhe</field>
+            <field>00N0Z00000GOvhf</field>
             <field>00N3100000GNuSX</field>
             <field>00N3100000GNuSc</field>
             <field>00N3100000GNuSh</field>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <field>00N3100000GoPnH</field>
+            <field>00N0Z00000HAexf</field>
             <field>00N3100000GNpzl</field>
             <field>00N3100000GNpuH</field>
             <field>00Ni000000COYkV</field>
@@ -5851,11 +6385,13 @@
             <field>00N3100000FuKKl</field>
             <field>00N3100000Go9h9</field>
             <field>00Ni000000CPeUR</field>
+            <field>00N0Z00000Gz6K5</field>
             <field>00N3100000FuEJD</field>
             <field>00N3100000H1dhY</field>
             <field>00N3100000FuNOb</field>
             <field>00N3100000FuJUT</field>
             <field>00N3100000H1dpm</field>
+            <field>00N0Z00000GOwJ5</field>
             <field>00N3100000FuJY3</field>
             <field>00N3100000FuJUU</field>
             <field>00N3100000FuJUS</field>
@@ -5877,6 +6413,7 @@
             <field>00N3100000GNpdV</field>
             <field>00N3100000GOamt</field>
             <field>00N3100000Go6zP</field>
+            <field>00N0Z00000Gz8zF</field>
             <field>00Ni000000EI8KS</field>
             <field>00N3100000GOPB3</field>
             <field>00N3100000FuJYI</field>
@@ -5884,18 +6421,18 @@
             <field>00N3100000GOH0g</field>
             <field>00N3100000GOH0h</field>
             <field>00N0Z00000Gz4yc</field>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <field>00N3100000Gz1iS</field>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <field>00N3100000GOF1D</field>
-            <field>00N11000001qtAN</field>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMg</field>
+            <field>00N0Z00000GOzMh</field>
             <field>00N3100000GOH5l</field>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <field>00N3100000GOF1E</field>
             <field>00N3100000GOF1F</field>
             <field>00Ni000000EI8N2</field>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <field>00N3100000GOF1G</field>
             <field>00N3100000GOF1H</field>
             <field>00N3100000H1ZGs</field>
@@ -5904,8 +6441,9 @@
             <field>00N3100000GOR3a</field>
             <field>00N3100000GOYKJ</field>
             <field>00N3100000GOF1I</field>
+            <field>00N0Z00000HAevA</field>
             <field>00N3100000GOH0R</field>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <field>00N3100000GOH0W</field>
             <field>00N3100000FuJUV</field>
             <field>00N3100000GOa1J</field>
@@ -5913,6 +6451,8 @@
             <field>00N3100000Gz1he</field>
             <field>00N3100000FujqD</field>
             <field>00N3100000FufrW</field>
+            <field>00N0Z00000Gz6Uj</field>
+            <field>00N0Z00000Gz5gZ</field>
             <field>00N3100000FuJUO</field>
             <field>00Ni000000AHRkF</field>
             <field>00Ni000000FJd8H</field>
@@ -6106,12 +6646,20 @@
             <label>2016 Tax Software Renewal Total</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz9Jt</field>
+            <label>2016 Tax Software renewal Total no BOGO</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOdVM</field>
             <label>2017 AMS Additional Discount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000Gz18t</field>
             <label>2017 Tax Software Renewal Total</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CI</field>
+            <label>2017 Tax Software Renewal Total no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FJY4Y</field>
@@ -6134,12 +6682,20 @@
             <label>Account X-Reference</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP200</field>
+            <label>AcctName</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000AHQWk</field>
             <label>Added from Data.com</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJvM</field>
             <label>Amount Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CN</field>
+            <label>Amount Won no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrC</field>
@@ -6362,6 +6918,26 @@
             <label>AMS Web Renewal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fO</field>
+            <label>Auth Campaign Fall Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuai</field>
+            <label>Auth Campaign Last Update</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fQ</field>
+            <label>Auth Campaign Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP1DD</field>
+            <label>Authorization Campaign Probability</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fP</field>
+            <label>Authorization Campaign Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FujLF</field>
             <label>BI Retention Quota</label>
         </opportunityListFieldsLabelMappings>
@@ -6462,6 +7038,14 @@
             <label>E-Commerce Technology</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuZp</field>
+            <label>Edit Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuad</field>
+            <label>Eligible for Pre-sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOR1P</field>
             <label>ERP Account Number</label>
         </opportunityListFieldsLabelMappings>
@@ -6476,6 +7060,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GkC88</field>
             <label>Executive Help</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP2hs</field>
+            <label>Expansion Call Counter</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSN</field>
@@ -6502,11 +7090,11 @@
             <label>Has ASR Opportunity Team</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg3</field>
+            <field>00N0Z00000GOzMe</field>
             <label>Has Missing Account Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMf</field>
             <label>Has Missing Contact Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -6532,6 +7120,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOHMm</field>
             <label>ISC Holdover?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5go</field>
+            <label>Last Month YTD</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FGVqV</field>
@@ -6618,6 +7210,14 @@
             <label>National Payment Terms</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUH</field>
+            <label>National Related New Sale Opp</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUM</field>
+            <label>National Related Opp Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzC</field>
             <label>National Submit to COP</label>
         </opportunityListFieldsLabelMappings>
@@ -6628,6 +7228,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOX1u</field>
             <label>National T&amp;C Instructions</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUR</field>
+            <label>National Total Invoice Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzE</field>
@@ -6686,8 +7290,16 @@
             <label>Opportunity Owner Role</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzNB</field>
+            <label>Opportunity Owner SAP DTN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJXp</field>
             <label>Opportunity Partial Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAfAF</field>
+            <label>Opportunity Product Count</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dmi</field>
@@ -6696,6 +7308,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0H</field>
             <label>Oppty Record ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhe</field>
+            <label>Order Case</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhf</field>
+            <label>Order Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSX</field>
@@ -6710,12 +7330,16 @@
             <label>Original Source Drill-Down 2</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <label>Other Closed Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GoPnH</field>
             <label>Other Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAexf</field>
+            <label>Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNpzl</field>
@@ -6822,6 +7446,10 @@
             <label>Reason Details/Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6K5</field>
+            <label>RecordType Name For Snapshot</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuEJD</field>
             <label>Referral Account</label>
         </opportunityListFieldsLabelMappings>
@@ -6840,6 +7468,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dpm</field>
             <label>Renewal Close Time</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOwJ5</field>
+            <label>Renewal Lost Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJY3</field>
@@ -6926,6 +7558,10 @@
             <label>SA Target Accounts</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8zF</field>
+            <label>Service Source Recapture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000EI8KS</field>
             <label>SFDC Account #</label>
         </opportunityListFieldsLabelMappings>
@@ -6954,7 +7590,7 @@
             <label>SFS Account</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <label>SFS Account Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -6962,7 +7598,7 @@
             <label>SFS Books Complete</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <label>SFS CID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -6970,11 +7606,11 @@
             <label>SFS Opportunity Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAN</field>
+            <field>00N0Z00000GOzMg</field>
             <label>SFS Opp Stage</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMh</field>
             <label>SFS Opp Type</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -6982,7 +7618,7 @@
             <label>SFS Owner Federation ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <label>SFS PID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -6998,7 +7634,7 @@
             <label>Solution Blueprint Created</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <label>Steelbrick Opportunity Link</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -7034,11 +7670,15 @@
             <label>TAA Account Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAevA</field>
+            <label>TAA Opportunity ID (18)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0R</field>
             <label>TAA Opportunity Owner</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <label>TAA Opportunity Owner Id</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -7068,6 +7708,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrW</field>
             <label>Tax Solution Package Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6Uj</field>
+            <label>Territory Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5gZ</field>
+            <label>This Month</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJUO</field>
@@ -7131,15 +7779,19 @@
             <field>00N0Z00000Gz4k1</field>
             <field>00N3100000GoA9X</field>
             <field>00N3100000Go9Bm</field>
+            <field>00N0Z00000Gz9Jt</field>
             <field>00N3100000GOdVM</field>
             <field>00N3100000Gz18t</field>
+            <field>00N0Z00000Gz8CI</field>
             <field>00Ni000000FJY4Y</field>
             <field>00Ni000000CNu3c</field>
             <field>00Ni000000FHgyH</field>
             <field>00Ni000000AHRk2</field>
             <field>00N3100000FufnV</field>
+            <field>00N0Z00000GP200</field>
             <field>00Ni000000AHQWk</field>
             <field>00N3100000FuJvM</field>
+            <field>00N0Z00000Gz8CN</field>
             <field>00N3100000FufrC</field>
             <field>00N3100000Fufn9</field>
             <field>00N3100000Fufn8</field>
@@ -7195,6 +7847,11 @@
             <field>00N3100000FufnR</field>
             <field>00N3100000GOdR5</field>
             <field>00N3100000Go5JX</field>
+            <field>00N0Z00000Gz7fO</field>
+            <field>00N0Z00000GOuai</field>
+            <field>00N0Z00000Gz7fQ</field>
+            <field>00N0Z00000GP1DD</field>
+            <field>00N0Z00000Gz7fP</field>
             <field>00N3100000FujLF</field>
             <field>00Ni000000FIYvg</field>
             <field>00N3100000GOOJL</field>
@@ -7220,24 +7877,28 @@
             <field>00N3100000FuYrP</field>
             <field>00N3100000GOCH8</field>
             <field>00N3100000Gwoad</field>
+            <field>00N0Z00000GOuZp</field>
+            <field>00N0Z00000GOuad</field>
             <field>00N3100000GOR1P</field>
             <field>00Ni000000AHRk4</field>
             <field>00Ni000000CN6hU</field>
             <field>00N3100000GkC88</field>
+            <field>00N0Z00000GP2hs</field>
             <field>00N3100000GNuSN</field>
             <field>00N3100000H1QJs</field>
             <field>00N3100000H1QJx</field>
             <field>00Ni000000AHRk5</field>
             <field>00N3100000GNuSS</field>
             <field>00Ni000000FJTin</field>
-            <field>00N11000001qxg3</field>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMe</field>
+            <field>00N0Z00000GOzMf</field>
             <field>00Ni000000FJTii</field>
             <field>00N3100000Gz3XW</field>
             <field>00Ni000000CN6hV</field>
             <field>00N3100000FuJUW</field>
             <field>00N3100000FufnW</field>
             <field>00N3100000GOHMm</field>
+            <field>00N0Z00000Gz5go</field>
             <field>00Ni000000FGVqV</field>
             <field>00N3100000GOW9E</field>
             <field>00N3100000Gz3XR</field>
@@ -7259,9 +7920,12 @@
             <field>00N3100000GOCz2</field>
             <field>00N3100000GOCz9</field>
             <field>00N3100000GOCzB</field>
+            <field>00N0Z00000GOzUH</field>
+            <field>00N0Z00000GOzUM</field>
             <field>00N3100000GOCzC</field>
             <field>00N3100000GOCzD</field>
             <field>00N3100000GOX1u</field>
+            <field>00N0Z00000GOzUR</field>
             <field>00N3100000GOCzE</field>
             <field>00N3100000GOF19</field>
             <field>00N3100000FujqI</field>
@@ -7276,14 +7940,19 @@
             <field>00Ni000000AHRkD</field>
             <field>00N3100000FuJUR</field>
             <field>00N3100000FuLyS</field>
+            <field>00N0Z00000GOzNB</field>
             <field>00N3100000FuJXp</field>
+            <field>00N0Z00000HAfAF</field>
             <field>00N3100000H1dmi</field>
             <field>00N3100000GOH0H</field>
+            <field>00N0Z00000GOvhe</field>
+            <field>00N0Z00000GOvhf</field>
             <field>00N3100000GNuSX</field>
             <field>00N3100000GNuSc</field>
             <field>00N3100000GNuSh</field>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <field>00N3100000GoPnH</field>
+            <field>00N0Z00000HAexf</field>
             <field>00N3100000GNpzl</field>
             <field>00N3100000GNpuH</field>
             <field>00Ni000000COYkV</field>
@@ -7310,11 +7979,13 @@
             <field>00N3100000FuKKl</field>
             <field>00N3100000Go9h9</field>
             <field>00Ni000000CPeUR</field>
+            <field>00N0Z00000Gz6K5</field>
             <field>00N3100000FuEJD</field>
             <field>00N3100000H1dhY</field>
             <field>00N3100000FuNOb</field>
             <field>00N3100000FuJUT</field>
             <field>00N3100000H1dpm</field>
+            <field>00N0Z00000GOwJ5</field>
             <field>00N3100000FuJY3</field>
             <field>00N3100000FuJUU</field>
             <field>00N3100000FuJUS</field>
@@ -7336,6 +8007,7 @@
             <field>00N3100000GNpdV</field>
             <field>00N3100000GOamt</field>
             <field>00N3100000Go6zP</field>
+            <field>00N0Z00000Gz8zF</field>
             <field>00Ni000000EI8KS</field>
             <field>00N3100000GOPB3</field>
             <field>00N3100000FuJYI</field>
@@ -7343,18 +8015,18 @@
             <field>00N3100000GOH0g</field>
             <field>00N3100000GOH0h</field>
             <field>00N0Z00000Gz4yc</field>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <field>00N3100000Gz1iS</field>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <field>00N3100000GOF1D</field>
-            <field>00N11000001qtAN</field>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMg</field>
+            <field>00N0Z00000GOzMh</field>
             <field>00N3100000GOH5l</field>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <field>00N3100000GOF1E</field>
             <field>00N3100000GOF1F</field>
             <field>00Ni000000EI8N2</field>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <field>00N3100000GOF1G</field>
             <field>00N3100000GOF1H</field>
             <field>00N3100000H1ZGs</field>
@@ -7363,8 +8035,9 @@
             <field>00N3100000GOR3a</field>
             <field>00N3100000GOYKJ</field>
             <field>00N3100000GOF1I</field>
+            <field>00N0Z00000HAevA</field>
             <field>00N3100000GOH0R</field>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <field>00N3100000GOH0W</field>
             <field>00N3100000FuJUV</field>
             <field>00N3100000GOa1J</field>
@@ -7372,6 +8045,8 @@
             <field>00N3100000Gz1he</field>
             <field>00N3100000FujqD</field>
             <field>00N3100000FufrW</field>
+            <field>00N0Z00000Gz6Uj</field>
+            <field>00N0Z00000Gz5gZ</field>
             <field>00N3100000FuJUO</field>
             <field>00Ni000000AHRkF</field>
             <field>00Ni000000FJd8H</field>
@@ -7573,12 +8248,20 @@
             <label>2016 Tax Software Renewal Total</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz9Jt</field>
+            <label>2016 Tax Software renewal Total no BOGO</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOdVM</field>
             <label>2017 AMS Additional Discount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000Gz18t</field>
             <label>2017 Tax Software Renewal Total</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CI</field>
+            <label>2017 Tax Software Renewal Total no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FJY4Y</field>
@@ -7601,12 +8284,20 @@
             <label>Account X-Reference</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP200</field>
+            <label>AcctName</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000AHQWk</field>
             <label>Added from Data.com</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJvM</field>
             <label>Amount Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8CN</field>
+            <label>Amount Won no BOGO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrC</field>
@@ -7829,6 +8520,26 @@
             <label>AMS Web Renewal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fO</field>
+            <label>Auth Campaign Fall Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuai</field>
+            <label>Auth Campaign Last Update</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fQ</field>
+            <label>Auth Campaign Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP1DD</field>
+            <label>Authorization Campaign Probability</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz7fP</field>
+            <label>Authorization Campaign Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FujLF</field>
             <label>BI Retention Quota</label>
         </opportunityListFieldsLabelMappings>
@@ -7929,6 +8640,14 @@
             <label>E-Commerce Technology</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuZp</field>
+            <label>Edit Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOuad</field>
+            <label>Eligible for Pre-sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOR1P</field>
             <label>ERP Account Number</label>
         </opportunityListFieldsLabelMappings>
@@ -7943,6 +8662,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GkC88</field>
             <label>Executive Help</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GP2hs</field>
+            <label>Expansion Call Counter</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSN</field>
@@ -7969,11 +8692,11 @@
             <label>Has ASR Opportunity Team</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg3</field>
+            <field>00N0Z00000GOzMe</field>
             <label>Has Missing Account Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMf</field>
             <label>Has Missing Contact Details</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -7999,6 +8722,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOHMm</field>
             <label>ISC Holdover?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5go</field>
+            <label>Last Month YTD</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00Ni000000FGVqV</field>
@@ -8085,6 +8812,14 @@
             <label>National Payment Terms</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUH</field>
+            <label>National Related New Sale Opp</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUM</field>
+            <label>National Related Opp Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzC</field>
             <label>National Submit to COP</label>
         </opportunityListFieldsLabelMappings>
@@ -8095,6 +8830,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOX1u</field>
             <label>National T&amp;C Instructions</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzUR</field>
+            <label>National Total Invoice Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOCzE</field>
@@ -8153,8 +8892,16 @@
             <label>Opportunity Owner Role</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOzNB</field>
+            <label>Opportunity Owner SAP DTN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJXp</field>
             <label>Opportunity Partial Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAfAF</field>
+            <label>Opportunity Product Count</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dmi</field>
@@ -8163,6 +8910,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0H</field>
             <label>Oppty Record ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhe</field>
+            <label>Order Case</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOvhf</field>
+            <label>Order Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNuSX</field>
@@ -8177,12 +8932,16 @@
             <label>Original Source Drill-Down 2</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <label>Other Closed Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GoPnH</field>
             <label>Other Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAexf</field>
+            <label>Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000GNpzl</field>
@@ -8289,6 +9048,10 @@
             <label>Reason Details/Other Reason</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6K5</field>
+            <label>RecordType Name For Snapshot</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000FuEJD</field>
             <label>Referral Account</label>
         </opportunityListFieldsLabelMappings>
@@ -8307,6 +9070,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000H1dpm</field>
             <label>Renewal Close Time</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000GOwJ5</field>
+            <label>Renewal Lost Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJY3</field>
@@ -8393,6 +9160,10 @@
             <label>SA Target Accounts</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz8zF</field>
+            <label>Service Source Recapture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00Ni000000EI8KS</field>
             <label>SFDC Account #</label>
         </opportunityListFieldsLabelMappings>
@@ -8421,7 +9192,7 @@
             <label>SFS Account</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <label>SFS Account Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -8429,7 +9200,7 @@
             <label>SFS Books Complete</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <label>SFS CID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -8437,11 +9208,11 @@
             <label>SFS Opportunity Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAN</field>
+            <field>00N0Z00000GOzMg</field>
             <label>SFS Opp Stage</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMh</field>
             <label>SFS Opp Type</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -8449,7 +9220,7 @@
             <label>SFS Owner Federation ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <label>SFS PID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -8465,7 +9236,7 @@
             <label>Solution Blueprint Created</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <label>Steelbrick Opportunity Link</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -8501,11 +9272,15 @@
             <label>TAA Account Record ID</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000HAevA</field>
+            <label>TAA Opportunity ID (18)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N3100000GOH0R</field>
             <label>TAA Opportunity Owner</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <label>TAA Opportunity Owner Id</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -8535,6 +9310,14 @@
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FufrW</field>
             <label>Tax Solution Package Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz6Uj</field>
+            <label>Territory Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0Z00000Gz5gZ</field>
+            <label>This Month</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N3100000FuJUO</field>
@@ -8600,15 +9383,19 @@
             <field>00N0Z00000Gz4k1</field>
             <field>00N3100000GoA9X</field>
             <field>00N3100000Go9Bm</field>
+            <field>00N0Z00000Gz9Jt</field>
             <field>00N3100000GOdVM</field>
             <field>00N3100000Gz18t</field>
+            <field>00N0Z00000Gz8CI</field>
             <field>00Ni000000FJY4Y</field>
             <field>00Ni000000CNu3c</field>
             <field>00Ni000000FHgyH</field>
             <field>00Ni000000AHRk2</field>
             <field>00N3100000FufnV</field>
+            <field>00N0Z00000GP200</field>
             <field>00Ni000000AHQWk</field>
             <field>00N3100000FuJvM</field>
+            <field>00N0Z00000Gz8CN</field>
             <field>00N3100000FufrC</field>
             <field>00N3100000Fufn9</field>
             <field>00N3100000Fufn8</field>
@@ -8664,6 +9451,11 @@
             <field>00N3100000FufnR</field>
             <field>00N3100000GOdR5</field>
             <field>00N3100000Go5JX</field>
+            <field>00N0Z00000Gz7fO</field>
+            <field>00N0Z00000GOuai</field>
+            <field>00N0Z00000Gz7fQ</field>
+            <field>00N0Z00000GP1DD</field>
+            <field>00N0Z00000Gz7fP</field>
             <field>00N3100000FujLF</field>
             <field>00Ni000000FIYvg</field>
             <field>00N3100000GOOJL</field>
@@ -8689,24 +9481,28 @@
             <field>00N3100000FuYrP</field>
             <field>00N3100000GOCH8</field>
             <field>00N3100000Gwoad</field>
+            <field>00N0Z00000GOuZp</field>
+            <field>00N0Z00000GOuad</field>
             <field>00N3100000GOR1P</field>
             <field>00Ni000000AHRk4</field>
             <field>00Ni000000CN6hU</field>
             <field>00N3100000GkC88</field>
+            <field>00N0Z00000GP2hs</field>
             <field>00N3100000GNuSN</field>
             <field>00N3100000H1QJs</field>
             <field>00N3100000H1QJx</field>
             <field>00Ni000000AHRk5</field>
             <field>00N3100000GNuSS</field>
             <field>00Ni000000FJTin</field>
-            <field>00N11000001qxg3</field>
-            <field>00N11000001qxg4</field>
+            <field>00N0Z00000GOzMe</field>
+            <field>00N0Z00000GOzMf</field>
             <field>00Ni000000FJTii</field>
             <field>00N3100000Gz3XW</field>
             <field>00Ni000000CN6hV</field>
             <field>00N3100000FuJUW</field>
             <field>00N3100000FufnW</field>
             <field>00N3100000GOHMm</field>
+            <field>00N0Z00000Gz5go</field>
             <field>00Ni000000FGVqV</field>
             <field>00N3100000GOW9E</field>
             <field>00N3100000Gz3XR</field>
@@ -8728,9 +9524,12 @@
             <field>00N3100000GOCz2</field>
             <field>00N3100000GOCz9</field>
             <field>00N3100000GOCzB</field>
+            <field>00N0Z00000GOzUH</field>
+            <field>00N0Z00000GOzUM</field>
             <field>00N3100000GOCzC</field>
             <field>00N3100000GOCzD</field>
             <field>00N3100000GOX1u</field>
+            <field>00N0Z00000GOzUR</field>
             <field>00N3100000GOCzE</field>
             <field>00N3100000GOF19</field>
             <field>00N3100000FujqI</field>
@@ -8745,14 +9544,19 @@
             <field>00Ni000000AHRkD</field>
             <field>00N3100000FuJUR</field>
             <field>00N3100000FuLyS</field>
+            <field>00N0Z00000GOzNB</field>
             <field>00N3100000FuJXp</field>
+            <field>00N0Z00000HAfAF</field>
             <field>00N3100000H1dmi</field>
             <field>00N3100000GOH0H</field>
+            <field>00N0Z00000GOvhe</field>
+            <field>00N0Z00000GOvhf</field>
             <field>00N3100000GNuSX</field>
             <field>00N3100000GNuSc</field>
             <field>00N3100000GNuSh</field>
-            <field>00N11000001zqON</field>
+            <field>00N0Z00000GOtQm</field>
             <field>00N3100000GoPnH</field>
+            <field>00N0Z00000HAexf</field>
             <field>00N3100000GNpzl</field>
             <field>00N3100000GNpuH</field>
             <field>00Ni000000COYkV</field>
@@ -8779,11 +9583,13 @@
             <field>00N3100000FuKKl</field>
             <field>00N3100000Go9h9</field>
             <field>00Ni000000CPeUR</field>
+            <field>00N0Z00000Gz6K5</field>
             <field>00N3100000FuEJD</field>
             <field>00N3100000H1dhY</field>
             <field>00N3100000FuNOb</field>
             <field>00N3100000FuJUT</field>
             <field>00N3100000H1dpm</field>
+            <field>00N0Z00000GOwJ5</field>
             <field>00N3100000FuJY3</field>
             <field>00N3100000FuJUU</field>
             <field>00N3100000FuJUS</field>
@@ -8805,6 +9611,7 @@
             <field>00N3100000GNpdV</field>
             <field>00N3100000GOamt</field>
             <field>00N3100000Go6zP</field>
+            <field>00N0Z00000Gz8zF</field>
             <field>00Ni000000EI8KS</field>
             <field>00N3100000GOPB3</field>
             <field>00N3100000FuJYI</field>
@@ -8812,18 +9619,18 @@
             <field>00N3100000GOH0g</field>
             <field>00N3100000GOH0h</field>
             <field>00N0Z00000Gz4yc</field>
-            <field>00N11000001qg2B</field>
+            <field>00N0Z00000GzBov</field>
             <field>00N3100000Gz1iS</field>
-            <field>00N11000001qg2G</field>
+            <field>00N0Z00000GzBol</field>
             <field>00N3100000GOF1D</field>
-            <field>00N11000001qtAN</field>
-            <field>00N11000001qtAO</field>
+            <field>00N0Z00000GOzMg</field>
+            <field>00N0Z00000GOzMh</field>
             <field>00N3100000GOH5l</field>
-            <field>00N11000001qg2L</field>
+            <field>00N0Z00000GzBoq</field>
             <field>00N3100000GOF1E</field>
             <field>00N3100000GOF1F</field>
             <field>00Ni000000EI8N2</field>
-            <field>00N11000001qtAP</field>
+            <field>00N0Z00000GOzMi</field>
             <field>00N3100000GOF1G</field>
             <field>00N3100000GOF1H</field>
             <field>00N3100000H1ZGs</field>
@@ -8832,8 +9639,9 @@
             <field>00N3100000GOR3a</field>
             <field>00N3100000GOYKJ</field>
             <field>00N3100000GOF1I</field>
+            <field>00N0Z00000HAevA</field>
             <field>00N3100000GOH0R</field>
-            <field>00N11000001qtAQ</field>
+            <field>00N0Z00000GOzMj</field>
             <field>00N3100000GOH0W</field>
             <field>00N3100000FuJUV</field>
             <field>00N3100000GOa1J</field>
@@ -8841,6 +9649,8 @@
             <field>00N3100000Gz1he</field>
             <field>00N3100000FujqD</field>
             <field>00N3100000FufrW</field>
+            <field>00N0Z00000Gz6Uj</field>
+            <field>00N0Z00000Gz5gZ</field>
             <field>00N3100000FuJUO</field>
             <field>00Ni000000AHRkF</field>
             <field>00Ni000000FJd8H</field>

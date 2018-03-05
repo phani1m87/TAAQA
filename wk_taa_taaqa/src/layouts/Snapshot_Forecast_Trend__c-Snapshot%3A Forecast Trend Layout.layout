@@ -39,10 +39,6 @@
                 <behavior>Edit</behavior>
                 <field>As_of_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Revised_Forecast__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

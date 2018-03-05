@@ -140,6 +140,7 @@
         <columns>Field_API_Name__c</columns>
         <columns>Rule_Enabled__c</columns>
         <columns>Sobject__c</columns>
+        <columns>External_ID__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Rule_Type__c</field>

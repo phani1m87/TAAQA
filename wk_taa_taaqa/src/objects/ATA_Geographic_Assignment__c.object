@@ -193,50 +193,38 @@ Batch program will pick all DTNs that are marked as updated and recompute accoun
     </fields>
     <label>ATA Geographic Assignment</label>
     <listViews>
-        <fullName>ALL_19054</fullName>
-        <columns>NAME</columns>
-        <columns>Role_Name__c</columns>
-        <columns>DTN__c</columns>
-        <columns>PostalCode__c</columns>
-        <columns>Geographic_Assignment_Type__c</columns>
-        <columns>External_ID__c</columns>
-        <columns>IsUpdated__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>PostalCode__c</field>
-            <operation>equals</operation>
-            <value>19054</value>
-        </filters>
-        <label>19054</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Role_Name__c</columns>
-        <columns>DTN__c</columns>
-        <columns>PostalCode__c</columns>
-        <columns>External_ID__c</columns>
         <columns>Geographic_Assignment_Type__c</columns>
+        <columns>Role_Name__c</columns>
+        <columns>PostalCode__c</columns>
+        <columns>DTN__c</columns>
+        <columns>External_ID__c</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>Role_Name__c</field>
+            <operation>contains</operation>
+            <value>R&amp;L</value>
+        </filters>
         <label>All</label>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>X80503</fullName>
+        <fullName>Custom_View</fullName>
+        <columns>NAME</columns>
         <columns>Role_Name__c</columns>
         <columns>DTN__c</columns>
         <columns>PostalCode__c</columns>
         <columns>Geographic_Assignment_Type__c</columns>
         <columns>External_ID__c</columns>
-        <columns>NAME</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>PostalCode__c</field>
-            <operation>equals</operation>
-            <value>80503</value>
+            <operation>contains</operation>
+            <value>75669</value>
         </filters>
-        <label>80503</label>
+        <label>32804</label>
         <language>en_US</language>
     </listViews>
     <nameField>

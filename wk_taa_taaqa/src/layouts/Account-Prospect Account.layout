@@ -43,68 +43,20 @@
                 <field>X2012_ATX_Survey_Recipient__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>S2S_Account_Data__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Mid_Market_Corporate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Mid_Market_Other_Verticals__c</field>
+                <behavior>Edit</behavior>
+                <field>Enterprise_Industry__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PFX_Axcess_Customer__c</field>
+                <field>Account_Tenure__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Small_Firm_Customer__c</field>
+                <field>Potential_Strategic__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>R_L_Small_Firms_Retention__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>TAA_Software_New_Sales__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Corporate_Software_New_Sales__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>R_L_New_Sales__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>PFX_Axcess_Retention_Owner__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ATX_TW_Retention_Owner__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Corp_Software_Retention_Owner__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>R_L_Retention_Owner_ATA__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Trust_Sales__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Count_Other_Ancilliary__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Count_SFS_Books__c</field>
+                <field>Strategic_Type__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -136,6 +88,10 @@
                 <behavior>Readonly</behavior>
                 <field>SFDC_Account__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Holdover_Opportunity__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -154,13 +110,54 @@
                 <field>Billing_County__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Account Summary</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Headquarter_Country__c</field>
+                <height>200</height>
+                <page>Account_Summary</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Account Score</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_Grade__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_Tenure__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_YTD_Returns__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_Product_Count__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_Total_Points__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns/>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -228,6 +225,21 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>R_L_Small_Firms_Retention__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PFX_Axcess_Customer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ISC_Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>X2017_User_Conference_Attendee__c</field>
             </layoutItems>
             <layoutItems>
@@ -243,6 +255,17 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Resale_Wholesale__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Mid_Market_Corporate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Mid_Market_Other_Verticals__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -318,6 +341,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>NaicsDesc</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NAICS_Industry__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NAICS_Sub_Industry__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -491,6 +522,10 @@
                 <behavior>Edit</behavior>
                 <field>IsMassUpdated__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Has_AnswerConnect__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -509,35 +544,43 @@
                 <field>Indirect_Owner__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RC_Small_Firm__c</field>
-            </layoutItems>
-            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>R_L_FSR__c</field>
+                <field>ATA_Solution_Consultant_DTN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>R_L_ISC__c</field>
+                <field>ATA_TAA_Software_New_Sales_DTN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>R_L_ASR__c</field>
+                <field>ATA_R_L_New_Sales_DTN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Service_Source__c</field>
+                <field>ATA_Corporate_Software_New_Sales_DTN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AISR__c</field>
+                <field>ATA_PFX_Axcess_Retention_Owner_DTN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>QP__c</field>
+                <field>ATA_ATX_TW_Retention_Owner_DTN__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ATA_Corp_Software_Retention_Owner_DTN__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ATA_R_L_Retention_Owner_DTN__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ATA_Trust_Sales_DTN__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -550,31 +593,43 @@
                 <field>R_L_Retention_Owner__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RC_Small_Firm__c</field>
+            </layoutItems>
+            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Corp_Direct__c</field>
+                <behavior>Readonly</behavior>
+                <field>TAA_Software_New_Sales__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Corp_Indirect__c</field>
+                <behavior>Readonly</behavior>
+                <field>R_L_New_Sales__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Pro_SW_FSR__c</field>
+                <behavior>Readonly</behavior>
+                <field>Corporate_Software_New_Sales__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Inside_Sales__c</field>
+                <behavior>Readonly</behavior>
+                <field>PFX_Axcess_Retention_Owner__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SW_ASR__c</field>
+                <behavior>Readonly</behavior>
+                <field>ATX_TW_Retention_Owner__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>NAM_SAM_CNAM__c</field>
+                <behavior>Readonly</behavior>
+                <field>Corp_Software_Retention_Owner__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>R_L_Retention_Owner_ATA__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Trust_Sales__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -865,6 +920,7 @@
     </relatedLists>
     <relatedLists>
         <fields>Account_Number__c</fields>
+        <fields>Quantity__c</fields>
         <fields>NAME</fields>
         <fields>Adjusted_Full_Year_Cycle__c</fields>
         <fields>Status__c</fields>
@@ -873,7 +929,6 @@
         <fields>Newport__c</fields>
         <fields>Start_Date__c</fields>
         <fields>Stop_Date__c</fields>
-        <fields>Quantity__c</fields>
         <relatedList>AMS_Inventory__c.Account__c</relatedList>
         <sortField>Status__c</sortField>
         <sortOrder>Asc</sortOrder>
@@ -881,6 +936,7 @@
     <relatedLists>
         <fields>Account_Number__c</fields>
         <fields>Adjusted_Full_Year_Cycle__c</fields>
+        <fields>Quantity__c</fields>
         <fields>Product_Description__c</fields>
         <fields>Status__c</fields>
         <fields>NAME</fields>
@@ -888,7 +944,6 @@
         <fields>Start_Date__c</fields>
         <fields>Stop_Date__c</fields>
         <fields>DTN__c</fields>
-        <fields>Renewal_Program__c</fields>
         <relatedList>SAP_Inventory__c.Account__c</relatedList>
         <sortField>Stop_Date__c</sortField>
         <sortOrder>Desc</sortOrder>
@@ -931,12 +986,12 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Account_Data_Request</customButtons>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Request_Type__c</fields>
-        <fields>Status__c</fields>
-        <fields>Assigned_Technician__c</fields>
-        <relatedList>Account_Data_Request__c.Account__c</relatedList>
+        <excludeButtons>NewCase</excludeButtons>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.TYPE</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>OWNER_NAME</fields>
+        <relatedList>Case.Merge_with_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
@@ -949,17 +1004,13 @@
         <fields>Type__c</fields>
         <fields>Detail__c</fields>
         <fields>CREATEDBY_USER</fields>
-        <fields>CreatedDateTime__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>Monitoring_Log__c.Account__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedRecordConnectionList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>MessageCode__c</fields>
-        <fields>Message__c</fields>
-        <relatedList>Application_Monitoring_Log__c.AccountId__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

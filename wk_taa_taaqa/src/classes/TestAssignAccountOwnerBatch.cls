@@ -9,17 +9,17 @@
  * ------------------------------------------------------------------------- */
 @isTest(seeAllData=false)
 public class TestAssignAccountOwnerBatch {
-	public static User uSFS;
-	public static User u1;
-	public static User u2;
-	public static User u3;
-	public static User u4;
-	public static User u5;
-	public static User uSAM;
-	public static User uSA;
-	public static User uCNAM;
-	public static User uNAM;
-	static void setup(){
+    public static User uSFS;
+    public static User u1;
+    public static User u2;
+    public static User u3;
+    public static User u4;
+    public static User u5;
+    public static User uSAM;
+    public static User uSA;
+    public static User uCNAM;
+    public static User uNAM;
+    static void setup(){
         Market_Segment_Mapping__c msm = new Market_Segment_Mapping__c(Name='Test0092',Segment__c='Accounting Firms',SIC_Code__c='0092');
         insert msm;
         Market_Segment_Rules__c msr =new Market_Segment_Rules__c(Name='Test1',Segment__c='Accounting Firms',IsSubSegmentBasedOnAnnualRevenue__c=True, IsSubSegmentBasedOnEmployeeCount__c=True);
@@ -84,24 +84,29 @@ public class TestAssignAccountOwnerBatch {
         Corporate_National_Role_DTN__c cnr = TestDataFactory.newCNR('DemoCNR', uCNAM, '222h'); 
         National_Account_Management__c nam = TestDataFactory.newNAM('DemoNAM', '222i', uNAM);
     }
-	static testMethod void runPositiveTest() {
-		setup();
-		List<Account> acctList = new List<Account> ();
-		for(integer i=0;i<5;i++) {
-			Account myAccount = new Account(Name='myAccount'+i,Market_Segment__c='Accounting Firms',
-        	Market_Sub_Segment__c='5-9 Total Employees', IsMassUpdated__c=true, billingPostalCode='77777', AnnualRevenue=0, NumberOfEmployees=0);
-			acctList.add(myAccount);
-		}
+    static testMethod void runPositiveTest() {
+        setup();
+        List<Account> acctList = new List<Account> ();
+        for(integer i=0;i<5;i++) {
+            Account myAccount = new Account(Name='myAccount'+i,Market_Segment__c='Accounting Firms',
+            Market_Sub_Segment__c='5-9 Total Employees', IsMassUpdated__c=true, billingPostalCode='77777', AnnualRevenue=0, NumberOfEmployees=0);
+            acctList.add(myAccount);
+        }
         insert acctList; 
-        AccountTeamMember atm = new AccountTeamMember(AccountId=acctList.get(0).Id,TeamMemberRole='RC - Small Firm Software', UserId=uSFS.Id);
-        insert atm; 
-		//System.debug('@@@ '+myAccount.software_owner__r.Id+' '+myAccount.RC_Small_Firm__c+' '+myAccount.R_L_Retention_Owner__c+' '+myAccount.r_l_owner__c+' '+myAccount.Indirect_Owner__c);
+        List<AccountTeamMember> atmListToInsert = new List<AccountTeamMember>();
+        atmListToInsert.add(new AccountTeamMember(AccountId=acctList.get(0).Id,TeamMemberRole='RC - Small Firm Software', UserId=uSFS.Id));
+        atmListToInsert.add(new AccountTeamMember(AccountId=acctList.get(0).Id,TeamMemberRole='Software Owner_5', UserId=uSAM.Id));
+        atmListToInsert.add(new AccountTeamMember(AccountId=acctList.get(0).Id,TeamMemberRole='ISC - Corp Software Indirect', UserId=u1.Id));
+        atmListToInsert.add(new AccountTeamMember(AccountId=acctList.get(0).Id,TeamMemberRole='National Solution Consultant', UserId=u2.Id));
+        atmListToInsert.add(new AccountTeamMember(AccountId=acctList.get(0).Id,TeamMemberRole='RC - R&L ServiceSource', UserId=u4.Id));
+        insert atmListToInsert; 
+        //System.debug('@@@ '+myAccount.software_owner__r.Id+' '+myAccount.RC_Small_Firm__c+' '+myAccount.R_L_Retention_Owner__c+' '+myAccount.r_l_owner__c+' '+myAccount.Indirect_Owner__c);
         Test.startTest();
         System.debug('### ' + [SELECT Count(Id) FROM AccountTeamMember]);
         AssignAccountOwnerBatch actBatch = new AssignAccountOwnerBatch();
-		Database.executeBatch(actBatch,50);
+        Database.executeBatch(actBatch,50);
         //System.debug('@@@ '+myAccount.software_owner__r.Id+' '+myAccount.RC_Small_Firm__c+' '+myAccount.R_L_Retention_Owner__c+' '+myAccount.r_l_owner__c+' '+myAccount.Indirect_Owner__c);
         Test.stopTest();
         //System.assertEquals(myAccount.software_owner__c,uCNAM.Id);
-	}
+    }
 }

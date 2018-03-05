@@ -14,21 +14,15 @@ public class TSM_OpportunityTriggerHandler {
         Map<Id, Opportunity> oppMap = new Map<Id, Opportunity>();
         // identify the required opportunity records meet the criteria
         for(Opportunity opp: newRecords) {
-        
-        system.debug('Before if loop'+opp);
             if( opp.CPQ_Quote__c != null && opp.CPQ_Quote__c.equalsIgnoreCase('SteelBrick') &&
                opp.ConnectionReceivedId == null) {
                 oppList.add(opp);
                 oppMap.put(opp.id, opp);
-                system.debug('After If loop'+opp);
             }
         }
         if(!oppList.isEmpty()) {
-        
-            system.debug('List is not empty'+oppList);
             TSM_Custom_Settings__c tsmCS = TSM_Custom_Settings__c.getInstance();        
-            Id networkId = TSM_Util.getNetworkId(tsmCS.ConnectionName__c);   
-                 system.debug('ConnectionNetwork Id'+networkId );
+            Id networkId = TSM_Util.getNetworkId(tsmCS.ConnectionName__c);        
             processRecords(networkId, oppMap, false);
         }
     }
@@ -76,9 +70,6 @@ public class TSM_OpportunityTriggerHandler {
         Set<Id> contactIdSet = new Set<Id>();
         List<Opportunity> oppList = new List<Opportunity>(); 
         List<Opportunity> oppContactList = new List<Opportunity>();
-        
-         system.debug('Selected Records'+networkId+objRecords );
-         
         for(Opportunity opp: objRecords) {
             if(opp.AccountId != null) {
                 oppList.add(opp);
@@ -169,7 +160,7 @@ public class TSM_OpportunityTriggerHandler {
         // SMS - 752 :InsertShares method is replaced by insertSharesObject which is Returning IDs of pertnerNetworkRecordConnection.
         List<String> accountShareObjectListIds = TSM_Util.insertSharesObject(newAcctShrList, 'TSM_OpportunityTrigger', 'Trigger');
         if(accountShareObjectListIds.size()>0){
-            TSM_Util.insertReplicationMonitoringLog(accountShareObjectListIds,'Account');
+        	TSM_Util.insertReplicationMonitoringLog(accountShareObjectListIds,'Account');
         } 
         
         
@@ -180,7 +171,7 @@ public class TSM_OpportunityTriggerHandler {
         // SMS - 752 :InsertShares method is replaced by insertSharesObject which is Returning IDs of pertnerNetworkRecordConnection.
         List<String> contactShareObjectListIds = TSM_Util.insertSharesObject(newContShrList, 'TSM_OpportunityTrigger', 'Trigger');
         if(contactShareObjectListIds.size()>0){
-            TSM_Util.insertReplicationMonitoringLog(contactShareObjectListIds,'Contact');
+        	TSM_Util.insertReplicationMonitoringLog(contactShareObjectListIds,'Contact');
         } 
         
        
@@ -191,7 +182,7 @@ public class TSM_OpportunityTriggerHandler {
         // SMS - 752 :InsertShares method is replaced by insertSharesObject which is Returning IDs of pertnerNetworkRecordConnection.
         List<String> oppShareObjectListIds = TSM_Util.insertSharesObject(newOpptyShrList, 'TSM_OpportunityTrigger','Trigger');
         if(oppShareObjectListIds.size()>0){
-            TSM_Util.insertReplicationMonitoringLog(oppShareObjectListIds,'Opportunity'); 
+        	TSM_Util.insertReplicationMonitoringLog(oppShareObjectListIds,'Opportunity'); 
         }   
     }    
 }

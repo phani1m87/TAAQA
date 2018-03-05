@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>Hot_Lead_Assigned</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A2</name>
+        <label>send hot e-mail</label>
+        <locationX>100</locationX>
+        <locationY>300</locationY>
+        <actionName>Lead.Hot_Lead_Assigned</actionName>
+        <actionType>emailAlert</actionType>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
     <assignments>
         <name>myVariable_waitStartTimeAssignment</name>
         <label>myVariable_waitStartTimeAssignment</label>
@@ -68,7 +88,7 @@
             <label>Open Territory</label>
         </rules>
     </decisions>
-    <interviewLabel>Assign_territory_leads_to_custodian-1_InterviewLabel</interviewLabel>
+    <interviewLabel>Assign_territory_leads_to_custodian-2_InterviewLabel</interviewLabel>
     <label>Assign territory leads to custodian</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -118,6 +138,9 @@
         <label>Assign to custodian</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
+        <connector>
+            <targetReference>myRule_1_A2</targetReference>
+        </connector>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>

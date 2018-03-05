@@ -960,6 +960,10 @@ If the date is in the future, it represents a scheduled meeting that will be tak
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Audit Accelerator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>AutoFlow</fullName>
                     <default>false</default>
                 </value>
@@ -1184,6 +1188,10 @@ If the date is in the future, it represents a scheduled meeting that will be tak
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Suretax D365</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Suretax GP</fullName>
                     <default>false</default>
                 </value>
@@ -1229,6 +1237,10 @@ If the date is in the future, it represents a scheduled meeting that will be tak
                 </value>
                 <value>
                     <fullName>TaxWise Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Teammate Analytics</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -1471,7 +1483,7 @@ If the date is in the future, it represents a scheduled meeting that will be tak
         <inlineHelpText>This field must be changed to Submitted when you are ready to submit to the Solution Architect and your manager for their review.</inlineHelpText>
         <label>Status</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1750,6 +1762,10 @@ Note: Product and Competitive Information from the Account will be pulled into t
                 <default>false</default>
             </values>
             <values>
+                <fullName>Audit Accelerator</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>AutoFlow</fullName>
                 <default>false</default>
             </values>
@@ -1906,6 +1922,10 @@ Note: Product and Competitive Information from the Account will be pulled into t
                 <default>false</default>
             </values>
             <values>
+                <fullName>Teammate Analytics</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trial Balance</fullName>
                 <default>false</default>
             </values>
@@ -2037,6 +2057,10 @@ Note: Product and Competitive Information from the Account will be pulled into t
         <picklistValues>
             <picklist>Products_to_Present__c</picklist>
             <values>
+                <fullName>Audit Accelerator</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Compliance Dashboard</fullName>
                 <default>false</default>
             </values>
@@ -2089,6 +2113,10 @@ Note: Product and Competitive Information from the Account will be pulled into t
                 <default>false</default>
             </values>
             <values>
+                <fullName>Suretax D365</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Suretax GP</fullName>
                 <default>false</default>
             </values>
@@ -2114,6 +2142,10 @@ Note: Product and Competitive Information from the Account will be pulled into t
             </values>
             <values>
                 <fullName>Tax Interchange for Retail %28TIfR%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teammate Analytics</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2241,6 +2273,10 @@ Note: Product and Competitive Information from the Account will be pulled into t
             </values>
             <values>
                 <fullName>AnswerConntect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audit Accelerator</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2417,6 +2453,10 @@ Note: Product and Competitive Information from the Account will be pulled into t
             </values>
             <values>
                 <fullName>TaxWise Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teammate Analytics</fullName>
                 <default>false</default>
             </values>
             <values>

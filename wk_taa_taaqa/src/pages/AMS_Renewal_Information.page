@@ -71,10 +71,7 @@
 </apex:tab>  
   
          <apex:tab label="Pup/Lib Details" style="background:white;" >
-         <apex:OutputLabel value="2012 Return Count"/><apex:outputText style="Position:absolute;left:125px;" value="{0,number}"><apex:Param value="{!opportunity.Account_X_Reference__r.X2012_PL_Return_Count__c}"/></apex:OutputText>
-          <apex:OutputLabel style="Position:absolute;left:180px;" value="2012 Contract Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!opportunity.Account_X_Reference__r.X2012_PL_Contract_Amount__c}"/></apex:OutputText>
-<apex:OutputLabel style="position:absolute;left:450px;" value="2012 Pup/Lib Rate"/><apex:OutputText style="position:absolute;left:560px;"  value="{!opportunity.account_x_reference__r.X2012_PL_Rate__c}"/>
-<apex:OutputLabel style="position:absolute;left:800px;" value="Expiration Year"/><apex:OutputText style="position:absolute;left:900px;"  value="{!opportunity.account_x_reference__r.PL_Expiration_Year__c}"/>
+         <apex:OutputLabel style="position:absolute;left:800px;" value="Expiration Year"/><apex:OutputText style="position:absolute;left:900px;"  value="{!opportunity.account_x_reference__r.PL_Expiration_Year__c}"/>
 <br/>
          <apex:OutputLabel value="2013 Return Count"/><apex:outputText style="Position:absolute;left:125px;" value="{0,number}"><apex:Param value="{!opportunity.Account_X_Reference__r.X2013_PL_Return_Count__c}"/></apex:OutputText> 
          <apex:OutputLabel style="Position:absolute;left:180px;" value="2013 Contract Amount"/><apex:outputText style="Position:absolute;left:330px;" value="{0,number,currency}"><apex:Param value="{!opportunity.Account_X_Reference__r.X2013_PL_Contract_Amount__c}"/></apex:OutputText>

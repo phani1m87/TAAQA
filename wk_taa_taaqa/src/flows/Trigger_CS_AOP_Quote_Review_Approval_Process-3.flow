@@ -43,7 +43,7 @@
         <inputParameters>
             <name>skipEntryCriteria</name>
             <value>
-                <booleanValue>true</booleanValue>
+                <booleanValue>false</booleanValue>
             </value>
         </inputParameters>
     </actionCalls>
@@ -51,7 +51,7 @@
         <processMetadataValues>
             <name>processSelection</name>
             <value>
-                <stringValue>Order Automation -CS Quote Review -Books - Order_Automation_CS_Quote_Review</stringValue>
+                <stringValue>Order Automation - CS Quote Review -Book - Order_Automation_CS_Quote_Review</stringValue>
             </value>
         </processMetadataValues>
         <processMetadataValues>
@@ -138,7 +138,7 @@
             <connector>
                 <targetReference>myRule_1_A1</targetReference>
             </connector>
-            <label>Submit for AOP Review - Subscriptions</label>
+            <label>If Quote is submitted and meets Automation Criteria</label>
         </rules>
     </decisions>
     <decisions>

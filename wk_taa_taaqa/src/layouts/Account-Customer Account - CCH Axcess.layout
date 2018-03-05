@@ -112,68 +112,12 @@
                 <field>AMS_Credit_Hold__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>S2S_Account_Data__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Mid_Market_Corporate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Mid_Market_Other_Verticals__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PFX_Axcess_Customer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Small_Firm_Customer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>R_L_Small_Firms_Retention__c</field>
+                <field>Enterprise_Industry__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>TAA_Software_New_Sales__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Corporate_Software_New_Sales__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>R_L_New_Sales__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>PFX_Axcess_Retention_Owner__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ATX_TW_Retention_Owner__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Corp_Software_Retention_Owner__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>R_L_Retention_Owner_ATA__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Trust_Sales__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Count_Other_Ancilliary__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Count_SFS_Books__c</field>
+                <field>TAA_18_digit_Account_ID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -213,6 +157,10 @@
                 <behavior>Edit</behavior>
                 <field>Exclude_from_RC_Call_List__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Holdover_Opportunity__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -231,13 +179,54 @@
                 <field>Billing_County__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Account Summary</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Headquarter_Country__c</field>
+                <height>200</height>
+                <page>Account_Summary</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Account Scoring</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_Grade__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_Tenure__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_YTD_Returns__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_Product_Count__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Scoring_Total_Points__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns/>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -273,6 +262,41 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>2018 Tax Update</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Axcess_Tax_Update_Order__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Pfx_Tax_Update_Order__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tax_Update_Account_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tax_Update_Contact__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Tax_Update_Contact_Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Tax_Update_Contact_Phone__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -567,6 +591,10 @@
                 <behavior>Edit</behavior>
                 <field>Reference_Rating__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Tenure__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -693,7 +721,10 @@
                 <customLink>HooversProfile</customLink>
             </layoutItems>
             <layoutItems>
-                <customLink>IntelliConnect_Usage</customLink>
+                <customLink>ARM_Usage_Data</customLink>
+            </layoutItems>
+            <layoutItems>
+                <customLink>Answer_Connect_User_Usage</customLink>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -704,7 +735,10 @@
                 <customLink>GoogleNews</customLink>
             </layoutItems>
             <layoutItems>
-                <customLink>Learning_Center_Usage</customLink>
+                <customLink>IntelliConnect_Usage</customLink>
+            </layoutItems>
+            <layoutItems>
+                <customLink>IntelliConnect_User_Data</customLink>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -713,6 +747,12 @@
             </layoutItems>
             <layoutItems>
                 <customLink>AMS_Active_Inventory_Report</customLink>
+            </layoutItems>
+            <layoutItems>
+                <customLink>Learning_Center_Usage</customLink>
+            </layoutItems>
+            <layoutItems>
+                <customLink>ARM_Lock_Outs</customLink>
             </layoutItems>
         </layoutColumns>
         <style>CustomLinks</style>
@@ -760,6 +800,16 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>Application__c</fields>
         <fields>NAME</fields>
         <fields>ERP_Account_Name__c</fields>
@@ -774,6 +824,7 @@
         <customButtons>New_Sales_Opportunity</customButtons>
         <customButtons>Renewal_Opportunity</customButtons>
         <customButtons>Sales_Cancellation</customButtons>
+        <customButtons>AMS_Sales_cancellation</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>OPPORTUNITY.NAME</fields>
         <fields>OPPORTUNITY.STAGE_NAME</fields>
@@ -814,6 +865,7 @@
     </relatedLists>
     <relatedLists>
         <fields>Account_Number__c</fields>
+        <fields>Quantity__c</fields>
         <fields>NAME</fields>
         <fields>Adjusted_Full_Year_Cycle__c</fields>
         <fields>Status__c</fields>
@@ -822,7 +874,6 @@
         <fields>Newport__c</fields>
         <fields>Start_Date__c</fields>
         <fields>Stop_Date__c</fields>
-        <fields>Quantity__c</fields>
         <relatedList>AMS_Inventory__c.Account__c</relatedList>
         <sortField>Status__c</sortField>
         <sortOrder>Asc</sortOrder>
@@ -841,6 +892,7 @@
     <relatedLists>
         <fields>Account_Number__c</fields>
         <fields>Adjusted_Full_Year_Cycle__c</fields>
+        <fields>Quantity__c</fields>
         <fields>Product_Description__c</fields>
         <fields>Status__c</fields>
         <fields>NAME</fields>
@@ -848,7 +900,6 @@
         <fields>Start_Date__c</fields>
         <fields>Stop_Date__c</fields>
         <fields>DTN__c</fields>
-        <fields>Renewal_Program__c</fields>
         <relatedList>SAP_Inventory__c.Account__c</relatedList>
         <sortField>Stop_Date__c</sortField>
         <sortOrder>Desc</sortOrder>
@@ -900,12 +951,12 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Account_Data_Request</customButtons>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Request_Type__c</fields>
-        <fields>Status__c</fields>
-        <fields>Assigned_Technician__c</fields>
-        <relatedList>Account_Data_Request__c.Account__c</relatedList>
+        <excludeButtons>NewCase</excludeButtons>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.TYPE</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>OWNER_NAME</fields>
+        <relatedList>Case.Merge_with_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
@@ -918,8 +969,10 @@
         <fields>Type__c</fields>
         <fields>Detail__c</fields>
         <fields>CREATEDBY_USER</fields>
-        <fields>CreatedDateTime__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>Monitoring_Log__c.Account__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

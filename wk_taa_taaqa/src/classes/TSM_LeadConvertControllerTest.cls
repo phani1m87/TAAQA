@@ -6,7 +6,11 @@ private class TSM_LeadConvertControllerTest
 {
 	// test data
     @testSetup static void dataPrep() {
-    	
+    	//SMS-1040: Initialize custom setting data
+    	User u1 = TestDataFactory.newUser('111a',1);
+        String username = [Select id,Name,DTN__c from user where DTN__c='111a'].Name;
+        AccountAutomationSetting__c taa = TestDataFactory.newTaaCustomSetting(username);        
+        
         // insert the new accounts for data
         List<Account> accounts = TSM_TestDataUtil.createAccounts(2,2,2,true);
 
@@ -267,6 +271,79 @@ private class TSM_LeadConvertControllerTest
         }
         System.assertEquals(true, failure);
     }
+    //SMS-1040: Added testLeadDMLException() and testLeadDMLException1() methods
+    @isTest static void testLeadDMLException() {
+
+    	List<Lead> leadtList = [SELECT Id FROM Lead where IsConverted = false limit 1];
+    	Lead testLead = leadtList[0];
+
+    	Test.startTest();
+			
+			PageReference pageRefOne = Page.TSM_LeadConvert;
+	        Test.setCurrentPage(pageRefOne);
+	          
+			ApexPages.StandardController scLead = new ApexPages.standardController(testLead);
+			TSM_LeadConvertController leadConvertCon = new TSM_LeadConvertController(scLead);
+        	
+        	leadConvertCon.leadToConvert.Status = Label.TSM_LeadStatus_NewOpportunity;
+        	leadConvertCon.setLeadStatusDependentFields();
+        	//leadConvertCon.resetFields();
+			leadConvertCon.selectedAccountType = Label.TSM_LeadConversion_New;
+        	leadConvertCon.selectedContactType = Label.TSM_LeadConversion_New;
+        	
+        	leadConvertCon.newAccount.Name = 'TestAccount';
+        	leadConvertCon.newOpportunity.Name = 'TestOpp';
+			leadConvertCon.newOpportunity.Type = 'New to New';
+			leadConvertCon.newOpportunity.CloseDate = System.today()+30;
+			leadConvertCon.newOpportunity.StageName='1. Gain Accesss';
+        	leadConvertCon.newOpportunity.Product_Category__c='Corporate Software';
+        	
+        	leadConvertCon.convertLead(); 
+        
+        	leadConvertCon.newContact.FirstName = 'TestFN';
+			leadConvertCon.newContact.LastName = 'TestLN';
+        	leadConvertCon.convertLead();
+        	
+        Test.stopTest();
+    }
+    @isTest static void testLeadDMLException1() {
+
+    	List<Lead> leadtList = [SELECT Id FROM Lead where IsConverted = false limit 1];
+    	Lead testLead = leadtList[0];
+        
+        User u = [select Id, Division__c from user where DTN__c='111a' limit 1];
+        u.Division__c = 'Corp SW';
+        update u;
+        System.runAs(u) {
+    	Test.startTest();
+			
+			PageReference pageRefOne = Page.TSM_LeadConvert;
+	        Test.setCurrentPage(pageRefOne);
+	          
+			ApexPages.StandardController scLead = new ApexPages.standardController(testLead);
+			TSM_LeadConvertController leadConvertCon = new TSM_LeadConvertController(scLead);
+        	
+        	leadConvertCon.leadToConvert.Status = Label.TSM_LeadStatus_NewOpportunity;
+        	leadConvertCon.setLeadStatusDependentFields();
+        	//leadConvertCon.resetFields();
+			leadConvertCon.selectedAccountType = Label.TSM_LeadConversion_New;
+        	leadConvertCon.selectedContactType = Label.TSM_LeadConversion_New;
+        	
+        	leadConvertCon.newAccount.Name = 'TestAccount';
+        	leadConvertCon.newOpportunity.Name = 'TestOpp';
+			leadConvertCon.newOpportunity.Type = 'New to New';
+			leadConvertCon.newOpportunity.CloseDate = System.today()+30;
+			leadConvertCon.newOpportunity.StageName='1. Gain Accesss';
+        	leadConvertCon.newOpportunity.Product_Category__c='Corporate Software';
+            leadConvertCon.newOpportunity.Product_Sub_Category__c = 'Compliance';
+            leadConvertCon.newOpportunity.Forecast_Type__c = 'Low (<50%)';
+            leadConvertCon.newOpportunity.amount = 5900;
+        	leadConvertCon.newContact.FirstName = 'TestFN';
+			leadConvertCon.newContact.LastName = 'TestLN';
+        	leadConvertCon.convertLead();
+        Test.stopTest();
+        }
+    } 
     // test exceptions
     /*
     public static testMethod void testExceptions2() { 

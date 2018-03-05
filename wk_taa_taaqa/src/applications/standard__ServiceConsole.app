@@ -174,14 +174,10 @@
     <tab>standard-Opportunity</tab>
     <tab>standard-Lead</tab>
     <tab>Useful_Links</tab>
-    <tab>Assist_List</tab>
-    <tab>ATA_AssignmentType_Map__c</tab>
+    <tab>Activity_Goals__c</tab>
     <workspaceMappings>
         <mapping>
-            <tab>ATA_AssignmentType_Map__c</tab>
-        </mapping>
-        <mapping>
-            <tab>Assist_List</tab>
+            <tab>Activity_Goals__c</tab>
         </mapping>
         <mapping>
             <tab>Useful_Links</tab>

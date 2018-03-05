@@ -10,7 +10,7 @@ trigger HasTeamMateAnalytics on Apttus_Proposal__Proposal_Line_Item__c (after in
         LineItems.add(childObj.Id);
     }
   
-    parentProposal = new Map<Id, Apttus_Proposal__Proposal__c>([SELECT id,Has_TeamMate_Analytics__c,(Select id from R00N70000001yUfBEAU__r where product_family__c= 'TeamMate Analytics') FROM Apttus_Proposal__Proposal__c WHERE ID IN :listIds]);
+    parentProposal = new Map<Id, Apttus_Proposal__Proposal__c>([SELECT id,Has_TeamMate_Analytics__c,(Select id from R00N70000001yUfBEAU__r where TeamMate_Analytics_Product__c = true) FROM Apttus_Proposal__Proposal__c WHERE ID IN :listIds]);
     
     for (Apttus_Proposal__Proposal_Line_Item__c ProposalLineItem: Trigger.new){
          Apttus_Proposal__Proposal__c myParentProposal = parentProposal.get(ProposalLineItem.Apttus_Proposal__Proposal__c);

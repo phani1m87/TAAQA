@@ -424,6 +424,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TeamMate Analytics</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trial Balance</fullName>
                 <default>false</default>
             </values>
@@ -811,6 +815,10 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
+                <fullName>Authorization Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gain Access Call - Contact Made</fullName>
                 <default>false</default>
             </values>
@@ -823,7 +831,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Software Renewal</fullName>
+                <fullName>Renewal Call %E2%80%93 Account Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal Call %E2%80%93 Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal Call %E2%80%93 No Contact</fullName>
                 <default>false</default>
             </values>
             <values>

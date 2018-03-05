@@ -185,40 +185,6 @@ ROUND( ConvertedDate  - DATEVALUE(CreatedDate), 0), ROUND((NOW() - CreatedDate),
         </valueSet>
     </fields>
     <fields>
-        <fullName>Bank_Products_Refund_Settlement_Solution__c</fullName>
-        <externalId>false</externalId>
-        <label>Bank Products/Refund Settlement Solution</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>No Bank Products</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>1-100</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>101-300</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>301-499</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>500+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Came_from_Lead__c</fullName>
         <defaultValue>true</defaultValue>
         <description>Used in backend for lead conversion to identify which accounts were created from lead conversion.</description>
@@ -428,27 +394,6 @@ ROUND( ConvertedDate  - DATEVALUE(CreatedDate), 0), ROUND((NOW() - CreatedDate),
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Decision_Timeframe_Order__c</fullName>
-        <externalId>false</externalId>
-        <label>Decision Timeframe Order</label>
-        <length>8</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Decision_Timeframe__c</fullName>
-        <externalId>false</externalId>
-        <formula>&quot;1. Improved Productivity&quot; &amp; BR() &amp; &quot;2. More Functionality&quot; &amp; BR() &amp; &quot;3. Online Access&quot; &amp; BR() &amp; &quot;4. Low Cost&quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Decision Timeframe</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -639,14 +584,6 @@ RIGHT( First_Page_Seen__c ,(LEN(First_Page_Seen__c )-FIND(&quot;?gclid=&quot;, F
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
-        <fullName>Has_Practice_Management_Tool__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Has Practice Management Tool?</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>HubSpot_BounceBack__c</fullName>
         <externalId>false</externalId>
         <label>HubSpot BounceBack</label>
@@ -658,39 +595,17 @@ RIGHT( First_Page_Seen__c ,(LEN(First_Page_Seen__c )-FIND(&quot;?gclid=&quot;, F
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Improved_Productivity__c</fullName>
-        <externalId>false</externalId>
-        <label>Improved Productivity</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>2</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>3</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>4</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Industry</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Is_Email_Bounced__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Email Bounced</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Jigsaw</fullName>
@@ -736,6 +651,19 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Lead_Count__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Lead_Tax_Competitor__c</fullName>
         <description>Lead Tax Competitor</description>
         <externalId>false</externalId>
@@ -772,11 +700,27 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Intuit TurboTax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OLT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>TaxAct</fullName>
                     <default>false</default>
                 </value>
                 <value>
                     <fullName>TaxSlayer Pro</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWare</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -789,36 +733,6 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                 </value>
                 <value>
                     <fullName>Vertex</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Low_Cost__c</fullName>
-        <externalId>false</externalId>
-        <label>Low Cost</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>2</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>3</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>4</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -1455,36 +1369,6 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>More_Functionality__c</fullName>
-        <externalId>false</externalId>
-        <label>More Functionality</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>2</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>3</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>4</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Most_Recent_Campaign_Date__c</fullName>
         <description>Automatically gets populated/updated each time a new MQL Campaign Member is added to the Lead</description>
         <externalId>false</externalId>
@@ -1532,7 +1416,7 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <externalId>false</externalId>
         <label>Named Account Type</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -1592,62 +1476,6 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Oil_Gas_Depletions__c</fullName>
-        <externalId>false</externalId>
-        <label>Oil &amp; Gas Depletions</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1-9</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>10-49</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>50+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Online_Access__c</fullName>
-        <externalId>false</externalId>
-        <label>Online Access</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>2</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>3</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>4</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Original_Source_Drill_Down_1__c</fullName>
@@ -1748,8 +1576,40 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Owner_Market__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Owner:User.Market__c)</formula>
+        <label>Owner Market</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner_Segment__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Owner:User.Segment__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Owner Segment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Phone</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>PostalCode5Digits__c</fullName>
+        <externalId>false</externalId>
+        <formula>Left(PostalCode, 5)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>PostalCode5Digits</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Previous_Zip_Code__c</fullName>
@@ -1764,6 +1624,7 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
     <fields>
         <fullName>Product_Interest__c</fullName>
         <externalId>false</externalId>
+        <inlineHelpText>Used for leads submitted by Torrance RC&apos;s</inlineHelpText>
         <label>Product Interest</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1771,7 +1632,7 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
                     <fullName>Books</fullName>
                     <default>false</default>
@@ -1805,6 +1666,10 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>CCH Fixed Assets Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>CCH Knowledge Tools</fullName>
                     <default>false</default>
                 </value>
@@ -1814,6 +1679,30 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                 </value>
                 <value>
                     <fullName>CCH Site Builder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Accounting Suite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Income Tax Compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Paperless Office</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -1877,6 +1766,10 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Sales and Use Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Sales Tax Compliance (Returns)</fullName>
                     <default>false</default>
                 </value>
@@ -1885,11 +1778,20 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Other</fullName>
+                    <fullName>Trial Balance and Workpaper Management</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Queue_Owned_Lead__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(LEFT(OwnerId,3)=&quot;005&quot; , FALSE, TRUE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Queue Owned Lead</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>RL_AAR__c</fullName>
@@ -2006,22 +1908,6 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Rating_Hot__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Rating - Hot</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Rating_Warm__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Rating - Warm</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Reason__c</fullName>
@@ -2299,11 +2185,70 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Sales_Alignment_Mapping__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( TEXT(Market_Sub_Segment__c)=&quot;&quot;,&quot;&quot;,
+
+IF( Small_Market_N2E__c	= TRUE, &quot;ISC - Small Market N2E&quot;,
+ 
+IF(OR(TEXT(Rating)=&quot;HOT&quot;, TEXT(Rating)=&quot;WARM&quot;),
+
+IF(TEXT(Sales_Alignment_Staging__c)=&quot;Indirect&quot;,
+   IF(OR(TEXT(ERP__c)=&quot;SAP ECC&quot;,
+         TEXT(ERP__c)=&quot;SAP Business One&quot;,
+	 TEXT(ERP__c)=&quot;SAP S/4HANA&quot;), &quot;SSC - SAP&quot;,&quot;RSC - Microsoft&quot;),
+
+IF(TEXT(Named_Account_Type__c)=&quot;Strategic&quot;, &quot;Strategic Solution Consultant&quot;,
+IF(TEXT(Named_Account_Type__c)=&quot;National&quot;, &quot;National Solution Consultant&quot;,
+IF(TEXT(Named_Account_Type__c)=&quot;Global&quot;, &quot;Global Solution Consultant&quot;,
+
+IF(TEXT(Sales_Alignment_Staging__c)=&quot;R&amp;L&quot;,
+   IF(OR(OR(TEXT(Market_Sub_Segment__c)=&quot;2-4 Total Employees&quot;,
+            TEXT(Market_Sub_Segment__c)=&quot;Sole Proprietor&quot;),
+	 AND(TEXT(Market_Sub_Segment__c)=&quot;Size TBD&quot;,
+	     OR(TEXT(Market_Segment__c)=&quot;Accounting Firms&quot;,
+	        TEXT(Market_Segment__c)=&quot;Financial and Estate Planners&quot;,
+		TEXT(Market_Segment__c)=&quot;Retail Tax Preparers&quot;)),
+         AND(TEXT(Market_Segment__c)=&quot;Legal Professionals&quot;,
+             OR(TEXT(Market_Sub_Segment__c)=&quot;Law Firm 1-3 Attorneys&quot;,
+	        TEXT(Market_Sub_Segment__c)=&quot;Law Firms (Size TBD)&quot;))), &quot;ISC - Small Market R&amp;L&quot; , &quot;RSC - R&amp;L Field&quot;),
+
+IF(TEXT(Sales_Alignment_Staging__c)=&quot;Software&quot;,
+   IF(OR(TEXT(Market_Segment__c)=&quot;Banks and Financial Institutions&quot;,
+         TEXT(Market_Segment__c)=&quot;Consultants&quot;,
+	 TEXT(Market_Segment__c)=&quot;General Corporate&quot;,
+	 TEXT(Market_Segment__c)=&quot;Hospital and Payers&quot;,
+	 TEXT(Market_Segment__c)=&quot;Insurance Companies&quot;,
+	 TEXT(Market_Segment__c)=&quot;Tax Exempt and Membership Organizations&quot;),&quot;RSC - Mid-Market Corp SW&quot;,
+   IF(OR(TEXT(Market_Segment__c)=&quot;Retail Tax Preparers&quot;,
+         OR(TEXT(Market_Sub_Segment__c)=&quot;2-4 Total Employees&quot;,
+            TEXT(Market_Sub_Segment__c)=&quot;Size TBD&quot;,
+	    TEXT(Market_Sub_Segment__c)=&quot;Sole Proprietor&quot;),
+	 AND(TEXT(Market_Segment__c)=&quot;Legal Professionals&quot;,
+	     OR(TEXT(Market_Sub_Segment__c)=&quot;Law Firm 1-3 Attorneys&quot;,
+                TEXT(Market_Sub_Segment__c)=&quot;Law Firms (Size TBD)&quot;))),&quot;ISC - Small Market N2N&quot;,
+   IF(And(TEXT(Market_Segment__c)=&quot;Accounting Firms&quot;,
+          OR(Text(Market_Sub_Segment__c)=&quot;5-9 Total Employees&quot;,
+             Text(Market_Sub_Segment__c)=&quot;10-19 Total Employees&quot;,
+             Text(Market_Sub_Segment__c)=&quot;20-49 Total Employees&quot;,
+             Text(Market_Sub_Segment__c)=&quot;50-99 Total Employees&quot;,
+             Text(Market_Sub_Segment__c)=&quot;100+ Total Employees&quot;,
+             Text(Market_Sub_Segment__c)=&quot;Top 100 Firms&quot;)),&quot;RSC - Mid-Market Pro SW&quot;,&quot;ISC - Mid-Market Other&quot;))),TEXT(Sales_Alignment__c))))))),
+TEXT(Sales_Alignment__c)))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Alignment Mapping</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sales_Alignment_Staging__c</fullName>
         <externalId>false</externalId>
         <label>Sales Alignment (Staging)</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -2334,22 +2279,6 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>RC - Corporate Software</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Global Solution Consultant</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>National Solution Consultant</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Strategic Solution Consultant</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>RSC - Mid-Market Pro SW</fullName>
                     <default>false</default>
                 </value>
@@ -2362,35 +2291,11 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>RC - Small Firms Premier</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RC - Refunds Today</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RSC - Small Market Field</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ISC - Small Market N2N</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>ISC - Small Market N2E</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>SSC - Microsoft</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RSC - Microsoft</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ISC - Microsoft</fullName>
+                    <fullName>ISC - Small Market N2N</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2406,62 +2311,51 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>RC - Software Retention</fullName>
+                    <fullName>RSC - Small Market Field</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>RC - Small Firms Retention</fullName>
+                    <fullName>SSC - Microsoft</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>RC - Small Firms R&amp;L</fullName>
+                    <fullName>SSC - SAP</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>RC - R&amp;L Retention</fullName>
+                    <fullName>Strategic Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ISC - Books &amp; Journals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QP Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>T&amp;C - Research &amp; Learning</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
-        <fullName>Services_Offered__c</fullName>
+        <fullName>Small_Market_N2E__c</fullName>
+        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Services Offered</label>
-        <required>false</required>
+        <label>Small Market N2E</label>
         <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>true</sorted>
-                <value>
-                    <fullName>After-the-fast Payroll</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Audit</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Bookkeeping</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Compilations and reviews</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Live Payroll</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-        <visibleLines>4</visibleLines>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Status</fullName>
@@ -2599,229 +2493,8 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Ways_to_enhance_business__c</fullName>
-        <externalId>false</externalId>
-        <label>Ways to enhance business</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Would like more information about your software solutions</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Interested in additional Tax Research solutions</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Interested in Productivity tools</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Interested in Practice Management</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Interested in Client Portals</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Interested in Accounting software</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
         <fullName>Website</fullName>
         <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>X1040__c</fullName>
-        <externalId>false</externalId>
-        <label>1040</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1-250</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>251-500</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>500+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>X1041__c</fullName>
-        <externalId>false</externalId>
-        <label>1041</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1-50</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>51-149</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>150+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>X1065__c</fullName>
-        <externalId>false</externalId>
-        <label>1065</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1-50</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>51-149</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>150+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>X1120S__c</fullName>
-        <externalId>false</externalId>
-        <label>1120S</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1-50</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>51-149</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>150+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>X1120__c</fullName>
-        <externalId>false</externalId>
-        <label>1120</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1-50</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>51-149</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>150+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>X5500__c</fullName>
-        <externalId>false</externalId>
-        <label>5500</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1-50</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>51-149</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>150+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>X990__c</fullName>
-        <externalId>false</externalId>
-        <label>990</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1-50</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>51-149</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>150+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>et4ae5__HasOptedOutOfMobile__c</fullName>
@@ -3890,44 +3563,6 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>of_Offices__c</fullName>
-        <externalId>false</externalId>
-        <label># of Offices</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>2</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>3</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>4</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>5-9</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>10+</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>pi__Needs_Score_Synced__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
@@ -4180,6 +3815,24 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>qualtrics__Last_Survey_Invitation__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Survey Invitation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>qualtrics__Last_Survey_Response__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Survey Response</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
     <listViews>
         <fullName>All_Open_Cold_Leads</fullName>
         <columns>Campaign_Name__c</columns>
@@ -4275,29 +3928,6 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <label>3 - Hot &amp; Warm Leads Not Started</label>
     </listViews>
     <listViews>
-        <fullName>Last_3_days_Leads</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>LEAD.COMPANY</columns>
-        <columns>LEAD.CITY</columns>
-        <columns>LEAD.PHONE</columns>
-        <columns>LEAD.EMAIL</columns>
-        <columns>LEAD.STATUS</columns>
-        <columns>Market_Segment__c</columns>
-        <columns>Market_Sub_Segment__c</columns>
-        <columns>LEAD.LAST_UPDATE</columns>
-        <columns>LEAD.LAST_ACTIVITY</columns>
-        <columns>CORE.USERS.FIRST_NAME</columns>
-        <columns>CORE.USERS.LAST_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>LEAD.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>LAST_N_DAYS:3</value>
-        </filters>
-        <label>Last 3 days Leads</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>Learning_Olympics_Seminars_cash_item_b</fullName>
         <columns>LEAD.STATUS</columns>
         <columns>LEAD.FIRST_NAME</columns>
@@ -4314,35 +3944,27 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <language>en_US</language>
         <sharedTo>
             <group>Marketing_Users</group>
-            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>VP_Global_National_Accounts</roleAndSubordinates>
             <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>Today_s_Hot_Warm_Leads</fullName>
-        <columns>Campaign_Name__c</columns>
+        <fullName>Small_Firm_Retention_Lead_Share</fullName>
         <columns>FULL_NAME</columns>
         <columns>LEAD.COMPANY</columns>
         <columns>LEAD.STATE</columns>
+        <columns>LEAD.PHONE</columns>
         <columns>LEAD.EMAIL</columns>
-        <columns>LEAD.RATING</columns>
         <columns>LEAD.STATUS</columns>
+        <columns>LEAD.RATING</columns>
+        <columns>LEAD.CREATED_DATE</columns>
         <columns>LEAD.UNREAD</columns>
-        <columns>LEAD.LAST_ACTIVITY</columns>
-        <columns>CORE.USERS.FIRST_NAME</columns>
-        <columns>CORE.USERS.LAST_NAME</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>LEAD.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>TODAY</value>
-        </filters>
-        <filters>
-            <field>LEAD.RATING</field>
-            <operation>equals</operation>
-            <value>Hot,Warm</value>
-        </filters>
-        <label>Today&apos;s Hot &amp; Warm Leads</label>
+        <label>Small Firm Retention Lead Share</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>VP_Small_Firm_Sales</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Unassigned_Leads</fullName>
@@ -4365,6 +3987,26 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         <sharedTo>
             <group>Sales_Ops_Admin</group>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X1_Leads_I_Requested</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>LEAD.LAST_ACTIVITY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Qualified,Unqualified,Not Viable</value>
+        </filters>
+        <label>1 - Leads I Requested</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>X2_My_Unread_Hot_Warm_Leads</fullName>
@@ -4425,6 +4067,66 @@ IF(ISPICKVAL(Status, &quot;Unqualified&quot;),Disposition_Date__c - DATEVALUE(Cr
         </filters>
         <label>4 - All Open Hot &amp; Warm Leads</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>X6_Not_Started_Predict_Analytics_Leads</fullName>
+        <columns>Campaign_Name__c</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Not Started</value>
+        </filters>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>contains</operation>
+            <value>Predictive Analytics</value>
+        </filters>
+        <label>6 - Not Started Predict. Analytics Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Central_SW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Southeast_SW</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X7_Open_Predictive_Analytics_Leads</fullName>
+        <columns>Campaign_Name__c</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Not Started,Gain Access</value>
+        </filters>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>contains</operation>
+            <value>Predictive Analytics</value>
+        </filters>
+        <label>7 - Open Predictive Analytics Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Central_SW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Southeast_SW</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
@@ -4700,42 +4402,42 @@ ISBLANK (TEXT( Reason__c ) )
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-var didResub;
-try
-{
-didResub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Lead.Id)}&quot;,objectType:&quot;lead&quot;});
-}
-catch (e)
-{
-didResub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Lead.Id)}&quot;,objectType:&quot;lead&quot;});
-}
-if (didResub==&quot;connection error&quot;)
-{
-	alert(&quot;{!$Label.et4ae5__msg0047}&quot;);
-}
-else if (didResub==&quot;not found&quot;)
-{
-	alert(&quot;{!$Label.et4ae5__msg0085}&quot;);
-}
-else if (didResub==&quot;other error&quot;)
-{
-	alert(&quot;{!$Label.et4ae5__msg0086}&quot;);
-}
-else if (didResub==&quot;not integrated&quot;)
-{
-	alert(&quot;{!$Label.et4ae5__msg0087}&quot;);
-}
-else if (didResub==&quot;success&quot;)
-{
-	alert(&quot;{!Lead.Name} {!$Label.et4ae5__wasResub}&quot;);
-}
-else
-{
-alert(didResub);
-}
-var theUrl=&quot;/{!Lead.Id}&quot;;
-parent.location.href=theUrl;</url>
+      {!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+      var didResub;
+      try
+      {
+      didResub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Lead.Id)}&quot;,objectType:&quot;lead&quot;});
+      }
+      catch (e)
+      {
+      didResub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Lead.Id)}&quot;,objectType:&quot;lead&quot;});
+      }
+      if (didResub==&quot;connection error&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0047}&quot;);
+      }
+      else if (didResub==&quot;not found&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0085}&quot;);
+      }
+      else if (didResub==&quot;other error&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0086}&quot;);
+      }
+      else if (didResub==&quot;not integrated&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0087}&quot;);
+      }
+      else if (didResub==&quot;success&quot;)
+      {
+      alert(&quot;{!Lead.Name} {!$Label.et4ae5__wasresublegacy}&quot;);
+      }
+      else
+      {
+      alert(didResub);
+      }
+      var theUrl=&quot;/{!Lead.Id}&quot;;
+      parent.location.href=theUrl;</url>
     </webLinks>
     <webLinks>
         <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
@@ -4746,42 +4448,42 @@ parent.location.href=theUrl;</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-var didUnsub;
-try
-{
-didUnsub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Lead.Id)}&quot;,objectType:&quot;lead&quot;});
-}
-catch (e)
-{
-didUnsub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Lead.Id)}&quot;,objectType:&quot;lead&quot;});
-}
-if (didUnsub==&quot;connection error&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0047}&quot;); 
-}
-else if (didUnsub==&quot;not found&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0085}&quot;); 
-}
-else if (didUnsub==&quot;other error&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0086}&quot;); 
-}
-else if (didUnsub==&quot;not integrated&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0087}&quot;); 
-}
-else if (didUnsub==&quot;success&quot;)
-{
-        alert(&quot;{!Lead.Name} {!$Label.et4ae5__wasUnsub}&quot;);
-} 
-else
-{
-alert(didUnsub);
-}
-var theUrl=&quot;/{!Lead.Id}&quot;;
-parent.location.href=theUrl;</url>
+      {!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+      var didUnsub;
+      try
+      {
+      didUnsub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Lead.Id)}&quot;,objectType:&quot;lead&quot;});
+      }
+      catch (e)
+      {
+      didUnsub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Lead.Id)}&quot;,objectType:&quot;lead&quot;});
+      }
+      if (didUnsub==&quot;connection error&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0047}&quot;);
+      }
+      else if (didUnsub==&quot;not found&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0085}&quot;);
+      }
+      else if (didUnsub==&quot;other error&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0086}&quot;);
+      }
+      else if (didUnsub==&quot;not integrated&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0087}&quot;);
+      }
+      else if (didUnsub==&quot;success&quot;)
+      {
+      alert(&quot;{!Lead.Name} {!$Label.et4ae5__wasunsublegacy}&quot;);
+      }
+      else
+      {
+      alert(didUnsub);
+      }
+      var theUrl=&quot;/{!Lead.Id}&quot;;
+      parent.location.href=theUrl;</url>
     </webLinks>
     <webLinks>
         <fullName>et4ae5__Send_ExactTarget_Email</fullName>
@@ -4791,25 +4493,31 @@ parent.location.href=theUrl;</url>
         <masterLabel>Send Marketing Cloud Email</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-if ({!Lead.HasOptedOutOfEmail})
-{
-alert(&quot;{!$Label.et4ae5__ldOptedOut}&quot;);
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/apex.js&quot;)}
+var bAccessable; 
+try{
+     bAccessable = sforce.apex.execute(&quot;et4ae5.SObjectHelperJS&quot;,&quot;isFieldAccessible&quot;,{sSObject:&quot;Lead&quot;, sField:&quot;HasOptedOutOfEmail&quot;});
+}catch (e) {
+     bAccessable = false;
 }
-else
-{
-try
-{
-var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
-var theUrl = &quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETEmail?leadId={!CASESAFEID( Lead.Id )}&quot;;
-parent.location.href = theUrl;
-}
-catch (e)
-{
-var theUrl = &quot;/apex/singleSendETEmail?leadId={!CASESAFEID( Lead.Id )}&quot;;
-parent.location.href = theUrl;
-}
+
+if(bAccessable == &quot;true&quot;){
+     var sHasOptedOutOfEmail = &quot;&quot; + {!Lead.HasOptedOutOfEmail} + &quot;&quot;;
+     if(sHasOptedOutOfEmail == &quot;1&quot;){
+          alert(&quot;{!$Label.et4ae5__ldoptedout}&quot;);
+     }else{
+          try{
+               var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+               var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETEmail?leadId={!CASESAFEID(Lead.Id)}&quot;;
+               parent.location.href = theUrl;
+          }catch (e){
+               var theUrl=&quot;/apex/singleSendETEmail?leadId={!CASESAFEID(Lead.Id)}&quot;;
+               parent.location.href = theUrl;
+          }
+     }
+}else{
+     alert(&quot;{!$Label.et4ae5__ctoptedoutaccess}&quot;);
 }</url>
     </webLinks>
     <webLinks>
@@ -4820,25 +4528,31 @@ parent.location.href = theUrl;
         <masterLabel>Send Marketing Cloud SMS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-if ({!Lead.HasOptedOutOfEmail})
-{
-alert(&quot;{!$Label.et4ae5__ldOptedOut}&quot;);
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/apex.js&quot;)}
+var bAccessable;
+try{
+     bAccessable = sforce.apex.execute(&quot;et4ae5.SObjectHelperJS&quot;,&quot;isFieldAccessible&quot;,{sSObject:&quot;Lead&quot;, sField:&quot;HasOptedOutOfMobile__c&quot;});
+} catch (e) {
+     bAccessable = false;
 }
-else
-{
-try
-{
-var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
-var theUrl = &quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETMobile?leadId={!CASESAFEID( Lead.Id )}&quot;;
-parent.location.href = theUrl;
-}
-catch (e)
-{
-var theUrl = &quot;/apex/singleSendETMobile?leadId={!CASESAFEID( Lead.Id )}&quot;;
-parent.location.href = theUrl;
-}
+
+if(bAccessable == &quot;true&quot;){
+     var sHasOptedOutOfSMS = &quot;&quot; + {!Lead.et4ae5__HasOptedOutOfMobile__c} + &quot;&quot;;
+     if(sHasOptedOutOfSMS == &quot;1&quot;){
+         alert(&quot;{!$Label.et4ae5__ldoptedoutsms}&quot;);
+     }else{
+         try{
+               var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+               var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETMobile?leadId={!CASESAFEID(Lead.Id)}&quot;;
+               parent.location.href = theUrl;
+         }catch (e){
+              var theUrl=&quot;/apex/singleSendETMobile?leadId={!CASESAFEID(Lead.Id)}&quot;;
+           parent.location.href = theUrl;
+         }
+     }
+}else{
+     alert(&quot;{!$Label.et4ae5__ctoptedoutsmsaccess}&quot;);     
 }</url>
     </webLinks>
     <webLinks>
@@ -4850,18 +4564,18 @@ parent.location.href = theUrl;
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-try
-{
-var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
-var theUrl = &quot;https://&quot;+urlPrefix+&quot;/apex/SubscriberAnalytics?id={!CASESAFEID( Lead.Id )}&amp;obj=lead&quot;;
-parent.location.href = theUrl;
-}
-catch (e)
-{
-var theUrl = &quot;/apex/SubscriberAnalytics?id={!CASESAFEID( Lead.Id )}&amp;obj=lead&quot;;
-parent.location.href = theUrl;
-}</url>
+      {!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+      try
+      {
+      var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+      var theUrl = &quot;https://&quot;+urlPrefix+&quot;/apex/SubscriberAnalytics?id={!CASESAFEID( Lead.Id )}&amp;obj=lead&quot;;
+      parent.location.href = theUrl;
+      }
+      catch (e)
+      {
+      var theUrl = &quot;/apex/SubscriberAnalytics?id={!CASESAFEID( Lead.Id )}&amp;obj=lead&quot;;
+      parent.location.href = theUrl;
+      }</url>
     </webLinks>
     <webLinks>
         <fullName>pi__Send_Pardot_Email</fullName>
@@ -4909,5 +4623,17 @@ parent.location.href = theUrl;
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/pi__SendToPardot?leadEmail={!URLENCODE(Lead.Email)}&amp;leadId={!Lead.Id}&amp;serverUrl={!$Api.Partner_Server_URL_90}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>qualtrics__Send_Qualtrics_Survey</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Send Qualtrics Survey</masterLabel>
+        <openType>sidebar</openType>
+        <page>qualtrics__LeadListSendSurvey</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
     </webLinks>
 </CustomObject>

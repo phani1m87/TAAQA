@@ -555,6 +555,69 @@ IF(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 12&apos;), APTS_Pending_Amount__c/1
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Flex_Pay_10_Initial_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Flex Pay 10 Initial Deposit</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Flex_Pay_10_Installment_P__c</fullName>
+        <externalId>false</externalId>
+        <formula>Flex_Pay_10_Remaining_Amount__c -(ROUND(Flex_Pay_10_Remaining_Amount__c/3,2)*2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Flex Pay 10 Installment 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Flex_Pay_10_Remaining_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>APTS_Payment_Term_Total__c - Flex_Pay_10_Initial_Deposit__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Flex Pay 10 Remaining Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Flex_pay_10_Installment_1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Flex_Pay_10_Remaining_Amount__c /3</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Flex pay 10 Installment 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Flex_pay_10_Installment_2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Flex_Pay_10_Remaining_Amount__c /3</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Flex pay 10 Installment 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Inst_5_Date__c</fullName>
         <externalId>false</externalId>
         <formula>IF( AND( ISPICKVAL( APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;),   
@@ -734,20 +797,27 @@ IF(ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;), case(month(APTS_Initial_D
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>AMS_15_Percent_Validation</fullName>
-        <active>false</active>
-        <errorConditionFormula>IF(OR(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;),
-ISPICKVAL(APTS_Payment_Term__c, &apos;NET 30&apos;), ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 12&apos;))
-,IF(AND(ispickval(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;), not(isblank(APTS_Initial_Deposit__c)), 0.15 *   APTS_Payment_Term_Total__c   &gt; APTS_Initial_Deposit__c), true, false )
+        <fullName>AMS_10_Percent_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay 10&apos;)
+,IF(AND(ispickval(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;), not(isblank(APTS_Initial_Deposit__c)), 0.10 *   APTS_Payment_Term_Total__c   &gt; APTS_Initial_Deposit__c), true, false )
 ,false
 )</errorConditionFormula>
+        <errorMessage>Initial deposit should at least be 10% of the total for the of Payment term</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AMS_15_Percent_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>(ISPICKVAL(APTS_Payment_Term__c, &apos;Flex Pay&apos;)|| ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 4&apos;)|| ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 6&apos;)||
+ISPICKVAL(APTS_Payment_Term__c, &apos;NET 30&apos;)|| ISPICKVAL(APTS_Payment_Term__c, &apos;IPP 12&apos;))
+&amp;&amp; ispickval(APTS_Quote_Proposal__r.Order_Type__c, &apos;AMS&apos;)&amp;&amp; not(isblank(APTS_Initial_Deposit__c))&amp;&amp; (APTS_Payment_Term_Total__c *0.15)-0.01 &gt; APTS_Initial_Deposit__c</errorConditionFormula>
         <errorMessage>Initial deposit should at least be 15% of the total for the of Payment term</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Flex_Pay</fullName>
         <active>true</active>
         <description>Adjusts fro small firm promotion</description>
-        <errorConditionFormula>AND( APTS_Quote_Proposal__r.Quote_Total__c &lt;3944, ISPICKVAL(APTS_Payment_Term__c,&quot;Flex Pay&quot;),NOT( ISNEW()),NOT( $Profile.Name =&apos;System Administrator&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND( APTS_Quote_Proposal__r.Quote_Total__c &lt;3944, (ISPICKVAL(APTS_Payment_Term__c,&quot;Flex Pay&quot;)|| ISPICKVAL(APTS_Payment_Term__c,&quot;Flex Pay 10&quot;)),NOT( ISNEW()),NOT( $Profile.Name =&apos;System Administrator&apos;))</errorConditionFormula>
         <errorMessage>Minimum order total for Flex Pay is $4000.</errorMessage>
     </validationRules>
     <validationRules>

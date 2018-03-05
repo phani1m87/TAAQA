@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Sales_Support</customButtons>
+    <customButtons>TeamMate_Welcome_Email</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
@@ -26,11 +27,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Customer_Group__c</field>
+                <field>Auto_Renewal_SO_Compliance__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Auto_Renewal_SO_Compliance__c</field>
+                <field>Customer_Group__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -66,19 +67,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Has_Unlimited_Firm_Pass__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>SAP_Order_Processing_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Is_New_Business_Party_Address_Invalid__c</field>
+                <field>SAP_Biller_Rejected__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retain_CC_for_Renewals__c</field>
+                <behavior>Readonly</behavior>
+                <field>SAP_Credit_Hold__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -95,6 +92,10 @@
                 <field>Quote_Total__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Monthly_Subs_Quote_Total__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>WK_Valid_Until_Date__c</field>
             </layoutItems>
@@ -109,6 +110,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>SAP_Order_Processing_Stage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Has_TeamMate_Promotion__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Teammate_Customer_Email_Sent__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -197,6 +206,9 @@
         <label>Additional Contract Dates &amp; Details</label>
         <layoutColumns>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ASA__c</field>
             </layoutItems>
@@ -217,6 +229,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Monthly_Sub_End_Date__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>WK_Stub_Year__c</field>
@@ -333,6 +349,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>X4_Digit_DTN__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SAP_Sales_group__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -691,6 +711,10 @@
                 <behavior>Edit</behavior>
                 <field>Credit_Card_Last_4__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retain_CC_for_Renewals__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -882,15 +906,15 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>Apttus_Proposal__Product__c</fields>
-        <fields>Product_Code__c</fields>
         <fields>Quantity__c</fields>
-        <fields>Formatted_Promo_Code__c</fields>
-        <fields>Apttus_QPConfig__NetAdjustmentPercent__c</fields>
+        <fields>PCode__c</fields>
+        <fields>PName__c</fields>
+        <fields>APTS_Promo_Code__c</fields>
+        <fields>List_Price__c</fields>
+        <fields>APTPS_PromoDiscountApplied__c</fields>
+        <fields>Net_Adjustment__c</fields>
         <fields>Net_Price_WK__c</fields>
-        <fields>SAP_PAC_Code__c</fields>
-        <fields>Apttus_QPConfig__ContractNumbers__c</fields>
-        <fields>Apttus_QPConfig__LineStatus__c</fields>
+        <fields>Extended_Maintenance_Months__c</fields>
         <relatedList>Apttus_Proposal__Proposal_Line_Item__c.Apttus_Proposal__Proposal__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -938,10 +962,6 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>test_QP_lookup__c.Quote_Proposal__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

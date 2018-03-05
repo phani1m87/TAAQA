@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Edit_Email_Preferences</customButtons>
-    <customButtons>pi__Send_Pardot_Email</customButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>RequestUseSfdc</excludeButtons>
@@ -63,23 +62,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Segment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Market_Sub_Segment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Rating__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>S2S_Contact_Data__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AMS_Account_Number__c</field>
+                <field>Is_Email_Bounced__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -312,6 +295,22 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Assure Sign</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>400</height>
+                <page>AS__Contact_Page</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>User Conference Nomination</label>
         <layoutColumns>
@@ -345,10 +344,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Product_Intere__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -443,14 +438,14 @@
         <label>Pardot Activities</label>
         <layoutColumns>
             <layoutItems>
-                <height>300</height>
+                <height>400</height>
                 <page>pi__ProspectInsightContactActivities</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
-                <height>300</height>
+                <height>400</height>
                 <page>pi__PardotContactListMembership</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
@@ -495,10 +490,6 @@
                 <behavior>Edit</behavior>
                 <field>Sales_Alignment_Staging__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>R_L_Owner__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -536,6 +527,25 @@
         </layoutColumns>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Name</fields>
+        <fields>AccountId</fields>
+        <fields>Phone</fields>
+        <fields>Email</fields>
+        <relatedLists>
+            <fields>TASK.SUBJECT</fields>
+            <fields>TASK.DUE_DATE</fields>
+            <fields>TASK.STATUS</fields>
+            <fields>CORE.USERS.FULL_NAME</fields>
+            <relatedList>RelatedActivityList</relatedList>
+        </relatedLists>
+        <relatedLists>
+            <fields>TASK.SUBJECT</fields>
+            <fields>TASK.DUE_DATE</fields>
+            <fields>CORE.USERS.FULL_NAME</fields>
+            <relatedList>RelatedHistoryList</relatedList>
+        </relatedLists>
+    </miniLayout>
     <relatedContent>
         <relatedContentItems>
             <layoutItem>

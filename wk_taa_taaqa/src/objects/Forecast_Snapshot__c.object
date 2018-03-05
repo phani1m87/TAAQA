@@ -290,6 +290,35 @@ IF(Month( Forecast_Period__c) = 11, &quot;11-November&quot;,
         <label>Last Month</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>Weigh_the_Pig_Forecast</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Revised_Forecast__c</columns>
+        <columns>Forecast_Period__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Snapshot_Type__c</field>
+            <operation>equals</operation>
+            <value>Current Month</value>
+        </filters>
+        <filters>
+            <field>Forecast_Period__c</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <filters>
+            <field>OWNER.LAST_NAME</field>
+            <operation>contains</operation>
+            <value>manager,software,Bonness,Fitzgerald,Wilk,Thompson,powell,friedman</value>
+        </filters>
+        <label>Weigh the Pig Forecast</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Mid_Market_SW_Directors</group>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>FS-{00000}</displayFormat>
         <label>Forecast Snapshot Name</label>

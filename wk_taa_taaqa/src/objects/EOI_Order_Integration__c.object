@@ -4,69 +4,6 @@
     <description>Instrumentation for testing and production Service Cloud Webservices</description>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>Continuation_Call_Timeout__c</fullName>
-        <description>This number will be used to set time out for all continuation callouts for EOI, as of now being used in below
-(1) GetAccountInfo
-(2) DQ Address Validation</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This number will be used to set time out for all continuation callouts for EOI, as of now being used in below
-(1) GetAccountInfo
-(2) DQ Address Validation</inlineHelpText>
-        <label>Continuation Call Timeout</label>
-        <precision>2</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>GetAccountInfoServiceVersion__c</fullName>
-        <description>This holds the service version of IIB GetAccountInfo Service</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This holds the service version of IIB GetAccountInfo Service</inlineHelpText>
-        <label>GetAccountInfo Service Version</label>
-        <length>3</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>IIBURLGetAccountInfo__c</fullName>
-        <description>This holds the IIB GetAccountInfo interface URL</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This holds the IIB GetAccountInfo interface URL</inlineHelpText>
-        <label>IIB URL Get Account Info</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>IIB_Address_DQM_Service_Version__c</fullName>
-        <externalId>false</externalId>
-        <label>IIB Address DQM Service Version</label>
-        <length>10</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>IIB_DQAddressValidationURL__c</fullName>
-        <description>Holds IIB DQ Address Validation Service URL</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Holds IIB DQ Address Validation Service URL</inlineHelpText>
-        <label>IIB DQ Address Validation URL</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>IsERPOrderCreationFromQuoteProposalOn__c</fullName>
         <defaultValue>true</defaultValue>
         <externalId>false</externalId>

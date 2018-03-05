@@ -9,7 +9,6 @@
     <tab>standard-Dashboard</tab>
     <tab>standard-Feed</tab>
     <tab>standard-WaveHomeLightning</tab>
-    <tab>ATA_AssignmentType_Map__c</tab>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
 </CustomApplication>

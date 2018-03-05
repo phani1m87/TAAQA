@@ -35,6 +35,16 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>AMS_Product_Category__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(PricebookEntry.Product2.AMS_Product_Category__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>AMS Product Category</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>APTPS_Product_Line__c</fullName>
         <externalId>false</externalId>
         <formula>/*If(Product_Config_Type__c==&apos;Option&apos;,  Text(OptionId__r.Product_Line__c) ,&apos;&apos; )*/
@@ -274,6 +284,15 @@ IF(ISPICKVAL(LineType__c,&apos;Option&apos;),
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Opportunity_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity.CloseDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Close Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>OptionId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -318,11 +337,32 @@ TEXT(OptionId__r.Product_Type__c),TEXT(PricebookEntry.Product2.Product_Type__c)
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Parent2__c</fullName>
+        <externalId>false</externalId>
+        <formula>OptionId__r.Parent2__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Parent2</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Product2Id</fullName>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ProductCode</fullName>
+    </fields>
+    <fields>
+        <fullName>Product_Code_Hidden__c</fullName>
+        <description>Used to show the Product Name outside of SalesForce UI</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.ProductCode</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Code (Hidden)</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Product_Config_Type__c</fullName>
@@ -349,6 +389,37 @@ TEXT(OptionId__r.Product_Type__c),TEXT(PricebookEntry.Product2.Product_Type__c)
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Product_Family__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(PricebookEntry.Product2.Family)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Family</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Name_Hidden__c</fullName>
+        <description>Used to show the Product Name outside of SalesForce UI</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Name (Hidden)</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Quantity</fullName>
     </fields>
     <fields>
@@ -357,6 +428,18 @@ TEXT(OptionId__r.Product_Type__c),TEXT(PricebookEntry.Product2.Product_Type__c)
         <externalId>true</externalId>
         <label>SFDC Opportunity Product #</label>
         <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>SFDC_Product_Length__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEN( SFDC_Product__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SFDC Product # Length</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SFDC_Product__c</fullName>

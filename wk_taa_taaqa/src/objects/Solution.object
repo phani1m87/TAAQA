@@ -47,13 +47,17 @@
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
                     <fullName>Corporate Indirect (STG)</fullName>
                     <default>false</default>
                 </value>
                 <value>
                     <fullName>R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firms</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -87,21 +91,9 @@
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Tax</fullName>
-                    <default>false</default>
-                </value>
+                <sorted>true</sorted>
                 <value>
                     <fullName>Audit and Accounting</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Workflow</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Research</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -110,6 +102,18 @@
                 </value>
                 <value>
                     <fullName>Professional Client Services (implementation, training, conversion)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workflow</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -133,7 +137,7 @@
         <valueSet>
             <controllingField>Business_Segment__c</controllingField>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
                     <fullName>Active Data</fullName>
                     <default>false</default>
@@ -144,6 +148,10 @@
                 </value>
                 <value>
                     <fullName>ARM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -191,7 +199,75 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>CASP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>CCH Axcess Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Practice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Axcess Workstream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Data Axcess</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Active Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Autoflow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Document</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Engagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Fixed Assets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Knowledge Coach</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx PDFlyer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH ProSystem fx Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Site Builder</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -231,6 +307,10 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>iFirm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Intelliconnect</fullName>
                     <default>false</default>
                 </value>
@@ -240,6 +320,14 @@
                 </value>
                 <value>
                     <fullName>Multi State Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Open Integration Platform</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Paperless PLUS</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -295,11 +383,19 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>PortalSafe</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>PTEP</fullName>
                     <default>false</default>
                 </value>
                 <value>
                     <fullName>PTP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>R&amp;L</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -372,6 +468,10 @@
                 </value>
                 <value>
                     <fullName>TRC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TWD/TWO</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -515,6 +615,7 @@
             <valueSettings>
                 <controllingFieldValue>Software (Corporate)</controllingFieldValue>
                 <controllingFieldValue>Software (CPA)</controllingFieldValue>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
                 <valueName>CCH Axcess Document</valueName>
             </valueSettings>
             <valueSettings>
@@ -571,6 +672,102 @@
                 <controllingFieldValue>Software (Corporate)</controllingFieldValue>
                 <controllingFieldValue>Software (CPA)</controllingFieldValue>
                 <valueName>Workstream</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>ATX</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CASP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH Axcess Portal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH Axcess Practice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH Axcess Tax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH Axcess Workstream</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH Data Axcess</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Active Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Autoflow</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Document</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Engagement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Fixed Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Knowledge Coach</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx PDFlyer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Practice Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Scan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH ProSystem fx Tax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>CCH Site Builder</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>iFirm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>Open Integration Platform</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>Paperless PLUS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>PortalSafe</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>R&amp;L</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Firms</controllingFieldValue>
+                <valueName>TWD/TWO</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -818,6 +1015,18 @@
         </filters>
         <label>All Unreviewed Solutions</label>
     </listViews>
+    <listViews>
+        <fullName>All_Solutions</fullName>
+        <columns>SOLUTION.ISSUE</columns>
+        <columns>SOLUTION.SOLUTION_NUMBER</columns>
+        <columns>SOLUTION.STATUS</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>SOLUTION.TIMES_USED</columns>
+        <columns>SOLUTION.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Solutions</label>
+        <language>en_US</language>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>SOLUTION.ISSUE</customTabListAdditionalFields>
         <customTabListAdditionalFields>SOLUTION.SOLUTION_NUMBER</customTabListAdditionalFields>
@@ -851,6 +1060,7 @@
         <searchResultsAdditionalFields>Category__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Products__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Professional_Client_Services__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SOLUTION.CREATED_DATE</searchResultsAdditionalFields>
         <searchResultsCustomButtons>New_Case</searchResultsCustomButtons>
     </searchLayouts>
     <webLinks>

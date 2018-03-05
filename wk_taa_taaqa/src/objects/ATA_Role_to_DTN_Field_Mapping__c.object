@@ -5,11 +5,10 @@
     <enableFeeds>false</enableFeeds>
     <fields>
         <fullName>ATA_Role_Name__c</fullName>
-        <description>Account Team Assignment Role Name</description>
         <externalId>false</externalId>
         <label>ATA Role Name</label>
         <length>255</length>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -19,7 +18,7 @@
         <externalId>false</externalId>
         <label>Account DTN Field API Name</label>
         <length>255</length>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>

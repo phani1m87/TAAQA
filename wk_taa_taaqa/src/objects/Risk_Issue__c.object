@@ -94,7 +94,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Related Request</label>
-        <referenceTo>Requests__c</referenceTo>
+        <referenceTo>Project__c</referenceTo>
         <relationshipLabel>Risks/Issues</relationshipLabel>
         <relationshipName>Risks_Issues</relationshipName>
         <required>false</required>

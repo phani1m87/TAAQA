@@ -602,8 +602,6 @@ static testmethod void testCustodialRep1_test(){
     test.starttest();
     CustodialAccountBatch cb= new CustodialAccountBatch(cust.Id,currentwithCustodailReps,DTN_Current_Rep,null,q,dtnUsers,DTN_Custodial_Rep,null);
     Database.executebatch(cb,200);
-    cb= new CustodialAccountBatch(cust.Id,currentwithCustodailReps,DTN_Current_Rep,'5555',q,dtnUsers,DTN_Custodial_Rep,null);
-    Database.executebatch(cb,200);
     test.stoptest();
     List<AccountTeamMember> at= [Select Id, AccountId,User.Name, User.DTN__C from AccountTeamMember where User.DTN__C=:DTN_Custodial_Rep];
    // System.assert(at.size()>0);
@@ -612,8 +610,8 @@ static testmethod void testCustodialRep1_test(){
  }
  //SMS-777 Start
  static testmethod void testCustodialRep2_test(){
-    setup();
-    ID prospecrAccountRecordTypeID= [SELECT DeveloperName,Id,Name,SobjectType FROM RecordType WHERE SobjectType = 'Account' AND DeveloperName = 'Prospect_Account'].ID;
+ 	setup();
+ 	ID prospecrAccountRecordTypeID= [SELECT DeveloperName,Id,Name,SobjectType FROM RecordType WHERE SobjectType = 'Account' AND DeveloperName = 'Prospect_Account'].ID;
     Account a = new Account();
     a.Name= 'Test Account';
     a.RecordTypeId=prospecrAccountRecordTypeID;
@@ -637,8 +635,8 @@ static testmethod void testCustodialRep1_test(){
     update  testUser3;
     AccountTeamMember atm= new AccountTeamMember(AccountId=a.Id, UserId=testUser1.Id ,TeamMemberRole='Cust- ISC - Corp Software Indirect');
     insert atm;
-    AccountTeamMember atm1= new AccountTeamMember(AccountId=a1.Id, UserId=testUser1.Id ,TeamMemberRole='ISC - Corp Software Indirect');
-    insert atm1;
+	AccountTeamMember atm1= new AccountTeamMember(AccountId=a1.Id, UserId=testUser1.Id ,TeamMemberRole='ISC - Corp Software Indirect');
+	insert atm1;
     String DTN_Current_Rep=testUser1.DTN__c;
     String DTN_Open_Territory_Rep=testUser2.DTN__c;
     String q = 'Select id,UserId,AccountId,TeamMemberRole,User.DTN__c,User.Name from AccountTeamMember where User.DTN__c ='+'\''+DTN_Current_Rep+'\'';

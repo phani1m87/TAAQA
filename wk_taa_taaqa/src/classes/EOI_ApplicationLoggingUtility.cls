@@ -16,7 +16,7 @@ public with sharing class EOI_ApplicationLoggingUtility
 	//*** the data into into the appropriate application message code which is then handed to the EOI_Logger_Utility.
 	//*** These methods map the codes from the XML tags into our specific application logging codes defined in the WK_Constants class.*/
 
-    public static Application_Monitoring_Log__c ApplicationLogFromCalloutResponse(String className, String methodName, String requestData, EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result, String ERPOrderName, Id ERPOrderId, String ErrorMessageIfIIBDown)
+    public static Application_Monitoring_Log__c ApplicationLogFromCalloutResponse(String className, String methodName, String requestData, EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result, String ERPOrderName, Id ERPOrderId, String ErrorMessageIfIIBDown)
     {
         String messageForLog = '', messageCode = '', uuid = '';
         if(result != null)
@@ -121,8 +121,8 @@ public with sharing class EOI_ApplicationLoggingUtility
                 messageForLog = messageForLog + ': details= '+   ErrorMessageIfIIBDown;
             if(result.errorMessages != null)
             {
-                List<EOI_IIB_ERPOrderCallout_V7.ErrorMessageType> errorMessagesList = result.errorMessages.ErrorMesage;
-                for(EOI_IIB_ERPOrderCallout_V7.ErrorMessageType errorMessage : errorMessagesList)
+                List<EOI_IIB_ERPOrderCallout_V6.ErrorMessageType> errorMessagesList = result.errorMessages.ErrorMesage;
+                for(EOI_IIB_ERPOrderCallout_V6.ErrorMessageType errorMessage : errorMessagesList)
                 {
                     messageForLog = messageForLog + ': Error Message Code =  '+errorMessage.customErrorMessageCode;
                     messageForLog = messageForLog + ': Error Message Description =   '+errorMessage.customErrorMessageDescription;
@@ -149,10 +149,9 @@ public with sharing class EOI_ApplicationLoggingUtility
         
     }
     
-    /*
     public static Application_Monitoring_Log__c ApplicationLogFromCalloutResponse(String className, String methodName, String requestData, EOI_IIB_ERPOrderCallout_V5.OrderSubmissionResponseType result, String ERPOrderName, Id ERPOrderId, String ErrorMessageIfIIBDown)
     {
-       
+       /*
         String messageForLog = '', messageCode = '';
         if(result != null)
         {
@@ -277,10 +276,10 @@ public with sharing class EOI_ApplicationLoggingUtility
             return newApplicationLog;
         }
         //Application_Monitoring_Log__c newApplicationLog = new Application_Monitoring_Log__c();
-        
+        */
         return null;
     }
- 	*/
+ 	
 	//---------------------------------------------------------------------------
 	//----------------------------------------------------------------------------   
  
@@ -412,9 +411,7 @@ public with sharing class EOI_ApplicationLoggingUtility
        
             system.debug('***SAP Past Processing Block');
             
-            // *** AOP 2.0 Commented below condition since SAP Return Type might come as W even though order is SUCCESS 
-            //if(String.valueOf(callbackSAPReturn.TYPE) == 'S' && String.valueOf(callbackRequest.statusCode) == 'S' && String.valueOf(callbackSAPReturn.SAP_NUMBER) == '311')
-            if(String.valueOf(callbackRequest.statusCode) == 'S')
+            if(String.valueOf(callbackSAPReturn.TYPE) == 'S' && String.valueOf(callbackRequest.statusCode) == 'S' && String.valueOf(callbackSAPReturn.SAP_NUMBER) == '311')
             { 
                 messageForLog =  WK_Constants.EOI_SAP_SUCCESS_311_ORDER_CREATION_MESSAGE ;
                 messagecodeForLog = WK_Constants.EOI_SAP_SUCCESS_311_ORDER_CREATION_MESSAGECODE;
@@ -447,7 +444,7 @@ public with sharing class EOI_ApplicationLoggingUtility
                         messageForLog = messageForLog + '\n *** V4 Message --> '+ objCallbackSAPReturn.MESSAGE_V4;
                     }
                     
-                    if(callbackRequest.listOfSAPReturnResults.size() > 1 && callbackRequest.statusCode != 'S'){
+                    if(callbackRequest.listOfSAPReturnResults.size() > 1 && callbackSAPReturn.TYPE != 'S'){
                     	messagecodeForLog = WK_Constants.EOI_SAP_EXCEPTION_MULTIPLE_ERRORS_MESSAGECODE;
                     }
                 }
@@ -579,6 +576,7 @@ public with sharing class EOI_ApplicationLoggingUtility
     	return newApplicationLog;
     }
     
+    /*
     //Log for AOP EOI GetAccountInfo
     public static Application_Monitoring_Log__c ApplicationLogFromCalloutResponse(String className, String methodName, EOI_IIB_ERP_GetAccountInfo_V2.GetAccountInfoRequestWrapper requestData, EOI_IIB_ERP_GetAccountInfo_V2.GetAccountInfoResponse_element response, String quoteId)
     {
@@ -666,6 +664,7 @@ public with sharing class EOI_ApplicationLoggingUtility
     	);
     	return newApplicationLog;
     }
+    */
     
     //Log method for exception conditions
     public static Application_Monitoring_Log__c ApplicationLogFromCalloutResponse(String className, String methodName, String request, String response, String recordId, String uuid)
@@ -684,7 +683,7 @@ public with sharing class EOI_ApplicationLoggingUtility
     		newApplicationLog.AccountId__c = recordId;
     		//insert newApplicationLog;
     	}else if(recordId.startsWith(Apttus_Proposal__Proposal__c.SobjectType.getDescribe().getKeyPrefix())){
-    		newApplicationLog.Quote_ProposalId__c = recordId; 
+    		//newApplicationLog.Quote_ProposalId__c = recordId; 
     	}else if(recordId.startsWith(ERP_Order__c.SobjectType.getDescribe().getKeyPrefix())){
     		newApplicationLog.ERPOrder__c = recordId;
     		//insert newApplicationLog;

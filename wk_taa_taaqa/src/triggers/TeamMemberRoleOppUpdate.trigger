@@ -29,7 +29,7 @@ SELECT Id, UserId, OpportunityId,  TeamMemberRole, User.Name FROM OpportunityTea
 
                          (TeamMemberRole =
 
-'RC - Research and Learning' OR TeamMemberRole = 'T&C - Research and Learning' OR TeamMemberRole = 'RC - R&L ServiceSource') ]);
+'RC - R&L Retention' OR TeamMemberRole = 'T&C - Research and Learning' OR TeamMemberRole = 'RC - R&L ServiceSource') ]);
 
  
 
@@ -55,7 +55,7 @@ for(OpportunityTeamMember otm : listOTM ){
 
          
 
-if(otm.TeamMemberRole == 'RC - Research and Learning') {
+if(otm.TeamMemberRole == 'RC - R&L Retention') {
 
               tempOpp.has_asr_opportunity_team__c = true;
 

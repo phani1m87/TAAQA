@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AsOfDate__c</fullName>
+        <externalId>false</externalId>
+        <label>AsOfDate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>As_of_Month_Pipeline__c</fullName>
+        <description>Evaluates to TRUE if the Historical Close Date was within the As of Month (e.g. Close Date in June as of June 1)</description>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND(MONTH(CloseDateFormatted__c) = MONTH(AsOfDate__c),YEAR(AsOfDate__c) = YEAR( CloseDateFormatted__c) 
+),TRUE,FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>As of Month Pipeline</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>As_of_Month__c</fullName>
+        <description>Shows the Month (without Year) for use in YOY comparison charts</description>
+        <externalId>false</externalId>
+        <formula>IF(Month(AsOfDate__c) = 1, &quot;01-January&quot;, 
+IF(Month(AsOfDate__c) = 2, &quot;02-February&quot;, 
+IF(Month(AsOfDate__c) = 3, &quot;03-March&quot;, 
+IF(Month(AsOfDate__c) = 4, &quot;04-April&quot;, 
+IF(Month(AsOfDate__c) = 5, &quot;05-May&quot;, 
+IF(Month(AsOfDate__c) = 6, &quot;06-June&quot;, 
+IF(Month(AsOfDate__c) = 7, &quot;07-July&quot;, 
+IF(Month(AsOfDate__c) = 8, &quot;08-August&quot;, 
+IF(Month(AsOfDate__c) = 9, &quot;09-September&quot;, 
+IF(Month(AsOfDate__c) = 10, &quot;10-October&quot;, 
+IF(Month(AsOfDate__c) = 11, &quot;11-November&quot;, 
+&quot;12-December&quot;)))))))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>As of Month</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>As_of_This_Month__c</fullName>
+        <description>Evaluates to TRUE if the As Of Month is the current month, regardless of year (e.g. If it is June, June As Of Dates for all years will be true). Does not consider the Historical Close Date of the Opportunity.</description>
+        <externalId>false</externalId>
+        <formula>IF(MONTH(AsOfDate__c) = MONTH(TODAY()),TRUE,FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>As of This Month</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CloseDateFormatted__c</fullName>
+        <externalId>false</externalId>
+        <label>CloseDateFormatted</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Close Date</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>High_Level_Division__c</fullName>
+        <externalId>false</externalId>
+        <label>High Level Division</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HistoricalAmount__c</fullName>
+        <externalId>false</externalId>
+        <label>Historical Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MonthYear__c</fullName>
+        <externalId>false</externalId>
+        <label>MonthYear</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>This_Month_Pipeline__c</fullName>
+        <description>Evaluates to TRUE if the Close Date is within the current month, regardless of year (e.g. If it is June, it will be true for all June Pipeline as of June 1)</description>
+        <externalId>false</externalId>
+        <formula>IF(
+AND(MONTH(CloseDateFormatted__c) = MONTH(TODAY()),MONTH(AsOfDate__c) = MONTH(TODAY()),YEAR(AsOfDate__c) = YEAR( CloseDateFormatted__c)
+),TRUE,FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>This Month Pipeline</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>isValidDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(
+YEAR(CloseDateFormatted__c) = YEAR(AsOfDate__c) &amp;&amp; MONTH(CloseDateFormatted__c) = MONTH(AsOfDate__c),
+CloseDateFormatted__c &gt;=  AsOfDate__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>isValidDate</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>TAA Snapshot Summarized</label>
+    <nameField>
+        <displayFormat>H - {0000000000}</displayFormat>
+        <label>TAA Snapshot Summarized HLD Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>TAA Snapshot Summarized</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

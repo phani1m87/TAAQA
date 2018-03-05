@@ -67,7 +67,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Other_Closed_Reason__c</field>
+                <field>SFS_CID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SFS_PID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -75,11 +79,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SFS_CID__c</field>
+                <field>Other_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SFS_PID__c</field>
+                <field>Other_Closed_Reason__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

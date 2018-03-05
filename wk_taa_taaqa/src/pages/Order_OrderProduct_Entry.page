@@ -1,4 +1,4 @@
-<apex:page standardController="ERP_Order__c" extensions="EOI_Order_OrderProduct_Controller_V7" showHeader="true" showChat="false" >
+<apex:page standardController="ERP_Order__c" extensions="EOI_Order_OrderProduct_Controller_V5" showHeader="true" showChat="false" >
 <apex:pageMessages />
 <apex:form >
     <apex:actionFunction action="{!EOI_InsertRecord}" name="InsertRecord_JS" Rerender="statuses" status="Status1" oncomplete="CallWebService_JS();"/>

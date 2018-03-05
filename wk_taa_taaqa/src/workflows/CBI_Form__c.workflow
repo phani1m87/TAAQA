@@ -23,6 +23,17 @@
         <template>Email_Alerts/Solution_Blueprint_Submitted</template>
     </alerts>
     <alerts>
+        <fullName>CBI_Notify_Outsource_Product_Manager_of_CBI_Submission</fullName>
+        <description>CBI: Notify Outsource Product Manager of CBI Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>mike.gamble@wolterskluwer.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Email_Alerts/Solution_Blueprint_Submitted</template>
+    </alerts>
+    <alerts>
         <fullName>CBI_Notify_SA_and_Manager_of_CBI_Submission</fullName>
         <description>CBI: Notify SA and Manager of CBI Submission</description>
         <protected>false</protected>
@@ -41,6 +52,17 @@
         <recipients>
             <field>Solution_Architect__c</field>
             <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Email_Alerts/Solution_Blueprint_Submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>CBI_Notify_Small_Firms_SA_Lead_of_CBI_Submission</fullName>
+        <description>CBI: Notify Small Firms SA Lead of CBI Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>lance.center@wolterskluwer.com</recipient>
+            <type>user</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Email_Alerts/Solution_Blueprint_Submitted</template>
@@ -88,7 +110,7 @@
         <criteriaItems>
             <field>Opportunity.Owner_High_Level_Division__c</field>
             <operation>equals</operation>
-            <value>Software</value>
+            <value>Strategic &amp; Mid-Market</value>
         </criteriaItems>
         <description>Notifies Director if a Solution Blueprint was created for an Opp over $25K for the for Central, Midwest, and Pacific divisions</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -118,7 +140,7 @@
         <criteriaItems>
             <field>Opportunity.Owner_High_Level_Division__c</field>
             <operation>equals</operation>
-            <value>Software</value>
+            <value>Strategic &amp; Mid-Market</value>
         </criteriaItems>
         <description>Notifies Manager if a Solution Blueprint was created for an Opp over $25K for the Northeast, Southeast, and Mid-Atlantic Divisions</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -136,6 +158,17 @@
             <value>Submitted</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>CBI%3A Outsource Product Manager</fullName>
+        <actions>
+            <name>CBI_Notify_Outsource_Product_Manager_of_CBI_Submission</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Notifies Outsource Product Manager that a Solution Blueprint was created for an Opportunity when Outsource is selected as the product.</description>
+        <formula>INCLUDES(Products_to_Present__c,&quot;Outsource&quot;)&amp;&amp; OR(ISNEW(),ISCHANGED(Products_to_Present__c))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>CBI%3A Populate Manager Email</fullName>
@@ -159,5 +192,25 @@
             <operation>equals</operation>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>CBI%3A Small Firms SA Lead</fullName>
+        <actions>
+            <name>CBI_Notify_Small_Firms_SA_Lead_of_CBI_Submission</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>CBI_Form__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Owner_High_Level_Division__c</field>
+            <operation>equals</operation>
+            <value>US Small Firms</value>
+        </criteriaItems>
+        <description>Notifies Small Firms SA Leadif a Solution Blueprint was created for an Opp</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

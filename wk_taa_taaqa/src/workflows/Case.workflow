@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>AMS_Cancellation_Notification_Email_to_AS</fullName>
+        <ccEmails>TC-AccountServices@wolterskluwer.com</ccEmails>
+        <description>AMS Cancellation Notification Email to AS</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>TC_Scheduling</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Email_Alerts/AMS_Product_cancellation</template>
+    </alerts>
+    <alerts>
+        <fullName>Cancellation_Approved_Email</fullName>
+        <description>Cancellation Approved Email</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Email_Alerts/Product_Cancellation_Approval_Notification</template>
+    </alerts>
+    <alerts>
         <fullName>Cancellation_Notification_to_New_Case_Owner</fullName>
         <description>Cancellation Notification to New Case Owner</description>
         <protected>false</protected>
@@ -9,6 +31,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Email_Alerts/Cancellation_Process</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Account_Data_Request_Closure_Notification</fullName>
+        <description>Case Account Data Request Closure Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Sales_General/Case_Account_Data_Request_Notification</template>
     </alerts>
     <alerts>
         <fullName>Sales411_Case_Changed_PCS</fullName>
@@ -65,6 +97,10 @@
         </recipients>
         <recipients>
             <recipient>jon.detwiler@wolterskluwer.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>wendy.whitney@wolterskluwer.com</recipient>
             <type>user</type>
         </recipients>
         <senderAddress>sales411responses@wolterskluwer.com</senderAddress>
@@ -177,11 +213,11 @@
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>guillermo.rodriguez@wolterskluwer.com</recipient>
+            <recipient>art.feldman@wolterskluwer.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>kara.hedrick@wolterskluwer.com</recipient>
+            <recipient>guillermo.rodriguez@wolterskluwer.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
@@ -323,6 +359,15 @@
         <template>Email_Alerts/Sales_Support_Case_Picked_Up</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Cancellation_Approved</fullName>
+        <field>Cancellation_Approved__c</field>
+        <literalValue>1</literalValue>
+        <name>Cancellation Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Cancellation_Case_Received</fullName>
         <field>Status</field>
         <literalValue>Submitted For Approval</literalValue>
@@ -360,6 +405,24 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Case_Account_Data_Request_Scheduled</fullName>
+        <field>Status</field>
+        <literalValue>Approved-Update Scheduled</literalValue>
+        <name>Case Account Data Request-Scheduled</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Account_Data_Status_Update</fullName>
+        <field>Status</field>
+        <literalValue>Working</literalValue>
+        <name>Case Account Data Status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Case_Closed</fullName>
         <field>Status</field>
         <literalValue>Completed</literalValue>
@@ -374,6 +437,15 @@
         <field>Has_Been_Escalated__c</field>
         <literalValue>1</literalValue>
         <name>Case Has Been Escalated</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Rejected</fullName>
+        <field>Status</field>
+        <literalValue>Rejected</literalValue>
+        <name>Case Rejected</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -406,6 +478,35 @@
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>AMS cancellation Notification Email to AS</fullName>
+        <actions>
+            <name>AMS_Cancellation_Notification_Email_to_AS</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>text(priorvalue(Status )) &lt;&gt;&quot;Completed&quot; &amp;&amp; ispickval(Status,&quot;Completed&quot;)&amp;&amp;   RecordType.Name  = &quot;AMS Cancellation&quot;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Data Request Completed Case</fullName>
+        <actions>
+            <name>Case_Account_Data_Request_Closure_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Account Data Request</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Approved - Completed</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Cancellation Notification</fullName>
         <actions>
             <name>Cancellation_Notification_to_New_Case_Owner</name>
@@ -413,6 +514,52 @@
         </actions>
         <active>true</active>
         <formula>AND( ISCHANGED( OwnerId ),  RecordType.Id = &quot;01231000001IeLr&quot;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Account Data Request Completed</fullName>
+        <actions>
+            <name>Case_Account_Data_Request_Closure_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Completed,Approved - Completed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Account Data Request,Market Segment / Sub Segment Change,New Prospect Request</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Account Data Request Scheduled</fullName>
+        <actions>
+            <name>Case_Account_Data_Request_Scheduled</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>AND( ISPICKVAL( Type , &quot;Segment/SubSegment Change&quot;),
+     ISPICKVAL( Status , &quot;Completed&quot;),            
+     PRIORVALUE( Status ) = &quot;Working&quot;,      
+     OR(RecordTypeId = &quot;0120Z000001Ifje&quot;,         
+        RecordTypeId = &quot;0120Z000001Ifjf&quot;,         
+        RecordTypeId = &quot;0120Z000001Ifjg&quot;
+      ) 
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Account Data Request Status Update</fullName>
+        <actions>
+            <name>Case_Account_Data_Status_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>ISCHANGED( OwnerId ) &amp;&amp; PRIORVALUE(OwnerId ) = &quot;00G0Z000004WlLS&quot;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -433,6 +580,7 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
+        <description>Notifies record creator that their Case has been picked up</description>
         <formula>ISCHANGED(Status)  &amp;&amp; ISPICKVAL(Status, &quot;Working&quot;)  &amp;&amp; RecordType.Id = &quot;0120Z000001NZcy&quot;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -493,7 +641,6 @@
         <active>true</active>
         <formula>ISBLANK( Time_Picked_Up__c ) &amp;&amp;  
 ISCHANGED( Status ) &amp;&amp;
-RecordTypeId = &quot;01231000001IeLq&quot; &amp;&amp; 
 NOT( ISPICKVAL(Status, &quot;Escalated&quot;) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -544,6 +691,16 @@ NOT( ISPICKVAL(Status, &quot;Escalated&quot;) )</formula>
         </actions>
         <active>true</active>
         <formula>ISCHANGED( Emails_Received_Count__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Owners manager</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AMS Cancellation,Sales Cancellation</value>
+        </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

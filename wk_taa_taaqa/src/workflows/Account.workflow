@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
+        <fullName>Account_Enterprise_Name</fullName>
+        <field>Enterprise_Name__c</field>
+        <formula>Name</formula>
+        <name>Account Enterprise Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Zip_Code_Format_Change</fullName>
+        <description>Changes a nine digit zip code to a five-four digit format</description>
+        <field>BillingPostalCode</field>
+        <formula>LEFT( BillingPostalCode , 5) &amp;&quot;-&quot;&amp;
+Right( BillingPostalCode , 4)</formula>
+        <name>Account Zip Code Format Change</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Customer_Seg_Advanced</fullName>
         <field>Customer_Segmentation__c</field>
         <literalValue>Advanced</literalValue>
@@ -119,60 +139,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Has_ATX_TRUE</fullName>
-        <field>Has_ATX__c</field>
-        <literalValue>1</literalValue>
-        <name>Has ATX TRUE</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Has_Books_TRUE</fullName>
-        <field>Has_SFS_Books_2017__c</field>
-        <literalValue>1</literalValue>
-        <name>Has Books TRUE</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Has_Other_Anc_TRUE</fullName>
-        <field>Has_SFS_Other_Ancillary__c</field>
-        <literalValue>1</literalValue>
-        <name>Has Other Anc TRUE</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Has_Research_TRUE</fullName>
-        <field>Has_SFS_Research__c</field>
-        <literalValue>1</literalValue>
-        <name>Has Research TRUE</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Has_TW_TRUE</fullName>
-        <field>Has_TaxWise__c</field>
-        <literalValue>1</literalValue>
-        <name>Has TW TRUE</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Has_iFirm_TRUE</fullName>
-        <field>Has_IFirm__c</field>
-        <literalValue>1</literalValue>
-        <name>Has iFirm TRUE</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Informatica_Field_Update_Time</fullName>
         <field>SFS_Informatica_Field_Update_Time__c</field>
         <formula>NOW()</formula>
@@ -191,10 +157,10 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Set_Named_Account_to_TRUE</fullName>
-        <field>Named_Account__c</field>
+        <fullName>Set_Account_Exclude_from_ATA</fullName>
+        <field>Exclude_Account_Automation__c</field>
         <literalValue>1</literalValue>
-        <name>Set Named Account to TRUE</name>
+        <name>Set Account Exclude from ATA</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -218,6 +184,31 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <rules>
+        <fullName>Account Enterprise Name</fullName>
+        <actions>
+            <name>Account_Enterprise_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Enterprise_Name__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Zip Code Update</fullName>
+        <actions>
+            <name>Account_Zip_Code_Format_Change</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Changes a nine digit zip code to a  five-four digit format</description>
+        <formula>LEN( BillingPostalCode ) &gt; 5 &amp;&amp;
+LEN( BillingPostalCode ) &lt; 10</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Customer Seg - Advanced</fullName>
         <actions>
@@ -1012,90 +1003,6 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Has ATX</fullName>
-        <actions>
-            <name>Has_ATX_TRUE</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Account.Count_ATX__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Has Books</fullName>
-        <actions>
-            <name>Has_Books_TRUE</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Account.Count_SFS_Books__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Has Ifirm</fullName>
-        <actions>
-            <name>Has_iFirm_TRUE</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Account.Count_IFirm__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Has Other Ancilliary</fullName>
-        <actions>
-            <name>Has_Other_Anc_TRUE</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Account.Count_Other_Ancilliary__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Has Research</fullName>
-        <actions>
-            <name>Has_Research_TRUE</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Account.Count_Research__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Has TW</fullName>
-        <actions>
-            <name>Has_TW_TRUE</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Account.Count_TW__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>Point Clear Marked Date</fullName>
         <actions>
             <name>Point_Clear_Checked_Date</name>
@@ -1122,6 +1029,17 @@
         </actions>
         <active>true</active>
         <formula>ISCHANGED(Name)  ||   ISCHANGED(Phone)  ||   ISCHANGED(Market_Segment__c)  ||   ISCHANGED(Market_Sub_Segment__c)  ||   ISCHANGED(SFDC_Account__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Exclude ATA Flag for Inactive Accounts</fullName>
+        <actions>
+            <name>Set_Account_Exclude_from_ATA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( ISCHANGED(  Inactive__c ) , 
+Inactive__c )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

@@ -6,7 +6,7 @@
         <displayFormat>Default</displayFormat>
         <feedItemType>EmailMessageEvent</feedItemType>
     </caseFeedItemSettings>
-    <closeCaseThroughStatusChange>false</closeCaseThroughStatusChange>
+    <closeCaseThroughStatusChange>true</closeCaseThroughStatusChange>
     <defaultCaseOwner>alex.cardona@wolterskluwer.com</defaultCaseOwner>
     <defaultCaseOwnerType>User</defaultCaseOwnerType>
     <defaultCaseUser>integration.user@wolterskluwer.com</defaultCaseUser>
@@ -60,6 +60,7 @@
     <notifyDefaultCaseOwner>false</notifyDefaultCaseOwner>
     <notifyOwnerOnCaseComment>true</notifyOwnerOnCaseComment>
     <notifyOwnerOnCaseOwnerChange>false</notifyOwnerOnCaseOwnerChange>
+    <showFewerCloseActions>true</showFewerCloseActions>
     <useSystemEmailAddress>true</useSystemEmailAddress>
     <webToCase>
         <enableWebToCase>false</enableWebToCase>

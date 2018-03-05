@@ -192,11 +192,9 @@ global with sharing class EOI_SendOrderToERP_Callback_V2 {
                         update updateorder;
                     }
             
-                    system.debug('***Test2 statement');
-                    // *** AOP 2.0 Commented below condition since SAP Return Type might come as W even though order is SUCCESS                    
-                    //if (objExternalCallbackInfo.statusCode == 'S' && objSAP_RETURN_TYPE.Type == 'S') {
+                    system.debug('***Test2 statement');                    
+                    if (objExternalCallbackInfo.statusCode == 'S' && objSAP_RETURN_TYPE.Type == 'S') {
                     //if (objExternalCallbackInfo.statusCode == 'S' && objExternalCallbackInfo.listOfSAPReturnResults.size() <> 0) {
-                    if (objExternalCallbackInfo.statusCode == 'S') {
                         updateorder.Order_Submission_Status__c = 'Finalized / Complete in ERP';
                         updateorder.ERP_System_Order_ID__c = objExternalCallbackInfo.erp_OrderIDKey;
                         

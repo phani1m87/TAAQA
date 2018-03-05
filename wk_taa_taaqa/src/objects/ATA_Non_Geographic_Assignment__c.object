@@ -107,7 +107,6 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -120,6 +119,38 @@
                 </value>
                 <value>
                     <fullName>Corporate National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firm Key Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Refunds Today</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firms Premier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firms Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firms Key Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Firms R&amp;L</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -185,9 +216,9 @@
         <columns>External_ID__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>Type__c</field>
-            <operation>equals</operation>
-            <value>AccountTeam</value>
+            <field>RoleName__c</field>
+            <operation>contains</operation>
+            <value>RSC - R&amp;L Key Accounts</value>
         </filters>
         <label>AccountTeam Rules</label>
         <language>en_US</language>
@@ -217,6 +248,35 @@
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>AccountTeam_Rules_ID_Match_RC_Retentio</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <columns>FieldName__c</columns>
+        <columns>FieldValue__c</columns>
+        <columns>RoleName__c</columns>
+        <columns>DTN__c</columns>
+        <columns>Role_Assignment_Type__c</columns>
+        <columns>External_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>AccountTeam</value>
+        </filters>
+        <filters>
+            <field>FieldName__c</field>
+            <operation>equals</operation>
+            <value>Id</value>
+        </filters>
+        <filters>
+            <field>RoleName__c</field>
+            <operation>equals</operation>
+            <value>RC - Small Firms R&amp;L</value>
+        </filters>
+        <label>AccountTeam Rules - ID Match RC Retentio</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>LeadOwnership_Rules</fullName>
         <columns>NAME</columns>
         <columns>Type__c</columns>
@@ -231,6 +291,28 @@
             <value>LeadOwnership</value>
         </filters>
         <label>LeadOwnership Rules</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>LeadOwnership_Rules_Dans_View</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <columns>FieldName__c</columns>
+        <columns>FieldValue__c</columns>
+        <columns>DTN__c</columns>
+        <columns>Ownership_NamedType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>LeadOwnership</value>
+        </filters>
+        <filters>
+            <field>FieldValue__c</field>
+            <operation>equals</operation>
+            <value>dgccpa.com</value>
+        </filters>
+        <label>LeadOwnership Rules - Dans View</label>
         <language>en_US</language>
     </listViews>
     <nameField>

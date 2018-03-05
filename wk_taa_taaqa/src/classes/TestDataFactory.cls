@@ -162,6 +162,7 @@ public class TestDataFactory {
         AccountAutomationSetting__c t = new AccountAutomationSetting__c(); 
         t.BatchJobAdmin__c = 'kant.ra@hcl.com';
         t.Default_Account_Custodian__c = username;
+        t.Default_Lead_Custodian__c = username;	//SMS-1040
         t.ExcludedAccountRecordTypeForUpdate__c = 'Partner Account';
         t.GeneralDataSizeInBatchJob__c = 1000;
         t.IsTriggerOff__c = false;

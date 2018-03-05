@@ -72,7 +72,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retain_CC_for_Renewals__c</field>
+                <field>Email_CC_3__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_CC_Employee__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SAP_Sales_group__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -95,6 +103,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Apttus_Proposal__Approval_Stage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Processing_Stage__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -191,6 +203,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Aptps_Special_Instructions__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_Processing_Instructions__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -467,18 +483,16 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Apttus_QPConfig__LineNumber__c</fields>
-        <fields>AMS_Renewal_Product_Tier__c</fields>
-        <fields>Apttus_Proposal__Quantity__c</fields>
-        <fields>Product_Code__c</fields>
-        <fields>Apttus_Proposal__Product__c</fields>
-        <fields>AMS_Renewals_Price__c</fields>
+        <fields>Quantity__c</fields>
+        <fields>PCode__c</fields>
+        <fields>PName__c</fields>
+        <fields>APTS_Promo_Code__c</fields>
+        <fields>List_Price__c</fields>
+        <fields>APTPS_PromoDiscountApplied__c</fields>
         <fields>Net_Adjustment__c</fields>
-        <fields>Discount_Dollar_Amount__c</fields>
-        <fields>Apttus_QPConfig__LineStatus__c</fields>
+        <fields>Net_Price_WK__c</fields>
+        <fields>Extended_Maintenance_Months__c</fields>
         <relatedList>Apttus_Proposal__Proposal_Line_Item__c.Apttus_Proposal__Proposal__c</relatedList>
-        <sortField>Apttus_QPConfig__LineNumber__c</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -541,10 +555,6 @@
         <relatedList>Template_Line_item__c.Quote_Proposal__c</relatedList>
         <sortField>Line_Number__c</sortField>
         <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>test_QP_lookup__c.Quote_Proposal__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

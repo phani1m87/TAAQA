@@ -20,7 +20,8 @@
     <tab>Useful_Links</tab>
     <tab>ERP_Order__c</tab>
     <tab>S2S_LogFile__c</tab>
-    <tab>ReplicationMonitoringLog__c</tab>
-    <tab>Assist_List</tab>
-    <tab>ATA_AssignmentType_Map__c</tab>
+    <tab>Activity_Goals__c</tab>
+    <tab>Sales_Alignment__c</tab>
+    <tab>Apttus_Config2__FavoriteConfiguration__c</tab>
+    <tab>Apttus_Config2__PriceListItem__c</tab>
 </CustomApplication>

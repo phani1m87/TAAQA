@@ -135,8 +135,8 @@
 
 		function setLeadStatusValues(){
 			//from Lead status field definition retain the converted values and remove all non converted values.
-			var leadStatusQueryResult = sforce.connection.query("SELECT Id, MasterLabel FROM LeadStatus WHERE IsConverted = TRUE");
-			var selectobject = document.getElementById('{!$Component.LeadConvertPage.theForm.pageBlock.LeadStatusSection.leadStatusItem.LeadStatus}');
+			var leadStatusQueryResult = sforce.connection.query("SELECT Id , MasterLabel FROM LeadStatus WHERE IsConverted=true");
+			var selectobject=document.getElementById('{!$Component.LeadConvertPage.theForm.pageBlock.LeadStatusSection.leadStatusItem.LeadStatus}');
 
 			var opt = document.createElement('option');
 		    opt.value = '--None--';
@@ -161,6 +161,7 @@
 			  	}
 		  	}
 	  	}
+
 
 		function openLookup(baseURL, width, modified, searchParam){
 		    var originalbaseURL = baseURL;
@@ -268,5 +269,6 @@
 		      openPopup(originalbaseURL, "lookup", 350, 480, "width="+originalwidth+",height=480,toolbar=no,status=no,directories=no,menubar=no,resizable=yes,scrollable=no", true);
 		    } 
 	  	}	  	
+	  	
 	</script>
 </apex:page>

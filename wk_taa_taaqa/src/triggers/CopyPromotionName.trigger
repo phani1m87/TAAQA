@@ -4,6 +4,9 @@ trigger CopyPromotionName on Apttus_Proposal__Proposal_Line_Item__c (before inse
   Set<String> PromotionCode = new Set<String>();    
 
   for(Apttus_proposal__proposal_line_Item__c p:Trigger.new) {
+ 
+  
+ 
     PromotionCode.add(p.apts_promo_code__c);
     
   }
@@ -25,5 +28,6 @@ trigger CopyPromotionName on Apttus_Proposal__Proposal_Line_Item__c (before inse
     if(PromotionLookup.containsKey(p.apts_Promo_Code__c)) {
       p.Promotion_Name__C = PromotionLookup.get(p.apts_Promo_Code__c);
     }
-  }
+    }
+  
 }

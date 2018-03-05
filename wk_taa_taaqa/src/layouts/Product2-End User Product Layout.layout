@@ -59,6 +59,14 @@
                 <behavior>Readonly</behavior>
                 <field>Product_18_Character_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Last_Year_Price__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>R_L_eLearning__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -250,10 +258,12 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Apttus_Config2__Active__c</fields>
         <fields>Apttus_Config2__PriceListId__c</fields>
         <fields>Apttus_Config2__ChargeType__c</fields>
-        <fields>Apttus_Config2__DefaultQuantity__c</fields>
         <fields>Apttus_Config2__ListPrice__c</fields>
+        <fields>Apttus_Config2__AllowManualAdjustment__c</fields>
+        <fields>Apttus_Config2__AllocateGroupAdjustment__c</fields>
         <relatedList>Apttus_Config2__PriceListItem__c.Apttus_Config2__ProductId__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

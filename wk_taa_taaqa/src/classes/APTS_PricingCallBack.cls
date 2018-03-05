@@ -97,6 +97,7 @@ global with sharing class APTS_PricingCallBack implements Apttus_Config2.CustomC
             */
         }
         
+        /* Commented by Apttus - case# 00208512
         for(Apttus_Config2.LineItem lineItemMO : allLines) {
             Apttus_Config2__LineItem__c lineItemSO = lineItemMO.getLineItemSO();
             
@@ -104,6 +105,7 @@ global with sharing class APTS_PricingCallBack implements Apttus_Config2.CustomC
                 lineItemSO.Apttus_Config2__ConfigStatus__c = 'Complete';
             }
         }
+        */
     }
     
     

@@ -118,7 +118,7 @@ public class EOI_Test_OrderAutomation
     static testMethod void testRetryLogFromCalloutResponse()
     {
         Test.startTest();
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = createOrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = createOrderSubmissionResponseType();
         Id erpOrderId = [SELECT Id FROM ERP_Order__c].Id;
         //createWebServiceRetryLogs(erpOrderId);
         Map<Id, ERP_Order__c> ERPOrderWithRetryLogMap = new Map<Id, ERP_Order__c>([SELECT Id, Name, Quote_Record_Type__c, (SELECT Id, ERPOrderId__c, RetrySequenceNumber__c FROM Webservice_Retry_Log__r) FROM ERP_Order__c WHERE Id =: erpOrderId ]);// DESC LIMIT 1];
@@ -148,12 +148,12 @@ public class EOI_Test_OrderAutomation
         Test.stopTest();
     }
     
-    public static EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType createOrderSubmissionResponseType()
+    public static EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType createOrderSubmissionResponseType()
     {
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType result = new EOI_IIB_ERPOrderCallout_V7.OrderSubmissionResponseType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType result = new EOI_IIB_ERPOrderCallout_V6.OrderSubmissionResponseType();
         result.uuidMetaDataRequest = null;
         
-        EOI_IIB_ERPOrderCallout_V7.UUIDMetaDataResponseType objMetaDataResponseType = new EOI_IIB_ERPOrderCallout_V7.UUIDMetaDataResponseType();
+        EOI_IIB_ERPOrderCallout_V6.UUIDMetaDataResponseType objMetaDataResponseType = new EOI_IIB_ERPOrderCallout_V6.UUIDMetaDataResponseType();
         objMetaDataResponseType.authenticationSuccessfulFlag = 'Y';
         objMetaDataResponseType.esbBrokerName = 'TAABRK';
         objMetaDataResponseType.esbHostName = 'WKGSSIIBBQ01';
@@ -161,7 +161,7 @@ public class EOI_Test_OrderAutomation
         objMetaDataResponseType.responseDateTime = DateTime.valueOf('2017-03-18 16:47:44');
         result.uuidMetaDataResponse = objMetaDataResponseType;
         
-        EOI_IIB_ERPOrderCallout_V7.OrderSubmissionAcknowledgementType objOrderSubmissionAcknowledgement = new EOI_IIB_ERPOrderCallout_V7.OrderSubmissionAcknowledgementType();
+        EOI_IIB_ERPOrderCallout_V6.OrderSubmissionAcknowledgementType objOrderSubmissionAcknowledgement = new EOI_IIB_ERPOrderCallout_V6.OrderSubmissionAcknowledgementType();
         objOrderSubmissionAcknowledgement.Status = 'PENDING';
         objOrderSubmissionAcknowledgement.StatusCode = '500';
         objOrderSubmissionAcknowledgement.StatusDescription = 'Message queued in IIB to be sent to SAP';

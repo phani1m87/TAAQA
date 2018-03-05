@@ -309,11 +309,11 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Active Data Software</fullName>
+                    <fullName>Active Data Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Active Data Training</fullName>
+                    <fullName>Active Data Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -329,15 +329,15 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Audit Training</fullName>
+                    <fullName>Audit Professional &amp; Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Autoflow Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
                     <fullName>Autoflow Software</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Autoflow Training</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -405,15 +405,19 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Data Axcess Utility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Document Consulting</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Document Software</fullName>
+                    <fullName>Document Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Document Training</fullName>
+                    <fullName>Document Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -457,11 +461,11 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Engagement Software</fullName>
+                    <fullName>Engagement Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Engagement Training</fullName>
+                    <fullName>Engagement Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -481,19 +485,19 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Fixed Assets Manager Professional &amp; Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Fixed Assets Manager Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Fixed Assets Manager Training</fullName>
+                    <fullName>Fixed Assets Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
                     <fullName>Fixed Assets Software</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Fixed Assets Training</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -533,6 +537,10 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Knowledge Coach Professional &amp; Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Knowledge Coach Software</fullName>
                     <default>false</default>
                 </value>
@@ -541,19 +549,15 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Knowledge Coach Training</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>Knowledge Connect Consulting</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Knowledge Connect Software</fullName>
+                    <fullName>Knowledge Connect Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Knowledge Connect Training</fullName>
+                    <fullName>Knowledge Connect Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -605,11 +609,11 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Portal Software</fullName>
+                    <fullName>Portal Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Portal Training</fullName>
+                    <fullName>Portal Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -641,19 +645,19 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Practice Management Professional &amp; Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Practice Management Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Practice Management Training</fullName>
+                    <fullName>Practice Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
                     <fullName>Practice Software</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Practice Training</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -677,11 +681,15 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Scan Software</fullName>
+                    <fullName>Scanner Shipping</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Scan Training</fullName>
+                    <fullName>Scan Professional &amp; Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scan Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -777,11 +785,15 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Tax Professional &amp; Client Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Tax Software</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Tax Training</fullName>
+                    <fullName>Trial Balance Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -789,11 +801,11 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Trial Balance Training</fullName>
+                    <fullName>Workpaper Manager Consulting</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Workpaper Manager Consulting</fullName>
+                    <fullName>Workpaper Manager Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -801,11 +813,11 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Workpaper Manager Training</fullName>
+                    <fullName>Workstream Consulting</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Workstream Consulting</fullName>
+                    <fullName>Workstream Professional &amp; Client Services</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -813,7 +825,7 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Workstream Training</fullName>
+                    <fullName>Yearly Fee</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -835,7 +847,7 @@
         <length>4000</length>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
+        <visibleLines>10</visibleLines>
     </fields>
     <fields>
         <fullName>Aptps_Upload_Image__c</fullName>
@@ -1677,10 +1689,26 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Is_Mobile_Time_Entry__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Mobile Time Entry</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Is_Professional_Services__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Is Professional Services</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Sales_Tax_Compliance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Sales Tax Compliance</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -1808,6 +1836,16 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Last_Year_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Year Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Marketing_Name__c</fullName>
@@ -2313,6 +2351,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Parent2__c</fullName>
+        <externalId>false</externalId>
+        <label>Parent2</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Pipeline_Designation__c</fullName>
         <externalId>false</externalId>
         <label>Pipeline Designation</label>
@@ -2354,6 +2402,62 @@
                 </value>
                 <value>
                     <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPE Link</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Seminars</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Books</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PaperlessPlus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AnswerConnect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CASP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trust</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Book</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -2477,6 +2581,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Product_Benefit__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Benefit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Product_Line__c</fullName>
         <description>Defines the product line for Wolters TAA portfolio</description>
         <externalId>false</externalId>
@@ -2558,6 +2670,134 @@
                 </value>
                 <value>
                     <fullName>Active Data for Business</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Affordable Care Act</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX 1040</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX 1040 Office</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX 1040 Office PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX 1040 PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Additional Efin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Advantage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Advantage PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX CCH Master Tax Guide Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX CCH Primary Research Sources</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX CDROM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Client Checkbook</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Fixed Asset Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Fixed Asset Manager User Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Live Payroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Max</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Max PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Ohio Cities</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Pay Per Return</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Pay-Per-Return</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Payroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Payroll User Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Per Return Package</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Prior Year Max</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Referral Commission</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Return Retrieval</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Total Tax Office</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Total Tax Office PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Trial Balance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX User Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ATX Versicom</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2653,7 +2893,27 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>CCH Essentials</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>CCH Expert Treatises</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH IConnect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Master Tax Guide Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Primary Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH Primary Research Sources</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2661,11 +2921,31 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>CCH Tax Research Library</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Accounting Suite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Client Accounting Suite Premier</fullName>
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Client Accounting Suite User Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Checkbook</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Client Intelligence</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Letter Toolkit</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2674,6 +2954,10 @@
                 </value>
                 <value>
                     <fullName>ClientRelate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Comp and Review</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2686,6 +2970,10 @@
                 </value>
                 <value>
                     <fullName>COMPL3: PTE &amp; Core TPP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Complete Tax Library</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2725,6 +3013,26 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Correction Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CTEC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Customer Training On-Site</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data Axcess Utility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Deferred Payment Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Document</fullName>
                     <default>false</default>
                 </value>
@@ -2737,7 +3045,15 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Election and Compliance Toolkit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Engagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement Letters</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2745,11 +3061,27 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Essentials Package</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Estate Planning Expert Library</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>ETax</fullName>
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Exam Matrix</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Federal Add-On</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Penalties and Interest Calculator</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2777,6 +3109,10 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>GetWise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Global fx</fullName>
                     <default>false</default>
                 </value>
@@ -2789,7 +3125,59 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>H &amp; R Block Client Accounting Suite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Hardware</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Care Reform Library</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Portal Annual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Portal Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Practice Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Practice Management Annual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Practice Management Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Seasonal Annual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Seasonal Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Setup Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Trial Balance Annual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>iFirm Trial Balance Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Included E-files</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2802,6 +3190,26 @@
                 </value>
                 <value>
                     <fullName>International Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IRS Publications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jackson Hewitt ATX Max</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jackson Hewitt ProBusiness and Specialty Package</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jackson hewitt Tax Prep Partner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Jackson Hewitt TaxWise Power</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2833,7 +3241,15 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Master Tax Guide Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Open Integration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Orientation</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2842,6 +3258,26 @@
                 </value>
                 <value>
                     <fullName>Outsource</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PaperlessPlus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payment Plan Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payroll Compliance Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payroll Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Per Return Fee</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2854,6 +3290,18 @@
                 </value>
                 <value>
                     <fullName>POS Tax Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practical Tax Bulletin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practical Tax Expert</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practical Tax Expert Pro</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2877,11 +3325,19 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Practice Management Mobile Time Entry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Practice Management Office</fullName>
                     <default>false</default>
                 </value>
                 <value>
                     <fullName>Practice Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Processing Fee</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -2949,11 +3405,39 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Quick Tax Estimator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>R&amp;L e-Book</fullName>
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Referral Commission</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Refunds Today</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Renewal Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reseller Enrollment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales and Use Taxes Self-Study</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Tax</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -3049,6 +3533,18 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Setup Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shipping</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shipping Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Site Builder</fullName>
                     <default>false</default>
                 </value>
@@ -3061,6 +3557,10 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Solutions Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Specialty Planning</fullName>
                     <default>false</default>
                 </value>
@@ -3069,11 +3569,23 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>State Tax Smart Charts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>State Tax Specialty Libraries</fullName>
                     <default>false</default>
                 </value>
                 <value>
                     <fullName>SureTax Telecom</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Surgent EA Program</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Surgent EA Program Online</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -3093,6 +3605,222 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Tax Prep Partner 1040</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Prep Partner 1040 Lite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Prep Partner 1040 Seasonal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Prep Partner 1065</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Prep Partner 1120</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Prep Partner 1120s</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Prep Partner Standard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Prep Partner Standard Bundle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Professional Library</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Research Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Season Essentials</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise 1040</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Additional Efin Charge</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise CCH Essentials</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Central Office Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Easy Interview</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise E-Signature</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Fixed Asset Manaager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Intelliforms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise InterviewPlus Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Live Payroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Enterprise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Enterprise PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Essentials</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Essentials PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Lite</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Lite PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Non-Profit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Power</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online  Power</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Power PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Pro</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Profiling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Pro PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Tax Season Essentials</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online User Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Online Vault</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Paperless Plus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Pay Per Return</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Pay-Per-Return</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Payroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Power</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Power PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Prior Year Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Profiling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Profiling PS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Return Retrieval</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Specialty Forms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Tax Season Essentials</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise Trial Balance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TaxWise User Guide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>TeamMate Analytics</fullName>
                     <default>false</default>
                 </value>
@@ -3105,11 +3833,75 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Training Orientation - Preparer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training Webinar</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TRC Package Seasonal Preparer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Trial Balance</fullName>
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>U.S International Taxation Self-Study</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>U.S Master Tax Guide Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unlimited CCH Learning Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unlimited CCH Seminars</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>US Master Tax Guide Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Utility Databases, Lookups and RADAR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vault</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Versicom</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>W2/1099</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>W2/1100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>W2/1101</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>W2/1102</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>W2/1103</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Webinar</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -3181,6 +3973,14 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>R_L_eLearning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>R&amp;L eLearning</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Revenue_Type__c</fullName>
         <externalId>false</externalId>
         <label>Revenue Type</label>
@@ -3219,6 +4019,19 @@
         <label>SFDC Product # (HIDDEN)</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>SFDC_Product_Length__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEN( SFDC_Product__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SFDC Product # Length</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SFDC_Product__c</fullName>
@@ -3327,6 +4140,25 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TAA_18_digit_Product_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TAA 18-digit Product ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TeamMate_Analytics_Product__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Teammate Analytics Product</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Test_RTF__c</fullName>
@@ -3891,6 +4723,23 @@
         <label>All Products</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>Products_created_TODAY</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>Product_18_Character_ID__c</columns>
+        <columns>SFS_Product_ID__c</columns>
+        <columns>SFDC_Product__c</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PRODUCT2.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Products created TODAY</label>
+        <language>en_US</language>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>PRODUCT2.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</customTabListAdditionalFields>
@@ -3905,13 +4754,9 @@
         <lookupPhoneDialogsAdditionalFields>PRODUCT2.FAMILY</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>PRODUCT2.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Is_Axcess_Implementation_Product__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PRODUCT2.DESCRIPTION</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PRODUCT2.FAMILY</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>AMS_Product_Category__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Special_Instructions__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Aptps_Sales_term__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CREATEDBY_USER.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AMS_Product_Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.FAMILY</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <webLinks>

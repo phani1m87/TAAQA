@@ -66,7 +66,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Other_Closed_Reason__c</field>
+                <field>SFS_CID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SFS_PID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -74,11 +78,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SFS_CID__c</field>
+                <field>Other_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SFS_PID__c</field>
+                <field>Other_Closed_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Expansion_Call_Counter__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -89,6 +97,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>StageName</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>ForecastCategoryName</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -113,6 +125,26 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Competitor__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Named_Account_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Has_TC_Opportunity_Team__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Has_ASR_Opportunity_Team__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_Case__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>IsPrivate</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -198,6 +230,9 @@
         <label>Small Firm Info</label>
         <layoutColumns>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CPQ_Quote__c</field>
             </layoutItems>
@@ -205,11 +240,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Steelbrick_Quote_Link__c</field>
+                <field>SFS_Synced_Opportunity_Link__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>SFS_Synced_Opportunity_Link__c</field>
+                <field>Steelbrick_Quote_Link__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -240,7 +275,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Opportunity_Holdover__c</field>
+                <field>X30_Day_Opportunity_Holdover__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>X90_Day_Opportunity_Holdover__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -396,10 +435,6 @@
                 <behavior>Readonly</behavior>
                 <field>Oppty_Record_ID__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>X30_Day_Opportunity_Holdover__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -532,6 +567,13 @@
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.CREATED_DATE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <relatedList>Case.Opportunity__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <excludeButtons>AddAccountTeam</excludeButtons>
         <excludeButtons>DeleteTeam</excludeButtons>
         <fields>MemberName</fields>
@@ -569,10 +611,6 @@
         <relatedList>RelatedLineItemList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>S2S_LogFile__c.Related_Opportunity__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.DUE_DATE</fields>
@@ -589,6 +627,10 @@
         <fields>Short_Notes__c</fields>
         <fields>FSR_Outcomes__c</fields>
         <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>S2S_LogFile__c.Related_Opportunity__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>New_Solution_Blueprint</customButtons>

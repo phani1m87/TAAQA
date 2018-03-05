@@ -227,6 +227,25 @@
         <label>Todays logs</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>X6000_responses</fullName>
+        <columns>NAME</columns>
+        <columns>Related_Account__c</columns>
+        <columns>API_Response_Code__c</columns>
+        <columns>API_Type__c</columns>
+        <columns>Log_Info__c</columns>
+        <columns>Related_Opportunity__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>API_Response_Code__c</field>
+            <operation>equals</operation>
+            <value>6000</value>
+        </filters>
+        <label>6000 responses</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>S2S-{0000}</displayFormat>
         <label>S2S LogFile Name</label>

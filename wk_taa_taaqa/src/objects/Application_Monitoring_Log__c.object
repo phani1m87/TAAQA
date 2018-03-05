@@ -173,19 +173,6 @@ IF(
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Quote_ProposalId__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Quote/Proposal</label>
-        <referenceTo>Apttus_Proposal__Proposal__c</referenceTo>
-        <relationshipLabel>Application Monitoring Logs</relationshipLabel>
-        <relationshipName>Application_Monitoring_Logs</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>RequestData__c</fullName>
         <externalId>false</externalId>
         <label>Request Data</label>
@@ -199,7 +186,7 @@ IF(
         <fullName>ResponseData__c</fullName>
         <externalId>false</externalId>
         <label>Response Data</label>
-        <length>131072</length>
+        <length>32768</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
@@ -207,6 +194,7 @@ IF(
     </fields>
     <fields>
         <fullName>TransactionId__c</fullName>
+        <caseSensitive>true</caseSensitive>
         <externalId>false</externalId>
         <label>Transaction Id</label>
         <length>255</length>
@@ -214,7 +202,7 @@ IF(
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <label>Application Monitoring Log</label>
     <nameField>

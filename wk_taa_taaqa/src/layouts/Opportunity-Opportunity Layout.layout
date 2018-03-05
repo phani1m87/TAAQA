@@ -74,7 +74,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Other_Closed_Reason__c</field>
+                <field>SFS_CID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SFS_PID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -82,11 +86,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SFS_CID__c</field>
+                <field>Other_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SFS_PID__c</field>
+                <field>Other_Closed_Reason__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -121,6 +125,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Competitor__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Has_TC_Opportunity_Team__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -170,6 +178,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>SFS_Synced_Opportunity_Link__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Steelbrick_Quote_Link__c</field>
             </layoutItems>
         </layoutColumns>
@@ -196,12 +208,12 @@
                 <field>Est_Implementation_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Prof_SW_Key_Account__c</field>
+                <behavior>Edit</behavior>
+                <field>X30_Day_Opportunity_Holdover__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Opportunity_Holdover__c</field>
+                <field>X90_Day_Opportunity_Holdover__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -356,10 +368,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Oppty_Record_ID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>X30_Day_Opportunity_Holdover__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

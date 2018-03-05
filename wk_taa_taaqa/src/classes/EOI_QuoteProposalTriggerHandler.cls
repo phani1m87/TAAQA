@@ -6,7 +6,6 @@
  * Date       Author            Version      Description
  * -------------------------------------------------------------------------
  * 06/14/2017 SHIVAJI           1.5          AOP1.5 Changes
- * 10/23/2017 SHIVAJI           2.0          AOP2.0 Changes SMS-900
  * ------------------------------------------------------------------------- */
 
 public without sharing Class EOI_QuoteProposalTriggerHandler 
@@ -18,31 +17,14 @@ public without sharing Class EOI_QuoteProposalTriggerHandler
 	public static  boolean firstRun = true;
 	public boolean isOrderupdate = false;
    
-	public void onAfterUpdate(List<Apttus_Proposal__Proposal__c > QuoteProposalList) 
+	public void onAfterInsert(List<Apttus_Proposal__Proposal__c > QuoteProposalList) 
    	{
 		Schema.DescribeSObjectResult d = Schema.SObjectType.Apttus_Proposal__Proposal__c;
 	    Map<Id,Schema.RecordTypeInfo> rtMapById = d.getRecordTypeInfosById();
 	    List<Apttus_Proposal__Proposal__c> proposalUpdateList = new List<Apttus_Proposal__Proposal__c>();
     
     	try{   
-        	List<Apttus_Proposal__Proposal__c> proposalList = [SELECT Id, Name, ERP_Order__c,SAP_Rush_Order__c, ERP_Order__r.Order_Submission_Status__c, 
-        														Access_Type__c, Advance_Period_Start_Date__c, New_Authentication_Type__c, Bill_To_Contact_Name__c, Bill_To_City__c, 
-        														Bill_To_Country__c, SAP_Bill_To_Partner_Number__c, Bill_To_Phone__c, Bill_To_Zip_Postal_Code__c, 
-        														Bill_To_State__c,Bill_To_Street_Line_1__c, Bill_To_Street_Line_2__c, Annual_End_Date__c, 
-        														Annual_Start_Date__c, Aptps_Cyber_source_Token__c, Credit_Card_Expiration__c, Credit_Card_Type__c, 
-        														IC_Contact_Email__c,IC_Contact_First_Name__c, IC_Contact_Last_Name__c, IC_Contact_Phone__c, 
-        														New_IDs_Issued__c, Inventory_DTN__c, New_Max_IDs_Allowed__c, Name_on_Card__c, Number_of_Concurrent_Users__c, 
-        														One_Line_Invoice_Header__c, SAP_Payment_Terms__c, Apttus_Proposal__Primary_Contact__c, Auto_Renewal_SO_Compliance__c, 
-        														X6_Digit_Selling_DTN__c, Apttus_Proposal__Account__c, SAP_Ship_To_Partner_Number__c, Ship_To_Contact_Name__c, Ship_To_Country__c, Ship_To_City__c,
-        														Shipping_Method__c, Ship_To_Phone__c,Ship_To_Zip_Postal_Code__c, Ship_To_State__c, WK_Stub_Year__c, Split_Commission__c, 
-        														Ship_To_Street_Line_2__c, Ship_To_Street_Line_1__c, WK_Stub_Year_Start_Date__c,ERP_Account__c, ERP_Account__r.Name, RecordTypeId, 
-        														ASA__c, MYA_Year_2_End_Date__c, MYA_Term_New__c, MYA__c, Advance_Period_End_Date__c, SAP_IC_Trial_Account_Number__c, 
-        														MYA_Year_2_Start_Date__c, MYA_Year_3_Start_Date__c, MYA_Year_4_Start_Date__c, MYA_Year_5_Start_Date__c,Quote_Total__c,
-        														Apttus_Proposal__Opportunity__r.Primary_Contact_for_Proposal__c, Apttus_Proposal__Opportunity__c, Apttus_QPConfig__PriceListId__c, 
-        														MYA_Year_5_End_Date__c, MYA_Year_4_End_Date__c,MYA_Year_3_End_Date__c, WK_Stub_Year_End_Date__c, Rush_Order__c,
-        														Is_Create_New_Bill_To__c, Is_Create_New_Ship_To__c, Is_Update_Selected_Bill_To__c, Is_Update_Selected_Ship_To__c 
-        														FROM Apttus_Proposal__Proposal__c 
-        														WHERE Id IN: QuoteProposalList ];
+        	List<Apttus_Proposal__Proposal__c> proposalList = [SELECT Id, Name, ERP_Order__c,SAP_Rush_Order__c, ERP_Order__r.Order_Submission_Status__c,Access_Type__c, Advance_Period_Start_Date__c, New_Authentication_Type__c, Bill_To_City__c, Bill_To_Country__c, SAP_Bill_To_Partner_Number__c, Bill_To_Phone__c, Bill_To_Zip_Postal_Code__c, Bill_To_State__c,Bill_To_Street_Line_1__c, Bill_To_Street_Line_2__c, Annual_End_Date__c, Annual_Start_Date__c, Aptps_Cyber_source_Token__c, Credit_Card_Expiration__c, Credit_Card_Type__c, IC_Contact_Email__c,IC_Contact_First_Name__c, IC_Contact_Last_Name__c, IC_Contact_Phone__c, New_IDs_Issued__c, Inventory_DTN__c, New_Max_IDs_Allowed__c, Name_on_Card__c, Number_of_Concurrent_Users__c, One_Line_Invoice_Header__c, SAP_Payment_Terms__c, Apttus_Proposal__Primary_Contact__c, Auto_Renewal_SO_Compliance__c, X6_Digit_Selling_DTN__c, Apttus_Proposal__Account__c, SAP_Ship_To_Partner_Number__c, Ship_To_Country__c, Ship_To_City__c,Shipping_Method__c, Ship_To_Phone__c,Ship_To_Zip_Postal_Code__c, Ship_To_State__c, WK_Stub_Year__c, Split_Commission__c, Ship_To_Street_Line_2__c, Ship_To_Street_Line_1__c, WK_Stub_Year_Start_Date__c,ERP_Account__c, ERP_Account__r.Name, RecordTypeId, ASA__c, MYA_Year_2_End_Date__c, MYA_Term_New__c, MYA__c, Advance_Period_End_Date__c, SAP_IC_Trial_Account_Number__c, MYA_Year_2_Start_Date__c, MYA_Year_3_Start_Date__c, MYA_Year_4_Start_Date__c, MYA_Year_5_Start_Date__c,Quote_Total__c,Apttus_Proposal__Opportunity__r.Primary_Contact_for_Proposal__c, Apttus_Proposal__Opportunity__c, Apttus_QPConfig__PriceListId__c, MYA_Year_5_End_Date__c, MYA_Year_4_End_Date__c,MYA_Year_3_End_Date__c, WK_Stub_Year_End_Date__c, Rush_Order__c FROM Apttus_Proposal__Proposal__c WHERE Id in :QuoteProposalList ];
        		for(Apttus_Proposal__Proposal__c  quoteProposal:proposalList)
        		{
         		system.debug('Inside QuoteProposalTrigger'+quoteProposal);
@@ -67,8 +49,7 @@ public without sharing Class EOI_QuoteProposalTriggerHandler
 			         IC_Trial_Account_Number__c=quoteProposal.SAP_IC_Trial_Account_Number__c, Advance_End_Date__c=quoteProposal.Advance_Period_End_Date__c, MYA__c=quoteProposal.MYA__c, MYA_Term__c = ((quoteProposal.MYA_Term_New__c != null)?Integer.valueOf(quoteProposal.MYA_Term_New__c):null), MYA_Year_2_End_Date__c=quoteProposal.MYA_Year_2_End_Date__c,
 			         MYA_Year_2_Start_Date__c=quoteProposal.MYA_Year_2_Start_Date__c, MYA_Year_3_Start_Date__c=quoteProposal.MYA_Year_3_Start_Date__c,MYA_Year_4_Start_Date__c=quoteProposal.MYA_Year_4_Start_Date__c,MYA_Year_5_Start_Date__c=quoteProposal.MYA_Year_5_Start_Date__c,
 			         MYA_Year_3_End_Date__c=quoteProposal.MYA_Year_3_End_Date__c,MYA_Year_4_End_Date__c=quoteProposal.MYA_Year_4_End_Date__c,MYA_Year_5_End_Date__c=quoteProposal.MYA_Year_5_End_Date__c, Price_List__c=quoteProposal.Apttus_QPConfig__PriceListId__c,Quote_Total__c=quoteProposal.Quote_Total__c,
-			         Stub_Year_End_Date__c=quoteProposal.WK_Stub_Year_End_Date__c, Rush_Order__c=quoteProposal.SAP_Rush_Order__c, Bill_To_Contact_Name__c = quoteProposal.Bill_To_Contact_Name__c, Ship_To_Contact_Name__c = quoteProposal.Ship_To_Contact_Name__c, 
-			         Is_Create_New_Bill_To__c = quoteProposal.Is_Create_New_Bill_To__c, Is_Create_New_Ship_To__c = quoteProposal.Is_Create_New_Ship_To__c, Is_Update_Selected_Bill_To__c = quoteProposal.Is_Update_Selected_Bill_To__c, Is_Update_Selected_Ship_To__c = quoteProposal.Is_Update_Selected_Ship_To__c));  
+			         Stub_Year_End_Date__c=quoteProposal.WK_Stub_Year_End_Date__c, Rush_Order__c=quoteProposal.SAP_Rush_Order__c));  
 					orderIds.add(quoteProposal.id);
         		}else{
             		Trigger.New[0].addError('You can\'t update Quote/Proposal because associated Order has been already placed.');

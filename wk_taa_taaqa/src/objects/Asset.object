@@ -129,8 +129,16 @@
     </fields>
     <listViews>
         <fullName>AllAssets</fullName>
+        <columns>ASSET.NAME</columns>
+        <columns>ASSET.SERIAL_NUMBER</columns>
+        <columns>ASSET.INSTALL_DATE</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.NAME</columns>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.FAMILY_ENUM</columns>
         <filterScope>Everything</filterScope>
         <label>All Assets</label>
+        <language>en_US</language>
     </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>ASSET.NAME</customTabListAdditionalFields>

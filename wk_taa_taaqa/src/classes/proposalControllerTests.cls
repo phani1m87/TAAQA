@@ -213,13 +213,16 @@ public class proposalControllerTests {
          
          Account acc = new Account(Name = 'Apttus Test Account', Type = 'Employer');
         insert acc;
+        contact c = new contact(lastname = 'Montgomery', firstname = 'Jim', accountid = acc.id);
+        insert c;
         Opportunity opp = new Opportunity(Name = 'Apttus Test Opty', 
                                           AccountId = acc.Id, StageName='Stage 2 - Qualify Target', 
                                           //Competitors__c = '**None**', 
                                           CloseDate = Date.today().addYears(1),
                                           pricebook2Id=Test.getStandardPricebookId());
         opp.AccountId = acc.Id;
-        opp.CloseDate = Date.today();        
+        opp.CloseDate = Date.today(); 
+        opp.primary_contact_for_proposal__c = c.id;       
         insert opp;
         
         

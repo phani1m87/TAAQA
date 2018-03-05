@@ -7,6 +7,5 @@
     <tab>standard-ContentSearch</tab>
     <tab>standard-ContentSubscriptions</tab>
     <tab>Useful_Links</tab>
-    <tab>Assist_List</tab>
-    <tab>ATA_AssignmentType_Map__c</tab>
+    <tab>Activity_Goals__c</tab>
 </CustomApplication>

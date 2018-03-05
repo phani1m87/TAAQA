@@ -19,8 +19,9 @@ public with sharing class SubmitToCOPForAMSController {
     {
         try{
         
-        proposal.Apttus_Proposal__Approval_Stage__c='AMS Order Processing';
-        
+        proposal.sap_order_processing_stage__c = 'Submitted to COP';
+        proposal.apttus_proposal__approval_stage__c = 'Submitted to COP';
+                
         Opportunity oppo=[select Id,name,StageName,ignoreSubmitToCopValidations__c,Closed_Reason__c from Opportunity where id=:proposal.Apttus_Proposal__Opportunity__c];
         oppo.ignoreSubmitToCopValidations__c=True;
         update oppo;

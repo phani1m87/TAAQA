@@ -52,6 +52,16 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>AC_Trial__c</fullName>
+        <externalId>false</externalId>
+        <label>AC Trial</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_Name__c</fullName>
         <externalId>false</externalId>
         <formula>HYPERLINK(&quot;/&quot;+ Account_X_Reference__r.Account__r.Id  ,  Account_X_Reference__r.Account__r.Name )</formula>
@@ -73,6 +83,26 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Account_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Status</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_X_Reference__c</fullName>
         <externalId>false</externalId>
         <label>Account X Reference</label>
@@ -84,6 +114,18 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>External Data</relationshipLabel>
+        <relationshipName>External_Data</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Available_Subscription_Amount__c</fullName>
@@ -173,6 +215,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Error_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>First_Name__c</fullName>
         <externalId>false</externalId>
         <label>First Name</label>
@@ -183,9 +236,25 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Last_Access_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Access Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Last_Activity_Date__c</fullName>
         <externalId>false</externalId>
         <label>Last Activity Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Login_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Login Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -211,6 +280,26 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Market_Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Segment</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market_Sub_Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Sub Segment</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Monthly_Subscription_Usage__c</fullName>
         <externalId>false</externalId>
         <label>Monthly Subscription Usage</label>
@@ -225,6 +314,28 @@
         <fullName>New_Users__c</fullName>
         <externalId>false</externalId>
         <label>New Users</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Browses__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Browses</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Days__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Days</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -266,6 +377,61 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Number_of_Events__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Events</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Log_Outs__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Log Outs</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Logins__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Logins</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Prints__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Prints</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Saves__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Saves</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Number_of_Searches__c</fullName>
         <externalId>false</externalId>
         <label>Number of Searches</label>
@@ -285,6 +451,26 @@
         <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Product ID</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarter</label>
+        <length>1</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -341,6 +527,18 @@
             <valueSetDefinition>
                 <sorted>true</sorted>
                 <value>
+                    <fullName>ARM Lock Outs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ARM Usage Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI Answer Connect User Usage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>IntelliConnect Usage</fullName>
                     <default>false</default>
                 </value>
@@ -354,6 +552,16 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subscriber_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Subscriber Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Subscription_End_Date__c</fullName>
@@ -464,6 +672,27 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>User_DTN__c</fullName>
+        <externalId>false</externalId>
+        <formula>OR(Account__r.R_L_ISC__c = $User.DTN__c,
+ Account__r.R_L_FSR__c = $User.DTN__c,
+ Account__r.R_L_ASR__c = $User.DTN__c,
+ Account__r.Service_Source__c = $User.DTN__c,
+ Account__r.AISR__c = $User.DTN__c,
+ Account__r.QP__c = $User.DTN__c,
+ Account__r.Corp_Direct__c  = $User.DTN__c,
+ Account__r.Corp_Indirect__c = $User.DTN__c,
+ Account__r.Inside_Sales__c = $User.DTN__c,
+ Account__r.Pro_SW_FSR__c = $User.DTN__c,
+ Account__r.SW_ASR__c = $User.DTN__c,
+ Account__r.NAM_SAM_CNAM__c = $User.DTN__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>User DTN</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>User_ID__c</fullName>
         <externalId>false</externalId>
         <label>User ID</label>
@@ -473,9 +702,111 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>User_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>User Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X18_Digit_Record_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>18 Digit Record ID</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Year</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>External Data</label>
     <listViews>
+        <fullName>AC_Has_Trial_but_No_AC_Usage</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Number__c</columns>
+        <columns>Account__c</columns>
+        <columns>User_ID__c</columns>
+        <columns>Salesforce_Contact__c</columns>
+        <columns>User_Type__c</columns>
+        <columns>Number_of_Days__c</columns>
+        <columns>AC_Trial__c</columns>
+        <columns>Last_Access_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account_Status__c</field>
+            <operation>equals</operation>
+            <value>Has Trial but No AC Usage</value>
+        </filters>
+        <label>AC: Has Trial but No AC Usage</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>AC_Has_Trial_but_No_AC_Usage_DTN</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Number__c</columns>
+        <columns>Account__c</columns>
+        <columns>User_ID__c</columns>
+        <columns>Salesforce_Contact__c</columns>
+        <columns>User_Type__c</columns>
+        <columns>Number_of_Days__c</columns>
+        <columns>AC_Trial__c</columns>
+        <columns>Last_Access_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account_Status__c</field>
+            <operation>equals</operation>
+            <value>Has Trial but No AC Usage</value>
+        </filters>
+        <filters>
+            <field>User_DTN__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>AC: Has Trial but No AC Usage (DTN)</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>AC_Usage_Data</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Name__c</columns>
+        <columns>Usage_Month__c</columns>
+        <columns>User_ID__c</columns>
+        <columns>User_Type__c</columns>
+        <columns>Salesforce_Contact__c</columns>
+        <columns>Number_of_Days__c</columns>
+        <columns>AC_Trial__c</columns>
+        <columns>Account_Type__c</columns>
+        <columns>Account_Status__c</columns>
+        <columns>Last_Access_Date__c</columns>
+        <columns>Market_Segment__c</columns>
+        <columns>Market_Sub_Segment__c</columns>
+        <columns>Source__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source__c</field>
+            <operation>equals</operation>
+            <value>BI Answer Connect User Usage</value>
+        </filters>
+        <label>AC Usage Data</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
         <columns>CREATED_DATE</columns>
         <columns>Source__c</columns>
         <filterScope>Everything</filterScope>

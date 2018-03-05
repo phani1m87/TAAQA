@@ -65,10 +65,6 @@
                 <field>WK_Stub_Year_Total_Amount__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>One_Line_Invoice_Header__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>SAP_Sales_Channel__c</field>
             </layoutItems>
@@ -77,16 +73,20 @@
                 <field>SAP_Contact_Channel__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SAP_Order_Number__c</field>
+                <behavior>Readonly</behavior>
+                <field>SAP_SUB_Regular_Submitted_to_COP_1__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Is_New_Business_Party_Address_Invalid__c</field>
+                <behavior>Readonly</behavior>
+                <field>SAP_Sub_Regular_Submitted_to_COP_2__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retain_CC_for_Renewals__c</field>
+                <behavior>Readonly</behavior>
+                <field>SAP_Sales_group__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SAP_Credit_Hold__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -148,6 +148,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>SAP_Order_Corrected__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Corrected_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>SAP_Drop_Shipment__c</field>
             </layoutItems>
         </layoutColumns>
@@ -165,25 +173,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SAP_Order_Complete__c</field>
+                <field>SAP_Order_Re_Submission__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SAP_Order_entered_Date__c</field>
+                <field>SAP_Order_Re_Submitted_By__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SAP_Order_Rejected_Date__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SAP_Order_Processing_Time__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SAP_Order_Corrected__c</field>
+                <field>SAP_Order_Re_Submission_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -191,11 +189,69 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SAP_Order_Rejected__c</field>
+                <field>SAP_Order_On_Hold_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SAP_Order_Stopped__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Stopped_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Complete__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Processing_Comments__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Assigned_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SAP_Order_Processing_Time__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_entered_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>One_Line_Invoice_Header__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Priority_Code__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Processing_ARM_Approved__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Rejected__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Rejected_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Rejection_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SAP_Order_Rejection_Notes__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -426,10 +482,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Aptps_Special_Instructions__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SAP_Order_Rejection_Notes__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -779,6 +831,10 @@
                 <behavior>Edit</behavior>
                 <field>Credit_Card_Last_4__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retain_CC_for_Renewals__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -834,6 +890,10 @@
                 <behavior>Edit</behavior>
                 <field>Has_Tax_Solution__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Has_SureTax__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -873,15 +933,14 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>Apttus_Proposal__Product__c</fields>
-        <fields>Product_Code__c</fields>
         <fields>Quantity__c</fields>
-        <fields>Formatted_Promo_Code__c</fields>
-        <fields>Apttus_QPConfig__NetAdjustmentPercent__c</fields>
+        <fields>Product_Code__c</fields>
+        <fields>Apttus_Proposal__Product__c</fields>
+        <fields>APTS_Promo_Code__c</fields>
+        <fields>Apttus_QPConfig__ListPrice__c</fields>
+        <fields>Net_Adjustment__c</fields>
+        <fields>My_Line_Discount__c</fields>
         <fields>Net_Price_WK__c</fields>
-        <fields>SAP_PAC_Code__c</fields>
-        <fields>Apttus_QPConfig__ContractNumbers__c</fields>
-        <fields>Apttus_QPConfig__LineStatus__c</fields>
         <relatedList>Apttus_Proposal__Proposal_Line_Item__c.Apttus_Proposal__Proposal__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -899,6 +958,13 @@
         <relatedList>Quote_Promotion__c.Quote_Proposal__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.CREATED_DATE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <relatedList>Case.Quote_Proposal__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Line_Type__c</fields>
         <fields>List_Price__c</fields>
@@ -913,6 +979,15 @@
         <fields>Actor</fields>
         <fields>Comments</fields>
         <relatedList>RelatedProcessHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -932,7 +1007,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>test_QP_lookup__c.Quote_Proposal__c</relatedList>
+        <relatedList>Apttus_DocuApi__DocuSignEnvelope__c.Apttus_QPDSign__QuoteProposal__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

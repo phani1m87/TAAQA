@@ -132,7 +132,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <controllingField>Second_Level_Division__c</controllingField>
+            <controllingField>High_Level_Division__c</controllingField>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -206,18 +206,12 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Corp SW Energy &amp; Telco</fullName>
-                    <color>#0B24BE</color>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>Corp SW Microsoft</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Corp SW SAP &amp; NetSuite</fullName>
-                    <color>#A53711</color>
+                    <fullName>Corp SW Verticals</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -254,6 +248,10 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Mid-Atlantic - R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Midwest</fullName>
                     <color>#E27001</color>
                     <default>false</default>
@@ -272,7 +270,7 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>N2N (JA) Small Firm</fullName>
+                    <fullName>N2N (CR) Small Firm</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -310,6 +308,10 @@
                 <value>
                     <fullName>Northeast</fullName>
                     <color>#0B24BE</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Northeast - R&amp;L</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -432,12 +434,20 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Southeast - R&amp;L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>STG Retention</fullName>
                     <color>#66E9BD</color>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Strategic Accounts</fullName>
+                    <fullName>Strategic - East</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic - West</fullName>
                     <color>#419249</color>
                     <default>false</default>
                 </value>
@@ -485,21 +495,316 @@
                     <color>#EFAE73</color>
                     <default>false</default>
                 </value>
+                <value>
+                    <fullName>Cap Gemini</fullName>
+                    <default>false</default>
+                </value>
             </valueSetDefinition>
             <valueSettings>
-                <controllingFieldValue>R&amp;L RSC</controllingFieldValue>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <controllingFieldValue>Global &amp; National Accounts</controllingFieldValue>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <controllingFieldValue>Training &amp; Consulting</controllingFieldValue>
+                <controllingFieldValue>Executives</controllingFieldValue>
+                <valueName>Executives</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Alliance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Corporate Software</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Corp SW Microsoft</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Corp SW Verticals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>SAP Vertical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>STG Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>Strategic Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Corporate Software</controllingFieldValue>
+                <valueName>SureTax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Admin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Billing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Finance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>HR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Marketing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Cap Gemini</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Product Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Product Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Training &amp; Consulting</controllingFieldValue>
+                <valueName>Training &amp; Consulting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Cap Gemini</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Global &amp; National Accounts</controllingFieldValue>
+                <valueName>Global Accounts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Global &amp; National Accounts</controllingFieldValue>
+                <valueName>National &amp; Strategic Accounts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Global &amp; National Accounts</controllingFieldValue>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>National Accounts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2E Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2N (GW) Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2N (CR) Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2N (LF) Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>N2N (RR) Small Firm</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Premier</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Refunds Today</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm Field</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm R&amp;L</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm Retention (CN)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm Retention (JA)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>Small Firm Retention (LB)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>US Small Firms New Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Small Firms</controllingFieldValue>
+                <valueName>US Small Firms Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Books &amp; Journal Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Central Division</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Corp National</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Federal Government</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Mid-Atlantic - R&amp;L</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Mountain Division</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>National Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Northeast - R&amp;L</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>R&amp;L Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>R&amp;L Senior</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Research &amp; Learning</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Southeast - R&amp;L</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>West Division</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Corporate Business Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Sales Intelligence</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Sales Operations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Sales Training &amp; Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Operations</controllingFieldValue>
+                <valueName>Senior Sales Admins</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
+                <valueName>Central</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
                 <valueName>Mid-Atlantic</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>R&amp;L RSC</controllingFieldValue>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
+                <valueName>Midwest</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
                 <valueName>Northeast</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
+                <valueName>Pacific</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
+                <valueName>Software</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
+                <valueName>Southeast</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
+                <valueName>Strategic - East</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Strategic &amp; Mid-Market</controllingFieldValue>
+                <valueName>Strategic - West</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <valueName>Corporate - SA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <valueName>East - SA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <valueName>Natl/SAM - SA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solution Design</controllingFieldValue>
+                <valueName>West - SA</valueName>
             </valueSettings>
         </valueSet>
     </fields>
     <fields>
+        <fullName>First_Month_Quota_Override_Change__c</fullName>
+        <externalId>false</externalId>
+        <label>First Month Quota Override Change</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Month_of_Quota_Override__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If the Quota Start date is not correct above, please enter the proper Quota Start Date</inlineHelpText>
+        <label>First Month of Quota Override</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>First_Month_of_Quota__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISBLANK(Start_Date__c) ,NULL,
+        <formula>IF( ISNULL(First_Month_of_Quota_Override__c),
+IF( ISBLANK(Start_Date__c) ,NULL,
 IF(DAY(Start_Date__c)&lt;15,
 	Date(
 	Case( Month (Start_Date__c ),
@@ -560,24 +865,11 @@ IF(DAY(Start_Date__c)&lt;15,
 		11, 3,
 		4)
 	,1)
-))</formula>
+)),First_Month_of_Quota_Override__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>First Month of Quota</label>
         <required>false</required>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>High_Level_Division_Stretch__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( AND( ISPICKVAL(High_Level_Division__c, &quot;Inside Sales&quot;) , ISPICKVAL( Division__c , &quot;R&amp;L ISC&quot;)), &quot;Research &amp; Learning&quot;,
-IF( AND( ISPICKVAL(High_Level_Division__c, &quot;Inside Sales&quot;) , ISPICKVAL( Division__c , &quot;Professional SW ISC&quot;)), &quot;Software&quot;,
-IF( AND( ISPICKVAL(High_Level_Division__c, &quot;Inside Sales&quot;) , ISPICKVAL( Division__c , &quot;Books &amp; Journal Sales&quot;)), &quot;Research &amp; Learning&quot;,
-TEXT(High_Level_Division__c ))))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>High Level Division Stretch</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>High_Level_Division__c</fullName>
@@ -600,11 +892,6 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Research &amp; Learning</fullName>
-                    <color>#A845DC</color>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>Strategic &amp; Mid-Market</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
@@ -612,6 +899,11 @@ TEXT(High_Level_Division__c ))))</formula>
                 <value>
                     <fullName>US Small Firms</fullName>
                     <color>#2F5D85</color>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research &amp; Learning</fullName>
+                    <color>#A845DC</color>
                     <default>false</default>
                 </value>
                 <value>
@@ -625,10 +917,6 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Service Source</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>Solution Design</fullName>
                     <color>#66E9BD</color>
                     <default>false</default>
@@ -639,12 +927,12 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Other</fullName>
-                    <color>#B6E32E</color>
+                    <fullName>Cap Gemini</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Cap Gemini</fullName>
+                    <fullName>Other</fullName>
+                    <color>#B6E32E</color>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -772,7 +1060,7 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Non-Profit</fullName>
+                    <fullName>Premier</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -784,7 +1072,11 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Small Firm National</fullName>
+                    <fullName>National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Profit</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -808,10 +1100,6 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>National</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>Corporate National</fullName>
                     <default>false</default>
                 </value>
@@ -821,6 +1109,26 @@ TEXT(High_Level_Division__c ))))</formula>
                 </value>
                 <value>
                     <fullName>R&amp;L Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executives</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Software Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Books/Research</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Federal Government</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -838,7 +1146,10 @@ TEXT(High_Level_Division__c ))))</formula>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Corporate</controllingFieldValue>
-                <valueName>Corporate Retention</valueName>
+                <controllingFieldValue>Medium/Large Market</controllingFieldValue>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>Executives</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Medium/Large Market</controllingFieldValue>
@@ -855,11 +1166,12 @@ TEXT(High_Level_Division__c ))))</formula>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>Research &amp; Learning RSC</valueName>
+                <controllingFieldValue>Small Market</controllingFieldValue>
+                <valueName>National</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>National</valueName>
+                <valueName>Research &amp; Learning RSC</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
@@ -871,7 +1183,15 @@ TEXT(High_Level_Division__c ))))</formula>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
-                <valueName>R&amp;L Retention</valueName>
+                <valueName>Global</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>National Books/Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research &amp; Learning</controllingFieldValue>
+                <valueName>Federal Government</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Small Market</controllingFieldValue>
@@ -887,7 +1207,7 @@ TEXT(High_Level_Division__c ))))</formula>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Small Market</controllingFieldValue>
-                <valueName>Non-Profit</valueName>
+                <valueName>Premier</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Small Market</controllingFieldValue>
@@ -899,7 +1219,19 @@ TEXT(High_Level_Division__c ))))</formula>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Small Market</controllingFieldValue>
-                <valueName>Small Firm National</valueName>
+                <valueName>Non-Profit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retention</controllingFieldValue>
+                <valueName>Corporate Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retention</controllingFieldValue>
+                <valueName>R&amp;L Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Retention</controllingFieldValue>
+                <valueName>Software Retention</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -924,6 +1256,14 @@ TEXT(High_Level_Division__c ))))</formula>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Rep_on_Quota__c</fullName>
+        <externalId>false</externalId>
+        <formula>TODAY() &gt;= First_Month_of_Quota__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rep on Quota</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Role_Name__c</fullName>
         <externalId>false</externalId>
         <formula>UserRole.Name</formula>
@@ -943,6 +1283,16 @@ TEXT(High_Level_Division__c ))))</formula>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>SAP_Sales_group__c</fullName>
+        <externalId>false</externalId>
+        <label>SAP Sales group</label>
+        <length>24</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SFS_User__c</fullName>
@@ -971,6 +1321,23 @@ TEXT(High_Level_Division__c ))))</formula>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Sales_Pod__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Pod</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Corporate Direct</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Sales_Rep_Count__c</fullName>
         <externalId>false</externalId>
         <formula>1</formula>
@@ -983,25 +1350,6 @@ TEXT(High_Level_Division__c ))))</formula>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Second_Level_Division__c</fullName>
-        <externalId>false</externalId>
-        <label>Second Level Division</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <controllingField>High_Level_Division__c</controllingField>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>R&amp;L RSC</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Segment__c</fullName>
         <externalId>false</externalId>
         <label>Segment</label>
@@ -1010,7 +1358,7 @@ TEXT(High_Level_Division__c ))))</formula>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
-                <sorted>true</sorted>
+                <sorted>false</sorted>
                 <value>
                     <fullName>Corporate</fullName>
                     <default>false</default>
@@ -1020,11 +1368,27 @@ TEXT(High_Level_Division__c ))))</formula>
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Small Market</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Research &amp; Learning</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Small Market</fullName>
+                    <fullName>Executives</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Solution Design</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Sales</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -1038,6 +1402,72 @@ TEXT(High_Level_Division__c ))))</formula>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Tenure__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Today()&lt;Start_Date__c, &quot;Check the Date!&quot;, 
+
+TEXT(IF(OR(YEAR(Today())=YEAR(Start_Date__c),
+           AND(Month(Start_Date__c) &gt; Month(Today()),YEAR(Today())-YEAR(Start_Date__c)=1)),0,
+        YEAR(Today())-YEAR(Start_Date__c))) 
+	&amp; &quot; Year(s), &quot; 
+&amp; 
+TEXT(IF(YEAR(Today())=YEAR(Start_Date__c), 
+	IF(MONTH(Today())=MONTH(Start_Date__c),0, 
+	IF(MONTH(Today())&gt;MONTH(Start_Date__c), 
+	IF(DAY(Today())&lt;DAY(Start_Date__c),MONTH(Today())-MONTH(Start_Date__c)-1,MONTH(Today())-MONTH(Start_Date__c)),0)), 
+	IF(MONTH(Today())=MONTH(Start_Date__c), 
+	IF(DAY(Today())&lt;DAY(Start_Date__c),11,0), 
+	IF(MONTH(Today())&gt;MONTH(Start_Date__c), 
+	IF(DAY(Today())&lt;DAY(Start_Date__c),MONTH(Today())-MONTH(Start_Date__c)-1,MONTH(Today())-MONTH(Start_Date__c)), 
+	IF(MONTH(Today())&lt;MONTH(Start_Date__c), 
+	IF(DAY(Today())&lt;DAY(Start_Date__c),11-(MONTH(Start_Date__c)-MONTH(Today())),12-(MONTH(Start_Date__c)-MONTH(Today()))),12-(MONTH(Start_Date__c)-MONTH(Today()))))))) 
+	&amp; &quot; Month(s)&quot; 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tenure</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title_for_Proposal__c</fullName>
+        <externalId>false</externalId>
+        <label>Title for Proposal</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Inside Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Key Account Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Accounts Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Regional Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Solution Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic Accounts Manager</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Today__c</fullName>
@@ -1127,6 +1557,17 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>et4ae5__Default_MID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>@deprecated</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>et4ae5__ExactTargetForAppExchangeAdmin__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
@@ -1159,7 +1600,7 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
         <fullName>et4ae5__ExactTarget_OAuth_Token__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
-        <label>Marketing Cloud OAuth Token</label>
+        <label>@deprecated</label>
         <length>175</length>
         <maskChar>asterisk</maskChar>
         <maskType>all</maskType>
@@ -1248,55 +1689,28 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <listViews>
-        <fullName>ActiveUsers</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>CORE.USERS.USERNAME</columns>
-        <columns>MANAGER</columns>
-        <columns>CORE.USER_ROLE.NAME</columns>
-        <columns>CORE.PROFILE.NAME</columns>
-        <columns>Division__c</columns>
-        <columns>SAP_DTN__c</columns>
-        <columns>DTN__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>CORE.USERS.FIRST_NAME</columns>
-        <columns>CORE.USERS.LAST_LOGIN</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CORE.USERS.ACTIVE</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>Active Users</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Active_Sales_Reps_Users</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>CORE.USERS.USERNAME</columns>
-        <columns>DTN__c</columns>
-        <columns>CORE.USERS.LAST_LOGIN</columns>
-        <columns>CORE.USER_ROLE.NAME</columns>
-        <columns>MANAGER</columns>
-        <columns>CORE.USERS.ACTIVE</columns>
-        <columns>CORE.PROFILE.NAME</columns>
-        <columns>SU_ACCESS_EXPIRATION</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CORE.USERS.ACTIVE</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <filters>
-            <field>CORE.PROFILE.NAME</field>
-            <operation>contains</operation>
-            <value>Representative</value>
-        </filters>
-        <label>Active Sales Reps Users</label>
-        <language>en_US</language>
-    </listViews>
+    <fields>
+        <fullName>qualtrics__QualtricsURL__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Optional url to the Qualtrics system.  A default url will be used if this is not specified.</description>
+        <externalId>false</externalId>
+        <label>QualtricsURL</label>
+        <length>32000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>qualtrics__QualtricsUserName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>QualtricsUserName</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>Active_Users</fullName>
         <columns>FULL_NAME</columns>
@@ -1319,29 +1733,6 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>AdminUsers</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>CORE.USERS.USERNAME</columns>
-        <columns>CORE.USERS.LAST_LOGIN</columns>
-        <columns>CORE.USER_ROLE.NAME</columns>
-        <columns>CORE.USERS.ACTIVE</columns>
-        <columns>CORE.PROFILE.NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CORE.PROFILE.NAME</field>
-            <operation>equals</operation>
-            <value>System Administrator</value>
-        </filters>
-        <filters>
-            <field>CORE.USERS.ACTIVE</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>Admin Users</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>AllUsers</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>
@@ -1356,6 +1747,32 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
         <columns>UPDATEDBY_USER.NAME</columns>
         <filterScope>Everything</filterScope>
         <label>All Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Custom</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>DTN__c</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>MANAGER</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>SU_ACCESS_EXPIRATION</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>DTN__c</field>
+            <operation>equals</operation>
+            <value>2219</value>
+        </filters>
+        <label>Custom</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -1412,6 +1829,7 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
         <columns>CORE.PROFILE.NAME</columns>
         <columns>Division__c</columns>
         <columns>SAP_DTN__c</columns>
+        <columns>IS_FROZEN</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>IS_FROZEN</field>
@@ -1477,6 +1895,7 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
     <listViews>
         <fullName>Open_Territory_users</fullName>
         <columns>FULL_NAME</columns>
+        <columns>Custodial_Rep__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>CORE.USERS.USERNAME</columns>
         <columns>DTN__c</columns>
@@ -1538,14 +1957,14 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
         <columns>SU_ACCESS_EXPIRATION</columns>
         <filterScope>Everything</filterScope>
         <filters>
+            <field>CORE.PROFILE.NAME</field>
+            <operation>contains</operation>
+            <value>SAP Order Processing</value>
+        </filters>
+        <filters>
             <field>CORE.USERS.ACTIVE</field>
             <operation>equals</operation>
             <value>1</value>
-        </filters>
-        <filters>
-            <field>CORE.PROFILE.NAME</field>
-            <operation>contains</operation>
-            <value>SAP Order</value>
         </filters>
         <label>SAP Order Processing</label>
         <language>en_US</language>
@@ -1579,6 +1998,33 @@ IMAGE( User_Image_URL_Small__c , &quot;User Image - Small&quot;)
             <operation>equals</operation>
         </filters>
         <label>SFS Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>System_Administrator_Integration_User</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CORE.PROFILE.NAME</field>
+            <operation>equals</operation>
+            <value>System Administrator,Integration User,System Admin Integration User</value>
+        </filters>
+        <filters>
+            <field>CORE.PROFILE.NAME</field>
+            <operation>equals</operation>
+            <value>Analytics Cloud Integration User,Analytics Cloud Security User</value>
+        </filters>
+        <label>System Administrator &amp; Integration User</label>
         <language>en_US</language>
     </listViews>
     <listViews>

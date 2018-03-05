@@ -48,7 +48,7 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
@@ -118,24 +118,6 @@
         <unique>false</unique>
     </fields>
     <label>ReplicationMonitoringLog</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>ObjectType__c</columns>
-        <columns>OBJECT_ID</columns>
-        <columns>TimeTaken__c</columns>
-        <columns>ObjectID__c</columns>
-        <columns>LocalRecordID__c</columns>
-        <columns>PartnerNetworkRecord_StartDate__c</columns>
-        <columns>RequestDateTime__c</columns>
-        <columns>CONNECTION_SENT.NAME</columns>
-        <columns>CONNECTION_RECEIVED.NAME</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>CREATEDBY_USER</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-        <language>en_US</language>
-    </listViews>
     <nameField>
         <displayFormat>RM-{00000}</displayFormat>
         <label>ReplicationMonitoringLog Name</label>

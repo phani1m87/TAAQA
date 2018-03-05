@@ -2,9 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Edit_Email_Preferences</customButtons>
     <customButtons>Close_Convert_Lead</customButtons>
-    <customButtons>pi__Send_Pardot_Email</customButtons>
-    <customButtons>pi__Send_to_Prospect_Insight</customButtons>
-    <customButtons>pi__Send_Single_Pardot_Email</customButtons>
     <excludeButtons>Convert</excludeButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Share</excludeButtons>
@@ -60,20 +57,16 @@
                 <field>Campaign_Name__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Named_Account_Type__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Named_Account__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Named_Account_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Audit_Work_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Has_Practice_Management_Tool__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -85,11 +78,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Rating_Hot__c</field>
+                <field>Submitted_By__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Rating_Warm__c</field>
+                <field>Is_Email_Bounced__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -143,11 +136,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Previous_Zip_Code__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Submitted_By__c</field>
+                <field>Small_Market_N2E__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -277,6 +266,10 @@
                 <field>Sales_Alignment__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Sales_Alignment_Mapping__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Sale_Rep_Role__c</field>
             </layoutItems>
@@ -333,14 +326,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Services_Offered__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Ways_to_enhance_business__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -584,6 +569,8 @@
     <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
+        <fields>Product_Interest__c</fields>
+        <fields>Campaign_Short_Description__c</fields>
         <fields>CM.STATUS</fields>
         <fields>Campaign_Contact__c</fields>
         <relatedList>RelatedCampaignList</relatedList>
@@ -616,6 +603,7 @@
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Detail__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>Monitoring_Log__c.Lead__c</relatedList>
     </relatedLists>
     <runAssignmentRulesDefault>false</runAssignmentRulesDefault>

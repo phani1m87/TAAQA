@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Sales Consultant - Corporate Direct (Southeast)</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Sales Consultant - Corporate Direct (Pacific)</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Sales_Manager_Pacific_SW</parentRole>
+</Role>

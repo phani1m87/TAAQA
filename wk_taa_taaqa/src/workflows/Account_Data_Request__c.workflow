@@ -5,9 +5,11 @@
         <description>Account Data Request Closure Notification</description>
         <protected>false</protected>
         <recipients>
-            <type>owner</type>
+            <recipient>Case Originator</recipient>
+            <type>caseTeam</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>no-reply@wolterskluwer.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Account_Data_Request_Notification</template>
     </alerts>
     <alerts>
@@ -80,11 +82,16 @@
             <name>Account_Data_Request_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Account_Data_Request__c.Status__c</field>
             <operation>equals</operation>
             <value>Approved - Completed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account_Data_Request__c.ProSW_Account_Cleanup__c</field>
+            <operation>equals</operation>
+            <value>False</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

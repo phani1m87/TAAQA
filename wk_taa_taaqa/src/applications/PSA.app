@@ -27,6 +27,5 @@
     <tab>Apttus__APTS_Template__c</tab>
     <tab>Apttus_Proposal__Proposal_Document_Output_Formats</tab>
     <tab>Useful_Links</tab>
-    <tab>Assist_List</tab>
-    <tab>ATA_AssignmentType_Map__c</tab>
+    <tab>Activity_Goals__c</tab>
 </CustomApplication>

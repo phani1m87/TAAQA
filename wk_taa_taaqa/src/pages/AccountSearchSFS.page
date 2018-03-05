@@ -1,0 +1,290 @@
+<apex:page id="pg1" controller="AccountSearch" showHeader="true" sidebar="true" action="{!trackVisits}">
+<style type="text/css">
+.bPageBlock th.vfLabelColTextWrap 
+{
+white-space: nowrap;
+position: relative;
+}
+</style>
+
+<apex:form id="form_srch">
+    <apex:pageMessages ></apex:pageMessages>
+    <apex:pageBlock title="Accounts & Contacts Search" mode="edit" id="thePageBlock">
+        <apex:pageBlockButtons location="top" >
+            <apex:commandButton value="Search" action="{!Search}"/>
+            <apex:commandButton value="Clear" action="{!Clear}"/>
+            <apex:commandButton value="Convert Lead" action="{!ConvertLead}" rendered="{!showConvertLeadButton}"/>
+            <apex:commandButton value="Attach to Existing Account" action="{!AttachtoExistingAccount}" rendered="{!showConvertLeadButton}"/>            
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection columns="3" id="pbs1">
+            <apex:pageBlockSectionItem id="pbsiAMSSAP" >
+                <apex:outputLabel value="ERP Account #"></apex:outputLabel>
+                <apex:inputText title="AmsSap" id="amssap" value="{!searchSAPAccountNo}">
+                    <!--<apex:actionSupport event="onchange" action="{!AMSSAPAccountNo}" reRender="thePageBlock"/>-->
+                </apex:inputText>
+            </apex:pageBlockSectionItem> 
+            <apex:pageBlockSectionItem id="pbsiAccountName">
+                <apex:outputLabel value="Account Name "></apex:outputLabel>
+                <apex:inputText title="Account Name" id="accountname" value="{!searchAccountName}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="pbsiAddress" >
+                <apex:outputLabel value="Address "></apex:outputLabel>
+                <apex:inputText title="Address" id="Address" value="{!searchAddress}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="pbsiFirstName">
+                <apex:outputLabel value="Contact First Name "></apex:outputLabel>
+                <apex:inputText title="First Name" id="firstname" value="{!searchFirstName}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="pbsiLastName">
+                <apex:outputLabel value="Contact Last Name "></apex:outputLabel>
+                <apex:inputText title="Last Name" id="lastname" value="{!searchLastName}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="pbsiPhone" >
+                <apex:outputLabel value="Phone "></apex:outputLabel>
+                <apex:inputText title="Phone" id="phone" value="{!searchPhone}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="pbsiEmail" >
+                <apex:outputLabel value="Email "></apex:outputLabel>
+                <apex:inputText title="Email" id="email" value="{!searchEmail}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="pbsiWebsite" >
+                <apex:outputLabel value="Website "></apex:outputLabel>
+                <apex:inputText title="Website" id="website" value="{!searchWebsite}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="pbsi3" >
+                <apex:outputLabel value="View "></apex:outputLabel>
+                <apex:selectList id="type" value="{!viewType}" multiselect="false" size="1">
+                        <apex:selectOption itemValue="All" itemLabel="Accounts & Contacts"/>
+                        <apex:selectOption itemValue="Account" itemLabel="Accounts"/>
+                        <apex:selectOption itemValue="Contact" itemLabel="Contacts"/>
+                </apex:selectList>
+            </apex:pageBlockSectionItem>                           
+        </apex:pageBlockSection>                           
+    </apex:pageBlock>
+    <apex:pageBlock id="pageBlockAccount" title="Accounts ({!countAccount} Records)" rendered="{!showAccountTable}">
+    <apex:pageBlockButtons location="top" >
+            <apex:commandbutton value="TaxWise Prospect Quick Create" action="{!redirectUser}" rendered="{!showContactTable}"/>
+        </apex:pageBlockButtons>
+    <apex:actionStatus id="loadStatus" startText="Sorting data...">
+            <apex:facet name="start">
+                <center>
+                    Sorting data... <br/>
+                    <img src="/resource/1440522169000/AjaxLoader" border="0"/>   
+                </center>
+            </apex:facet>         
+    </apex:actionStatus>
+    <apex:pageBlockSection columns="1" collapsible="true" rendered="{!showAccountTable}">    
+    <apex:outputPanel layout="block" styleclass="container">
+    <apex:pageBlockTable value="{!Act_List}" var="a" rendered="{!NOT(ISNULL(Act_List))}">
+       <apex:column >
+         <apex:facet name="header">   
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="Account{!IF(sortExpression=='name',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort">
+             <apex:param value="name" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+         <apex:outputLink value="/{!a.Id}">{!a.Name}</apex:outputLink>
+       </apex:column>
+       <!--Account Teams Section
+       Update on 26-01-2016-->
+       <apex:column headerValue="Account Teams">
+           <apex:commandLink action="{!showPopup}" reRender="tstpopup" value="Account Teams">
+             <apex:param value="{!a.Id}" name="AccountId" ></apex:param>
+           </apex:commandLink>
+       </apex:column>
+       <apex:column value="{!a.Phone}">
+         <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="Phone{!IF(sortExpression=='Phone',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Phone" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!a.BillingStreet}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="Street{!IF(sortExpression=='BillingStreet',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="BillingStreet" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!a.BillingCity}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="City{!IF(sortExpression=='BillingCity',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="BillingCity" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+        <apex:column value="{!a.BillingState}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="State{!IF(sortExpression=='BillingState',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="BillingState" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!a.BillingPostalCode}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="Postal Code{!IF(sortExpression=='BillingPostalCode',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="BillingPostalCode" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!a.Website}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="Website{!IF(sortExpression=='Website',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Website" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!a.Market_Segment__c}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="Segment{!IF(sortExpression=='Market_Segment__c',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Market_Segment__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!a.Market_Sub_Segment__c}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="Sub Segment{!IF(sortExpression=='Market_Sub_Segment__c',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Market_Sub_Segment__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!a.Named_Account_Type__c}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="Named Account{!IF(sortExpression=='Named_Account_Type__c',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Named_Account_Type__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!a.SFDC_Account__c}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchAccount}" reRender="pageBlockAccount" status="loadStatus" value="SFDC Account#{!IF(sortExpression=='SFDC_Account__c',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="SFDC_Account__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       
+    </apex:pageBlockTable>
+    </apex:outputPanel>
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+<!-- Contacts Section-->
+    <apex:pageBlock id="pageBlockContact" title="Contacts ({!countContact} Records)" rendered="{!showContactTable}">
+    <apex:pageBlockButtons location="top">
+        <apex:commandButton value="New Contact" action="{!NewContact}"/>
+    </apex:pageBlockButtons>
+    <apex:actionStatus id="loadStatusContact" startText="Sorting data...">
+            <apex:facet name="start">
+                <center>
+                    Sorting data... <br/>
+                    <img src="/resource/1440522169000/AjaxLoader" border="0"/>   
+                </center>
+            </apex:facet>         
+    </apex:actionStatus>
+    <apex:pageBlockSection columns="1" collapsible="true" rendered="{!showContactTable}">       
+    <apex:outputPanel layout="block" styleclass="container">
+    <apex:pageBlockTable value="{!Con_List}" var="c" rendered="{!NOT(ISNULL(Con_List))}">
+       <apex:column >
+         <apex:facet name="header">   
+           <apex:commandLink action="{!searchContact}" reRender="pageBlockContact" status="loadStatusContact" value="Name{!IF(sortExpression=='name',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort">
+             <apex:param value="name" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+         <apex:outputLink value="/{!c.Id}">{!c.Name}</apex:outputLink>
+       </apex:column>
+       <apex:column value="{!c.Account.Name}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchContact}" reRender="pageBlockContact" status="loadStatusContact" value="Account{!IF(sortExpression=='Account.Name',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Account.Name" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!c.Account.Website}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchContact}" reRender="pageBlockContact" status="loadStatusContact" value="Website{!IF(sortExpression=='Account.Website',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Account.Website" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!c.Account.Market_Segment__c}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchContact}" reRender="pageBlockContact" status="loadStatusContact" value="Segment{!IF(sortExpression=='Account.Market_Segment__c',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Account.Market_Segment__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!c.Account.Market_Sub_Segment__c}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchContact}" reRender="pageBlockContact" status="loadStatusContact" value="Sub Segment{!IF(sortExpression=='Account.Market_Sub_Segment__c',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Account.Market_Sub_Segment__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!c.Account.Named_Account_Type__c}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchContact}" reRender="pageBlockContact" status="loadStatusContact" value="Named Account{!IF(sortExpression=='Account.Named_Account_Type__c',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Account.Named_Account_Type__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+       <apex:column value="{!c.Account.SFDC_Account__c}">
+          <apex:facet name="header">
+           <apex:commandLink action="{!searchContact}" reRender="pageBlockContact" status="loadStatusContact" value="SFDC Account{!IF(sortExpression=='Account.SFDC_Account__c',IF(sortDirection='ASC','▼','▲'),'')}">
+             <apex:param value="Account.SFDC_Account__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+           </apex:commandLink>
+         </apex:facet>
+       </apex:column>
+    </apex:pageBlockTable>
+    </apex:outputPanel>
+    </apex:pageBlockSection>
+</apex:pageBlock>
+<apex:outputPanel id="tstpopup">
+    <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+        <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+            <apex:pageBlock title="Account Team">
+                <apex:pageBlockTable value="{!ActTeam_List}" var="at" rendered="{!NOT(ISNULL(ActTeam_List))}">
+                    <apex:column headerValue="User">
+                        <apex:outputLink value="/{!at.UserId}">{!at.User.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Role">
+                        <apex:outputLabel value="{!at.TeamMemberRole}"></apex:outputLabel>
+                    </apex:column>
+                    <apex:column headerValue="Phone">
+                        <apex:outputLabel value="{!at.User.Phone}"></apex:outputLabel>
+                    </apex:column>     
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        <apex:outputLabel value="No team for the selected account" rendered="{!displayNoTeam}"></apex:outputLabel>
+        <apex:commandButton value="OK" action="{!closePopup}" rerender="tstpopup"/>
+    </apex:outputPanel>
+</apex:outputPanel>     
+</apex:form>
+    <style type="text/css">
+        .custPopup{
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            /* These are the 3 css properties you will need to change so the popup 
+            displays in the center of the screen. First set the width. Then set 
+            margin-left to negative half of what the width is. You can add 
+            the height property for a fixed size pop up if you want.*/
+            width: 500px;
+            margin-left: -250px;
+            top:100px;
+        }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+
+    </style>
+</apex:page>

@@ -122,16 +122,6 @@
         <label>TSM_LeadConversion_SearchResult_FieldSet</label>
     </fieldSets>
     <fields>
-        <fullName>AMS_Account_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>AMS Account Number</label>
-        <length>10</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>AccountId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
@@ -682,6 +672,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Is_Email_Bounced__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Email Bounced</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Is_Primary__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -715,563 +713,6 @@
     <fields>
         <fullName>MailingAddress</fullName>
         <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Market_Sub_Segment__c</fullName>
-        <externalId>false</externalId>
-        <label>SubSegment</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <controllingField>Segment__c</controllingField>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Sole Proprietor</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>2-4 Total Employees</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>5-9 Total Employees</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>10-19 Total Employees</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>20-49 Total Employees</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>50-99 Total Employees</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>100+ Total Employees</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Top 100 Firms</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Global Enterprise</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Large Enterprise</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Mid Enterprise</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Mid Market</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Small</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Agriculture</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Commerce</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Defense</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Energy</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Health and Human Services</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Homeland Security</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Housing and Urban Development</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Interior</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Justice</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Labor</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of State</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Treasury (not IRS)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Dept of Vet Affairs</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>EEOC</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Exec Branch (White House)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>FCC</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>FDIC</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Fed Election Commission</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Government Employee</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>IRS</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Library of Congress</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Nuclear Reg Commission</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>OSHA</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>SEC</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Social Security Administration</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>US Courts</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Local Government</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>State Government</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other Government</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Schools</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other Schools and Libraries</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Public Libraries</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Universities/Colleges/Business and Trade Schools</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Size TBD</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 1-3 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 4-5 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 6-10 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 11-20 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 21-50 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 51-100 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 101-250 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 251-600 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 601-999 Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm 1000+ Attorneys</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firm - Puerto Rico and Virgin Islands</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Law Firms (Size TBD)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Legal Services</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>State/County Law Libraries</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Puerto Rico and Virgin Islands</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Tax Exempt and Membership Organizations</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-            <valueSettings>
-                <controllingFieldValue>Schools and Libraries</controllingFieldValue>
-                <valueName>Law Schools</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Schools and Libraries</controllingFieldValue>
-                <valueName>Other Schools and Libraries</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Schools and Libraries</controllingFieldValue>
-                <valueName>Public Libraries</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Schools and Libraries</controllingFieldValue>
-                <valueName>Universities/Colleges/Business and Trade Schools</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>State and Local Government</controllingFieldValue>
-                <valueName>Local Government</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>State and Local Government</controllingFieldValue>
-                <valueName>State Government</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>State and Local Government</controllingFieldValue>
-                <valueName>Other Government</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Tax Exempt and Membership Organizations</controllingFieldValue>
-                <valueName>Tax Exempt and Membership Organizations</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>Sole Proprietor</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>2-4 Total Employees</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>5-9 Total Employees</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>10-19 Total Employees</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>20-49 Total Employees</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>50-99 Total Employees</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>100+ Total Employees</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>Top 100 Firms</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Accounting Firms</controllingFieldValue>
-                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
-                <controllingFieldValue>Consultants</controllingFieldValue>
-                <controllingFieldValue>Financial and Estate Planners</controllingFieldValue>
-                <controllingFieldValue>General Corporate</controllingFieldValue>
-                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
-                <controllingFieldValue>Insurance Companies</controllingFieldValue>
-                <controllingFieldValue>Retail Tax Preparers</controllingFieldValue>
-                <valueName>Size TBD</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
-                <controllingFieldValue>Consultants</controllingFieldValue>
-                <controllingFieldValue>General Corporate</controllingFieldValue>
-                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
-                <controllingFieldValue>Insurance Companies</controllingFieldValue>
-                <valueName>Global Enterprise</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
-                <controllingFieldValue>Consultants</controllingFieldValue>
-                <controllingFieldValue>General Corporate</controllingFieldValue>
-                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
-                <controllingFieldValue>Insurance Companies</controllingFieldValue>
-                <valueName>Large Enterprise</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
-                <controllingFieldValue>Consultants</controllingFieldValue>
-                <controllingFieldValue>General Corporate</controllingFieldValue>
-                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
-                <controllingFieldValue>Insurance Companies</controllingFieldValue>
-                <valueName>Mid Enterprise</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
-                <controllingFieldValue>Consultants</controllingFieldValue>
-                <controllingFieldValue>General Corporate</controllingFieldValue>
-                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
-                <controllingFieldValue>Insurance Companies</controllingFieldValue>
-                <valueName>Mid Market</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Banks and Financial Institutions</controllingFieldValue>
-                <controllingFieldValue>Consultants</controllingFieldValue>
-                <controllingFieldValue>General Corporate</controllingFieldValue>
-                <controllingFieldValue>Hospital and Payers</controllingFieldValue>
-                <controllingFieldValue>Insurance Companies</controllingFieldValue>
-                <valueName>Small</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Agriculture</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Commerce</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Defense</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Energy</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Health and Human Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Homeland Security</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Housing and Urban Development</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Interior</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Justice</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Labor</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of State</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Treasury (not IRS)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Dept of Vet Affairs</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>EEOC</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Exec Branch (White House)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>FCC</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>FDIC</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Fed Election Commission</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Government Employee</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>IRS</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Library of Congress</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Nuclear Reg Commission</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>OSHA</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>SEC</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>Social Security Administration</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Federal Government</controllingFieldValue>
-                <valueName>US Courts</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 1-3 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 4-5 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 6-10 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 11-20 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 21-50 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 51-100 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 101-250 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 251-600 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 601-999 Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm 1000+ Attorneys</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firm - Puerto Rico and Virgin Islands</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Law Firms (Size TBD)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>Legal Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Legal Professionals</controllingFieldValue>
-                <valueName>State/County Law Libraries</valueName>
-            </valueSettings>
-        </valueSet>
     </fields>
     <fields>
         <fullName>MobilePhone</fullName>
@@ -1409,136 +850,6 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <label>Primary Contact</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Product_Intere__c</fullName>
-        <externalId>false</externalId>
-        <label>Product Interest</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>true</sorted>
-                <value>
-                    <fullName>Books</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH AutoFlow</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Document</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Portal</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Practice</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Tax</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Workstream</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH eSign/Bundles</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Knowledge Tools</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Sales Tax Office v4.0 Upgrade</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Site Builder</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx ActiveData</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Document</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Engagement/Workpaper Manager</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Fixed Assets</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Knowledge Coach</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Outsource</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx PDFlyer</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Practice Management</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Scan</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Tax</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Professional and Client Services</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Rates &amp; Taxability Databases</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Research &amp; Learning</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Sales &amp; Use Tax Calculation (On-Premise)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Sales &amp; Use Tax Calculation (SaaS)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Sales Tax Compliance (Returns)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Training &amp; Consulting/Professional Services</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>RL_AAR__c</fullName>
@@ -1684,30 +995,16 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Rating__c</fullName>
+        <fullName>Related_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Rating</label>
+        <label>Related Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Contacts</relationshipLabel>
+        <relationshipName>Contacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Hot</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Warm</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Cold</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ReportsToId</fullName>
@@ -1856,72 +1153,6 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         </valueSet>
     </fields>
     <fields>
-        <fullName>Segment__c</fullName>
-        <externalId>false</externalId>
-        <label>Segment</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Accounting Firms</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Banks and Financial Institutions</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Consultants</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Federal Government</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Financial and Estate Planners</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>General Corporate</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Hospital and Payers</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Insurance Companies</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Legal Professionals</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Retail Tax Preparers</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Schools and Libraries</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>State and Local Government</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Tax Exempt and Membership Organizations</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Software_Owner_Email__c</fullName>
         <description>Populate with the email address of the user selected in the Software Owner field</description>
         <externalId>false</externalId>
@@ -2055,10 +1286,6 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>UseSalesforce</fullName>
-        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>WK_ContactID__c</fullName>
@@ -3475,6 +2702,56 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>qualtrics__Informed_Consent_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This date is populated when a contact grants Informed Consent via Qualtrics Informed Consent Quick Start Survey</description>
+        <externalId>false</externalId>
+        <label>Informed Consent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>qualtrics__Informed_Consent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This is populated as a result of the Qualtrics Informed Consent Quick Start Survey</description>
+        <externalId>false</externalId>
+        <label>Informed Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>qualtrics__Last_Survey_Invitation__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Survey Invitation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>qualtrics__Last_Survey_Response__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Survey Response</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>qualtrics__Net_Promoter_Score__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Net Promoter Score</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>ATX_2016_Lost_Renewal_Reengagement</fullName>
         <columns>FULL_NAME</columns>
@@ -3491,11 +2768,35 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
             <group>Inside_Sales_Managment</group>
             <group>Small_Firm_New_Sales_GW_Team</group>
             <group>Small_Firm_Sales_Managers</group>
+            <role>Sales_Consultant_Small_Firm_New_Sales_CR</role>
             <role>Sales_Consultant_Small_Firm_New_Sales_GE</role>
             <role>Sales_Consultant_Small_Firm_New_Sales_GW</role>
-            <role>Sales_Consultant_Small_Firm_New_Sales_JA</role>
             <role>Sales_Consultant_Small_Firm_New_Sales_LF_2</role>
             <role>Sales_Consultant_Small_Firm_New_Sales_RR</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ATX_PFX_PROMO</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>ATX/PFX PROMO</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Director_Small_Firm_New_Sales</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_LF_2</role>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3508,6 +2809,71 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>All Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>AnswerConnect_Hit_Email</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>AnswerConnect Hit Email</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_LF_2</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_Sales_LF</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>BOGO_2017</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>BOGO 2017</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Call_First_New_Banks_Available</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Call First- New Banks Available</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Director_Small_Firm_New_Sales</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_LF_2</role>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Channel_Partner_Tradeshow2</fullName>
@@ -3544,6 +2910,193 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>N2E_ATX_to_PROfx_Upgrade</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <columns>CONTACT.LAST_ACTIVITY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>N2E ATX to PROfx Upgrade</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GE</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_GE</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_Retention_CN</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_Retention_JA</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_Retention_LB</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_Sales_LF</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>N2N_ATX_to_PROfx_Upgrade</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <columns>CONTACT.LAST_ACTIVITY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>N2N ATX to PROfx Upgrade</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_LF_2</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_Sales_LF</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Not_CPA_or_EA</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Account_Record_Type__c</columns>
+        <columns>CONTACT.ADDRESS2_CITY</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <columns>CONTACT.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.NAME</field>
+            <operation>notContain</operation>
+            <value>CPA,EA</value>
+        </filters>
+        <filters>
+            <field>FULL_NAME</field>
+            <operation>notContain</operation>
+            <value>CPA,EA,Do Not</value>
+        </filters>
+        <filters>
+            <field>Account_Record_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Customer,Customer_Account,Partner Account,Partner_Account</value>
+        </filters>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>CONTACT.ADDRESS2_ZIP</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Not CPA or EA</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>TAA_Sales_Executives</role>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PROfx_Axcess_BOGO</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <columns>CONTACT.LAST_ACTIVITY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>PROfx Axcess BOGO</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Republic_Exception_State_Offer</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Republic Exception State Offer</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Director_Small_Firm_New_Sales</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_LF_2</role>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Retention_ATX_to_PROfx_Upgrade</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <columns>CONTACT.LAST_ACTIVITY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Retention ATX to PROfx Upgrade</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Renewal_Consultant_Small_Firm_Rentention_CN</role>
+            <role>Renewal_Consultant_Small_Firm_Retention_JA</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_LF</role>
+            <role>Sales_Manager_Small_Firm_Retention_CN</role>
+            <role>Sales_Manager_Small_Firm_Retention_JA</role>
+            <role>Sales_Manager_Small_Firm_Retention_LB</role>
+            <role>Senior_Manager_Small_Firm_Retention</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Small_Firm_Retention_Lead_Share</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>FULL_NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <filterScope>Everything</filterScope>
+        <label>Small Firm Retention Lead Share</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>VP_Small_Firm_Sales</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>SureTax_com_Downloads</fullName>
         <columns>FULL_NAME</columns>
         <columns>ACCOUNT.NAME</columns>
@@ -3558,6 +3111,73 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TWO_2017</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>TWO 2017</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Key_Account_Consultant_Midwest_SW</role>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GE</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TWO_Attack_Drake_Takeaway</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CAMPAIGN_MEMBER.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>TWO Attack-Drake Takeaway</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Director_Small_Firm_New_Sales</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_LF_2</role>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TWO_Attack_Winbacks</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>TWO Attack-Winbacks</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Director_Small_Firm_New_Sales</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_CR</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_GW</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_RR</role>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3576,10 +3196,34 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
             <group>Inside_Sales_Managment</group>
             <group>Small_Firm_New_Sales_GW_Team</group>
             <group>Small_Firm_Sales_Managers</group>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
             <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GE</roleAndSubordinates>
             <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
-            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_JA</roleAndSubordinates>
             <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_LF_2</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>TW_Promo</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.ADDRESS2_ZIP</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.PHONE1</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>TW Promo</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Director_Small_Firm_New_Sales</role>
+            <role>Sales_Consultant_Small_Firm_New_Sales_LF_2</role>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
             <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
         </sharedTo>
     </listViews>
@@ -3615,13 +3259,36 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <label>Ultratax/Thomson Competitive Takeaway</label>
         <language>en_US</language>
         <sharedTo>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
             <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GE</roleAndSubordinates>
             <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
-            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_JA</roleAndSubordinates>
             <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_LF_2</roleAndSubordinates>
             <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_CR</roleAndSubordinates>
             <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_GW</roleAndSubordinates>
-            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_JA</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_Sales_LF</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Vault_Quick_Hit_Email</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>Vault Quick Hit Email</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Director_Small_Firm_New_Sales</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_GW</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_LF_2</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Consultant_Small_Firm_New_Sales_RR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_CR</roleAndSubordinates>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_GW</roleAndSubordinates>
             <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_RR</roleAndSubordinates>
             <roleAndSubordinates>Sales_Manager_Small_Firm_Sales_LF</roleAndSubordinates>
         </sharedTo>
@@ -3679,9 +3346,9 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <label>2013 User Conference Attendees</label>
         <sharedTo>
             <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
-            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>VP_Global_National_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Medium_Large_Sales</roleAndSubordinates>
             <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
-            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3703,9 +3370,9 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <label>2014 User Conference Attendees</label>
         <sharedTo>
             <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
-            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>VP_Global_National_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Medium_Large_Sales</roleAndSubordinates>
             <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
-            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3728,9 +3395,9 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
-            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>VP_Global_National_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Medium_Large_Sales</roleAndSubordinates>
             <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
-            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3753,9 +3420,26 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
-            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>VP_Global_National_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Medium_Large_Sales</roleAndSubordinates>
             <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
-            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2017_PortalSafe_Customers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.DO_NOT_CALL</columns>
+        <filterScope>Everything</filterScope>
+        <label>2017 PortalSafe Customers</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Sales_Consultant_Small_Firm_New_Sales_GE</role>
+            <roleAndSubordinates>Sales_Manager_Small_Firm_New_Sales_GE</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3778,9 +3462,9 @@ SUBSTITUTE(Phone, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &q
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinates>Director_Corporate_Software</roleAndSubordinates>
-            <roleAndSubordinates>VP_Nat_l_Strategic_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>VP_Global_National_Accounts</roleAndSubordinates>
+            <roleAndSubordinates>Vice_President_Medium_Large_Sales</roleAndSubordinates>
             <roleAndSubordinates>Vice_President_R_L_Sales</roleAndSubordinates>
-            <roleAndSubordinates>Vice_President_Software_Sales</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -4007,42 +3691,42 @@ window.open(
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-var didResub;
-try
-{
-didResub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
-}
-catch (e)
-{
-didResub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
-}
-if (didResub==&quot;connection error&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0047}&quot;); 
-}
-else if (didResub==&quot;not found&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0085}&quot;); 
-}
-else if (didResub==&quot;other error&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0086}&quot;); 
-}
-else if (didResub==&quot;not integrated&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0087}&quot;); 
-}
-else if (didResub==&quot;success&quot;)
-{
-alert(&quot;{!Contact.Name} {!$Label.et4ae5__wasResub}&quot;);
-} 
-else
-{
-alert(didResub);
-}
-var theUrl=&quot;/{!Contact.Id}&quot;;
-parent.location.href=theUrl;</url>
+      {!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+      var didResub;
+      try
+      {
+      didResub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
+      }
+      catch (e)
+      {
+      didResub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
+      }
+      if (didResub==&quot;connection error&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0047}&quot;);
+      }
+      else if (didResub==&quot;not found&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0085}&quot;);
+      }
+      else if (didResub==&quot;other error&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0086}&quot;);
+      }
+      else if (didResub==&quot;not integrated&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0087}&quot;);
+      }
+      else if (didResub==&quot;success&quot;)
+      {
+      alert(&quot;{!Contact.Name} {!$Label.et4ae5__wasresublegacy}&quot;);
+      }
+      else
+      {
+      alert(didResub);
+      }
+      var theUrl=&quot;/{!Contact.Id}&quot;;
+      parent.location.href=theUrl;</url>
     </webLinks>
     <webLinks>
         <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
@@ -4053,42 +3737,42 @@ parent.location.href=theUrl;</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-var didUnsub;
-try
-{
-didUnsub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
-}
-catch (e)
-{
-didUnsub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
-}
-if (didUnsub==&quot;connection error&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0047}&quot;); 
-}
-else if (didUnsub==&quot;not found&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0085}&quot;); 
-}
-else if (didUnsub==&quot;other error&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0086}&quot;); 
-}
-else if (didUnsub==&quot;not integrated&quot;)
-{
-        alert(&quot;{!$Label.et4ae5__msg0087}&quot;); 
-}
-else if (didUnsub==&quot;success&quot;)
-{
-alert(&quot;{!Contact.Name} {!$Label.et4ae5__wasUnsub}&quot;);
-} 
-else
-{
-alert(didUnsub);
-}
-var theUrl=&quot;/{!Contact.Id}&quot;;
-parent.location.href=theUrl;</url>
+      {!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+      var didUnsub;
+      try
+      {
+      didUnsub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
+      }
+      catch (e)
+      {
+      didUnsub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:&quot;{!CASESAFEID(Contact.Id)}&quot;,objectType:&quot;contact&quot;});
+      }
+      if (didUnsub==&quot;connection error&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0047}&quot;);
+      }
+      else if (didUnsub==&quot;not found&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0085}&quot;);
+      }
+      else if (didUnsub==&quot;other error&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0086}&quot;);
+      }
+      else if (didUnsub==&quot;not integrated&quot;)
+      {
+      alert(&quot;{!$Label.et4ae5__msg0087}&quot;);
+      }
+      else if (didUnsub==&quot;success&quot;)
+      {
+      alert(&quot;{!Contact.Name} {!$Label.et4ae5__wasunsublegacy}&quot;);
+      }
+      else
+      {
+      alert(didUnsub);
+      }
+      var theUrl=&quot;/{!Contact.Id}&quot;;
+      parent.location.href=theUrl;</url>
     </webLinks>
     <webLinks>
         <fullName>et4ae5__Send_ExactTarget_Email</fullName>
@@ -4098,25 +3782,31 @@ parent.location.href=theUrl;</url>
         <masterLabel>Send Marketing Cloud Email</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
-if({!Contact.HasOptedOutOfEmail})
-{
-alert(&quot;{!$Label.et4ae5__ctOptedOut}&quot;);
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/apex.js&quot;)}
+var bAccessable; 
+try{
+     bAccessable = sforce.apex.execute(&quot;et4ae5.SObjectHelperJS&quot;,&quot;isFieldAccessible&quot;,{sSObject:&quot;Contact&quot;, sField:&quot;HasOptedOutOfEmail&quot;});
+}catch (e) {
+     bAccessable = false;
 }
-else
-{
-try
-{
-var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
-var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&amp;dest=/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&quot;;
-parent.location.href = theUrl;
-}
-catch (e)
-{
-var theUrl=&quot;/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&amp;dest=/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&quot;;
-parent.location.href = theUrl;
-}
+
+if(bAccessable == &quot;true&quot;){
+     var sHasOptedOutOfEmail = &quot;&quot; + {!Contact.HasOptedOutOfEmail} + &quot;&quot;;
+     if(sHasOptedOutOfEmail == &quot;1&quot;){
+          alert(&quot;{!$Label.et4ae5__ctoptedout}&quot;);
+     }else{
+          try{
+               var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+               var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&quot;;
+               parent.location.href = theUrl;
+          }catch (e){
+               var theUrl=&quot;/apex/singleSendETEmail?contactId={!CASESAFEID(Contact.Id)}&quot;;
+               parent.location.href = theUrl;
+          }
+     }
+}else{
+     alert(&quot;{!$Label.et4ae5__ctoptedoutaccess}&quot;);
 }</url>
     </webLinks>
     <webLinks>
@@ -4127,25 +3817,31 @@ parent.location.href = theUrl;
         <masterLabel>Send Marketing Cloud SMS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
-if({!Contact.HasOptedOutOfEmail})
-{
-alert(&quot;{!$Label.et4ae5__ctOptedOut}&quot;);
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/apex.js&quot;)}
+var bAccessable;
+try{
+     bAccessable = sforce.apex.execute(&quot;et4ae5.SObjectHelperJS&quot;,&quot;isFieldAccessible&quot;,{sSObject:&quot;Contact&quot;, sField:&quot;HasOptedOutOfMobile__c&quot;});
+} catch (e) {
+     bAccessable = false;
 }
-else
-{
-try
-{
-var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
-var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&amp;dest=/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&quot;;
-parent.location.href = theUrl;
-}
-catch (e)
-{
-var theUrl=&quot;/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&amp;dest=/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&quot;;
-parent.location.href = theUrl;
-}
+
+if(bAccessable == &quot;true&quot;){
+     var sHasOptedOutOfSMS = &quot;&quot; + {!Contact.et4ae5__HasOptedOutOfMobile__c} + &quot;&quot;;
+     if(sHasOptedOutOfSMS == &quot;1&quot;){
+         alert(&quot;{!$Label.et4ae5__ctoptedoutsms}&quot;);
+     }else{
+         try{
+               var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+               var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&quot;;
+               parent.location.href = theUrl;
+         }catch (e){
+              var theUrl=&quot;/apex/singleSendETMobile?contactId={!CASESAFEID(Contact.Id)}&quot;;
+           parent.location.href = theUrl;
+         }
+     }
+}else{
+     alert(&quot;{!$Label.et4ae5__ctoptedoutsmsaccess}&quot;);     
 }</url>
     </webLinks>
     <webLinks>
@@ -4156,19 +3852,19 @@ parent.location.href = theUrl;
         <masterLabel>View Marketing Cloud Analytics</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
-try
-{
-var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
-var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/SubscriberAnalytics?id={!CASESAFEID(Contact.Id)}&amp;obj=contact&quot;;
-parent.location.href = theUrl;
-}
-catch (e)
-{
-var theUrl=&quot;/apex/SubscriberAnalytics?id={!CASESAFEID(Contact.Id)}&amp;obj=contact&quot;;
-parent.location.href = theUrl;
-}</url>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+      {!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+      try
+      {
+      var urlPrefix=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+      var theUrl=&quot;https://&quot;+urlPrefix+&quot;/apex/SubscriberAnalytics?id={!CASESAFEID(Contact.Id)}&amp;obj=contact&quot;;
+      parent.location.href = theUrl;
+      }
+      catch (e)
+      {
+      var theUrl=&quot;/apex/SubscriberAnalytics?id={!CASESAFEID(Contact.Id)}&amp;obj=contact&quot;;
+      parent.location.href = theUrl;
+      }</url>
     </webLinks>
     <webLinks>
         <fullName>pi__Send_Pardot_Email</fullName>
@@ -4216,5 +3912,17 @@ parent.location.href = theUrl;
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/pi__SendToPardot?contactEmail={!URLENCODE(Contact.Email)}&amp;contactId={!Contact.Id}&amp;serverUrl={!$Api.Partner_Server_URL_90}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>qualtrics__Send_Qualtrics_Survey</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Send Qualtrics Survey</masterLabel>
+        <openType>noSidebar</openType>
+        <page>qualtrics__ContactListSendSurvey</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
     </webLinks>
 </CustomObject>

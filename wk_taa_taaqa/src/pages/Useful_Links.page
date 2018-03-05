@@ -49,7 +49,7 @@
             <apex:outputLink value="https://wktaa.my.salesforce.com/00Oi0000005uMiG">Professional Ancillary Price List </apex:outputLink>
             <apex:outputLink value="https://wktaa.my.salesforce.com/00Oi0000005uMiQ">Professional Tax Price List </apex:outputLink>
             <apex:outputLink value="https://wktaa.my.salesforce.com/01Z0Z000000isGA">Small Firm Price List </apex:outputLink>
-            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?id=0690Z000003Xe8C">PCS Mandatory Training and Consulting</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?selectedVersionId=0680Z000003Nd52">PCS Mandatory Training and Consulting</apex:outputLink>
             <apex:outputLink value="https://wktaa.my.salesforce.com/01Z31000000kz1B">Corporate Direct Pricing Dashboard</apex:outputLink>
             <apex:outputLink value="https://wktaa.my.salesforce.com/00O31000006nhcN">Books Price List</apex:outputLink>
         </apex:pageBlockSection>   
@@ -91,7 +91,8 @@
             <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#workspaceView?selectedWorkspaceId=05831000000Q8z6">Battle Cards</apex:outputLink>
             <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#workspaceView?selectedWorkspaceId=058i0000000EadA">CBI Grids</apex:outputLink>
             <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?shepherdToken=VmpFPSxNakF4Tnkwd05DMHlNVlF4TVRvME9UbzBNeTQxTWpaYSw1M1JHMXJiNkRMVkdMZWpRX0tvLUZOLE5tWm1ZbUk1&searchPageNum=0&searchWorkspaceIds=%5B%22058i0000000Ee3Q%22%5D&masterWorkspaceId=058i0000000Ee3Q">Tips and Tricks Videos</apex:outputLink>
-              <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?searchLanguage=0&shepherdToken=VmpFPSxNakF4Tnkwd05DMHlNVlF4TVRvMU1Eb3lNaTQzTWpCYSxIVnI5RTJaTWxBMUxpNUFoTlFOU2hrLE5tWm1ZbUk1&searchPageNum=0&searchWorkspaceIds=%5B%2205831000000MCJQ%22%5D&masterWorkspaceId=05831000000MCJQ">GREAT Tool Kit</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?searchLanguage=0&shepherdToken=VmpFPSxNakF4Tnkwd05DMHlNVlF4TVRvMU1Eb3lNaTQzTWpCYSxIVnI5RTJaTWxBMUxpNUFoTlFOU2hrLE5tWm1ZbUk1&searchPageNum=0&searchWorkspaceIds=%5B%2205831000000MCJQ%22%5D&masterWorkspaceId=05831000000MCJQ">GREAT Tool Kit</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#workspaceView?selectedWorkspaceId=0580Z000000bSJT">Proposal Tool Kit</apex:outputLink>
                     </apex:pageBlockSection>
             <script>
         twistSection(document.getElementById('{!$Component.blockD.section1}').getElementsByTagName('img')[0])
@@ -131,6 +132,8 @@
             <apex:outputLink value="https://www.cchgroup.com/arm" target="_blank">ARM Trial</apex:outputLink>
             <apex:outputLink value="https://www.join.me/" target="_blank">Join Me (Demo Tool)</apex:outputLink>
             <apex:outputLink value="https://www.cpelink.com/" target="_blank">CPE Link</apex:outputLink>
+            <apex:outputLink value="http://answerconnect.cch.com/" target="_blank">AnswerConnect Login</apex:outputLink>
+            <apex:outputLabel style="font-size:11px;color:black">or to register a new employee to AnswerConnect </apex:outputLabel><apex:outputLink value="http://answerconnect.cch.com/" target="_blank">*Click Here*</apex:outputLink>
                     </apex:pageBlockSection>
             <script>
         twistSection(document.getElementById('{!$Component.blockF.section1}').getElementsByTagName('img')[0])
@@ -151,7 +154,7 @@
             <apex:outputLink value="http://intelliconnect.cch.com/scion/secure/ctx_4014126/index.jsp?cpid=WKUS-TAA-IC#page[1]" target="_blank">Intelliconnect Login Page</apex:outputLink>
             <apex:outputLink value="http://prod.saas.wolterskluwertal.com/saas/login.do;jsessionid=6FC3669F5DB967F4D62632AABD1E9725.tomcat2" target="_blank">ICAdmin Login Page</apex:outputLink>
             <apex:outputLink value="http://step1sapbobj4prod.wkglobal.com:8080/BOE/BI" target="_blank">BI Launch Pad</apex:outputLink>
-            <apex:outputLink value="https://wktaa.my.salesforce.com/00O31000006oiDk" target="_blank">IntelliConnect User Usage</apex:outputLink><br/>
+            <apex:outputLink value="http://wktaaboewebfp02.na.wkglobal.com:8080/BOE/BI" target="_blank">IntelliConnect Usage Reporting</apex:outputLink><br/>
           </apex:pageBlockSection>
             <script>
         twistSection(document.getElementById('{!$Component.blockG.section1}').getElementsByTagName('img')[0])
@@ -190,10 +193,12 @@
               
             <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?selectedDocumentId=06931000003CycL" target="_blank">State Grant Directory</apex:outputLink>
             <apex:outputLink value="https://www.cchgroup.com/training-and-support/learning-and-development-academy/academy-open-enrollment-schedule" target="_blank">Academy - School of Audit Schedule</apex:outputLink>
-            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?id=0680Z000003Na2U" target="_blank">Scheduling Outlook</apex:outputLink>
-            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?id=0680Z000003NUqs" target="_blank">PCS Service Recommendations</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?selectedVersionId=0680Z000004BjDg" target="_blank">Scheduling Outlook</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?id=0680Z000004ArpJ" target="_blank">PCS Service Recommendations</apex:outputLink>
             <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#search?fieldToAdd=searchTags&valueToAdd=PCS%20Software%20Training%20%26%20Consulting%20-%20Training%20Outlines&shepherdToken=VmpFPSxNakF4Tnkwd05pMHdNbFF4TWpveU1Ub3pNeTQ0TVRsYSx1T0lvT0VuVE9zVUpsRTBmVjlPbHp1LFpqSmlZemxr&searchTags=%5B%22PCS%20Software%20Training%20%26%20Consulting%20-%20Training%20Outlines%22%5D&searchPageNum=0" target="_blank">PCS Software Training and Consulting - Training Outlines</apex:outputLink>
             <apex:outputLink value="https://conversions.cch.com/tax" target="_blank">Competitor Tax Conversions</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?selectedVersionId=0680Z0000043lqL" target="_blank">PCS 3rd Party Practice Conversion Options</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?selectedVersionId=0680Z000004BjXg" target="_blank">Custom Report Document for PFX PM and Axcess Practice</apex:outputLink>
         </apex:pageBlockSection>
             <script>
         twistSection(document.getElementById('{!$Component.blockI.section1}').getElementsByTagName('img')[0])
@@ -218,7 +223,7 @@
             <apex:outputLink value="mailto:CCHCustomerService@wolterskluwer.com">CCH Customer Support (Email)</apex:outputLink>
             <apex:outputLink value="https://support.atxinc.com/" target="_blank">ATX Support Site</apex:outputLink>
             <apex:outputLink value="https://support.taxwise.com/" target="_blank">TW Support Site</apex:outputLink>                
-            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?selectedVersionId=06831000003D8Ut">SFS AR Cheat Sheet</apex:outputLink>
+            <apex:outputLink value="https://wktaa.my.salesforce.com/sfc/#version?id=0690Z000003MrAZ">Small Firm Market Assist List</apex:outputLink>
             <apex:outputLink value="http://download.cchsfs.com/tech/ATX/ATXInstalls.htm" target="_blank">ATX Prior Year Downloads</apex:outputLink>
             <apex:outputLink value="http://download.cchsfs.com/tech/tw/twinstalls.htm" target="_blank">TaxWise Prior Year Downloads</apex:outputLink>
           </apex:pageBlockSection>

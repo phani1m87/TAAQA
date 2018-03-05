@@ -99,6 +99,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Team_Member_SAP_DTN__c</fullName>
+        <externalId>false</externalId>
+        <formula>User.SAP_DTN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Team Member SAP DTN</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Team_Member_Upper_Management__c</fullName>
         <externalId>false</externalId>
         <formula>User.Upper_Management__c</formula>

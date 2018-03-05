@@ -6,6 +6,124 @@
  <br/>
  <br/>
  <apex:tabPanel >
+ <apex:tab label="2018">
+ <div>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Tax Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Tax_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Tax Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Tax_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Tax Auths"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Tax_Authorizations__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:750px;" value="Tax Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:810px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Tax_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Tax Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Tax_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Tax Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Tax_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Tax Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Tax_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Org/PF"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Org_PF_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="GlobalFx"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Globalfx_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Outsource"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Outsource_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:750px;" value="ELF"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:810px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_ELF_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Scan Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Scan_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Scan Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Scan_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Scan Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Scan_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Scan SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Scan_SaaS_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Scan SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Scan_SaaS_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Scan SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Scan_SaaS_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Trial Balance Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Trial_Balance_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Trial Balance Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Trial_Balance_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Trial Balance Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Trial_Balance_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Fixed Assets Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Fixed_Assets_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Fixed Assets Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Fixed_Assets_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Fixed Assets Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Fixed_Assets_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Fixed Assets Manager Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Fixed_Assets_Manager_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Fixed Assets Manager Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Fixed_Assets_Manager_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Fixed Assets Manager Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Fixed_Assets_Manager_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Engagement Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Engagement_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Engagement Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Engagement_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Engagement Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Engagement_Total__c}"/></apex:OutputText>
+ <br/>
+ <hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Document Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Document_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Document Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Document_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Document Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Document_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Document Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Document_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Document Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Document_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Document Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Document_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Document OP Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Document_OP_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Document OP Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Document_OP_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Document OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Document_OP_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Knowledge Tools Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Knowledge_Tools_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Knowledge Tools Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Knowledge_Tools_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Knowledge Tools Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Knowledge_Tools_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Knowledge Coach Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Knowledge_Coach_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Knowledge Coach Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Knowledge_Coach_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Knowledge Coach Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Knowledge_Coach_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Practice Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Practice_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Practice Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Practice_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Practice Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Practice_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Practice Management Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Practice_Management_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Practice Management Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Practice_Management_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Practice Management Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Practice_Management_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Practice Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Practice_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Practice Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Practice_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Practice Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Practice_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Workstream Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Workstream_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Workstream Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Workstream_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Workstream Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Axcess_Workstream_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Active Data Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Active_Data_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Active Data Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Active_Data_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Active Data Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Active_Data_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="Portal Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Portal_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="Portal Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Portal_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="Portal Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_Portal_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN OP Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_KCN_OP_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN OP Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_KCN_OP_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_KCN_OP_Total__c}"/></apex:OutputText>
+<br/>
+<hr/>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_KCN_SaaS_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_KCN_SaaS_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2018_KCN_SaaS_Total__c}"/></apex:OutputText>
+
+<br/>
+<hr/>
+
+ </div>
+ </apex:tab>
   <apex:tab label="2017">
  <div>
 <apex:outputlabel Style="Position:absolute;left:5px;" value="Tax Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2017_Tax_Software__c}"/></apex:OutputText>
@@ -115,9 +233,9 @@
 <apex:outputlabel Style="Position:absolute;left:510px;" value="KCN OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2017_KCN_OP_Total__c}"/></apex:OutputText>
 <br/>
 <hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2017_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2017_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2017_Knowledge_Tools_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2017_KCN_SaaS_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2017_KCN_SaaS_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2017_KCN_SaaS_Total__c}"/></apex:OutputText>
 
 <br/>
 <hr/>
@@ -233,9 +351,9 @@
 <apex:outputlabel Style="Position:absolute;left:510px;" value="KCN OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2016_KCN_OP_Total__c}"/></apex:OutputText>
 <br/>
 <hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2016_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2016_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2016_Knowledge_Tools_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2016_KCN_SaaS_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2016_KCN_SaaS_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2016_KCN_SaaS_Total__c}"/></apex:OutputText>
 
 <br/>
 <hr/>
@@ -346,9 +464,9 @@
 <apex:outputlabel Style="Position:absolute;left:510px;" value="KCN OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2015_KCN_OP_Total__c}"/></apex:OutputText>
 <br/>
 <hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2015_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2015_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2015_Knowledge_Tools_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2015_KCN_SaaS_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2015_KCN_SaaS_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2015_KCN_SaaS_Total__c}"/></apex:OutputText>
 
 <br/>
 <hr/>
@@ -459,9 +577,9 @@
 <apex:outputlabel Style="Position:absolute;left:510px;" value="KCN OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2014_KCN_OP_Total__c}"/></apex:OutputText>
 <br/>
 <hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2014_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2014_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2014_Knowledge_Tools_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2014_KCN_SaaS_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2014_KCN_SaaS_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2014_KCN_SaaS_Total__c}"/></apex:OutputText>
 
 <br/>
 <hr/>
@@ -572,241 +690,15 @@
 <apex:outputlabel Style="Position:absolute;left:510px;" value="KCN OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2013_KCN_OP_Total__c}"/></apex:OutputText>
 <br/>
 <hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2013_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2013_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2013_Knowledge_Tools_Total__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2013_KCN_SaaS_Software__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2013_KCN_SaaS_Training__c}"/></apex:OutputText>
+<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2013_KCN_SaaS_Total__c}"/></apex:OutputText>
 
 <br/>
 <hr/>
 
  </div>
  </apex:tab>
- <apex:tab label="2012">
-<div>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Tax Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Tax_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Tax Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Tax_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Tax Auths"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Tax_Authorizations__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:750px;" value="Tax Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:810px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Tax_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Tax Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Tax_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Tax Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Tax_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Tax Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Tax_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Org/PF"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Org_PF_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="GlobalFx"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Globalfx_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Outsource"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Outsource_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:750px;" value="ELF"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:810px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_ELF_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Scan Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Scan_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Scan Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Scan_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Scan Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Scan_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Scan SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Scan_SaaS_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Scan SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Scan_SaaS_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Scan SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Scan_SaaS_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Trial Balance Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Trial_Balance_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Trial Balance Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Trial_Balance_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Trial Balance Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Trial_Balance_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Fixed Assets Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Fixed_Assets_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Fixed Assets Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Fixed_Assets_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Fixed Assets Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Fixed_Assets_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Engagement Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Engagement_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Engagement Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Engagement_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Engagement Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Engagement_Total__c}"/></apex:OutputText>
- <br/>
- <hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Document Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Document_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Document Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Document_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Document Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Document_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Document Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Document_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Document Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Document_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Document Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Document_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Document OP Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Document_OP_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Document OP Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Document_OP_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Document OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Document_OP_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Knowledge Tools Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Knowledge Tools Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Knowledge Tools Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Tools_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Knowledge Coach Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Coach_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Knowledge Coach Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Coach_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Knowledge Coach Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Coach_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Practice Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Practice_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Practice Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Practice_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Practice Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Practice_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Practice Management Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Practice_Management_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Practice Management Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Practice_Management_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Practice Management Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Practice_Management_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Practice Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Practice_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Practice Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Practice_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Practice Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Practice_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Workstream Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Workstream_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Workstream Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Workstream_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Workstream Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Axcess_Workstream_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Active Data Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Active_Data_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Active Data Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Active_Data_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Active Data Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Active_Data_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Portal Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Portal_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Portal Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Portal_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Portal Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Portal_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN OP Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_KCN_OP_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN OP Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_KCN_OP_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_KCN_OP_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2012_Knowledge_Tools_Total__c}"/></apex:OutputText>
-
-<br/>
-<hr/>
-
- </div>
- </apex:tab>
- <apex:tab label="2011">
-<div>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Tax Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Tax_Software_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Tax Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Tax_Training_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Tax Auths"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Tax_Authorizations_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:750px;" value="Tax Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:810px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Tax_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Tax Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Tax_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Tax Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Tax_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Tax Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Tax_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Org/PF"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Org_PF_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="GlobalFx"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Globalfx_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Outsource"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Outsource_Total__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:750px;" value="ELF"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:810px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_ELF_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Scan Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Scan_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Scan Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Scan_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Scan Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Scan_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Scan SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Scan_SaaS_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Scan SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Scan_SaaS_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Scan SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Scan_SaaS_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Trial Balance Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Trial_Balance_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Trial Balance Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Trial_Balance_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Trial Balance Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Trial_Balance_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Fixed Assets Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Fixed_Assets_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Fixed Assets Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Fixed_Assets_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Fixed Assets Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Fixed_Assets_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Engagement Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Engagement_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Engagement Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Engagement_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Engagement Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Engagement_Total__c}"/></apex:OutputText>
- <br/>
- <hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Document Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Document_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Document Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Document_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Document Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Document_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Document Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Document_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Document Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Document_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Document Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Document_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Document OP Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Document_OP_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Document OP Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Document_OP_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Document OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Document_OP_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Knowledge Tools Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Knowledge Tools Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Knowledge Tools Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Tools_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Knowledge Coach Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Coach_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Knowledge Coach Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Coach_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Knowledge Coach Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Coach_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Practice Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Practice_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Practice Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Practice_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Practice Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Practice_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Practice Management Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Practice_Management_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Practice Management Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Practice_Management_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Practice Management Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Practice_Management_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Practice Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Practice_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Practice Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Practice_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Practice Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Practice_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Axcess Workstream Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Workstream_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Axcess Workstream Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Workstream_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Axcess Workstream Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Axcess_Workstream_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Active Data Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Active_Data_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Active Data Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Active_Data_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Active Data Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Active_Data_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="Portal Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Portal_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="Portal Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Portal_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="Portal Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Portal_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN OP Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_KCN_OP_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN OP Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_KCN_OP_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN OP Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_KCN_OP_Total__c}"/></apex:OutputText>
-<br/>
-<hr/>
-<apex:outputlabel Style="Position:absolute;left:5px;" value="KCN SaaS Software"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:180px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Tools_Software__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:275px;" value="KCN SaaS Training"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:450px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Tools_Training__c}"/></apex:OutputText>
-<apex:outputlabel Style="Position:absolute;left:510px;" value="KCN SaaS Total"/><apex:OutputText style="text-decoration:underline;width:50px;position:absolute;left:675px;" Value="{0, number, currency}"><apex:Param value="{!revenue.X2011_Knowledge_Tools_Total__c}"/></apex:OutputText>
-
-<br/>
-<hr/>
-
- </div>
- </apex:tab>
- </apex:tabPanel>
+  </apex:tabPanel>
  </apex:form>
   </apex:page>

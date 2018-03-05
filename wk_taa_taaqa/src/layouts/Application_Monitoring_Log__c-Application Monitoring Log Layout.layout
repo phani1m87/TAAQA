@@ -25,15 +25,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AccountId__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TransactionId__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Quote_ProposalId__c</field>
+                <field>ResponseData__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -51,11 +43,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ResponseData__c</field>
+                <field>ERPOrder__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ERPOrder__c</field>
+                <behavior>Readonly</behavior>
+                <field>CreatedDateTime__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

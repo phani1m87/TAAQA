@@ -79,8 +79,24 @@
         <description>AMS Ready for Billing</description>
         <protected>false</protected>
         <recipients>
-            <recipient>AMS_Billing</recipient>
-            <type>group</type>
+            <recipient>candace.simpson@wolterskluwer.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>marie.atencio@wolterskluwer.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>michael.nazareno@wolterskluwer.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>richelle.skas@wolterskluwer.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>selina.sims@wolterskluwer.com</recipient>
+            <type>user</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Email_Alerts/AMS_Order_Billing_Stage</template>
@@ -318,6 +334,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Auth_Campaign_Last_Updated</fullName>
+        <field>Auth_Campaign_Last_Update__c</field>
+        <formula>TODAY()</formula>
+        <name>Auth Campaign Last Updated</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Clear_Ready_for_Billing</fullName>
         <field>AMS_Ready_for_Billing__c</field>
         <literalValue>0</literalValue>
@@ -381,6 +406,15 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
         <targetObject>AccountId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Expansion_Call_Counter</fullName>
+        <field>Expansion_Call_Counter__c</field>
+        <formula>1</formula>
+        <name>Expansion Call Counter</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>In_Review</fullName>
@@ -458,7 +492,7 @@
     <fieldUpdates>
         <fullName>Rejected</fullName>
         <field>AMS_Order_Processing_Stage__c</field>
-        <literalValue>Draft</literalValue>
+        <literalValue>Rejected</literalValue>
         <name>Rejected</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
@@ -478,6 +512,15 @@
         <field>National_Order__c</field>
         <literalValue>1</literalValue>
         <name>Set National Order true</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_SF_Product_category</fullName>
+        <field>Product_Category__c</field>
+        <literalValue>Small Firm Software</literalValue>
+        <name>Set SF Product category</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -523,6 +566,15 @@
         <field>AMS_Order_Processing_Stage__c</field>
         <literalValue>Submitted to Order Processing</literalValue>
         <name>Submitted to Order Processing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Category</fullName>
+        <field>Product_Category__c</field>
+        <literalValue>Med/Large Software</literalValue>
+        <name>Update Category</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -574,6 +626,19 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <outboundMessages>
+        <fullName>qualtrics__Qualtrics_Example_Outbound_Message</fullName>
+        <apiVersion>34.0</apiVersion>
+        <description>An example of how to setup an outbound message. 
+The endpoint url is not valid and needs to be updated to a real out endpoint url.</description>
+        <endpointUrl>http://survey.qualtrics.com/WRQualtricsServer/sfApi.php?r=outboundMessage&amp;u=UR_123456789&amp;s=SV_123456789&amp;t=TR_123456789</endpointUrl>
+        <fields>Id</fields>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>alex.cardona@wolterskluwer.com</integrationUser>
+        <name>Qualtrics Example Outbound Message</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
     <rules>
         <fullName>AMS Billing Complete</fullName>
         <actions>
@@ -715,6 +780,10 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
     <rules>
         <fullName>ASR%2FTC Welcome Call</fullName>
         <actions>
+            <name>Expansion_Call_Counter</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
             <name>Step_1_Welcome_Call</name>
             <type>Task</type>
         </actions>
@@ -739,7 +808,7 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <type>Task</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND (5 OR 6) and 7 and 8 and 9</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND (5 OR 6) and 7 and 8 and 9 AND 10</booleanFilter>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
@@ -773,7 +842,7 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
         <criteriaItems>
             <field>Opportunity.Product_Sub_Category__c</field>
             <operation>notEqual</operation>
-            <value>Learning Tax,Books</value>
+            <value>Books</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.Closed_Reason__c</field>
@@ -785,10 +854,19 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <operation>notEqual</operation>
             <value>Corp National,National Accounts</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Expansion_Call_Counter__c</field>
+            <operation>lessThan</operation>
+            <value>1</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>ASR%2FTC Welcome Call - Service Source</fullName>
+        <actions>
+            <name>Expansion_Call_Counter</name>
+            <type>FieldUpdate</type>
+        </actions>
         <actions>
             <name>Step_1_Welcome_Call_SS</name>
             <type>Task</type>
@@ -810,7 +888,7 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <type>Task</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 and 6 and 7 and 8</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 and 6 and 7 and 8 AND 9</booleanFilter>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
@@ -839,7 +917,7 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
         <criteriaItems>
             <field>Opportunity.Product_Sub_Category__c</field>
             <operation>notEqual</operation>
-            <value>Learning Tax,Books</value>
+            <value>Books</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.Closed_Reason__c</field>
@@ -851,7 +929,22 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <operation>notEqual</operation>
             <value>Corp National,National Accounts</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Expansion_Call_Counter__c</field>
+            <operation>lessThan</operation>
+            <value>1</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Auth Campaign Last Updated</fullName>
+        <actions>
+            <name>Auth_Campaign_Last_Updated</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(Authorization_Campaign_Status__c)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Close Date When Won</fullName>
@@ -995,6 +1088,10 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
     <rules>
         <fullName>Expansion Call - RL</fullName>
         <actions>
+            <name>Expansion_Call_Counter</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
             <name>Step_1_Expansion_Call</name>
             <type>Task</type>
         </actions>
@@ -1019,7 +1116,7 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <type>Task</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND (5 OR 6) AND 7</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND (5 OR 6) AND 7 AND 8</booleanFilter>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
@@ -1055,11 +1152,20 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <operation>notEqual</operation>
             <value>Books</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Expansion_Call_Counter__c</field>
+            <operation>lessThan</operation>
+            <value>1</value>
+        </criteriaItems>
         <description>Creates tasks for the opportunity team on N2E sales, if an RC and TC rep are assigned.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Expansion Call - SS</fullName>
+        <actions>
+            <name>Expansion_Call_Counter</name>
+            <type>FieldUpdate</type>
+        </actions>
         <actions>
             <name>Step_1_Expansion_Call_SS</name>
             <type>Task</type>
@@ -1081,7 +1187,7 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <type>Task</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7</booleanFilter>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
@@ -1111,6 +1217,11 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <field>Opportunity.Product_Sub_Category__c</field>
             <operation>notEqual</operation>
             <value>Books</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Expansion_Call_Counter__c</field>
+            <operation>lessThan</operation>
+            <value>1</value>
         </criteriaItems>
         <description>Creates tasks for the opportunity team on N2E sales, if a SS RC is assigned.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1208,7 +1319,7 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(PRIORVALUE( StageName ),&quot;Renewal Won&quot;)), ISPICKVAL(StageName ,&quot;Renewal Won&quot;))</formula>
+        <formula>(AND(NOT(ISPICKVAL(PRIORVALUE( StageName ),&quot;Renewal Won&quot;)), ISPICKVAL(StageName ,&quot;Renewal Won&quot;)) || AND(NOT(ISPICKVAL(PRIORVALUE( StageName ),&quot;Renewal Lost&quot;)), ISPICKVAL(StageName ,&quot;Renewal Lost&quot;))) || (RecordTypeId =&apos;01231000000tYTaAAM&apos; &amp;&amp;  CloseDate &lt;Today()&amp;&amp;(AND(NOT(ISPICKVAL(PRIORVALUE( StageName ),&quot;Renewal Won&quot;)), ISPICKVAL(StageName ,&quot;Renewal Won&quot;)) || AND(NOT(ISPICKVAL(PRIORVALUE( StageName ),&quot;Renewal Lost&quot;)), ISPICKVAL(StageName ,&quot;Renewal Lost&quot;))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1222,6 +1333,26 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
     IsWon = TRUE,
      CONTAINS( Owner.FirstName , &quot;Territory&quot;) 
 )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set M%2FL Product category by User</fullName>
+        <actions>
+            <name>Update_Category</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>(NOT(ISBLANK(Account.Axcess_Tax_Update_Counter__c)) || NOT(ISBLANK(Account.Pfx_Tax_Update_Counter__c))) &amp;&amp;  not(isblank(Account.Tax_Update_Account_Number__c )) &amp;&amp;  $User.Profile_Name__c = &apos;Sales Representative&apos; &amp;&amp;  NOT(ISPICKVAL(Product_Category__c ,&quot;Med/Large Software&quot;))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set SF Product category by User</fullName>
+        <actions>
+            <name>Set_SF_Product_category</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>(NOT(ISBLANK(Account.Axcess_Tax_Update_Counter__c)) || NOT(ISBLANK(Account.Pfx_Tax_Update_Counter__c))) &amp;&amp;  not(isblank(Account.Tax_Update_Account_Number__c )) &amp;&amp;  $User.Profile_Name__c = &apos;Small Firm Sales Representative&apos; &amp;&amp; NOT(ISPICKVAL(Product_Category__c,&quot;Small Firm Software&quot;))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1309,10 +1440,26 @@ AMS_Ready_for_Order_Analysis__c = true</formula>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+    <rules>
+        <fullName>qualtrics__Qualtrics Example Survey Rule</fullName>
+        <actions>
+            <name>qualtrics__Qualtrics_Example_Outbound_Message</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.IsClosed</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>An example of how to setup a rule to trigger a survey using an outbound message. 
+In this example when an opportunity is closed we want to email the opportunity and see how their interaction with the sales representative went.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <tasks>
         <fullName>Step_1_Expansion_Call</fullName>
-        <assignedTo>RC - Research and Learning</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
         <description>Verify the products added to the account.
 
 For IntelliConnect: determine what training is needed / verify IDs, go over basics, etc.
@@ -1328,8 +1475,8 @@ For Accounting Research Manager: verify IDs / basics, offer MTS training</descri
     </tasks>
     <tasks>
         <fullName>Step_1_Expansion_Call_SS</fullName>
-        <assignedTo>RC - R&amp;L ServiceSource</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
         <description>Verify the products added to the account. 
 
 For IntelliConnect: Verify IDs, go over basics, sign up for MTS, etc. 
@@ -1345,8 +1492,8 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_1_Expansion_Training_Call</fullName>
-        <assignedTo>T&amp;C - Research and Learning</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
         <description>Contact RSC and RC to determine what training is needed for the client. This is for an expansion (new-to-existing sale) into an existing R&amp;L client.</description>
         <dueDateOffset>15</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
@@ -1358,9 +1505,11 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_1_Welcome_Call</fullName>
-        <assignedTo>RC - Research and Learning</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
-        <description>Verify ID&apos;s. Review basic IC functions: Trackers, A-Z, Install IntelliForms ‘15 &amp; ‘14 (forms &lt;/=2012). Set next appt. Email Support Doc.</description>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Verify ID&apos;s. Review basic IC functions: Trackers, A-Z, Install IntelliForms ‘15 &amp; ‘14 (forms &lt;/=2012). Set next appt. Email Support Doc.
+
+10/16/17: moved tasks from RC - Research and Learning to Anna Thronberry per Rachel Corson</description>
         <dueDateOffset>7</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <offsetFromField>Opportunity.CloseDate</offsetFromField>
@@ -1371,7 +1520,7 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_1_Welcome_Call_SS</fullName>
-        <assignedTo>RC - R&amp;L ServiceSource</assignedTo>
+        <assignedTo>RC - R&amp;L Retention</assignedTo>
         <assignedToType>opportunityTeam</assignedToType>
         <description>Verify ID&apos;s. Review basic IC functions: Trackers, A-Z, Install IntelliForms ‘15 &amp; ‘14 (forms &lt;/=2012). Set next appt. Email Support Doc.</description>
         <dueDateOffset>7</dueDateOffset>
@@ -1384,9 +1533,11 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_2_Cancellation_Risk</fullName>
-        <assignedTo>RC - Research and Learning</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
-        <description>Review usage.  Verify Training Attendance.   Review integration usage, favorites, SmartCharts, etc.</description>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Review usage.  Verify Training Attendance.   Review integration usage, favorites, SmartCharts, etc.
+
+10/16/17: moved tasks from Opportunity Team RC - Research and Learning to Anna Thronberry per Rachel Corson</description>
         <dueDateOffset>30</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <offsetFromField>Opportunity.CloseDate</offsetFromField>
@@ -1397,8 +1548,8 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_2_Cancellation_Risk_SS</fullName>
-        <assignedTo>RC - R&amp;L ServiceSource</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
         <description>Review usage.  Verify Training Attendance.   Review integration usage, favorites, SmartCharts, etc.</description>
         <dueDateOffset>30</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
@@ -1410,9 +1561,11 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_3_Full_Adoption</fullName>
-        <assignedTo>RC - Research and Learning</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
-        <description>Verify continued usage.  Gather problem areas.   Review latest enhancements.  Set new users up for training.  Content gaps/upsell.</description>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Verify continued usage.  Gather problem areas.   Review latest enhancements.  Set new users up for training.  Content gaps/upsell.
+
+10/16/17: moved tasks from Opportunity Team RC - Research and Learning to Anna Thronberry per Rachel Corson</description>
         <dueDateOffset>90</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <offsetFromField>Opportunity.CloseDate</offsetFromField>
@@ -1423,8 +1576,8 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_3_Full_Adoption_SS</fullName>
-        <assignedTo>RC - R&amp;L ServiceSource</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
         <description>Verify continued usage.  Gather problem areas.   Review latest enhancements.  Set new users up for training.  Content gaps/upsell.</description>
         <dueDateOffset>90</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
@@ -1436,9 +1589,10 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_4_Engage_Account_Review</fullName>
-        <assignedTo>RC - Research and Learning</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
-        <description>Cover system enhancements.   Review usage.  Set stage for early renewal.  Identify new users and set up for training.  Discuss any changes in business.</description>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Cover system enhancements.   Review usage.  Set stage for early renewal.  Identify new users and set up for training.  Discuss any changes in business.
+10/16/17: moved tasks from Opportunity Team RC - Research and Learning to Anna Thronberry per Rachel C</description>
         <dueDateOffset>180</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <offsetFromField>Opportunity.CloseDate</offsetFromField>
@@ -1449,8 +1603,8 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_4_Engage_Account_Review_SS</fullName>
-        <assignedTo>RC - R&amp;L ServiceSource</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
         <description>Cover system enhancements.   Review usage.  Set stage for early renewal.  Identify new users and set up for training.  Discuss any changes in business.</description>
         <dueDateOffset>180</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
@@ -1462,9 +1616,10 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_5_Renewal_Call</fullName>
-        <assignedTo>RC - Research and Learning</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
-        <description>Get renewal.  Cover training needs.  Gaps/Upsell.</description>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Get renewal.  Cover training needs.  Gaps/Upsell.
+10/16/17: moved from Opportunity Team RC - Research and Learning to Anna Thronberry per Rachel Corson</description>
         <dueDateOffset>270</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <offsetFromField>Opportunity.CloseDate</offsetFromField>
@@ -1475,8 +1630,8 @@ For Accounting Research Manager: verify IDs / basics, offer MTS traini</descript
     </tasks>
     <tasks>
         <fullName>Step_5_Renewal_Call_SS</fullName>
-        <assignedTo>RC - R&amp;L ServiceSource</assignedTo>
-        <assignedToType>opportunityTeam</assignedToType>
+        <assignedTo>anna.thornberry@wolterskluwer.com</assignedTo>
+        <assignedToType>user</assignedToType>
         <description>Get renewal.  Cover training needs.  Gaps/Upsell.</description>
         <dueDateOffset>270</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>

@@ -39,15 +39,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>AMS_Account_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>AMS Account Number</label>
-        <length>10</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Age__c</fullName>
         <externalId>false</externalId>
         <formula>IF( Lead.IsConverted = TRUE ,  Lead.ConvertedDate -  Load_Date__c ,
@@ -59,6 +50,14 @@ IF( TEXT( Lead.Status ) = &quot;Unqualified&quot; , NULL , TODAY() - Load_Date__
         <scale>0</scale>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Came_From_Lead_Member__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Identifies leads that were converted from an actual lead, not associated first to an existing contact</description>
+        <externalId>false</externalId>
+        <label>Came From Lead Member</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>CampaignId</fullName>
@@ -219,6 +218,16 @@ IF( TEXT( Lead.Status ) = &quot;Unqualified&quot; , NULL , TODAY() - Load_Date__
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Load_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR(Load_Date__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Load Year</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MQL_Rating__c</fullName>
         <externalId>false</externalId>
         <formula>If (ISPICKVAL(Status, &quot;Contact-Me&quot;), &quot;HOT&quot;,
@@ -238,135 +247,6 @@ NULL)))</formula>
     </fields>
     <fields>
         <fullName>PostalCode</fullName>
-    </fields>
-    <fields>
-        <fullName>Product_Interest__c</fullName>
-        <externalId>false</externalId>
-        <label>Product Interest</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Books</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH AutoFlow</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Document</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Portal</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Practice</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Tax</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Axcess Workstream</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH eSign/Bundles</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Knowledge Tools</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Sales Tax Office v4.0 Upgrade</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CCH Site Builder</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx ActiveData</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Document</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Engagement/Workpaper Manager</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Fixed Assets</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Knowledge Coach</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Outsource</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx PDFlyer</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Practice Management</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Scan</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Pfx Tax</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Professional and Client Services</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Rates &amp; Taxability Databases</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Research &amp; Learning</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Sales &amp; Use Tax Calculation (On-Premise)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Sales &amp; Use Tax Calculation (SaaS)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Sales Tax Compliance (Returns)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Training &amp; Consulting/Professional Services</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Sales_Alignment__c</fullName>
@@ -393,16 +273,17 @@ NULL)))</formula>
         <fullName>Street</fullName>
     </fields>
     <fields>
-        <fullName>Submitted_By__c</fullName>
+        <fullName>Title</fullName>
+    </fields>
+    <fields>
+        <fullName>X18_Digit_Campaign_Member_ID__c</fullName>
         <externalId>false</externalId>
-        <label>Submitted By</label>
-        <length>100</length>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>18 Digit Campaign Member ID</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Title</fullName>
     </fields>
     <fields>
         <fullName>e_Book_Requested__c</fullName>

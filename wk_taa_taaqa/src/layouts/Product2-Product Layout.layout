@@ -34,6 +34,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Last_Year_Price__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Banded_Discount__c</field>
             </layoutItems>
             <layoutItems>
@@ -59,6 +63,22 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Product_18_Character_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>TeamMate_Analytics_Product__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_Mobile_Time_Entry__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_Sales_Tax_Compliance__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>R_L_eLearning__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -105,6 +125,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>My_Listed_Products_Desc__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Product_Benefit__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -334,6 +358,8 @@
         <fields>Apttus_Config2__PriceListId__c</fields>
         <fields>Apttus_Config2__ChargeType__c</fields>
         <fields>Apttus_Config2__ListPrice__c</fields>
+        <fields>Apttus_Config2__AllowManualAdjustment__c</fields>
+        <fields>Apttus_Config2__AllocateGroupAdjustment__c</fields>
         <relatedList>Apttus_Config2__PriceListItem__c.Apttus_Config2__ProductId__c</relatedList>
     </relatedLists>
     <relatedLists>

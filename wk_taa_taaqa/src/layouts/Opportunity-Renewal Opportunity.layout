@@ -95,11 +95,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Other_Closed_Reason__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SFS_Account_Name__c</field>
+                <field>Service_Source_Recapture__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -108,6 +104,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SFS_PID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SFS_Account_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Other_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Other_Closed_Reason__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -134,10 +142,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Closed_Reason__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Forecast_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -298,7 +302,6 @@
         <fields>CloseDate</fields>
         <fields>StageName</fields>
         <fields>Closed_Reason__c</fields>
-        <fields>Forecast_Type__c</fields>
         <fields>Probability</fields>
         <fields>Amount</fields>
         <fields>Product_Category__c</fields>

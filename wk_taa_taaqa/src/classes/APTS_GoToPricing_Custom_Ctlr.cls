@@ -124,7 +124,7 @@ public with sharing class APTS_GoToPricing_Custom_Ctlr {
         List<Apttus_Config2__LineItem__c> lineItemsRequireRepricing = new List<Apttus_Config2__LineItem__c>();
         
         for(Apttus_Config2__LineItem__c lineItemObj : lineItemsList) {
-            if(lineItemObj.Apttus_Config2__PricingStatus__c == 'Pending') {
+            if(lineItemObj.Apttus_Config2__PricingStatus__c == 'Pending' || (lineItemObj.Apttus_Config2__PricingStatus__c == 'Complete' && lineItemObj.Apttus_Config2__LineType__c == 'Option' && string.isblank(lineItemObj.PromoCode__c))) {
                 lineItemsRequireRepricing.add(lineItemObj); 
             }
         }
@@ -138,7 +138,7 @@ public with sharing class APTS_GoToPricing_Custom_Ctlr {
                                                             Apttus_Config2__ProductId__c, APTS_MYA_Lines_Unique_Key__c, Apttus_Config2__StartDate__c,
                                                             Apttus_Config2__EndDate__c, Apttus_Config2__SellingTerm__c, Apttus_Config2__LineNumber__c,
                                                             Apttus_Config2__PrimaryLineNumber__c, Apttus_Config2__Quantity__c, APTS_Promo_Code__c,
-                                                            APTPS_PromoDiscountApplied__c,Has_Promotions__c
+                                                            APTPS_PromoDiscountApplied__c,Has_Promotions__c,Apttus_Config2__LineType__c,PromoCode__c
                                                             From Apttus_Config2__LineItem__c 
                                                             Where Apttus_Config2__ConfigurationId__c = :productConfigId ];
         System.debug('**** lineItemsList size : ' + lineItemsList.size() );                

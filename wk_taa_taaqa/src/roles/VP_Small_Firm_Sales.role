@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>VP  - Small Firm Sales</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
-    <parentRole>TAA_Sales_Executives</parentRole>
+    <parentRole>Small_Market</parentRole>
 </Role>

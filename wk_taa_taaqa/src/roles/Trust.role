@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Trust</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>DSM_Corporate_Direct</parentRole>
+    <parentRole>VP_Small_Firm_Sales</parentRole>
 </Role>

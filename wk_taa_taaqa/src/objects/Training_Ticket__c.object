@@ -141,6 +141,38 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>CCH AnswerConnect: Federal Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AnswerConnect: International Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AnswerConnect: State Income Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AnswerConnect for CPA Firms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AnswerConnect for Sales Tax Professionals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AnswerConnect for the Corporate Professionals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AnswerConnect for the Tax Planner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AnswerConnect Overview</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>ClientRelate</fullName>
                     <default>false</default>
                 </value>
@@ -174,6 +206,10 @@
                 </value>
                 <value>
                     <fullName>International</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Introduction to CCH AnswerConnect</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -247,7 +283,15 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>ARM 2018</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Corporate National 2017</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate National 2018</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -255,7 +299,15 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>National_2018</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Other Customer 2017</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Customer 2018</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -263,7 +315,15 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Over 8K 2018</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Schools 2017</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Schools 2018</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -271,7 +331,15 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Strategic CPA 2018</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Under 8K 2017</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Under 8K 2018</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -332,6 +400,10 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>ARM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCH AnswerConnect</fullName>
                     <default>false</default>
                 </value>
                 <value>

@@ -39,12 +39,12 @@
                 <field>ARMS_Request_ID__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Second_Level_Division__c</field>
+                <behavior>Readonly</behavior>
+                <field>Tenure__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Market__c</field>
+                <field>SAP_Sales_group__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

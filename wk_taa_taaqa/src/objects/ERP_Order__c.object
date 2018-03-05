@@ -78,7 +78,7 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>All-link</fullName>
+                    <fullName>All-Link</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -155,19 +155,6 @@
         <externalId>false</externalId>
         <label>Bill To City</label>
         <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Bill_To_Contact_Name__c</fullName>
-        <description>Bill To Contact Name</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Bill To Contact Name</inlineHelpText>
-        <label>Bill To Contact Name</label>
-        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -421,50 +408,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Is_Create_New_Bill_To__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>This flag will track if user chose to create new Bill To at Quote level</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This flag will track if user chose to create new Bill To at Quote level</inlineHelpText>
-        <label>Is Create New Bill To?</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Create_New_Ship_To__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>This flag will track if user chose to create new Ship To</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This flag will track if user chose to create new Ship To</inlineHelpText>
-        <label>Is Create New Ship To?</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Update_Selected_Bill_To__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>This flag will track if user chose to update selected Bill To</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This flag will track if user chose to update selected Bill To</inlineHelpText>
-        <label>Is Update Selected Bill To?</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Update_Selected_Ship_To__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>This flag will track if user chose to update selected Ship To</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This flag will track if user chose to update selected Ship To</inlineHelpText>
-        <label>Is Update Selected Ship To?</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>MYA_Term_End_Date__c</fullName>
@@ -859,19 +802,6 @@ Finalized / Complete means that the ERP accepted the Order and we received an ER
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Ship_To_Contact_Name__c</fullName>
-        <description>Ship To Contact Name</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Ship To Contact Name</inlineHelpText>
-        <label>Ship To Contact Name</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Ship_To_Country__c</fullName>
         <externalId>false</externalId>
         <label>Ship To Country</label>
@@ -1170,6 +1100,29 @@ Finalized / Complete means that the ERP accepted the Order and we received an ER
             <value>Finalized / Complete in ERP,Order Submission Failed</value>
         </filters>
         <label>Pending ERP Orders</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Successful_ERP_Orders</fullName>
+        <columns>NAME</columns>
+        <columns>Contract_Start_Date__c</columns>
+        <columns>Proposal__c</columns>
+        <columns>SFDC_Account__c</columns>
+        <columns>Customer_X_Ref__c</columns>
+        <columns>Price_List__c</columns>
+        <columns>Order_Submission_Status__c</columns>
+        <columns>ERP_System_Order_ID__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Order_Submission_Status__c</field>
+            <operation>equals</operation>
+            <value>Finalized / Complete in ERP</value>
+        </filters>
+        <label>Successful ERP Orders</label>
         <language>en_US</language>
     </listViews>
     <listViews>

@@ -1,0 +1,15 @@
+<apex:page standardController="Account">
+<apex:pageBlock >
+<apex:pageBlockSection columns="2">
+<apex:outputText value="{!Account.Account_Summary_Light__c}" escape="false" label=""/> 
+<apex:panelGrid columns="2" width="15%" cellpadding="2" cellspacing="2" >
+<apex:outputLabel value="Score: "/><apex:OutputField value="{!Account.Account_Scoring_Total_Points__c}"/>    
+<apex:OutputLabel value="Software Revenue: " style="display:block;width:150px;"/><apex:OutputField value="{!Account.Total_Software_Revenue__c}" />
+<apex:OutputLabel value="R&L Revenue: " style="display:block;width:150px;"/><apex:OutputField value="{!Account.R_L_Revenue_Total__c}"/>
+<apex:OutputLabel value="Small Firms Revenue: " style="display:block;width:150px;"/><apex:OutputField value="{!Account.Active_SFS_Inventory__c}"/>  
+<apex:OutputLabel value="STG Revenue: " style="display:block;width:150px;"/><apex:OutputField value="{!Account.STG_Revenue_Total__c}"/> 
+<apex:OutputLabel value="Total Revenue:" style="display:block;width:150px;"/><apex:OutputField value="{!Account.Account_Revenue_Total__c}"/>  
+  </apex:PanelGrid>
+ </apex:pageBlockSection>
+ </apex:pageBlock>
+ </apex:page>

@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Solution Architect - R&amp;L</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Manager_Solution_Design_NAM_SAM</parentRole>
+    <parentRole>Solution_Design_Training_R_L</parentRole>
 </Role>

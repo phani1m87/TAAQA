@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Sales Manager - National Accounts</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Director_Strategic_Accounts</parentRole>
+    <parentRole>VP_Global_National_Accounts_SW</parentRole>
 </Role>
