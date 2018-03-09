@@ -25131,7 +25131,8 @@ quoteOppty();</url>
 &amp;&amp;RecordType=0120Z000001NZcy
 &amp;&amp;ent=Case
 &amp;&amp;CF00N3100000GNrR6_lkid={!Opportunity.Id}
-&amp;&amp;CF00N3100000GNrR6={!Opportunity.Name}</url>
+&amp;&amp;CF00N3100000GNrR6={!Opportunity.Name}
+&amp;&amp;cas14=&quot;Opportunity Support Request -&quot; + {!TODAY()}</url>
     </webLinks>
     <webLinks>
         <fullName>Submit_to_COP</fullName>

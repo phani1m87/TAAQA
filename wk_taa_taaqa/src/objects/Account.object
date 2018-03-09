@@ -10469,44 +10469,43 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
     <fields>
         <fullName>TAA_Software_New_Sales__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Named_Account__c ,
-	IF( ISPICKVAL( Named_Account_Type__c , &quot;Global&quot;), &quot;Global Accounts&quot;,
-		IF( ISPICKVAL( Named_Account_Type__c , &quot;National&quot;), &quot;National Accounts&quot;,
-			IF( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), &quot;Strategic Accounts&quot;,
-			IF( ISPICKVAL( Named_Account_Type__c , &quot;Corporate National&quot;), &quot;Corporate Direct&quot;,
-				IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Premier&quot;), &quot;Small Firm Premier&quot;,
-					IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Field&quot;), &quot;Small Firm Field&quot;,
-						IF( ISPICKVAL( Named_Account_Type__c , &quot;Refunds Today&quot;), &quot;Refunds Today&quot;,
-							IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Key Account&quot;), &quot;Small Firm Key Account&quot;,
-								IF( ISPICKVAL( Named_Account_Type__c , &quot;Mainstreet&quot;), &quot;Mainstreet&quot;,
-									IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Tax Customer&quot;), &quot;Small Firm New-to-Existing&quot;,
-										IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Customer&quot;),
-											IF( Mid_Market_Corporate__c , &quot;Corporate Direct&quot;,
-												IF( Mid_Market_Other_Verticals__c  , &quot;Mid-Market Other Verticals&quot;,
-													IF( ISC_Account__c , &quot;Small Firm New-to-New&quot;,  
-														IF(ISPICKVAL( Market_Segment__c , &quot;Accounting Firms&quot;),&quot;Mid-Market Professional&quot;,&quot;&quot;)
-													)
-												)
-											),
-											&quot;&quot;
-										)
-									)
-								)
-							)
-						)
-					)
-				)
-			)
-			)
-		)
-	),
-	IF( Mid_Market_Corporate__c , &quot;Corporate Direct&quot;,
-		IF( Mid_Market_Other_Verticals__c  , &quot;Mid-Market Other Verticals&quot;,
-			IF( ISC_Account__c , &quot;Small Firm New-to-New&quot;,  
-				IF(ISPICKVAL( Market_Segment__c , &quot;Accounting Firms&quot;),&quot;Mid-Market Professional&quot;,&quot;&quot;)
-			)
-		)
-	)
+        <formula>IF( Named_Account__c , 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;Global&quot;), &quot;Global Accounts&quot;, 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;National&quot;), &quot;National Accounts&quot;, 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;Strategic&quot;), &quot;Strategic Accounts&quot;, 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Premier&quot;), &quot;Small Firm Premier&quot;, 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Field&quot;), &quot;Small Firm Field&quot;, 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;Refunds Today&quot;), &quot;Refunds Today&quot;, 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Key Account&quot;), &quot;Small Firm Key Account&quot;, 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;Mainstreet&quot;), &quot;Mainstreet&quot;, 
+IF( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Tax Customer&quot;), &quot;Small Firm New-to-Existing&quot;, 
+IF (OR( ISPICKVAL( Named_Account_Type__c , &quot;Small Firm Customer&quot;),  
+ISPICKVAL( Named_Account_Type__c , &quot;R&amp;L Major Account&quot;)),
+IF( Mid_Market_Corporate__c , &quot;Corporate Direct&quot;, 
+IF( Mid_Market_Other_Verticals__c , &quot;Mid-Market Other Verticals&quot;, 
+IF( ISC_Account__c , &quot;Small Firm New-to-New&quot;, 
+IF(ISPICKVAL( Market_Segment__c , &quot;Accounting Firms&quot;),&quot;Mid-Market Professional&quot;,&quot;&quot;) 
+) 
+) 
+), 
+&quot;&quot; 
+) 
+)  
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+), 
+IF( Mid_Market_Corporate__c , &quot;Corporate Direct&quot;, 
+IF( Mid_Market_Other_Verticals__c , &quot;Mid-Market Other Verticals&quot;, 
+IF( ISC_Account__c , &quot;Small Firm New-to-New&quot;, 
+IF(ISPICKVAL( Market_Segment__c , &quot;Accounting Firms&quot;),&quot;Mid-Market Professional&quot;,&quot;&quot;) 
+) 
+) 
+) 
 )</formula>
         <label>TAA Software New Sales</label>
         <required>false</required>
@@ -12200,7 +12199,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
         <columns>ACCOUNT.PHONE1</columns>
         <columns>ACCOUNT.URL</columns>
-        <filterScope>Team</filterScope>
+        <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
             <operation>equals</operation>
@@ -12636,7 +12635,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015i0000003pwCH&quot;,&quot;Segme
         <filters>
             <field>ACCOUNT.CREATED_DATE</field>
             <operation>greaterOrEqual</operation>
-            <value>1/22/2018 12:00 AM</value>
+            <value>3/4/2018 12:00 AM</value>
         </filters>
         <label>Modified today</label>
         <language>en_US</language>

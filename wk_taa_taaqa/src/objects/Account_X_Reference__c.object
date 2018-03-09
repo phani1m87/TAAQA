@@ -1321,7 +1321,7 @@ X2016_Individual_State_Ext_Count__c&gt;0)</formula>
         <description>Used to take the user to this account in the SFS instance of SFDC.</description>
         <externalId>false</externalId>
         <formula>IF( SFS_Account_Record_ID__c =&quot;&quot;,&quot;&quot;,
-HYPERLINK(&quot;https://wksfs.my.salesforce.com/&quot;+  SFS_Account_Record_ID__c , &quot;View SFS Account&quot;))</formula>
+HYPERLINK(&quot;https://wksfs--uat.cs94.my.salesforce.com/&quot;+  SFS_Account_Record_ID__c , &quot;View SFS Account&quot;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>SFS Account Link</label>
         <required>false</required>
