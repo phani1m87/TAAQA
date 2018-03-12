@@ -175,6 +175,7 @@ public without sharing class ATA_PostAccountTeam
                             
                             break;
                         }else if(objDerivedATM.TeamMemberRole == objCurrentATM.TeamMemberRole && objDerivedATM.UserId != objCurrentATM.UserId){
+                            //If team member role is same and user is different
                             if(mapUserIdAndUser.get(objDerivedATM.UserId).IsActive)
                             {
                                 // Role matches but user doesn't match so add it for update 
@@ -219,6 +220,7 @@ public without sharing class ATA_PostAccountTeam
                             }
                             break;
                         }else if(objDerivedATM.TeamMemberRole != objCurrentATM.TeamMemberRole && objDerivedATM.UserId == objCurrentATM.UserId){
+                            //Team member role doesn't match but user is same
                             if(mapUserIdAndUser.get(objDerivedATM.UserId).IsActive)
                             {
                                 // Role doesn't match but user matches so add it for update 
@@ -249,12 +251,14 @@ public without sharing class ATA_PostAccountTeam
                                         if(String.isNotBlank(String.valueOf(mapAccountIdNAccountToUpdate.get(accountId).get(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole))))){
                                             DTN = DTN + ',' + mapAccountIdNAccountToUpdate.get(accountId).get(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole));
                                         }
-                                        mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
+                                        //Value from the Old field should be cleared
                                         if(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole) != NULL){
                                             mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objCurrentATM.TeamMemberRole), NULL);
                                         }else{
                                             logMessage = logMessage + ' DTN field mapping is missing in ATA_Role_to_DTN_Field_Mapping__c for the role: ' + objCurrentATM.TeamMemberRole + '.';
                                         }
+                                        //SMS-1035: populate the derived DTN in the required field
+                                        mapAccountIdNAccountToUpdate.get(accountId).put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
                                     }else{
                                         Account objAccount = new Account(Id = accountId);
                                         objAccount.put(mapRoleNameToDTNField.get(objDerivedATM.TeamMemberRole), DTN);
